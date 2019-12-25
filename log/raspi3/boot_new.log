@@ -1,0 +1,140 @@
+make[1]: 正在进入目录 `/labs/linux-lab'
+sudo env PATH=/labs/linux-lab/output/aarch64/qemu-v4.1.1-raspi3/aarch64-softmmu/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  qemu-system-aarch64  -M raspi3 -m 1024M  -smp 4 -kernel /labs/linux-lab/output/aarch64/linux-v5.3.9-raspi3/arch/arm64/boot/Image -no-reboot  -initrd /labs/linux-lab/output/aarch64/buildroot-2019.02.2-raspi3/images/rootfs.cpio.gz -dtb /labs/linux-lab/output/aarch64/linux-v5.3.9-raspi3/arch/arm64/boot/dts/broadcom/bcm2837-rpi-3-b-plus.dtb -nographic -cpu cortex-a53 -serial mon:stdio -append 'route=172.17.0.3 iface=eth0 root=/dev/ram0 earlycon=pl011,0x3f201000 console=ttyAMA0,115200'
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.3.9-v8+ (root@linux-lab) (gcc version 4.9.3 20150413 (prerelease) (Linaro GCC 4.9-2015.05)) #15 SMP PREEMPT Sun Dec 1 08:33:41 UTC 2019
+[    0.000000] Machine model: Raspberry Pi 3 Model B+
+[    0.000000] earlycon: pl11 at MMIO 0x000000003f201000 (options '')
+[    0.000000] printk: bootconsole [pl11] enabled
+[    0.000000] arm64_memblock_init: jjj linear region size--<256MB>
+[    0.000000] fdt_enforce_memory_region: jjj fdt_enforce_memory_region start ...
+[    0.000000] memblock_isolate_range: jjj start_rgn = <0>, end_rgn = <0>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <0>, end_rgn = <0>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <1>, end_rgn = <2>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <1>, end_rgn = <2>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <1>, end_rgn = <2>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <2>, end_rgn = <3>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <6>, end_rgn = <7>
+[    0.000000] percpu: Embedded 31 pages/cpu s88320 r8192 d30464 u126976
+[    0.000000] memblock_isolate_range: jjj start_rgn = <8>, end_rgn = <9>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <7>, end_rgn = <8>
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: ARM erratum 843419
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 241920
+[    0.000000] Kernel command line: route=172.17.0.3 iface=eth0 root=/dev/ram0 earlycon=pl011,0x3f201000 console=ttyAMA0,115200
+[    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] memblock_isolate_range: jjj start_rgn = <0>, end_rgn = <1>
+[    0.000000] Memory: 949068K/983040K available (5182K kernel code, 542K rwdata, 1864K rodata, 1792K init, 784K bss, 33972K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 18518 entries in 73 pages
+[    0.000000] 
+[    0.000000] **********************************************************
+[    0.000000] **   NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE   **
+[    0.000000] **                                                      **
+[    0.000000] ** trace_printk() being used. Allocating extra memory.  **
+[    0.000000] **                                                      **
+[    0.000000] ** This means that this is a DEBUG kernel and it is     **
+[    0.000000] ** unsafe for production use.                           **
+[    0.000000] **                                                      **
+[    0.000000] ** If you see this message and you are not debugging    **
+[    0.000000] ** the kernel, report this immediately to your vendor!  **
+[    0.000000] **                                                      **
+[    0.000000] **   NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE   **
+[    0.000000] **********************************************************
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000317] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.012208] Console: colour dummy device 80x25
+[    0.015352] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=62500)
+[    0.015955] pid_max: default: 32768 minimum: 301
+[    0.018989] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.019794] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.083872] ASID allocator initialised with 32768 entries
+[    0.088433] rcu: Hierarchical SRCU implementation.
+[    0.104383] smp: Bringing up secondary CPUs ...
+[    0.127065] Detected VIPT I-cache on CPU1
+[    0.127932] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.151479] Detected VIPT I-cache on CPU2
+[    0.151983] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.186469] Detected VIPT I-cache on CPU3
+[    0.186704] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.188945] smp: Brought up 1 node, 4 CPUs
+[    0.191624] SMP: Total of 4 processors activated.
+[    0.192396] CPU features: detected: 32-bit EL0 Support
+[    0.193069] CPU features: detected: CRC32 instructions
+[    0.199945] CPU: All CPU(s) started at EL2
+[    0.202367] alternatives: patching kernel code
+[    0.230813] devtmpfs: initialized
+[    0.269108] random: get_random_u32 called from bucket_table_alloc.isra.27+0x5c/0x184 with crng_init=0
+[    0.275038] Registered cp15_barrier emulation handler
+[    0.275955] Registered setend emulation handler
+[    0.280544] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.281568] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.285205] __setup_per_zone_wmarks: jjj lowmem_pages--<237267>
+[    0.288132] pinctrl core: initialized pinctrl subsystem
+[    0.313385] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.321026] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.323194] Serial: AMBA PL011 UART driver
+[    0.491520] vgaarb: loaded
+[    0.500708] SCSI subsystem initialized
+[    0.512501] clocksource: Switched to clocksource arch_sys_counter
+[    0.878533] FS-Cache: Loaded
+[    0.884873] CacheFiles: Loaded
+[    0.980034] PCI: CLS 0 bytes, default 64
+[    1.003830] Trying to unpack rootfs image as initramfs...
+[    1.333875] memblock_isolate_range: jjj start_rgn = <2>, end_rgn = <3>
+[    1.341987] Freeing initrd memory: 1212K
+[    1.358453] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 5 counters available
+[    1.371697] workingset: timestamp_bits=62 max_order=18 bucket_order=0
+[    1.417488] io scheduler mq-deadline registered
+[    1.489934] bcm2835-aux-uart 3f215040.serial: unable to register 8250 port - -22
+[    1.493715] bcm2835-aux-uart: probe of 3f215040.serial failed with error -22
+[    1.507022] bcm2835-rng 3f104000.rng: hwrng registered
+[    1.513882] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    1.613550] brd: module loaded
+[    1.670874] loop: module loaded
+[    1.680752] bcm2835-power bcm2835-power: ASB register ID returned 0x00000000
+[    1.692922] mousedev: PS/2 mouse device common for all mice
+[    1.698823] i2c /dev entries driver
+[    1.714623] i2c-bcm2835 3f805000.i2c: Could not read clock-frequency property
+[    1.730560] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    1.743645] sdhci: Secure Digital Host Controller Interface driver
+[    1.743878] sdhci: Copyright(c) Pierre Ossman
+[    1.747278] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.775962] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.780578] hidraw: raw HID events driver (C) Jiri Kosina
+[    1.786990] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    1.841813] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 66, base_baud = 0) is a PL011 rev2
+[    1.850777] printk: console [ttyAMA0] enabled
+[    1.850777] printk: console [ttyAMA0] enabled
+[    1.852545] printk: bootconsole [pl11] disabled
+[    1.852545] printk: bootconsole [pl11] disabled
+[    1.879087] raspberrypi-firmware soc:firmware: Attached to firmware from 1970-01-05 00:12
+[    1.893147] vchiq: vchiq_init_state: slot_zero = (____ptrval____)
+[    1.904935] bcm2835_vchiq 3f00b840.mailbox: failed to set channelbase
+[    1.906726] vchiq: could not load vchiq
+[    1.933513] uart-pl011 3f201000.serial: no DMA platform data
+[    2.197691] Freeing unused kernel memory: 1792K
+[    2.228674] Run /init as init process
+Starting syslogd: OK
+Starting klogd: OK
+[    3.358261] hrtimer: interrupt took 2558800 ns
+Initializing random number generator... [    3.597837] random: dd: uninitialized urandom read (512 bytes read)
+done.
+Starting network: route: can't open '/proc/net/route': No such file or directory
+eth: eth0, ip: 172.17.0.101, gw: 172.17.0.3
+ip: socket: Function not implemented
+ip: socket: Function not implemented
+FAIL
+
+Welcome to Linux Lab
+linux-lab login: root
+Jan  1 00:00:10 login[143]: root login on 'console'
+# QEMU: Terminated
+make[1]:正在离开目录 `/labs/linux-lab'

@@ -1,0 +1,760 @@
+make[1]: 正在进入目录 `/labs/linux-lab'
+sudo env PATH=/labs/linux-lab/output/aarch64/qemu-v4.1.1-raspi3/aarch64-softmmu/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  qemu-system-aarch64  -M raspi3 -m 1024M  -smp 4 -kernel /labs/linux-lab/boards/aarch64/raspi3/bsp/kernel/v5.1/Image -no-reboot  -dtb /labs/linux-lab/boards/aarch64/raspi3/bsp/kernel/v5.1/bcm2710-rpi-3-b.dtb -drive if=sd,file=/labs/linux-lab/boards/aarch64/raspi3/bsp/root/2019.02.2/rootfs.ext2,format=raw,id=mmc0 -nographic -cpu cortex-a53 -serial mon:stdio -append 'route=172.17.0.3 iface=eth0 rw fsck.repair=yes rootwait root=/dev/mmcblk0 earlycon=pl011,0x3f201000 memblock=debug console=ttyAMA0,115200'
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.1.0-v8+ (ubuntu@efe88df845f7) (gcc version 4.9.3 20150413 (prerelease) (Linaro GCC 4.9-2015.05)) #12 SMP PREEMPT Tue Jun 18 01:10:43 UTC 2019
+[    0.000000] Machine model: Raspberry Pi 3 Model B
+[    0.000000] earlycon: pl11 at MMIO 0x000000003f201000 (options '')
+[    0.000000] printk: bootconsole [pl11] enabled
+[    0.000000] memblock_remove: [0x0001000000000000-0x0000fffffffffffe] arm64_memblock_init+0x64/0x27c
+[    0.000000] memblock_remove: [0x0000004000000000-0x0000003ffffffffe] arm64_memblock_init+0x94/0x27c
+[    0.000000] memblock_reserve: [0x0000000000080000-0x000000000099cfff] arm64_memblock_init+0x1e8/0x27c
+[    0.000000] memblock_reserve: [0x0000000000000000-0x0000000000000fff] early_init_dt_reserve_memory_arch+0x3c/0x4c
+[    0.000000] memblock_reserve: [0x000000003bfff000-0x000000003bffffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bffe000-0x000000003bffefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bffd000-0x000000003bffdfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bffc000-0x000000003bffcfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bffb000-0x000000003bffbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bffa000-0x000000003bffafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff9000-0x000000003bff9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff8000-0x000000003bff8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff7000-0x000000003bff7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff6000-0x000000003bff6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff5000-0x000000003bff5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff4000-0x000000003bff4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff3000-0x000000003bff3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff2000-0x000000003bff2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff1000-0x000000003bff1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bff0000-0x000000003bff0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfef000-0x000000003bfeffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfee000-0x000000003bfeefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfed000-0x000000003bfedfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfec000-0x000000003bfecfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfeb000-0x000000003bfebfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfea000-0x000000003bfeafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe9000-0x000000003bfe9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe8000-0x000000003bfe8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe7000-0x000000003bfe7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe6000-0x000000003bfe6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe5000-0x000000003bfe5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe4000-0x000000003bfe4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe3000-0x000000003bfe3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe2000-0x000000003bfe2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe1000-0x000000003bfe1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfe0000-0x000000003bfe0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfdf000-0x000000003bfdffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfde000-0x000000003bfdefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfdd000-0x000000003bfddfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfdc000-0x000000003bfdcfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfdb000-0x000000003bfdbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfda000-0x000000003bfdafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd9000-0x000000003bfd9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd8000-0x000000003bfd8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd7000-0x000000003bfd7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd6000-0x000000003bfd6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd5000-0x000000003bfd5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd4000-0x000000003bfd4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd3000-0x000000003bfd3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd2000-0x000000003bfd2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd1000-0x000000003bfd1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfd0000-0x000000003bfd0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfcf000-0x000000003bfcffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfce000-0x000000003bfcefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfcd000-0x000000003bfcdfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfcc000-0x000000003bfccfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfcb000-0x000000003bfcbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfca000-0x000000003bfcafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc9000-0x000000003bfc9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc8000-0x000000003bfc8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc7000-0x000000003bfc7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc6000-0x000000003bfc6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc5000-0x000000003bfc5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc4000-0x000000003bfc4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc3000-0x000000003bfc3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc2000-0x000000003bfc2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc1000-0x000000003bfc1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfc0000-0x000000003bfc0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfbf000-0x000000003bfbffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfbe000-0x000000003bfbefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfbd000-0x000000003bfbdfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfbc000-0x000000003bfbcfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfbb000-0x000000003bfbbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfba000-0x000000003bfbafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb9000-0x000000003bfb9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb8000-0x000000003bfb8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb7000-0x000000003bfb7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb6000-0x000000003bfb6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb5000-0x000000003bfb5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb4000-0x000000003bfb4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb3000-0x000000003bfb3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb2000-0x000000003bfb2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb1000-0x000000003bfb1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfb0000-0x000000003bfb0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfaf000-0x000000003bfaffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfae000-0x000000003bfaefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfad000-0x000000003bfadfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfac000-0x000000003bfacfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfab000-0x000000003bfabfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfaa000-0x000000003bfaafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa9000-0x000000003bfa9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa8000-0x000000003bfa8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa7000-0x000000003bfa7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa6000-0x000000003bfa6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa5000-0x000000003bfa5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa4000-0x000000003bfa4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa3000-0x000000003bfa3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa2000-0x000000003bfa2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa1000-0x000000003bfa1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bfa0000-0x000000003bfa0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf9f000-0x000000003bf9ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf9e000-0x000000003bf9efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf9d000-0x000000003bf9dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf9c000-0x000000003bf9cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf9b000-0x000000003bf9bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf9a000-0x000000003bf9afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf99000-0x000000003bf99fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf98000-0x000000003bf98fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf97000-0x000000003bf97fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf96000-0x000000003bf96fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf95000-0x000000003bf95fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf94000-0x000000003bf94fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf93000-0x000000003bf93fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf92000-0x000000003bf92fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf91000-0x000000003bf91fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf90000-0x000000003bf90fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf8f000-0x000000003bf8ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf8e000-0x000000003bf8efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf8d000-0x000000003bf8dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf8c000-0x000000003bf8cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf8b000-0x000000003bf8bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf8a000-0x000000003bf8afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf89000-0x000000003bf89fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf88000-0x000000003bf88fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf87000-0x000000003bf87fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf86000-0x000000003bf86fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf85000-0x000000003bf85fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf84000-0x000000003bf84fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf83000-0x000000003bf83fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf82000-0x000000003bf82fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf81000-0x000000003bf81fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf80000-0x000000003bf80fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf7f000-0x000000003bf7ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf7e000-0x000000003bf7efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf7d000-0x000000003bf7dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf7c000-0x000000003bf7cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf7b000-0x000000003bf7bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf7a000-0x000000003bf7afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf79000-0x000000003bf79fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf78000-0x000000003bf78fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf77000-0x000000003bf77fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf76000-0x000000003bf76fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf75000-0x000000003bf75fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf74000-0x000000003bf74fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf73000-0x000000003bf73fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf72000-0x000000003bf72fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf71000-0x000000003bf71fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf70000-0x000000003bf70fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf6f000-0x000000003bf6ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf6e000-0x000000003bf6efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf6d000-0x000000003bf6dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf6c000-0x000000003bf6cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf6b000-0x000000003bf6bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf6a000-0x000000003bf6afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf69000-0x000000003bf69fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf68000-0x000000003bf68fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf67000-0x000000003bf67fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf66000-0x000000003bf66fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf65000-0x000000003bf65fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf64000-0x000000003bf64fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf63000-0x000000003bf63fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf62000-0x000000003bf62fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf61000-0x000000003bf61fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf60000-0x000000003bf60fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf5f000-0x000000003bf5ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf5e000-0x000000003bf5efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf5d000-0x000000003bf5dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf5c000-0x000000003bf5cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf5b000-0x000000003bf5bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf5a000-0x000000003bf5afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf59000-0x000000003bf59fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf58000-0x000000003bf58fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf57000-0x000000003bf57fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf56000-0x000000003bf56fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf55000-0x000000003bf55fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf54000-0x000000003bf54fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf53000-0x000000003bf53fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf52000-0x000000003bf52fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf51000-0x000000003bf51fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf50000-0x000000003bf50fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf4f000-0x000000003bf4ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf4e000-0x000000003bf4efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf4d000-0x000000003bf4dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf4c000-0x000000003bf4cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf4b000-0x000000003bf4bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf4a000-0x000000003bf4afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf49000-0x000000003bf49fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf48000-0x000000003bf48fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf47000-0x000000003bf47fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf46000-0x000000003bf46fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf45000-0x000000003bf45fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf44000-0x000000003bf44fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf43000-0x000000003bf43fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf42000-0x000000003bf42fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf41000-0x000000003bf41fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf40000-0x000000003bf40fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf3f000-0x000000003bf3ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf3e000-0x000000003bf3efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf3d000-0x000000003bf3dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf3c000-0x000000003bf3cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf3b000-0x000000003bf3bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf3a000-0x000000003bf3afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf39000-0x000000003bf39fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf38000-0x000000003bf38fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf37000-0x000000003bf37fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf36000-0x000000003bf36fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf35000-0x000000003bf35fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf34000-0x000000003bf34fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf33000-0x000000003bf33fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf32000-0x000000003bf32fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf31000-0x000000003bf31fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf30000-0x000000003bf30fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf2f000-0x000000003bf2ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf2e000-0x000000003bf2efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf2d000-0x000000003bf2dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf2c000-0x000000003bf2cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf2b000-0x000000003bf2bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf2a000-0x000000003bf2afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf29000-0x000000003bf29fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf28000-0x000000003bf28fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf27000-0x000000003bf27fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf26000-0x000000003bf26fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf25000-0x000000003bf25fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf24000-0x000000003bf24fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf23000-0x000000003bf23fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf22000-0x000000003bf22fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf21000-0x000000003bf21fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf20000-0x000000003bf20fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf1f000-0x000000003bf1ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf1e000-0x000000003bf1efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf1d000-0x000000003bf1dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf1c000-0x000000003bf1cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf1b000-0x000000003bf1bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf1a000-0x000000003bf1afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf19000-0x000000003bf19fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf18000-0x000000003bf18fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf17000-0x000000003bf17fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf16000-0x000000003bf16fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf15000-0x000000003bf15fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf14000-0x000000003bf14fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf13000-0x000000003bf13fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf12000-0x000000003bf12fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf11000-0x000000003bf11fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf10000-0x000000003bf10fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf0f000-0x000000003bf0ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf0e000-0x000000003bf0efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf0d000-0x000000003bf0dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf0c000-0x000000003bf0cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf0b000-0x000000003bf0bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf0a000-0x000000003bf0afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf09000-0x000000003bf09fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf08000-0x000000003bf08fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf07000-0x000000003bf07fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf06000-0x000000003bf06fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf05000-0x000000003bf05fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf04000-0x000000003bf04fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf03000-0x000000003bf03fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf02000-0x000000003bf02fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf01000-0x000000003bf01fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bf00000-0x000000003bf00fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beff000-0x000000003befffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003befe000-0x000000003befefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003befd000-0x000000003befdfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003befc000-0x000000003befcfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003befb000-0x000000003befbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003befa000-0x000000003befafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef9000-0x000000003bef9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef8000-0x000000003bef8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef7000-0x000000003bef7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef6000-0x000000003bef6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef5000-0x000000003bef5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef4000-0x000000003bef4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef3000-0x000000003bef3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef2000-0x000000003bef2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef1000-0x000000003bef1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bef0000-0x000000003bef0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beef000-0x000000003beeffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beee000-0x000000003beeefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beed000-0x000000003beedfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beec000-0x000000003beecfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beeb000-0x000000003beebfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beea000-0x000000003beeafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee9000-0x000000003bee9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee8000-0x000000003bee8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee7000-0x000000003bee7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee6000-0x000000003bee6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee5000-0x000000003bee5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee4000-0x000000003bee4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee3000-0x000000003bee3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee2000-0x000000003bee2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee1000-0x000000003bee1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bee0000-0x000000003bee0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bedf000-0x000000003bedffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bede000-0x000000003bedefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bedd000-0x000000003beddfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bedc000-0x000000003bedcfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bedb000-0x000000003bedbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beda000-0x000000003bedafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed9000-0x000000003bed9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed8000-0x000000003bed8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed7000-0x000000003bed7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed6000-0x000000003bed6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed5000-0x000000003bed5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed4000-0x000000003bed4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed3000-0x000000003bed3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed2000-0x000000003bed2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed1000-0x000000003bed1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bed0000-0x000000003bed0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003becf000-0x000000003becffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bece000-0x000000003becefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003becd000-0x000000003becdfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003becc000-0x000000003beccfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003becb000-0x000000003becbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beca000-0x000000003becafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec9000-0x000000003bec9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec8000-0x000000003bec8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec7000-0x000000003bec7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec6000-0x000000003bec6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec5000-0x000000003bec5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec4000-0x000000003bec4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec3000-0x000000003bec3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec2000-0x000000003bec2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec1000-0x000000003bec1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bec0000-0x000000003bec0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bebf000-0x000000003bebffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bebe000-0x000000003bebefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bebd000-0x000000003bebdfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bebc000-0x000000003bebcfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bebb000-0x000000003bebbfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beba000-0x000000003bebafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb9000-0x000000003beb9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb8000-0x000000003beb8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb7000-0x000000003beb7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb6000-0x000000003beb6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb5000-0x000000003beb5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb4000-0x000000003beb4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb3000-0x000000003beb3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb2000-0x000000003beb2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb1000-0x000000003beb1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beb0000-0x000000003beb0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beaf000-0x000000003beaffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beae000-0x000000003beaefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bead000-0x000000003beadfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beac000-0x000000003beacfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beab000-0x000000003beabfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003beaa000-0x000000003beaafff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea9000-0x000000003bea9fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea8000-0x000000003bea8fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea7000-0x000000003bea7fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea6000-0x000000003bea6fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea5000-0x000000003bea5fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea4000-0x000000003bea4fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea3000-0x000000003bea3fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea2000-0x000000003bea2fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea1000-0x000000003bea1fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003bea0000-0x000000003bea0fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be9f000-0x000000003be9ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be9e000-0x000000003be9efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be9d000-0x000000003be9dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be9c000-0x000000003be9cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be9b000-0x000000003be9bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be9a000-0x000000003be9afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be99000-0x000000003be99fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be98000-0x000000003be98fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be97000-0x000000003be97fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be96000-0x000000003be96fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be95000-0x000000003be95fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be94000-0x000000003be94fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be93000-0x000000003be93fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be92000-0x000000003be92fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be91000-0x000000003be91fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be90000-0x000000003be90fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be8f000-0x000000003be8ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be8e000-0x000000003be8efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be8d000-0x000000003be8dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be8c000-0x000000003be8cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be8b000-0x000000003be8bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be8a000-0x000000003be8afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be89000-0x000000003be89fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be88000-0x000000003be88fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be87000-0x000000003be87fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be86000-0x000000003be86fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be85000-0x000000003be85fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be84000-0x000000003be84fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be83000-0x000000003be83fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be82000-0x000000003be82fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be81000-0x000000003be81fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be80000-0x000000003be80fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be7f000-0x000000003be7ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be7e000-0x000000003be7efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be7d000-0x000000003be7dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be7c000-0x000000003be7cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be7b000-0x000000003be7bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be7a000-0x000000003be7afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be79000-0x000000003be79fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be78000-0x000000003be78fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be77000-0x000000003be77fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be76000-0x000000003be76fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be75000-0x000000003be75fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be74000-0x000000003be74fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be73000-0x000000003be73fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be72000-0x000000003be72fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be71000-0x000000003be71fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be70000-0x000000003be70fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be6f000-0x000000003be6ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be6e000-0x000000003be6efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be6d000-0x000000003be6dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be6c000-0x000000003be6cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be6b000-0x000000003be6bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be6a000-0x000000003be6afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be69000-0x000000003be69fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be68000-0x000000003be68fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be67000-0x000000003be67fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be66000-0x000000003be66fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be65000-0x000000003be65fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be64000-0x000000003be64fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be63000-0x000000003be63fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be62000-0x000000003be62fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be61000-0x000000003be61fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be60000-0x000000003be60fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be5f000-0x000000003be5ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be5e000-0x000000003be5efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be5d000-0x000000003be5dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be5c000-0x000000003be5cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be5b000-0x000000003be5bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be5a000-0x000000003be5afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be59000-0x000000003be59fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be58000-0x000000003be58fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be57000-0x000000003be57fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be56000-0x000000003be56fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be55000-0x000000003be55fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be54000-0x000000003be54fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be53000-0x000000003be53fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be52000-0x000000003be52fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be51000-0x000000003be51fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be50000-0x000000003be50fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be4f000-0x000000003be4ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be4e000-0x000000003be4efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be4d000-0x000000003be4dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be4c000-0x000000003be4cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be4b000-0x000000003be4bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be4a000-0x000000003be4afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be49000-0x000000003be49fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be48000-0x000000003be48fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be47000-0x000000003be47fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be46000-0x000000003be46fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be45000-0x000000003be45fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be44000-0x000000003be44fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be43000-0x000000003be43fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be42000-0x000000003be42fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be41000-0x000000003be41fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be40000-0x000000003be40fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be3f000-0x000000003be3ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be3e000-0x000000003be3efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be3d000-0x000000003be3dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be3c000-0x000000003be3cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be3b000-0x000000003be3bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be3a000-0x000000003be3afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be39000-0x000000003be39fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be38000-0x000000003be38fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be37000-0x000000003be37fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be36000-0x000000003be36fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be35000-0x000000003be35fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be34000-0x000000003be34fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be33000-0x000000003be33fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be32000-0x000000003be32fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be31000-0x000000003be31fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be30000-0x000000003be30fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be2f000-0x000000003be2ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be2e000-0x000000003be2efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be2d000-0x000000003be2dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be2c000-0x000000003be2cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be2b000-0x000000003be2bfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be2a000-0x000000003be2afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be29000-0x000000003be29fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be28000-0x000000003be28fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be27000-0x000000003be27fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be26000-0x000000003be26fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be25000-0x000000003be25fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be24000-0x000000003be24fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be23000-0x000000003be23fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be22000-0x000000003be22fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be21000-0x000000003be21fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be20000-0x000000003be20fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be1f000-0x000000003be1ffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be1e000-0x000000003be1efff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be1d000-0x000000003be1dfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_reserve: [0x000000003be1c000-0x000000003be1cfff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000]    memblock_free: [0x000000000099a000-0x000000000099cfff] paging_init+0x788/0x7a8
+[    0.000000] memblock_alloc_try_nid: 96700 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04640-0x000000003be1bffb] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 47 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04610-0x000000003be0463e] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 47 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be045e0-0x000000003be0460e] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 45 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be045b0-0x000000003be045dc] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04580-0x000000003be045ab] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04550-0x000000003be0457b] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04520-0x000000003be0454b] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 45 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be044f0-0x000000003be0451c] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be044c0-0x000000003be044eb] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04490-0x000000003be044bb] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04460-0x000000003be0448b] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04430-0x000000003be0445b] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 44 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be04400-0x000000003be0442b] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 49 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x34/0x60
+[    0.000000] memblock_reserve: [0x000000003be043c8-0x000000003be043f8] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 8192 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 memory_present+0x54/0x14c
+[    0.000000] memblock_reserve: [0x000000003be023c0-0x000000003be043bf] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 4096 bytes align=0x40 nid=0 from=0x0000000000000000 max_addr=0x0000000000000000 sparse_index_alloc+0x54/0x80
+[    0.000000] memblock_reserve: [0x000000003be013c0-0x000000003be023bf] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 128 bytes align=0x40 nid=0 from=0x0000000000000000 max_addr=0x0000000000000000 sparse_init_nid+0x50/0x31c
+[    0.000000] memblock_reserve: [0x000000003be01340-0x000000003be013bf] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid_raw: 16777216 bytes align=0x1000 nid=0 from=0x0000000000000000 max_addr=0x0000000000000000 sparse_init_nid+0xa8/0x31c
+[    0.000000] memblock_reserve: [0x000000003ae01000-0x000000003be00fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid_raw: 4096 bytes align=0x1000 nid=0 from=0x0000000000000000 max_addr=0x0000000000000000 __earlyonly_bootmem_alloc+0x40/0x50
+[    0.000000] memblock_reserve: [0x000000003ae00000-0x000000003ae00fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid_raw: 2097152 bytes align=0x200000 nid=0 from=0x0000000000000000 max_addr=0x0000000000000000 __earlyonly_bootmem_alloc+0x40/0x50
+[    0.000000] memblock_reserve: [0x000000003ac00000-0x000000003adfffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000]    memblock_free: [0x000000003be00000-0x000000003be00fff] sparse_init_nid+0x228/0x31c
+[    0.000000] MEMBLOCK configuration:
+[    0.000000]  memory size = 0x000000003c000000 reserved size = 0x0000000001d27947
+[    0.000000]  memory.cnt  = 0x1
+[    0.000000]  memory[0x0]	[0x0000000000000000-0x000000003bffffff], 0x000000003c000000 bytes flags: 0x0
+[    0.000000]  reserved.cnt  = 0x14
+[    0.000000]  reserved[0x0]	[0x0000000000000000-0x0000000000000fff], 0x0000000000001000 bytes flags: 0x0
+[    0.000000]  reserved[0x1]	[0x0000000000080000-0x0000000000999fff], 0x000000000091a000 bytes flags: 0x0
+[    0.000000]  reserved[0x2]	[0x0000000008000000-0x000000000800dcc1], 0x000000000000dcc2 bytes flags: 0x0
+[    0.000000]  reserved[0x3]	[0x000000003ac00000-0x000000003bdfffff], 0x0000000001200000 bytes flags: 0x0
+[    0.000000]  reserved[0x4]	[0x000000003be01340-0x000000003be043bf], 0x0000000000003080 bytes flags: 0x0
+[    0.000000]  reserved[0x5]	[0x000000003be043c8-0x000000003be043f8], 0x0000000000000031 bytes flags: 0x0
+[    0.000000]  reserved[0x6]	[0x000000003be04400-0x000000003be0442b], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0x7]	[0x000000003be04430-0x000000003be0445b], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0x8]	[0x000000003be04460-0x000000003be0448b], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0x9]	[0x000000003be04490-0x000000003be044bb], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0xa]	[0x000000003be044c0-0x000000003be044eb], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0xb]	[0x000000003be044f0-0x000000003be0451c], 0x000000000000002d bytes flags: 0x0
+[    0.000000]  reserved[0xc]	[0x000000003be04520-0x000000003be0454b], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0xd]	[0x000000003be04550-0x000000003be0457b], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0xe]	[0x000000003be04580-0x000000003be045ab], 0x000000000000002c bytes flags: 0x0
+[    0.000000]  reserved[0xf]	[0x000000003be045b0-0x000000003be045dc], 0x000000000000002d bytes flags: 0x0
+[    0.000000]  reserved[0x10]	[0x000000003be045e0-0x000000003be0460e], 0x000000000000002f bytes flags: 0x0
+[    0.000000]  reserved[0x11]	[0x000000003be04610-0x000000003be0463e], 0x000000000000002f bytes flags: 0x0
+[    0.000000]  reserved[0x12]	[0x000000003be04640-0x000000003be1bffb], 0x00000000000179bc bytes flags: 0x0
+[    0.000000]  reserved[0x13]	[0x000000003be1c000-0x000000003bffffff], 0x00000000001e4000 bytes flags: 0x0
+[    0.000000] memblock_alloc_try_nid: 64 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 setup_arch+0x250/0x52c
+[    0.000000] memblock_reserve: [0x000000003be01300-0x000000003be0133f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 138 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 start_kernel+0xcc/0x460
+[    0.000000] memblock_reserve: [0x000000003be01240-0x000000003be012c9] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 138 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 start_kernel+0xec/0x460
+[    0.000000] memblock_reserve: [0x000000003be01180-0x000000003be01209] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 138 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 start_kernel+0x10c/0x460
+[    0.000000] memblock_reserve: [0x000000003be010c0-0x000000003be01149] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 4096 bytes align=0x1000 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_alloc_info+0x58/0xa4
+[    0.000000] memblock_reserve: [0x000000003be00000-0x000000003be00fff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 4096 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_embed_first_chunk+0x434/0x6cc
+[    0.000000] memblock_reserve: [0x000000003abff000-0x000000003abfffff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 409600 bytes align=0x1000 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_dfl_fc_alloc+0x38/0x44
+[    0.000000] memblock_reserve: [0x000000003ab9b000-0x000000003abfefff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000]    memblock_free: [0x000000003abb4000-0x000000003abb3fff] pcpu_dfl_fc_free+0x48/0x54
+[    0.000000]    memblock_free: [0x000000003abcd000-0x000000003abccfff] pcpu_dfl_fc_free+0x48/0x54
+[    0.000000]    memblock_free: [0x000000003abe6000-0x000000003abe5fff] pcpu_dfl_fc_free+0x48/0x54
+[    0.000000]    memblock_free: [0x000000003abff000-0x000000003abfefff] pcpu_dfl_fc_free+0x48/0x54
+[    0.000000] percpu: Embedded 25 pages/cpu s63744 r8192 d30464 u102400
+[    0.000000] memblock_alloc_try_nid: 8 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x340/0x964
+[    0.000000] memblock_reserve: [0x000000003be043c0-0x000000003be043c7] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 8 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x384/0x964
+[    0.000000] memblock_reserve: [0x000000003be01080-0x000000003be01087] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 16 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x3cc/0x964
+[    0.000000] memblock_reserve: [0x000000003be01040-0x000000003be0104f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 32 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x410/0x964
+[    0.000000] memblock_reserve: [0x000000003be01000-0x000000003be0101f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 256 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x7c8/0x964
+[    0.000000] memblock_reserve: [0x000000003ab9af00-0x000000003ab9afff] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 105 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x80/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9ae80-0x000000003ab9aee8] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 384 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0xcc/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9ad00-0x000000003ab9ae7f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 392 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x118/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9ab40-0x000000003ab9acc7] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 60 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x160/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9ab00-0x000000003ab9ab3b] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 105 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x80/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9aa80-0x000000003ab9aae8] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 1024 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0xcc/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9a680-0x000000003ab9aa7f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 1032 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x118/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9a240-0x000000003ab9a647] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] memblock_alloc_try_nid: 160 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x160/0x364
+[    0.000000] memblock_reserve: [0x000000003ab9a180-0x000000003ab9a21f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000]    memblock_free: [0x000000003be00000-0x000000003be00fff] pcpu_free_alloc_info+0x44/0x50
+[    0.000000]    memblock_free: [0x000000003abff000-0x000000003abfffff] pcpu_embed_first_chunk+0x6ac/0x6cc
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: ARM erratum 843419
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 241920
+[    0.000000] Kernel command line: route=172.17.0.3 iface=eth0 rw fsck.repair=yes rootwait root=/dev/mmcblk0 earlycon=pl011,0x3f201000 memblock=debug console=ttyAMA0,115200
+[    0.000000] memblock_alloc_try_nid: 1048576 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 alloc_large_system_hash+0x18c/0x280
+[    0.000000] memblock_reserve: [0x000000003aa9a180-0x000000003ab9a17f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)
+[    0.000000] memblock_alloc_try_nid: 524288 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 alloc_large_system_hash+0x18c/0x280
+[    0.000000] memblock_reserve: [0x000000003aa1a180-0x000000003aa9a17f] memblock_alloc_range_nid+0xe0/0x14c
+[    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)
+[    0.000000] Memory: 951244K/983040K available (4670K kernel code, 504K rwdata, 1660K rodata, 1664K init, 751K bss, 31796K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 17053 entries in 67 pages
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000167] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.016132] Console: colour dummy device 80x25
+[    0.020273] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=62500)
+[    0.022255] pid_max: default: 32768 minimum: 301
+[    0.027199] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.028748] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.051357] *** VALIDATE proc ***
+[    0.088544] ASID allocator initialised with 32768 entries
+[    0.092944] rcu: Hierarchical SRCU implementation.
+[    0.112041] smp: Bringing up secondary CPUs ...
+[    0.132006] Detected VIPT I-cache on CPU1
+[    0.132854] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.149596] Detected VIPT I-cache on CPU2
+[    0.149842] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.165668] Detected VIPT I-cache on CPU3
+[    0.165904] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.168590] smp: Brought up 1 node, 4 CPUs
+[    0.173643] SMP: Total of 4 processors activated.
+[    0.174262] CPU features: detected: 32-bit EL0 Support
+[    0.175136] CPU features: detected: CRC32 instructions
+[    0.180701] CPU: All CPU(s) started at EL2
+[    0.182952] alternatives: patching kernel code
+[    0.211978] devtmpfs: initialized
+[    0.270219] random: get_random_u32 called from bucket_table_alloc.isra.20+0x8c/0x1a4 with crng_init=0
+[    0.277805] Enabled cp15_barrier support
+[    0.281137] Enabled setend support
+[    0.286332] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.288486] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.295673] pinctrl core: initialized pinctrl subsystem
+[    0.360196] vdso: 2 pages (1 code @ (____ptrval____), 1 data @ (____ptrval____))
+[    0.361463] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.372168] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.377900] Serial: AMBA PL011 UART driver
+[    0.412655] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    0.502470] bcm2835-dma 3f007000.dma: DMA legacy API manager at (____ptrval____), dmachans=0x1
+[    0.520758] SCSI subsystem initialized
+[    0.540182] raspberrypi-firmware soc:firmware: Attached to firmware from 1970-01-05 00:12, variant unknown
+[    0.543828] raspberrypi-firmware soc:firmware: Firmware hash is 000000110000000c000000000000000500000000
+[    0.557306] clocksource: Switched to clocksource arch_sys_counter
+[    0.825439] FS-Cache: Loaded
+[    0.837939] CacheFiles: Loaded
+[    0.954120] hw perfevents: enabled with armv8_pmuv3 PMU driver, 5 counters available
+[    0.969016] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 5 counters available
+[    0.998674] workingset: timestamp_bits=62 max_order=18 bucket_order=0
+[    1.121405] io scheduler mq-deadline registered
+[    1.163934] BCM2708FB: allocated DMA memory 0x00000000f9da0000
+[    1.165280] BCM2708FB: allocated DMA channel 0
+[    1.175770] fbcon: Deferring console take-over
+[    1.200204] bcm2835-rng 3f104000.rng: hwrng registered
+[    1.206029] vc-mem: phys_addr:0x00000000 mem_base=0x00000000 mem_size:0x00000000(0 MiB)
+[    1.215910] gpiomem-bcm2835 3f200000.gpiomem: Initialised: Registers at 0x3f200000
+[    1.220343] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    1.313340] brd: module loaded
+[    1.351209] loop: module loaded
+[    1.355210] bcm2835-power bcm2835-power: ASB register ID returned 0x00000000
+[    1.367051] mousedev: PS/2 mouse device common for all mice
+[    1.372418] i2c /dev entries driver
+[    1.383354] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    1.387218] sdhci: Secure Digital Host Controller Interface driver
+[    1.387441] sdhci: Copyright(c) Pierre Ossman
+[    1.396172] mmc-bcm2835 3f300000.mmc: could not get clk, deferring probe
+[    1.404057] sdhost-bcm2835 3f202000.mmc: could not get clk, deferring probe
+[    1.405921] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.421118] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.422833] hidraw: raw HID events driver (C) Jiri Kosina
+[    1.427088] vchiq: vchiq_init_state: slot_zero = (____ptrval____)
+[    1.438261] bcm2835_vchiq 3f00b840.mailbox: failed to set channelbase
+[    1.439194] vchiq: could not load vchiq
+[    1.559090] bcm2835-clk 3f101000.cprman: plla: couldn't lock PLL
+[    1.662074] bcm2835-clk 3f101000.cprman: pllb: couldn't lock PLL
+[    1.764859] bcm2835-clk 3f101000.cprman: pllc: couldn't lock PLL
+[    1.867157] bcm2835-clk 3f101000.cprman: plld: couldn't lock PLL
+[    1.969203] bcm2835-clk 3f101000.cprman: pllh: couldn't lock PLL
+[    2.073140] bcm2835-clk 3f101000.cprman: plla: couldn't lock PLL
+[    2.175540] bcm2835-clk 3f101000.cprman: plla: couldn't lock PLL
+[    2.277486] bcm2835-clk 3f101000.cprman: pllb: couldn't lock PLL
+[    2.380053] bcm2835-clk 3f101000.cprman: pllc: couldn't lock PLL
+[    2.482386] bcm2835-clk 3f101000.cprman: pllc: couldn't lock PLL
+[    2.585039] bcm2835-clk 3f101000.cprman: pllc: couldn't lock PLL
+[    2.687238] bcm2835-clk 3f101000.cprman: pllc: couldn't lock PLL
+[    2.789116] bcm2835-clk 3f101000.cprman: plld: couldn't lock PLL
+[    2.891326] bcm2835-clk 3f101000.cprman: plld: couldn't lock PLL
+[    2.993329] bcm2835-clk 3f101000.cprman: pllh: couldn't lock PLL
+[    3.095576] bcm2835-clk 3f101000.cprman: pllh: couldn't lock PLL
+[    3.197515] bcm2835-clk 3f101000.cprman: pllh: couldn't lock PLL
+[    3.312278] bcm2835-clk 3f101000.cprman: plla: couldn't lock PLL
+[    3.414375] bcm2835-clk 3f101000.cprman: plla: couldn't lock PLL
+[    3.516924] bcm2835-clk 3f101000.cprman: plld: couldn't lock PLL
+[    3.618972] bcm2835-clk 3f101000.cprman: plld: couldn't lock PLL
+[    3.642251] uart-pl011 3f201000.serial: cts_event_workaround enabled
+[    3.645063] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 66, base_baud = 0) is a PL011 rev2
+[    3.648971] printk: console [ttyAMA0] enabled
+[    3.648971] printk: console [ttyAMA0] enabled
+[    3.650154] printk: bootconsole [pl11] disabled
+[    3.650154] printk: bootconsole [pl11] disabled
+[    3.662368] bcm2835-aux-uart 3f215040.serial: unable to register 8250 port - -28
+[    3.664680] bcm2835-aux-uart: probe of 3f215040.serial failed with error -28
+[    3.676086] mmc-bcm2835 3f300000.mmc: mmc_debug:0 mmc_debug2:0
+[    3.676596] mmc-bcm2835 3f300000.mmc: DMA channel allocated
+[    3.720206] sdhost: log_buf @ (____ptrval____) (f9833000)
+[    3.778932] mmc0: sdhost-bcm2835 loaded - DMA enabled (>1)
+[    3.807340] of_cfs_init
+[    3.820110] of_cfs_init: OK
+[    3.840510] mmc0: host does not support reading read-only switch, assuming write-enable
+[    3.844458] mmc0: Problem switching card into high-speed mode!
+[    3.846936] hrtimer: interrupt took 3212608 ns
+[    3.850296] mmc0: new SD card at address 4567
+[    3.852360] uart-pl011 3f201000.serial: no DMA platform data
+[    3.869398] mmcblk0: mmc0:4567 QEMU! 11.0 MiB
+[    3.960069] EXT4-fs (mmcblk0): mounting ext2 file system using the ext4 subsystem
+[    4.038520] EXT4-fs (mmcblk0): warning: mounting unchecked fs, running e2fsck is recommended
+[    4.061655] EXT4-fs (mmcblk0): mounted filesystem without journal. Opts: (null)
+[    4.064875] VFS: Mounted root (ext2 filesystem) on device 179:0.
+[    4.074089] devtmpfs: mounted
+[    4.319451] Freeing unused kernel memory: 1664K
+[    4.335065] Run /sbin/init as init process
+[    5.029927] EXT4-fs (mmcblk0): re-mounted. Opts: block_validity,barrier,user_xattr,acl
+Starting syslogd: OK
+Starting klogd: OK
+Initializing random number generator... [    6.427522] random: dd: uninitialized urandom read (512 bytes read)
+done.
+Starting network: route: can't open '/proc/net/route': No such file or directory
+eth: eth0, ip: 172.17.0.59, gw: 172.17.0.3
+ip: socket: Function not implemented
+ip: socket: Function not implemented
+FAIL
+
+Welcome to Linux Lab
+linux-lab login: [   14.013358] mmc1: Timeout waiting for hardware interrupt.
+QEMU: Terminated
+make[1]:正在离开目录 `/labs/linux-lab'

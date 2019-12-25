@@ -1,0 +1,260 @@
+make[1]: 正在进入目录 `/labs/linux-lab'
+sudo env PATH=/labs/linux-lab/output/aarch64/qemu-v4.1.1-raspi3/aarch64-softmmu/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  qemu-system-aarch64  -M raspi3 -m 1024M  -smp 4 -kernel /labs/linux-lab/output/aarch64/linux-v5.3.9-raspi3/arch/arm64/boot/Image -no-reboot  -initrd /labs/linux-lab/output/aarch64/buildroot-2019.02.2-raspi3/images/rootfs.cpio.gz -dtb /labs/linux-lab/output/aarch64/linux-v5.3.9-raspi3/arch/arm64/boot/dts/broadcom/bcm2837-rpi-3-b.dtb -nographic -cpu cortex-a53 -serial mon:stdio -append 'route=172.17.0.3 iface=eth0 root=/dev/ram0 earlycon=pl011,0x3f201000 console=ttyAMA0,115200'
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.3.9-v8+ (root@linux-lab) (gcc version 4.9.3 20150413 (prerelease) (Linaro GCC 4.9-2015.05)) #3 SMP PREEMPT Fri Nov 29 15:22:05 UTC 2019
+[    0.000000] Machine model: Raspberry Pi 3 Model B
+[    0.000000] earlycon: pl11 at MMIO 0x000000003f201000 (options '')
+[    0.000000] printk: bootconsole [pl11] enabled
+[    0.000000] arm64_memblock_init: jjj linear region size--<256MB>
+[    0.000000] fdt_enforce_memory_region: jjj fdt_enforce_memory_region start ...
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560904>, end_rgn = <277560908>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560904>, end_rgn = <277560908>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560904>, end_rgn = <277560908>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560920>, end_rgn = <277560924>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560920>, end_rgn = <277560924>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560888>, end_rgn = <277560892>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560792>, end_rgn = <277560796>
+[    0.000000] percpu: Embedded 31 pages/cpu s88256 r8192 d30528 u126976
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560888>, end_rgn = <277560892>
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277560920>, end_rgn = <277560924>
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: ARM erratum 843419
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 241920
+[    0.000000] Kernel command line: route=172.17.0.3 iface=eth0 root=/dev/ram0 earlycon=pl011,0x3f201000 console=ttyAMA0,115200
+[    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] memblock_isolate_range: jjj start_rgn = <277561048>, end_rgn = <277561052>
+[    0.000000] Memory: 949664K/983040K available (4798K kernel code, 504K rwdata, 1808K rodata, 1728K init, 755K bss, 33376K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] ftrace: allocating 17905 entries in 70 pages
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 100 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000330] sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.018276] Console: colour dummy device 80x25
+[    0.021478] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=62500)
+[    0.023142] pid_max: default: 32768 minimum: 301
+[    0.027728] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.028605] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.085763] ASID allocator initialised with 32768 entries
+[    0.094983] rcu: Hierarchical SRCU implementation.
+[    0.112222] smp: Bringing up secondary CPUs ...
+[    0.127727] Detected VIPT I-cache on CPU1
+[    0.128520] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.149226] Detected VIPT I-cache on CPU2
+[    0.149456] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.166452] Detected VIPT I-cache on CPU3
+[    0.166644] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.168538] smp: Brought up 1 node, 4 CPUs
+[    0.178380] SMP: Total of 4 processors activated.
+[    0.179526] CPU features: detected: 32-bit EL0 Support
+[    0.181400] CPU features: detected: CRC32 instructions
+[    0.185840] CPU: All CPU(s) started at EL2
+[    0.188551] alternatives: patching kernel code
+[    0.221630] devtmpfs: initialized
+[    0.262486] random: get_random_u32 called from bucket_table_alloc.isra.27+0x5c/0x184 with crng_init=0
+[    0.269239] Registered cp15_barrier emulation handler
+[    0.271887] Registered setend emulation handler
+[    0.277392] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.279730] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.285147] pinctrl core: initialized pinctrl subsystem
+[    0.310318] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.316430] DMA: preallocated 256 KiB pool for atomic allocations
+[    0.318128] Serial: AMBA PL011 UART driver
+[    0.479612] vgaarb: loaded
+[    0.483539] SCSI subsystem initialized
+[    0.492507] clocksource: Switched to clocksource arch_sys_counter
+[    0.703879] FS-Cache: Loaded
+[    0.706604] CacheFiles: Loaded
+[    0.794213] PCI: CLS 0 bytes, default 64
+[    0.800755] Trying to unpack rootfs image as initramfs...
+[    1.149899] memblock_isolate_range: jjj start_rgn = <978435336>, end_rgn = <978435340>
+[    1.157513] Freeing initrd memory: 1212K
+[    1.198434] hw perfevents: enabled with armv8_cortex_a53 PMU driver, 5 counters available
+[    1.213046] workingset: timestamp_bits=62 max_order=18 bucket_order=0
+[    1.251393] io scheduler mq-deadline registered
+[    1.320938] bcm2835-aux-uart 3f215040.serial: unable to register 8250 port - -22
+[    1.324590] bcm2835-aux-uart: probe of 3f215040.serial failed with error -22
+[    1.335762] bcm2835-rng 3f104000.rng: hwrng registered
+[    1.344992] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    1.436335] brd: module loaded
+[    1.475921] loop: module loaded
+[    1.479398] bcm2835-power bcm2835-power: ASB register ID returned 0x00000000
+[    1.489085] mousedev: PS/2 mouse device common for all mice
+[    1.495315] i2c /dev entries driver
+[    1.513968] i2c-bcm2835 3f805000.i2c: Could not read clock-frequency property
+[    1.524220] bcm2835-wdt bcm2835-wdt: Broadcom BCM2835 watchdog timer
+[    1.530272] sdhci: Secure Digital Host Controller Interface driver
+[    1.530971] sdhci: Copyright(c) Pierre Ossman
+[    1.531338] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.546771] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.550192] hidraw: raw HID events driver (C) Jiri Kosina
+[    1.557178] bcm2835-mbox 3f00b880.mailbox: mailbox enabled
+[    1.603956] 3f201000.serial: ttyAMA0 at MMIO 0x3f201000 (irq = 66, base_baud = 0) is a PL011 rev2
+[    1.606767] ------------[ cut here ]------------
+[    1.609116] WARNING: CPU: 1 PID: 41 at /labs/linux-lab/linux-stable/drivers/tty/serial/serial_core.c:467 uart_get_baud_rate+0xd8/0x188
+[    1.610397] Modules linked in:
+[    1.611801] CPU: 1 PID: 41 Comm: kworker/1:1 Not tainted 5.3.9-v8+ #3
+[    1.612449] Hardware name: Raspberry Pi 3 Model B (DT)
+[    1.613803] Workqueue: events deferred_probe_work_func
+[    1.614706] pstate: 60000005 (nZCv daif -PAN -UAO)
+[    1.615483] pc : uart_get_baud_rate+0xd8/0x188
+[    1.616016] lr : uart_get_baud_rate+0xd8/0x188
+[    1.616186] sp : ffffffc039c13920
+[    1.616572] x29: ffffffc039c13920 x28: 0000000000000000 
+[    1.616964] x27: 00000000ffffffff x26: 0000000000009600 
+[    1.617378] x25: 0000000000000000 x24: 0000000000009600 
+[    1.617749] x23: 00000000ffffeff0 x22: 0000000000000001 
+[    1.618013] x21: 0000000000000000 x20: 0000000000000001 
+[    1.618482] x19: ffffffc039c13a10 x18: 0000000000000014 
+[    1.618997] x17: 000000001711b43b x16: 0000000000000000 
+[    1.619640] x15: 0000000000000000 x14: 0000000000000cb0 
+[    1.620174] x13: 0000000000000000 x12: ffffff80105767f8 
+[    1.620734] x11: 0000000000000000 x10: 0000000000000000 
+[    1.621746] x9 : 0000000000000006 x8 : 0000000000000000 
+[    1.622103] x7 : 0000000000000001 x6 : ffffffc039c13628 
+[    1.622419] x5 : ffffff80108b8000 x4 : ffffff80100f1d40 
+[    1.622848] x3 : 0000000000000000 x2 : ffffff80108c5708 
+[    1.623026] x1 : ffffffc03a75a4c0 x0 : 0000000000000024 
+[    1.624457] Call trace:
+[    1.624906]  uart_get_baud_rate+0xd8/0x188
+[    1.625244]  pl011_set_termios+0x60/0x3a4
+[    1.625647]  uart_set_options+0xe4/0x140
+[    1.625844]  pl011_console_setup+0x1a0/0x1b0
+[    1.626316]  register_console+0x300/0x398
+[    1.626492]  uart_add_one_port+0x3cc/0x44c
+[    1.626797]  pl011_register_port+0x70/0xf4
+[    1.627187]  pl011_probe+0x120/0x138
+[    1.627335]  amba_probe+0x78/0x8c
+[    1.627703]  really_probe+0x1c0/0x2d0
+[    1.628103]  driver_probe_device+0xa8/0xc8
+[    1.628514]  __device_attach_driver+0x98/0xb4
+[    1.628942]  bus_for_each_drv+0x64/0xa4
+[    1.629426]  __device_attach+0xbc/0xf0
+[    1.629772]  device_initial_probe+0x24/0x30
+[    1.630108]  bus_probe_device+0x9c/0xa4
+[    1.630239]  deferred_probe_work_func+0x78/0xac
+[    1.630500]  process_one_work+0x164/0x3fc
+[    1.630722]  worker_thread+0x368/0x3f0
+[    1.630889]  kthread+0xf8/0x124
+[    1.631139]  ret_from_fork+0x10/0x18
+[    1.631684] ---[ end trace 3ab7689736a08a6c ]---
+[    1.634110] printk: console [ttyAMA0] enabled
+[    1.634110] printk: console [ttyAMA0] enabled
+[    1.635621] printk: bootconsole [pl11] disabled
+[    1.635621] printk: bootconsole [pl11] disabled
+[    1.656921] raspberrypi-firmware soc:firmware: Attached to firmware from 1970-01-05 00:12
+[    1.664294] vchiq: vchiq_init_state: slot_zero = (____ptrval____)
+[    1.674154] bcm2835_vchiq 3f00b840.mailbox: failed to set channelbase
+[    1.675022] vchiq: could not load vchiq
+[    1.711581] uart-pl011 3f201000.serial: no DMA platform data
+[    1.712828] ------------[ cut here ]------------
+[    1.713710] WARNING: CPU: 1 PID: 1 at /labs/linux-lab/linux-stable/drivers/tty/serial/serial_core.c:467 uart_get_baud_rate+0xd8/0x188
+[    1.714731] Modules linked in:
+[    1.715446] CPU: 1 PID: 1 Comm: swapper/0 Tainted: G        W         5.3.9-v8+ #3
+[    1.715851] Hardware name: Raspberry Pi 3 Model B (DT)
+[    1.716200] pstate: 60000005 (nZCv daif -PAN -UAO)
+[    1.716637] pc : uart_get_baud_rate+0xd8/0x188
+[    1.717483] lr : uart_get_baud_rate+0xd8/0x188
+[    1.717652] sp : ffffffc03a51b8f0
+[    1.717968] x29: ffffffc03a51b8f0 x28: 0000000000000000 
+[    1.718504] x27: 00000000ffffffff x26: 0000000000009600 
+[    1.719232] x25: 0000000000000000 x24: 0000000000009600 
+[    1.719708] x23: 00000000ffffeff0 x22: 0000000000000001 
+[    1.720180] x21: 0000000000000000 x20: 0000000000000001 
+[    1.720522] x19: ffffffc039b6bd10 x18: 000000000000178d 
+[    1.720860] x17: 0000000000001000 x16: 0000000000001c00 
+[    1.721251] x15: 0000000000001400 x14: 0000000000001800 
+[    1.722286] x13: 0000000000000c00 x12: 0000000000000010 
+[    1.722769] x11: 0000000000000004 x10: 0000000000000000 
+[    1.723214] x9 : 0000000000000006 x8 : 0000000000000000 
+[    1.723904] x7 : 0000000000000001 x6 : ffffffc03a51b5f8 
+[    1.725026] x5 : ffffff80108b8000 x4 : ffffff80100f1d40 
+[    1.726959] x3 : 0000000000000000 x2 : ffffff80108c5708 
+[    1.728636] x1 : ffffffc03a510000 x0 : 0000000000000024 
+[    1.729348] Call trace:
+[    1.729530]  uart_get_baud_rate+0xd8/0x188
+[    1.729992]  pl011_set_termios+0x60/0x3a4
+[    1.731665]  uart_change_speed+0x60/0x118
+[    1.732737]  uart_startup.part.19+0x154/0x284
+[    1.733168]  uart_port_activate+0x64/0x98
+[    1.733492]  tty_port_open+0x9c/0x108
+[    1.733750]  uart_open+0x2c/0x40
+[    1.733874]  tty_open+0xdc/0x3ec
+[    1.733984]  chrdev_open+0xa4/0x1ac
+[    1.734106]  do_dentry_open+0x208/0x3dc
+[    1.734218]  vfs_open+0x38/0x44
+[    1.734320]  path_openat+0x368/0xe88
+[    1.734437]  do_filp_open+0x6c/0xe8
+[    1.734556]  do_sys_open+0x14c/0x22c
+[    1.734682]  kernel_init_freeable+0x278/0x340
+[    1.734820]  kernel_init+0x18/0x108
+[    1.734941]  ret_from_fork+0x10/0x18
+[    1.735059] ---[ end trace 3ab7689736a08a6d ]---
+[    1.979890] Freeing unused kernel memory: 1728K
+[    1.992100] Run /init as init process
+[    2.180489] ------------[ cut here ]------------
+[    2.181147] WARNING: CPU: 1 PID: 1 at /labs/linux-lab/linux-stable/drivers/tty/serial/serial_core.c:467 uart_get_baud_rate+0xd8/0x188
+[    2.181876] Modules linked in:
+[    2.182248] CPU: 1 PID: 1 Comm: init Tainted: G        W         5.3.9-v8+ #3
+[    2.182863] Hardware name: Raspberry Pi 3 Model B (DT)
+[    2.183115] pstate: 60000005 (nZCv daif -PAN -UAO)
+[    2.183888] pc : uart_get_baud_rate+0xd8/0x188
+[    2.184331] lr : uart_get_baud_rate+0xd8/0x188
+[    2.185061] sp : ffffffc03a51ba30
+[    2.185214] x29: ffffffc03a51ba30 x28: 0000000000000000 
+[    2.185826] x27: 00000000ffffffff x26: 0000000000009600 
+[    2.186343] x25: 0000000000000000 x24: 0000000000009600 
+[    2.186640] x23: 00000000ffffeff0 x22: 0000000000000001 
+[    2.186983] x21: 0000000000000000 x20: 0000000000000001 
+[    2.187354] x19: ffffffc039b6bd10 x18: 0000000000000000 
+[    2.187664] x17: 0000000000000000 x16: 0000000000000000 
+[    2.187929] x15: 0000000000000000 x14: 0000000000000000 
+[    2.188278] x13: 0000000000000000 x12: 0000000000000000 
+[    2.189049] x11: 0000000000000000 x10: 0000000000000000 
+[    2.189436] x9 : 0000000000000006 x8 : 0000000000000000 
+[    2.190336] x7 : 0000000000000001 x6 : ffffffc03a51b738 
+[    2.190595] x5 : ffffff80108b8000 x4 : ffffff80100f1d40 
+[    2.190964] x3 : 0000000000000000 x2 : ffffff80108c5708 
+[    2.191363] x1 : ffffffc03a510000 x0 : 0000000000000024 
+[    2.191788] Call trace:
+[    2.192085]  uart_get_baud_rate+0xd8/0x188
+[    2.192454]  pl011_set_termios+0x60/0x3a4
+[    2.192870]  uart_change_speed+0x60/0x118
+[    2.193241]  uart_set_termios+0x7c/0x164
+[    2.193980]  tty_set_termios+0x164/0x1f8
+[    2.194501]  set_termios+0x148/0x424
+[    2.194714]  tty_mode_ioctl+0x4e0/0x604
+[    2.195133]  n_tty_ioctl_helper+0x54/0x144
+[    2.195354]  n_tty_ioctl+0xec/0x1e8
+[    2.195692]  tty_ioctl+0x120/0xb34
+[    2.195823]  do_vfs_ioctl+0xb0/0x8a0
+[    2.196154]  ksys_ioctl+0x50/0x98
+[    2.196546]  __arm64_sys_ioctl+0x28/0x38
+[    2.196807]  el0_svc_common.constprop.3+0xd8/0x178
+[    2.197087]  el0_svc_handler+0x80/0x9c
+[    2.197437]  el0_svc+0x8/0x700
+[    2.197739] ---[ end trace 3ab7689736a08a6e ]---
+[    2.272736] hrtimer: interrupt took 4994208 ns
+Starting syslogd: OK
+Starting klogd: OK
+Initializing random number generator... [    3.387498] random: dd: uninitialized urandom read (512 bytes read)
+done.
+Starting network: route: can't open '/proc/net/route': No such file or directory
+eth: eth0, ip: 172.17.0.118, gw: 172.17.0.3
+ip: socket: Function not implemented
+ip: socket: Function not implemented
+FAIL
+
+Welcome to Linux Lab
+linux-lab login: root
+Jan  1 00:00:14 login[141]: root login on 'console'
+# ls
+# ls
+# ls /[J[J[J[JQEMU: Terminated
+make[1]:正在离开目录 `/labs/linux-lab'

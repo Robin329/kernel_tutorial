@@ -1,0 +1,215 @@
+make[1]: 正在进入目录 `/labs/linux-lab'
+sudo env PATH=/labs/linux-lab/output/aarch64/qemu-v4.0.0-virt/aarch64-softmmu/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  qemu-system-aarch64  -M virt -m 6g -net nic,model=virtio -net tap -device virtio-net-device,netdev=net0,mac=00:f9:dd:b7:42:fe -netdev tap,id=net0 -smp 2 -kernel /labs/linux-lab/output/aarch64/linux-v5.3.9-virt/arch/arm64/boot/Image -no-reboot -fsdev local,path=/labs/linux-lab/workspace/robin_lab,security_model=passthrough,id=fsdev0 -device virtio-9p-device,fsdev=fsdev0,mount_tag=hostshare -drive if=none,file=/labs/linux-lab/output/aarch64/buildroot-2019.08.2-virt/images/rootfs.f2fs,format=raw,id=virtio-vda -device virtio-blk-device,drive=virtio-vda -nographic -cpu cortex-a57 -append 'route=172.17.0.3 iface=eth0 rw fsck.repair=yes rootwait root=/dev/vda earlycon sharetag=hostshare sharedir=/hostshare console=ttyAMA0'
+Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+Linux version 5.3.9-dirty (root@linux-lab) (gcc version 4.9.3 20150413 (prerelease) (Linaro GCC 4.9-2015.05)) #22 SMP Sat Dec 21 08:38:22 UTC 2019
+Machine model: linux,dummy-virt
+earlycon: pl11 at MMIO 0x0000000009000000 (options '')
+printk: bootconsole [pl11] enabled
+efi: Getting EFI parameters from FDT:
+efi: UEFI not found.
+fdt_enforce_memory_region: jjj fdt_enforce_memory_region start ...
+memblock_isolate_range: jjj start_rgn = <0>, end_rgn = <278150676>
+memblock_isolate_range: jjj start_rgn = <0>, end_rgn = <278150676>
+arm64_memblock_init: jjj __pa_symbol(_text)--<0x0000000040080000>, _end--<0xffffff8010a68000>, _text--<0xffffff8010080000>
+arm64_memblock_init: jjj linear region size--<256MB>
+		 high_memory--<0xffffffc180000000>, memstart_addr--<0x0000000040000000>
+arm64_memblock_init: jjj _text pa addr is <0x0000000040080000>, va addr is <0xffffff8010080000>
+paging_init: jjj pgdp--<0x0000000000000000>
+map_kernel_segment: jjj va_start--<0xffffff8010080000>, pa_start--<0x0000000040080000>, size--<6KB>
+map_kernel_segment: jjj va_start--<0xffffff80106f0000>, pa_start--<0x00000000406f0000>, size--<1KB>
+map_kernel_segment: jjj va_start--<0xffffff8010890000>, pa_start--<0x0000000040890000>, size--<0KB>
+map_kernel_segment: jjj va_start--<0xffffff8010913000>, pa_start--<0x0000000040913000>, size--<0KB>
+map_kernel_segment: jjj va_start--<0xffffff8010940000>, pa_start--<0x0000000040940000>, size--<1KB>
+map_mem: jjj kernel_start--<0x0000000040080000>, kernel_end--<0x0000000040890000>
+map_mem: jjj kernel_end - kernel_start = <0x0000000000810000>
+memblock_isolate_range: jjj start_rgn = <1>, end_rgn = <278150740>
+memblock_isolate_range: jjj start_rgn = <1>, end_rgn = <278150740>
+memblock_isolate_range: jjj start_rgn = <1>, end_rgn = <278150692>
+memblock_isolate_range: jjj start_rgn = <4>, end_rgn = <278150564>
+psci: probing for conduit method from DT.
+psci: PSCIv0.2 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS migration not required
+percpu: Embedded 29 pages/cpu s79680 r8192 d30912 u118784
+memblock_isolate_range: jjj start_rgn = <9>, end_rgn = <278150708>
+memblock_isolate_range: jjj start_rgn = <9>, end_rgn = <278150724>
+Detected PIPT I-cache on CPU0
+CPU features: detected: ARM erratum 832075
+CPU features: detected: EL2 vector hardening
+ARM_SMCCC_ARCH_WORKAROUND_1 missing from firmware
+Built 1 zonelists, mobility grouping on.  Total pages: 1548288
+Kernel command line: route=172.17.0.3 iface=eth0 rw fsck.repair=yes rootwait root=/dev/vda earlycon sharetag=hostshare sharedir=/hostshare console=ttyAMA0
+Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+mem auto-init: stack:off, heap alloc:off, heap free:off
+software IO TLB: mapped [mem 0xfbfff000-0xfffff000] (64MB)
+memblock_isolate_range: jjj start_rgn = <0>, end_rgn = <278150852>
+Memory: 6091096K/6291456K available (6588K kernel code, 836K rwdata, 1612K rodata, 704K init, 338K bss, 200360K reserved, 0K cma-reserved)
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU event tracing is enabled.
+rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=2.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+random: get_random_bytes called from start_kernel+0x370/0x4fc with crng_init=0
+arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+Console: colour dummy device 80x25
+Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=250000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+ASID allocator initialised with 32768 entries
+rcu: Hierarchical SRCU implementation.
+EFI services will not be available.
+smp: Bringing up secondary CPUs ...
+Detected PIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000001 [0x411fd070]
+smp: Brought up 1 node, 2 CPUs
+SMP: Total of 2 processors activated.
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+CPU: All CPU(s) started at EL1
+alternatives: patching kernel code
+devtmpfs: initialized
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+futex hash table entries: 512 (order: 3, 32768 bytes, linear)
+__setup_per_zone_wmarks: jjj lowmem_pages--<1522774>
+DMI not present or invalid.
+NET: Registered protocol family 16
+hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+DMA: preallocated 256 KiB pool for atomic allocations
+Serial: AMBA PL011 UART driver
+9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 39, base_baud = 0) is a PL011 rev1
+printk: console [ttyAMA0] enabled
+printk: console [ttyAMA0] enabled
+printk: bootconsole [pl11] disabled
+printk: bootconsole [pl11] disabled
+__setup_per_zone_wmarks: jjj lowmem_pages--<1522774>
+SCSI subsystem initialized
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered protocol family 2
+tcp_listen_portaddr_hash hash table entries: 4096 (order: 4, 65536 bytes, linear)
+TCP established hash table entries: 65536 (order: 7, 524288 bytes, linear)
+TCP bind hash table entries: 65536 (order: 8, 1048576 bytes, linear)
+TCP: Hash tables configured (established 65536 bind 65536)
+UDP hash table entries: 4096 (order: 5, 131072 bytes, linear)
+UDP-Lite hash table entries: 4096 (order: 5, 131072 bytes, linear)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+hw perfevents: enabled with armv8_pmuv3 PMU driver, 5 counters available
+workingset: timestamp_bits=62 max_order=21 bucket_order=0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+NFS: Registering the id_resolver key type
+Key type id_resolver registered
+Key type id_legacy registered
+9p: Installing v9fs 9p2000 file system support
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+io scheduler mq-deadline registered
+io scheduler kyber registered
+cacheinfo: Unable to detect cache hierarchy for CPU 0
+brd: module loaded
+loop: module loaded
+virtio_blk virtio0: [vda] 204800 512-byte logical blocks (105 MB/100 MiB)
+null: module loaded
+NET: Registered protocol family 10
+Segment Routing with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+9pnet: Installing 9P2000 support
+Key type dns_resolver registered
+registered taskstats version 1
+hctosys: unable to open rtc device (rtc0)
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7798>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd779c>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd77e8>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd77ec>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd77f0>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd77f4>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd77f8>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd77fc>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7dc0>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7dc4>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7dc8>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7dcc>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7dd0>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7dd4>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffd7dd8>
+F2FS-fs (vda): Mounted with checkpoint version = 2340f387
+VFS: Mounted root (f2fs filesystem) on device 254:0.
+devtmpfs: mounted
+Freeing unused kernel memory: 704K
+Run /sbin/init as init process
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Initializing random number generator... random: dd: uninitialized urandom read (512 bytes read)
+done.
+Starting network: vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffbae78>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffbae90>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffbae98>
+eth: eth0, ip: 172.17.0.151, gw: 172.17.0.3
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffbae98>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffbaed0>
+vmalloc_to_page: jjj vmalloc_addr = <0xffffffbebffbaee0>
+OK
+
+Starting sharing ...
+
+
+Welcome to Linux Lab
+linux-lab login: root
+# cd /ho# cd /hostshare/[J
+# ls
+[1;34mlab1_mmap[m                 [1;34mlab4_enum[m                 [1;34mlab7_bio[m
+[1;34mlab2_trace[m                [1;34mlab5_list[m
+[1;34mlab3_shm[m                  [1;34mlab6_get_system_mem_info[m
+# cd l# cd lab[J7# cd lab7_bio/[J
+# ./b# ./bio[J
+-sh: ./bio: not found
+# ls
+random: fast init done
+[0;0mMakefile[m     [1;32mbio[m          [0;0mbio.c[m        [0;0mfile[m         [1;32mfunction.sh[m
+# ls
+[0;0mMakefile[m     [1;32mbio[m          [0;0mbio.c[m        [0;0mfile[m         [1;32mfunction.sh[m
+# cd /ho# cd /hostshare/[J# cd /hostshare/lab[J
+lab1_mmap/                 lab5_list/
+lab2_trace/                lab6_get_system_mem_info/
+lab3_shm/                  lab7_bio/
+lab4_enum/
+# cd /hostshare/lab[J7# cd /hostshare/lab7_bio/[J
+# ls
+[0;0mMakefile[m     [1;32mbio[m          [0;0mbio.c[m        [0;0mfile[m         [1;32mfunction.sh[m
+# ./bui[J[Jio
+-sh: ./bio: not found
+# ls bio# ls bio[J
+[1;32mbio[m
+# ls -i bio
+2169203 [1;32mbio[m
+# g[Jgdb
+-sh: gdb: not found
+# aa
+-sh: aa: not found
+# 
+# readelf bio
+-sh: readelf: not found
+# readelf
+-sh: readelf: not found
+# read
+^C
+# ^C
+# ./bi# ./bio[J
+bio    bio.c
+# ./bio[J
+bio    bio.c
+# ./bio[J
+-sh: ./bio: not found
+# ls -a [Jl bio
+-rwxr-xr-x    1 root     root         13509 Dec 23  2019 [1;32mbio[m
+# sudo [J[J[J[J[Jobj[J[J[J

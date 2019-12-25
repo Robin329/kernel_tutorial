@@ -1,0 +1,11 @@
+BASEINCLUDE ?= /home/parallels/workspace/project/linux-5.3.8
+demo_mmap-objs := robin_demo_mmap.o
+
+obj-m := demo_mmap.o
+
+all :
+	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules;
+
+clean:
+	$(MAKE) -C $(BASEINCLUDE) SUBDIRS=$(PWD) clean;
+	rm -f *.ko

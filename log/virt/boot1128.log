@@ -1,0 +1,1332 @@
+make[1]: 正在进入目录 `/labs/linux-lab'
+sudo env PATH=/labs/linux-lab/output/aarch64/qemu-v4.0.0-virt/aarch64-softmmu/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  qemu-system-aarch64  -M virt -m 2048M -net nic,model=virtio -net tap -device virtio-net-device,netdev=net0,mac=50:59:43:ae:b5:35 -netdev tap,id=net0 -smp 2 -kernel /labs/linux-lab/output/aarch64/linux-v5.3.9-virt/arch/arm64/boot/Image -no-reboot -fsdev local,path=/labs/linux-lab/workspace/robin_lab,security_model=passthrough,id=fsdev0 -device virtio-9p-device,fsdev=fsdev0,mount_tag=hostshare -drive if=none,file=/labs/linux-lab/output/aarch64/buildroot-2019.08.2-virt/images/rootfs.ext2,format=raw,id=virtio-vda -device virtio-blk-device,drive=virtio-vda -nographic -cpu cortex-a57 -append 'route=172.17.0.3 iface=eth0 rw fsck.repair=yes rootwait root=/dev/vda earlycon memblock=debug sharetag=hostshare sharedir=/hostshare console=ttyAMA0'
+Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+Linux version 5.3.9-dirty (root@linux-lab) (gcc version 4.9.3 20150413 (prerelease) (Linaro GCC 4.9-2015.05)) #5 SMP Thu Nov 28 13:58:00 UTC 2019
+Machine model: linux,dummy-virt
+earlycon: pl11 at MMIO 0x0000000009000000 (options '')
+printk: bootconsole [pl11] enabled
+efi: Getting EFI parameters from FDT:
+efi: UEFI not found.
+arm64_memblock_init: jjj linear region size--<274877906944>
+fdt_enforce_memory_region: jjj fdt_enforce_memory_region start ...
+memblock_remove: [0x0001000000000000-0x0000fffffffffffe] arm64_memblock_init+0xa0/0x284
+memblock_remove: [0x0000004040000000-0x000000403ffffffe] arm64_memblock_init+0xd0/0x284
+memblock_reserve: [0x0000000040080000-0x00000000409ecfff] arm64_memblock_init+0x1d4/0x284
+memblock_reserve: [0x00000000bffff000-0x00000000bfffffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfffe000-0x00000000bfffefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfffd000-0x00000000bfffdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfffc000-0x00000000bfffcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfffb000-0x00000000bfffbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfffa000-0x00000000bfffafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff9000-0x00000000bfff9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff8000-0x00000000bfff8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff7000-0x00000000bfff7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff6000-0x00000000bfff6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff5000-0x00000000bfff5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff4000-0x00000000bfff4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff3000-0x00000000bfff3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff2000-0x00000000bfff2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff1000-0x00000000bfff1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfff0000-0x00000000bfff0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffef000-0x00000000bffeffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffee000-0x00000000bffeefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffed000-0x00000000bffedfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffec000-0x00000000bffecfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffeb000-0x00000000bffebfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffea000-0x00000000bffeafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe9000-0x00000000bffe9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe8000-0x00000000bffe8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe7000-0x00000000bffe7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe6000-0x00000000bffe6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe5000-0x00000000bffe5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe4000-0x00000000bffe4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe3000-0x00000000bffe3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe2000-0x00000000bffe2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe1000-0x00000000bffe1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffe0000-0x00000000bffe0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffdf000-0x00000000bffdffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffde000-0x00000000bffdefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffdd000-0x00000000bffddfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffdc000-0x00000000bffdcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffdb000-0x00000000bffdbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffda000-0x00000000bffdafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd9000-0x00000000bffd9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd8000-0x00000000bffd8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd7000-0x00000000bffd7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd6000-0x00000000bffd6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd5000-0x00000000bffd5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd4000-0x00000000bffd4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd3000-0x00000000bffd3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd2000-0x00000000bffd2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd1000-0x00000000bffd1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffd0000-0x00000000bffd0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffcf000-0x00000000bffcffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffce000-0x00000000bffcefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffcd000-0x00000000bffcdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffcc000-0x00000000bffccfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffcb000-0x00000000bffcbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffca000-0x00000000bffcafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc9000-0x00000000bffc9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc8000-0x00000000bffc8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc7000-0x00000000bffc7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc6000-0x00000000bffc6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc5000-0x00000000bffc5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc4000-0x00000000bffc4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc3000-0x00000000bffc3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc2000-0x00000000bffc2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc1000-0x00000000bffc1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffc0000-0x00000000bffc0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffbf000-0x00000000bffbffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffbe000-0x00000000bffbefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffbd000-0x00000000bffbdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffbc000-0x00000000bffbcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffbb000-0x00000000bffbbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffba000-0x00000000bffbafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb9000-0x00000000bffb9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb8000-0x00000000bffb8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb7000-0x00000000bffb7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb6000-0x00000000bffb6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb5000-0x00000000bffb5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb4000-0x00000000bffb4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb3000-0x00000000bffb3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb2000-0x00000000bffb2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb1000-0x00000000bffb1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffb0000-0x00000000bffb0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffaf000-0x00000000bffaffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffae000-0x00000000bffaefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffad000-0x00000000bffadfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffac000-0x00000000bffacfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffab000-0x00000000bffabfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffaa000-0x00000000bffaafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa9000-0x00000000bffa9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa8000-0x00000000bffa8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa7000-0x00000000bffa7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa6000-0x00000000bffa6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa5000-0x00000000bffa5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa4000-0x00000000bffa4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa3000-0x00000000bffa3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa2000-0x00000000bffa2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa1000-0x00000000bffa1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bffa0000-0x00000000bffa0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff9f000-0x00000000bff9ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff9e000-0x00000000bff9efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff9d000-0x00000000bff9dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff9c000-0x00000000bff9cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff9b000-0x00000000bff9bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff9a000-0x00000000bff9afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff99000-0x00000000bff99fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff98000-0x00000000bff98fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff97000-0x00000000bff97fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff96000-0x00000000bff96fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff95000-0x00000000bff95fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff94000-0x00000000bff94fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff93000-0x00000000bff93fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff92000-0x00000000bff92fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff91000-0x00000000bff91fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff90000-0x00000000bff90fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff8f000-0x00000000bff8ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff8e000-0x00000000bff8efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff8d000-0x00000000bff8dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff8c000-0x00000000bff8cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff8b000-0x00000000bff8bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff8a000-0x00000000bff8afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff89000-0x00000000bff89fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff88000-0x00000000bff88fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff87000-0x00000000bff87fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff86000-0x00000000bff86fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff85000-0x00000000bff85fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff84000-0x00000000bff84fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff83000-0x00000000bff83fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff82000-0x00000000bff82fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff81000-0x00000000bff81fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff80000-0x00000000bff80fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff7f000-0x00000000bff7ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff7e000-0x00000000bff7efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff7d000-0x00000000bff7dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff7c000-0x00000000bff7cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff7b000-0x00000000bff7bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff7a000-0x00000000bff7afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff79000-0x00000000bff79fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff78000-0x00000000bff78fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff77000-0x00000000bff77fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff76000-0x00000000bff76fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff75000-0x00000000bff75fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff74000-0x00000000bff74fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff73000-0x00000000bff73fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff72000-0x00000000bff72fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff71000-0x00000000bff71fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff70000-0x00000000bff70fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff6f000-0x00000000bff6ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff6e000-0x00000000bff6efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff6d000-0x00000000bff6dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff6c000-0x00000000bff6cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff6b000-0x00000000bff6bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff6a000-0x00000000bff6afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff69000-0x00000000bff69fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff68000-0x00000000bff68fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff67000-0x00000000bff67fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff66000-0x00000000bff66fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff65000-0x00000000bff65fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff64000-0x00000000bff64fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff63000-0x00000000bff63fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff62000-0x00000000bff62fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff61000-0x00000000bff61fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff60000-0x00000000bff60fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff5f000-0x00000000bff5ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff5e000-0x00000000bff5efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff5d000-0x00000000bff5dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff5c000-0x00000000bff5cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff5b000-0x00000000bff5bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff5a000-0x00000000bff5afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff59000-0x00000000bff59fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff58000-0x00000000bff58fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff57000-0x00000000bff57fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff56000-0x00000000bff56fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff55000-0x00000000bff55fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff54000-0x00000000bff54fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff53000-0x00000000bff53fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff52000-0x00000000bff52fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff51000-0x00000000bff51fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff50000-0x00000000bff50fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff4f000-0x00000000bff4ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff4e000-0x00000000bff4efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff4d000-0x00000000bff4dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff4c000-0x00000000bff4cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff4b000-0x00000000bff4bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff4a000-0x00000000bff4afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff49000-0x00000000bff49fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff48000-0x00000000bff48fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff47000-0x00000000bff47fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff46000-0x00000000bff46fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff45000-0x00000000bff45fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff44000-0x00000000bff44fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff43000-0x00000000bff43fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff42000-0x00000000bff42fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff41000-0x00000000bff41fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff40000-0x00000000bff40fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff3f000-0x00000000bff3ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff3e000-0x00000000bff3efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff3d000-0x00000000bff3dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff3c000-0x00000000bff3cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff3b000-0x00000000bff3bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff3a000-0x00000000bff3afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff39000-0x00000000bff39fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff38000-0x00000000bff38fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff37000-0x00000000bff37fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff36000-0x00000000bff36fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff35000-0x00000000bff35fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff34000-0x00000000bff34fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff33000-0x00000000bff33fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff32000-0x00000000bff32fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff31000-0x00000000bff31fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff30000-0x00000000bff30fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff2f000-0x00000000bff2ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff2e000-0x00000000bff2efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff2d000-0x00000000bff2dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff2c000-0x00000000bff2cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff2b000-0x00000000bff2bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff2a000-0x00000000bff2afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff29000-0x00000000bff29fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff28000-0x00000000bff28fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff27000-0x00000000bff27fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff26000-0x00000000bff26fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff25000-0x00000000bff25fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff24000-0x00000000bff24fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff23000-0x00000000bff23fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff22000-0x00000000bff22fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff21000-0x00000000bff21fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff20000-0x00000000bff20fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff1f000-0x00000000bff1ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff1e000-0x00000000bff1efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff1d000-0x00000000bff1dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff1c000-0x00000000bff1cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff1b000-0x00000000bff1bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff1a000-0x00000000bff1afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff19000-0x00000000bff19fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff18000-0x00000000bff18fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff17000-0x00000000bff17fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff16000-0x00000000bff16fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff15000-0x00000000bff15fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff14000-0x00000000bff14fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff13000-0x00000000bff13fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff12000-0x00000000bff12fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff11000-0x00000000bff11fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff10000-0x00000000bff10fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff0f000-0x00000000bff0ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff0e000-0x00000000bff0efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff0d000-0x00000000bff0dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff0c000-0x00000000bff0cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff0b000-0x00000000bff0bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff0a000-0x00000000bff0afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff09000-0x00000000bff09fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff08000-0x00000000bff08fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff07000-0x00000000bff07fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff06000-0x00000000bff06fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff05000-0x00000000bff05fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff04000-0x00000000bff04fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff03000-0x00000000bff03fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff02000-0x00000000bff02fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff01000-0x00000000bff01fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bff00000-0x00000000bff00fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeff000-0x00000000bfefffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfefe000-0x00000000bfefefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfefd000-0x00000000bfefdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfefc000-0x00000000bfefcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfefb000-0x00000000bfefbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfefa000-0x00000000bfefafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef9000-0x00000000bfef9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef8000-0x00000000bfef8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef7000-0x00000000bfef7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef6000-0x00000000bfef6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef5000-0x00000000bfef5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef4000-0x00000000bfef4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef3000-0x00000000bfef3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef2000-0x00000000bfef2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef1000-0x00000000bfef1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfef0000-0x00000000bfef0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeef000-0x00000000bfeeffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeee000-0x00000000bfeeefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeed000-0x00000000bfeedfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeec000-0x00000000bfeecfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeeb000-0x00000000bfeebfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeea000-0x00000000bfeeafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee9000-0x00000000bfee9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee8000-0x00000000bfee8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee7000-0x00000000bfee7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee6000-0x00000000bfee6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee5000-0x00000000bfee5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee4000-0x00000000bfee4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee3000-0x00000000bfee3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee2000-0x00000000bfee2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee1000-0x00000000bfee1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfee0000-0x00000000bfee0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfedf000-0x00000000bfedffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfede000-0x00000000bfedefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfedd000-0x00000000bfeddfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfedc000-0x00000000bfedcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfedb000-0x00000000bfedbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeda000-0x00000000bfedafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed9000-0x00000000bfed9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed8000-0x00000000bfed8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed7000-0x00000000bfed7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed6000-0x00000000bfed6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed5000-0x00000000bfed5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed4000-0x00000000bfed4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed3000-0x00000000bfed3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed2000-0x00000000bfed2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed1000-0x00000000bfed1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfed0000-0x00000000bfed0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfecf000-0x00000000bfecffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfece000-0x00000000bfecefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfecd000-0x00000000bfecdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfecc000-0x00000000bfeccfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfecb000-0x00000000bfecbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeca000-0x00000000bfecafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec9000-0x00000000bfec9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec8000-0x00000000bfec8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec7000-0x00000000bfec7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec6000-0x00000000bfec6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec5000-0x00000000bfec5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec4000-0x00000000bfec4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec3000-0x00000000bfec3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec2000-0x00000000bfec2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec1000-0x00000000bfec1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfec0000-0x00000000bfec0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfebf000-0x00000000bfebffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfebe000-0x00000000bfebefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfebd000-0x00000000bfebdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfebc000-0x00000000bfebcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfebb000-0x00000000bfebbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeba000-0x00000000bfebafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb9000-0x00000000bfeb9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb8000-0x00000000bfeb8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb7000-0x00000000bfeb7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb6000-0x00000000bfeb6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb5000-0x00000000bfeb5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb4000-0x00000000bfeb4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb3000-0x00000000bfeb3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb2000-0x00000000bfeb2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb1000-0x00000000bfeb1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeb0000-0x00000000bfeb0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeaf000-0x00000000bfeaffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeae000-0x00000000bfeaefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfead000-0x00000000bfeadfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeac000-0x00000000bfeacfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeab000-0x00000000bfeabfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfeaa000-0x00000000bfeaafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea9000-0x00000000bfea9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea8000-0x00000000bfea8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea7000-0x00000000bfea7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea6000-0x00000000bfea6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea5000-0x00000000bfea5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea4000-0x00000000bfea4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea3000-0x00000000bfea3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea2000-0x00000000bfea2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea1000-0x00000000bfea1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfea0000-0x00000000bfea0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe9f000-0x00000000bfe9ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe9e000-0x00000000bfe9efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe9d000-0x00000000bfe9dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe9c000-0x00000000bfe9cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe9b000-0x00000000bfe9bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe9a000-0x00000000bfe9afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe99000-0x00000000bfe99fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe98000-0x00000000bfe98fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe97000-0x00000000bfe97fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe96000-0x00000000bfe96fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe95000-0x00000000bfe95fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe94000-0x00000000bfe94fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe93000-0x00000000bfe93fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe92000-0x00000000bfe92fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe91000-0x00000000bfe91fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe90000-0x00000000bfe90fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe8f000-0x00000000bfe8ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe8e000-0x00000000bfe8efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe8d000-0x00000000bfe8dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe8c000-0x00000000bfe8cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe8b000-0x00000000bfe8bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe8a000-0x00000000bfe8afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe89000-0x00000000bfe89fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe88000-0x00000000bfe88fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe87000-0x00000000bfe87fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe86000-0x00000000bfe86fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe85000-0x00000000bfe85fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe84000-0x00000000bfe84fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe83000-0x00000000bfe83fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe82000-0x00000000bfe82fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe81000-0x00000000bfe81fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe80000-0x00000000bfe80fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe7f000-0x00000000bfe7ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe7e000-0x00000000bfe7efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe7d000-0x00000000bfe7dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe7c000-0x00000000bfe7cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe7b000-0x00000000bfe7bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe7a000-0x00000000bfe7afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe79000-0x00000000bfe79fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe78000-0x00000000bfe78fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe77000-0x00000000bfe77fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe76000-0x00000000bfe76fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe75000-0x00000000bfe75fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe74000-0x00000000bfe74fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe73000-0x00000000bfe73fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe72000-0x00000000bfe72fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe71000-0x00000000bfe71fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe70000-0x00000000bfe70fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe6f000-0x00000000bfe6ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe6e000-0x00000000bfe6efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe6d000-0x00000000bfe6dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe6c000-0x00000000bfe6cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe6b000-0x00000000bfe6bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe6a000-0x00000000bfe6afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe69000-0x00000000bfe69fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe68000-0x00000000bfe68fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe67000-0x00000000bfe67fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe66000-0x00000000bfe66fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe65000-0x00000000bfe65fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe64000-0x00000000bfe64fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe63000-0x00000000bfe63fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe62000-0x00000000bfe62fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe61000-0x00000000bfe61fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe60000-0x00000000bfe60fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe5f000-0x00000000bfe5ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe5e000-0x00000000bfe5efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe5d000-0x00000000bfe5dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe5c000-0x00000000bfe5cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe5b000-0x00000000bfe5bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe5a000-0x00000000bfe5afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe59000-0x00000000bfe59fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe58000-0x00000000bfe58fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe57000-0x00000000bfe57fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe56000-0x00000000bfe56fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe55000-0x00000000bfe55fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe54000-0x00000000bfe54fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe53000-0x00000000bfe53fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe52000-0x00000000bfe52fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe51000-0x00000000bfe51fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe50000-0x00000000bfe50fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe4f000-0x00000000bfe4ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe4e000-0x00000000bfe4efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe4d000-0x00000000bfe4dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe4c000-0x00000000bfe4cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe4b000-0x00000000bfe4bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe4a000-0x00000000bfe4afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe49000-0x00000000bfe49fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe48000-0x00000000bfe48fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe47000-0x00000000bfe47fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe46000-0x00000000bfe46fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe45000-0x00000000bfe45fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe44000-0x00000000bfe44fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe43000-0x00000000bfe43fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe42000-0x00000000bfe42fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe41000-0x00000000bfe41fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe40000-0x00000000bfe40fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe3f000-0x00000000bfe3ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe3e000-0x00000000bfe3efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe3d000-0x00000000bfe3dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe3c000-0x00000000bfe3cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe3b000-0x00000000bfe3bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe3a000-0x00000000bfe3afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe39000-0x00000000bfe39fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe38000-0x00000000bfe38fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe37000-0x00000000bfe37fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe36000-0x00000000bfe36fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe35000-0x00000000bfe35fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe34000-0x00000000bfe34fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe33000-0x00000000bfe33fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe32000-0x00000000bfe32fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe31000-0x00000000bfe31fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe30000-0x00000000bfe30fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe2f000-0x00000000bfe2ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe2e000-0x00000000bfe2efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe2d000-0x00000000bfe2dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe2c000-0x00000000bfe2cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe2b000-0x00000000bfe2bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe2a000-0x00000000bfe2afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe29000-0x00000000bfe29fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe28000-0x00000000bfe28fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe27000-0x00000000bfe27fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe26000-0x00000000bfe26fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe25000-0x00000000bfe25fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe24000-0x00000000bfe24fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe23000-0x00000000bfe23fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe22000-0x00000000bfe22fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe21000-0x00000000bfe21fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe20000-0x00000000bfe20fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe1f000-0x00000000bfe1ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe1e000-0x00000000bfe1efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe1d000-0x00000000bfe1dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe1c000-0x00000000bfe1cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe1b000-0x00000000bfe1bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe1a000-0x00000000bfe1afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe19000-0x00000000bfe19fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe18000-0x00000000bfe18fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe17000-0x00000000bfe17fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe16000-0x00000000bfe16fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe15000-0x00000000bfe15fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe14000-0x00000000bfe14fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe13000-0x00000000bfe13fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe12000-0x00000000bfe12fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe11000-0x00000000bfe11fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe10000-0x00000000bfe10fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe0f000-0x00000000bfe0ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe0e000-0x00000000bfe0efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe0d000-0x00000000bfe0dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe0c000-0x00000000bfe0cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe0b000-0x00000000bfe0bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe0a000-0x00000000bfe0afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe09000-0x00000000bfe09fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe08000-0x00000000bfe08fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe07000-0x00000000bfe07fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe06000-0x00000000bfe06fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe05000-0x00000000bfe05fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe04000-0x00000000bfe04fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe03000-0x00000000bfe03fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe02000-0x00000000bfe02fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe01000-0x00000000bfe01fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfe00000-0x00000000bfe00fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdff000-0x00000000bfdfffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdfe000-0x00000000bfdfefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdfd000-0x00000000bfdfdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdfc000-0x00000000bfdfcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdfb000-0x00000000bfdfbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdfa000-0x00000000bfdfafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf9000-0x00000000bfdf9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf8000-0x00000000bfdf8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf7000-0x00000000bfdf7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf6000-0x00000000bfdf6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf5000-0x00000000bfdf5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf4000-0x00000000bfdf4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf3000-0x00000000bfdf3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf2000-0x00000000bfdf2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf1000-0x00000000bfdf1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdf0000-0x00000000bfdf0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdef000-0x00000000bfdeffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdee000-0x00000000bfdeefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfded000-0x00000000bfdedfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdec000-0x00000000bfdecfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdeb000-0x00000000bfdebfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdea000-0x00000000bfdeafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde9000-0x00000000bfde9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde8000-0x00000000bfde8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde7000-0x00000000bfde7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde6000-0x00000000bfde6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde5000-0x00000000bfde5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde4000-0x00000000bfde4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde3000-0x00000000bfde3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde2000-0x00000000bfde2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde1000-0x00000000bfde1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfde0000-0x00000000bfde0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfddf000-0x00000000bfddffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdde000-0x00000000bfddefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfddd000-0x00000000bfdddfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfddc000-0x00000000bfddcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfddb000-0x00000000bfddbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdda000-0x00000000bfddafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd9000-0x00000000bfdd9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd8000-0x00000000bfdd8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd7000-0x00000000bfdd7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd6000-0x00000000bfdd6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd5000-0x00000000bfdd5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd4000-0x00000000bfdd4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd3000-0x00000000bfdd3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd2000-0x00000000bfdd2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd1000-0x00000000bfdd1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdd0000-0x00000000bfdd0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdcf000-0x00000000bfdcffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdce000-0x00000000bfdcefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdcd000-0x00000000bfdcdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdcc000-0x00000000bfdccfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdcb000-0x00000000bfdcbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdca000-0x00000000bfdcafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc9000-0x00000000bfdc9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc8000-0x00000000bfdc8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc7000-0x00000000bfdc7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc6000-0x00000000bfdc6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc5000-0x00000000bfdc5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc4000-0x00000000bfdc4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc3000-0x00000000bfdc3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc2000-0x00000000bfdc2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc1000-0x00000000bfdc1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdc0000-0x00000000bfdc0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdbf000-0x00000000bfdbffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdbe000-0x00000000bfdbefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdbd000-0x00000000bfdbdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdbc000-0x00000000bfdbcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdbb000-0x00000000bfdbbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdba000-0x00000000bfdbafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb9000-0x00000000bfdb9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb8000-0x00000000bfdb8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb7000-0x00000000bfdb7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb6000-0x00000000bfdb6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb5000-0x00000000bfdb5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb4000-0x00000000bfdb4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb3000-0x00000000bfdb3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb2000-0x00000000bfdb2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb1000-0x00000000bfdb1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdb0000-0x00000000bfdb0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdaf000-0x00000000bfdaffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdae000-0x00000000bfdaefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdad000-0x00000000bfdadfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdac000-0x00000000bfdacfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdab000-0x00000000bfdabfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfdaa000-0x00000000bfdaafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda9000-0x00000000bfda9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda8000-0x00000000bfda8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda7000-0x00000000bfda7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda6000-0x00000000bfda6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda5000-0x00000000bfda5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda4000-0x00000000bfda4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda3000-0x00000000bfda3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda2000-0x00000000bfda2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda1000-0x00000000bfda1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfda0000-0x00000000bfda0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd9f000-0x00000000bfd9ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd9e000-0x00000000bfd9efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd9d000-0x00000000bfd9dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd9c000-0x00000000bfd9cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd9b000-0x00000000bfd9bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd9a000-0x00000000bfd9afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd99000-0x00000000bfd99fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd98000-0x00000000bfd98fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd97000-0x00000000bfd97fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd96000-0x00000000bfd96fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd95000-0x00000000bfd95fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd94000-0x00000000bfd94fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd93000-0x00000000bfd93fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd92000-0x00000000bfd92fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd91000-0x00000000bfd91fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd90000-0x00000000bfd90fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd8f000-0x00000000bfd8ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd8e000-0x00000000bfd8efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd8d000-0x00000000bfd8dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd8c000-0x00000000bfd8cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd8b000-0x00000000bfd8bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd8a000-0x00000000bfd8afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd89000-0x00000000bfd89fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd88000-0x00000000bfd88fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd87000-0x00000000bfd87fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd86000-0x00000000bfd86fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd85000-0x00000000bfd85fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd84000-0x00000000bfd84fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd83000-0x00000000bfd83fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd82000-0x00000000bfd82fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd81000-0x00000000bfd81fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd80000-0x00000000bfd80fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd7f000-0x00000000bfd7ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd7e000-0x00000000bfd7efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd7d000-0x00000000bfd7dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd7c000-0x00000000bfd7cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd7b000-0x00000000bfd7bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd7a000-0x00000000bfd7afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd79000-0x00000000bfd79fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd78000-0x00000000bfd78fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd77000-0x00000000bfd77fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd76000-0x00000000bfd76fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd75000-0x00000000bfd75fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd74000-0x00000000bfd74fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd73000-0x00000000bfd73fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd72000-0x00000000bfd72fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd71000-0x00000000bfd71fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd70000-0x00000000bfd70fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd6f000-0x00000000bfd6ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd6e000-0x00000000bfd6efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd6d000-0x00000000bfd6dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd6c000-0x00000000bfd6cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd6b000-0x00000000bfd6bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd6a000-0x00000000bfd6afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd69000-0x00000000bfd69fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd68000-0x00000000bfd68fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd67000-0x00000000bfd67fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd66000-0x00000000bfd66fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd65000-0x00000000bfd65fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd64000-0x00000000bfd64fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd63000-0x00000000bfd63fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd62000-0x00000000bfd62fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd61000-0x00000000bfd61fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd60000-0x00000000bfd60fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd5f000-0x00000000bfd5ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd5e000-0x00000000bfd5efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd5d000-0x00000000bfd5dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd5c000-0x00000000bfd5cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd5b000-0x00000000bfd5bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd5a000-0x00000000bfd5afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd59000-0x00000000bfd59fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd58000-0x00000000bfd58fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd57000-0x00000000bfd57fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd56000-0x00000000bfd56fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd55000-0x00000000bfd55fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd54000-0x00000000bfd54fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd53000-0x00000000bfd53fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd52000-0x00000000bfd52fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd51000-0x00000000bfd51fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd50000-0x00000000bfd50fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd4f000-0x00000000bfd4ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd4e000-0x00000000bfd4efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd4d000-0x00000000bfd4dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd4c000-0x00000000bfd4cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd4b000-0x00000000bfd4bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd4a000-0x00000000bfd4afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd49000-0x00000000bfd49fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd48000-0x00000000bfd48fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd47000-0x00000000bfd47fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd46000-0x00000000bfd46fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd45000-0x00000000bfd45fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd44000-0x00000000bfd44fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd43000-0x00000000bfd43fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd42000-0x00000000bfd42fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd41000-0x00000000bfd41fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd40000-0x00000000bfd40fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd3f000-0x00000000bfd3ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd3e000-0x00000000bfd3efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd3d000-0x00000000bfd3dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd3c000-0x00000000bfd3cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd3b000-0x00000000bfd3bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd3a000-0x00000000bfd3afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd39000-0x00000000bfd39fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd38000-0x00000000bfd38fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd37000-0x00000000bfd37fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd36000-0x00000000bfd36fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd35000-0x00000000bfd35fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd34000-0x00000000bfd34fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd33000-0x00000000bfd33fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd32000-0x00000000bfd32fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd31000-0x00000000bfd31fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd30000-0x00000000bfd30fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd2f000-0x00000000bfd2ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd2e000-0x00000000bfd2efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd2d000-0x00000000bfd2dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd2c000-0x00000000bfd2cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd2b000-0x00000000bfd2bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd2a000-0x00000000bfd2afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd29000-0x00000000bfd29fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd28000-0x00000000bfd28fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd27000-0x00000000bfd27fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd26000-0x00000000bfd26fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd25000-0x00000000bfd25fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd24000-0x00000000bfd24fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd23000-0x00000000bfd23fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd22000-0x00000000bfd22fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd21000-0x00000000bfd21fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd20000-0x00000000bfd20fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd1f000-0x00000000bfd1ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd1e000-0x00000000bfd1efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd1d000-0x00000000bfd1dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd1c000-0x00000000bfd1cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd1b000-0x00000000bfd1bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd1a000-0x00000000bfd1afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd19000-0x00000000bfd19fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd18000-0x00000000bfd18fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd17000-0x00000000bfd17fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd16000-0x00000000bfd16fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd15000-0x00000000bfd15fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd14000-0x00000000bfd14fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd13000-0x00000000bfd13fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd12000-0x00000000bfd12fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd11000-0x00000000bfd11fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd10000-0x00000000bfd10fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd0f000-0x00000000bfd0ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd0e000-0x00000000bfd0efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd0d000-0x00000000bfd0dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd0c000-0x00000000bfd0cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd0b000-0x00000000bfd0bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd0a000-0x00000000bfd0afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd09000-0x00000000bfd09fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd08000-0x00000000bfd08fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd07000-0x00000000bfd07fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd06000-0x00000000bfd06fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd05000-0x00000000bfd05fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd04000-0x00000000bfd04fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd03000-0x00000000bfd03fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd02000-0x00000000bfd02fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd01000-0x00000000bfd01fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfd00000-0x00000000bfd00fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcff000-0x00000000bfcfffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcfe000-0x00000000bfcfefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcfd000-0x00000000bfcfdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcfc000-0x00000000bfcfcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcfb000-0x00000000bfcfbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcfa000-0x00000000bfcfafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf9000-0x00000000bfcf9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf8000-0x00000000bfcf8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf7000-0x00000000bfcf7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf6000-0x00000000bfcf6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf5000-0x00000000bfcf5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf4000-0x00000000bfcf4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf3000-0x00000000bfcf3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf2000-0x00000000bfcf2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf1000-0x00000000bfcf1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcf0000-0x00000000bfcf0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcef000-0x00000000bfceffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcee000-0x00000000bfceefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfced000-0x00000000bfcedfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcec000-0x00000000bfcecfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfceb000-0x00000000bfcebfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcea000-0x00000000bfceafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce9000-0x00000000bfce9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce8000-0x00000000bfce8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce7000-0x00000000bfce7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce6000-0x00000000bfce6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce5000-0x00000000bfce5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce4000-0x00000000bfce4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce3000-0x00000000bfce3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce2000-0x00000000bfce2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce1000-0x00000000bfce1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfce0000-0x00000000bfce0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcdf000-0x00000000bfcdffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcde000-0x00000000bfcdefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcdd000-0x00000000bfcddfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcdc000-0x00000000bfcdcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcdb000-0x00000000bfcdbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcda000-0x00000000bfcdafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd9000-0x00000000bfcd9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd8000-0x00000000bfcd8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd7000-0x00000000bfcd7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd6000-0x00000000bfcd6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd5000-0x00000000bfcd5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd4000-0x00000000bfcd4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd3000-0x00000000bfcd3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd2000-0x00000000bfcd2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd1000-0x00000000bfcd1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcd0000-0x00000000bfcd0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfccf000-0x00000000bfccffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcce000-0x00000000bfccefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfccd000-0x00000000bfccdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfccc000-0x00000000bfcccfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfccb000-0x00000000bfccbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcca000-0x00000000bfccafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc9000-0x00000000bfcc9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc8000-0x00000000bfcc8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc7000-0x00000000bfcc7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc6000-0x00000000bfcc6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc5000-0x00000000bfcc5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc4000-0x00000000bfcc4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc3000-0x00000000bfcc3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc2000-0x00000000bfcc2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc1000-0x00000000bfcc1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcc0000-0x00000000bfcc0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcbf000-0x00000000bfcbffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcbe000-0x00000000bfcbefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcbd000-0x00000000bfcbdfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcbc000-0x00000000bfcbcfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcbb000-0x00000000bfcbbfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcba000-0x00000000bfcbafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb9000-0x00000000bfcb9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb8000-0x00000000bfcb8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb7000-0x00000000bfcb7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb6000-0x00000000bfcb6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb5000-0x00000000bfcb5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb4000-0x00000000bfcb4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb3000-0x00000000bfcb3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb2000-0x00000000bfcb2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb1000-0x00000000bfcb1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcb0000-0x00000000bfcb0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcaf000-0x00000000bfcaffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcae000-0x00000000bfcaefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcad000-0x00000000bfcadfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcac000-0x00000000bfcacfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcab000-0x00000000bfcabfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfcaa000-0x00000000bfcaafff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca9000-0x00000000bfca9fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca8000-0x00000000bfca8fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca7000-0x00000000bfca7fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca6000-0x00000000bfca6fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca5000-0x00000000bfca5fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca4000-0x00000000bfca4fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca3000-0x00000000bfca3fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca2000-0x00000000bfca2fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca1000-0x00000000bfca1fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfca0000-0x00000000bfca0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc9f000-0x00000000bfc9ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc9e000-0x00000000bfc9efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc9d000-0x00000000bfc9dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc9c000-0x00000000bfc9cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc9b000-0x00000000bfc9bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc9a000-0x00000000bfc9afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc99000-0x00000000bfc99fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc98000-0x00000000bfc98fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc97000-0x00000000bfc97fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc96000-0x00000000bfc96fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc95000-0x00000000bfc95fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc94000-0x00000000bfc94fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc93000-0x00000000bfc93fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc92000-0x00000000bfc92fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc91000-0x00000000bfc91fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc90000-0x00000000bfc90fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc8f000-0x00000000bfc8ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc8e000-0x00000000bfc8efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc8d000-0x00000000bfc8dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc8c000-0x00000000bfc8cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc8b000-0x00000000bfc8bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc8a000-0x00000000bfc8afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc89000-0x00000000bfc89fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc88000-0x00000000bfc88fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc87000-0x00000000bfc87fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc86000-0x00000000bfc86fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc85000-0x00000000bfc85fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc84000-0x00000000bfc84fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc83000-0x00000000bfc83fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc82000-0x00000000bfc82fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc81000-0x00000000bfc81fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc80000-0x00000000bfc80fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc7f000-0x00000000bfc7ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc7e000-0x00000000bfc7efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc7d000-0x00000000bfc7dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc7c000-0x00000000bfc7cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc7b000-0x00000000bfc7bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc7a000-0x00000000bfc7afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc79000-0x00000000bfc79fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc78000-0x00000000bfc78fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc77000-0x00000000bfc77fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc76000-0x00000000bfc76fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc75000-0x00000000bfc75fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc74000-0x00000000bfc74fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc73000-0x00000000bfc73fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc72000-0x00000000bfc72fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc71000-0x00000000bfc71fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc70000-0x00000000bfc70fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc6f000-0x00000000bfc6ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc6e000-0x00000000bfc6efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc6d000-0x00000000bfc6dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc6c000-0x00000000bfc6cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc6b000-0x00000000bfc6bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc6a000-0x00000000bfc6afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc69000-0x00000000bfc69fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc68000-0x00000000bfc68fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc67000-0x00000000bfc67fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc66000-0x00000000bfc66fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc65000-0x00000000bfc65fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc64000-0x00000000bfc64fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc63000-0x00000000bfc63fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc62000-0x00000000bfc62fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc61000-0x00000000bfc61fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc60000-0x00000000bfc60fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc5f000-0x00000000bfc5ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc5e000-0x00000000bfc5efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc5d000-0x00000000bfc5dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc5c000-0x00000000bfc5cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc5b000-0x00000000bfc5bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc5a000-0x00000000bfc5afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc59000-0x00000000bfc59fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc58000-0x00000000bfc58fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc57000-0x00000000bfc57fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc56000-0x00000000bfc56fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc55000-0x00000000bfc55fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc54000-0x00000000bfc54fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc53000-0x00000000bfc53fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc52000-0x00000000bfc52fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc51000-0x00000000bfc51fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc50000-0x00000000bfc50fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc4f000-0x00000000bfc4ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc4e000-0x00000000bfc4efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc4d000-0x00000000bfc4dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc4c000-0x00000000bfc4cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc4b000-0x00000000bfc4bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc4a000-0x00000000bfc4afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc49000-0x00000000bfc49fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc48000-0x00000000bfc48fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc47000-0x00000000bfc47fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc46000-0x00000000bfc46fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc45000-0x00000000bfc45fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc44000-0x00000000bfc44fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc43000-0x00000000bfc43fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc42000-0x00000000bfc42fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc41000-0x00000000bfc41fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc40000-0x00000000bfc40fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc3f000-0x00000000bfc3ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc3e000-0x00000000bfc3efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc3d000-0x00000000bfc3dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc3c000-0x00000000bfc3cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc3b000-0x00000000bfc3bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc3a000-0x00000000bfc3afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc39000-0x00000000bfc39fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc38000-0x00000000bfc38fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc37000-0x00000000bfc37fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc36000-0x00000000bfc36fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc35000-0x00000000bfc35fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc34000-0x00000000bfc34fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc33000-0x00000000bfc33fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc32000-0x00000000bfc32fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc31000-0x00000000bfc31fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc30000-0x00000000bfc30fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc2f000-0x00000000bfc2ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc2e000-0x00000000bfc2efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc2d000-0x00000000bfc2dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc2c000-0x00000000bfc2cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc2b000-0x00000000bfc2bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc2a000-0x00000000bfc2afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc29000-0x00000000bfc29fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc28000-0x00000000bfc28fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc27000-0x00000000bfc27fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc26000-0x00000000bfc26fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc25000-0x00000000bfc25fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc24000-0x00000000bfc24fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc23000-0x00000000bfc23fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc22000-0x00000000bfc22fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc21000-0x00000000bfc21fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc20000-0x00000000bfc20fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc1f000-0x00000000bfc1ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc1e000-0x00000000bfc1efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc1d000-0x00000000bfc1dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc1c000-0x00000000bfc1cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc1b000-0x00000000bfc1bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc1a000-0x00000000bfc1afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc19000-0x00000000bfc19fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc18000-0x00000000bfc18fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc17000-0x00000000bfc17fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc16000-0x00000000bfc16fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc15000-0x00000000bfc15fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc14000-0x00000000bfc14fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc13000-0x00000000bfc13fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc12000-0x00000000bfc12fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc11000-0x00000000bfc11fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc10000-0x00000000bfc10fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc0f000-0x00000000bfc0ffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc0e000-0x00000000bfc0efff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc0d000-0x00000000bfc0dfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc0c000-0x00000000bfc0cfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc0b000-0x00000000bfc0bfff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc0a000-0x00000000bfc0afff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc09000-0x00000000bfc09fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc08000-0x00000000bfc08fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc07000-0x00000000bfc07fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc06000-0x00000000bfc06fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc05000-0x00000000bfc05fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc04000-0x00000000bfc04fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc03000-0x00000000bfc03fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc02000-0x00000000bfc02fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc01000-0x00000000bfc01fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfc00000-0x00000000bfc00fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfbff000-0x00000000bfbfffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfbfe000-0x00000000bfbfefff] memblock_alloc_range_nid+0xc8/0x134
+memblock_reserve: [0x00000000bfbfd000-0x00000000bfbfdfff] memblock_alloc_range_nid+0xc8/0x134
+   memblock_free: [0x00000000409eb000-0x00000000409ecfff] paging_init+0x6f0/0x718
+memblock_alloc_try_nid: 34436 bytes align=0x8 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 early_init_dt_alloc_memory_arch+0x24/0x50
+memblock_reserve: [0x00000000bfbf4978-0x00000000bfbfcffb] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 8192 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 memory_present+0x4c/0x144
+memblock_reserve: [0x00000000bfbf2940-0x00000000bfbf493f] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 4096 bytes align=0x40 nid=0 from=0x0000000000000000 max_addr=0x0000000000000000 sparse_index_alloc+0x4c/0x78
+memblock_reserve: [0x00000000bfbf1940-0x00000000bfbf293f] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 384 bytes align=0x40 nid=0 from=0x0000000000000000 max_addr=0x0000000000000000 sparse_init_nid+0x50/0x32c
+memblock_reserve: [0x00000000bfbf17c0-0x00000000bfbf193f] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid_raw: 33554432 bytes align=0x1000 nid=0 from=0x0000000040000000 max_addr=0x0000000000000000 sparse_init_nid+0xbc/0x32c
+memblock_reserve: [0x00000000bdbf1000-0x00000000bfbf0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid_raw: 4096 bytes align=0x1000 nid=0 from=0x0000000040000000 max_addr=0x0000000000000000 __earlyonly_bootmem_alloc+0x24/0x2c
+memblock_reserve: [0x00000000bdbf0000-0x00000000bdbf0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid_raw: 2097152 bytes align=0x200000 nid=0 from=0x0000000040000000 max_addr=0x0000000000000000 __earlyonly_bootmem_alloc+0x24/0x2c
+memblock_reserve: [0x00000000bd800000-0x00000000bd9fffff] memblock_alloc_range_nid+0xc8/0x134
+   memblock_free: [0x00000000bfa00000-0x00000000bfbf0fff] sparse_init_nid+0x238/0x32c
+MEMBLOCK configuration:
+ memory size = 0x0000000080000000 reserved size = 0x0000000002e89804
+ memory.cnt  = 0x1
+ memory[0x0]	[0x0000000040000000-0x00000000bfffffff], 0x0000000080000000 bytes flags: 0x0
+ reserved.cnt  = 0x7
+ reserved[0x0]	[0x0000000040080000-0x00000000409eafff], 0x000000000096b000 bytes flags: 0x0
+ reserved[0x1]	[0x0000000048000000-0x00000000480fffff], 0x0000000000100000 bytes flags: 0x0
+ reserved[0x2]	[0x00000000bd800000-0x00000000bd9fffff], 0x0000000000200000 bytes flags: 0x0
+ reserved[0x3]	[0x00000000bdbf0000-0x00000000bf9fffff], 0x0000000001e10000 bytes flags: 0x0
+ reserved[0x4]	[0x00000000bfbf17c0-0x00000000bfbf493f], 0x0000000000003180 bytes flags: 0x0
+ reserved[0x5]	[0x00000000bfbf4978-0x00000000bfbfcffb], 0x0000000000008684 bytes flags: 0x0
+ reserved[0x6]	[0x00000000bfbfd000-0x00000000bfffffff], 0x0000000000403000 bytes flags: 0x0
+memblock_alloc_try_nid: 64 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 setup_arch+0x264/0x55c
+memblock_reserve: [0x00000000bfbf1780-0x00000000bfbf17bf] memblock_alloc_range_nid+0xc8/0x134
+psci: probing for conduit method from DT.
+psci: PSCIv0.2 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS migration not required
+memblock_alloc_try_nid: 149 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 start_kernel+0xcc/0x4fc
+memblock_reserve: [0x00000000bfbf16c0-0x00000000bfbf1754] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 149 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 start_kernel+0xec/0x4fc
+memblock_reserve: [0x00000000bfbf1600-0x00000000bfbf1694] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 149 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 start_kernel+0x10c/0x4fc
+memblock_reserve: [0x00000000bfbf1540-0x00000000bfbf15d4] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 4096 bytes align=0x1000 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_alloc_info+0x54/0xa0
+memblock_reserve: [0x00000000bfbf0000-0x00000000bfbf0fff] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 4096 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_embed_first_chunk+0x44c/0x6e4
+memblock_reserve: [0x00000000bfbef000-0x00000000bfbeffff] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 237568 bytes align=0x1000 nid=-1 from=0x0000000040000000 max_addr=0x0000000000000000 pcpu_dfl_fc_alloc+0x24/0x2c
+memblock_reserve: [0x00000000bfbb5000-0x00000000bfbeefff] memblock_alloc_range_nid+0xc8/0x134
+   memblock_free: [0x00000000bfbd2000-0x00000000bfbd1fff] pcpu_dfl_fc_free+0x30/0x38
+   memblock_free: [0x00000000bfbef000-0x00000000bfbeefff] pcpu_dfl_fc_free+0x30/0x38
+percpu: Embedded 29 pages/cpu s79680 r8192 d30912 u118784
+memblock_alloc_try_nid: 8 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x338/0x92c
+memblock_reserve: [0x00000000bfbf4940-0x00000000bfbf4947] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 8 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x37c/0x92c
+memblock_reserve: [0x00000000bfbf1500-0x00000000bfbf1507] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 8 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x3c4/0x92c
+memblock_reserve: [0x00000000bfbf14c0-0x00000000bfbf14c7] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 16 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x408/0x92c
+memblock_reserve: [0x00000000bfbf1480-0x00000000bfbf148f] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 256 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_setup_first_chunk+0x7c0/0x92c
+memblock_reserve: [0x00000000bfbf1380-0x00000000bfbf147f] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 121 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x74/0x2b0
+memblock_reserve: [0x00000000bfbf1300-0x00000000bfbf1378] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 384 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0xc0/0x2b0
+memblock_reserve: [0x00000000bfbf1180-0x00000000bfbf12ff] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 392 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x10c/0x2b0
+memblock_reserve: [0x00000000bfbb4e40-0x00000000bfbb4fc7] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 96 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x134/0x2b0
+memblock_reserve: [0x00000000bfbf1100-0x00000000bfbf115f] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 121 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x74/0x2b0
+memblock_reserve: [0x00000000bfbf1080-0x00000000bfbf10f8] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 1024 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0xc0/0x2b0
+memblock_reserve: [0x00000000bfbb4a40-0x00000000bfbb4e3f] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 1032 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x10c/0x2b0
+memblock_reserve: [0x00000000bfbb4600-0x00000000bfbb4a07] memblock_alloc_range_nid+0xc8/0x134
+memblock_alloc_try_nid: 256 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 pcpu_alloc_first_chunk+0x134/0x2b0
+memblock_reserve: [0x00000000bfbb4500-0x00000000bfbb45ff] memblock_alloc_range_nid+0xc8/0x134
+   memblock_free: [0x00000000bfbf0000-0x00000000bfbf0fff] pcpu_free_alloc_info+0x38/0x40
+   memblock_free: [0x00000000bfbef000-0x00000000bfbeffff] pcpu_embed_first_chunk+0x6c4/0x6e4
+Detected PIPT I-cache on CPU0
+CPU features: detected: ARM erratum 832075
+CPU features: detected: EL2 vector hardening
+ARM_SMCCC_ARCH_WORKAROUND_1 missing from firmware
+Built 1 zonelists, mobility grouping on.  Total pages: 516096
+Kernel command line: route=172.17.0.3 iface=eth0 rw fsck.repair=yes rootwait root=/dev/vda earlycon memblock=debug sharetag=hostshare sharedir=/hostshare console=ttyAMA0
+memblock_alloc_try_nid: 2097152 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 alloc_large_system_hash+0x1ac/0x320
+memblock_reserve: [0x00000000bd600000-0x00000000bd7fffff] memblock_alloc_range_nid+0xc8/0x134
+Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+memblock_alloc_try_nid: 1048576 bytes align=0x40 nid=-1 from=0x0000000000000000 max_addr=0x0000000000000000 alloc_large_system_hash+0x1ac/0x320
+memblock_reserve: [0x00000000bfab4500-0x00000000bfbb44ff] memblock_alloc_range_nid+0xc8/0x134
+Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+mem auto-init: stack:off, heap alloc:off, heap free:off
+Memory: 2046188K/2097152K available (6204K kernel code, 792K rwdata, 1536K rodata, 704K init, 337K bss, 50964K reserved, 0K cma-reserved)
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU event tracing is enabled.
+rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=2.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+random: get_random_bytes called from start_kernel+0x370/0x4fc with crng_init=0
+arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+sched_clock: 56 bits at 62MHz, resolution 16ns, wraps every 4398046511096ns
+Console: colour dummy device 80x25
+Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=250000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+ASID allocator initialised with 32768 entries
+rcu: Hierarchical SRCU implementation.
+EFI services will not be available.
+smp: Bringing up secondary CPUs ...
+Detected PIPT I-cache on CPU1
+CPU1: Booted secondary processor 0x0000000001 [0x411fd070]
+smp: Brought up 1 node, 2 CPUs
+SMP: Total of 2 processors activated.
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+CPU: All CPU(s) started at EL1
+alternatives: patching kernel code
+devtmpfs: initialized
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+futex hash table entries: 512 (order: 3, 32768 bytes, linear)
+DMI not present or invalid.
+NET: Registered protocol family 16
+hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+DMA: preallocated 256 KiB pool for atomic allocations
+Serial: AMBA PL011 UART driver
+9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 39, base_baud = 0) is a PL011 rev1
+printk: console [ttyAMA0] enabled
+printk: console [ttyAMA0] enabled
+printk: bootconsole [pl11] disabled
+printk: bootconsole [pl11] disabled
+SCSI subsystem initialized
+clocksource: Switched to clocksource arch_sys_counter
+NET: Registered protocol family 2
+tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+TCP bind hash table entries: 16384 (order: 6, 262144 bytes, linear)
+TCP: Hash tables configured (established 16384 bind 16384)
+UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+hw perfevents: enabled with armv8_pmuv3 PMU driver, 5 counters available
+workingset: timestamp_bits=62 max_order=19 bucket_order=0
+NFS: Registering the id_resolver key type
+Key type id_resolver registered
+Key type id_legacy registered
+9p: Installing v9fs 9p2000 file system support
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+io scheduler mq-deadline registered
+io scheduler kyber registered
+cacheinfo: Unable to detect cache hierarchy for CPU 0
+virtio_blk virtio0: [vda] 122880 512-byte logical blocks (62.9 MB/60.0 MiB)
+NET: Registered protocol family 10
+Segment Routing with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+9pnet: Installing 9P2000 support
+Key type dns_resolver registered
+registered taskstats version 1
+hctosys: unable to open rtc device (rtc0)
+EXT4-fs (vda): mounting ext2 file system using the ext4 subsystem
+EXT4-fs (vda): warning: mounting unchecked fs, running e2fsck is recommended
+EXT4-fs (vda): mounted filesystem without journal. Opts: (null)
+VFS: Mounted root (ext2 filesystem) on device 254:0.
+devtmpfs: mounted
+Freeing unused kernel memory: 704K
+Run /sbin/init as init process
+EXT4-fs (vda): re-mounted. Opts: (null)
+Starting syslogd: OK
+Starting klogd: OK
+Running sysctl: OK
+Initializing random number generator... random: dd: uninitialized urandom read (512 bytes read)
+done.
+Starting network: eth: eth0, ip: 172.17.0.197, gw: 172.17.0.3
+OK
+
+Starting sharing ...
+
+
+Welcome to Linux Lab
+linux-lab login: ROOT
+Password: 
+Login incorrect
+linux-lab login: root
+# ls /ho# ls /hostshare/[J
+[1;34mlab1_mmap[m
+# cd /o# cd /opt/[J[J[J[J[Jho# cd /hostshare/[Jl# cd /hostshare/lab1_mmap/[J
+# ls
+[0;0mMakefile[m              [0;0mmydev_mmap.c[m          [0;0mmydevdemo_mmap.mod.o[m
+[0;0mModule.symvers[m        [0;0mmydev_mmap.o[m          [0;0mmydevdemo_mmap.o[m
+[0;0mREADME[m                [0;0mmydevdemo_mmap.ko[m     [0;0mslabinfo.txt[m
+[1;32mmmap_test[m             [0;0mmydevdemo_mmap.mod[m    [1;32mtest[m
+[0;0mmodules.order[m         [0;0mmydevdemo_mmap.mod.c[m  [0;0mtest.c[m
+# insmod my# insmod mydev[Jd# insmod mydevdemo_mmap.[Jko
+random: fast init done
+mydevdemo_mmap: loading out-of-tree module taints kernel.
+succeeded register char device: my_demo_dev
+# ./m# ./m[Jm# ./mmap_test [J
+demodrv_open: major=10, minor=59
+driver max buffer size=40960
+demodrv_mmap: mapping 40960 bytes of device buffer at offset 0
+mmap driver buffer succeeded: 0xf7ed7000
+demodrv_read: read nbytes=40960 done at pos=40960
+data modify and compare succussful
+# ./te# ./test[J
+demodrv_open: major=10, minor=59
+driver max buffer size=40960
+demodrv_mmap: mapping 40960 bytes of device buffer at offset 0
+mmap driver buffer succeeded: 0x7fb956b000
+demodrv_read: read nbytes=40960 done at pos=40960
+data modify and compare succussful
+# ls
+[0;0mMakefile[m              [0;0mmydev_mmap.c[m          [0;0mmydevdemo_mmap.mod.o[m
+[0;0mModule.symvers[m        [0;0mmydev_mmap.o[m          [0;0mmydevdemo_mmap.o[m
+[0;0mREADME[m                [0;0mmydevdemo_mmap.ko[m     [0;0mslabinfo.txt[m
+[1;32mmmap_test[m             [0;0mmydevdemo_mmap.mod[m    [1;32mtest[m
+[0;0mmodules.order[m         [0;0mmydevdemo_mmap.mod.c[m  [0;0mtest.c[m
+# ls -al
+total 4684
+drwxr-xr-x   22 root     root           704 Nov 29  2019 [1;34m.[m
+drwxr-xr-x    3 root     root            96 Nov 29  2019 [1;34m..[m
+-rw-r--r--    1 root     root         49518 Nov 29  2019 [0;0m.mydev_mmap.o.cmd[m
+-rw-r--r--    1 root     root           450 Nov 29  2019 [0;0m.mydevdemo_mmap.ko.cmd[m
+-rw-r--r--    1 root     root           215 Nov 29  2019 [0;0m.mydevdemo_mmap.mod.cmd[m
+-rw-r--r--    1 root     root         39545 Nov 29  2019 [0;0m.mydevdemo_mmap.mod.o.cmd[m
+-rw-r--r--    1 root     root           241 Nov 29  2019 [0;0m.mydevdemo_mmap.o.cmd[m
+-rw-r--r--    1 root     root           351 Nov 29  2019 [0;0mMakefile[m
+-rw-r--r--    1 root     root             0 Nov 29  2019 [0;0mModule.symvers[m
+-rw-r--r--    1 root     root           812 Nov 29  2019 [0;0mREADME[m
+-rwxr-xr-x    1 root     root        508412 Nov 29  2019 [1;32mmmap_test[m
+-rw-r--r--    1 root     root            64 Nov 29  2019 [0;0mmodules.order[m
+-rw-r--r--    1 root     root          3482 Nov 29  2019 [0;0mmydev_mmap.c[m
+-rw-r--r--    1 root     root        148360 Nov 29  2019 [0;0mmydev_mmap.o[m
+-rw-r--r--    1 root     root        221176 Nov 29  2019 [0;0mmydevdemo_mmap.ko[m
+-rw-r--r--    1 root     root            60 Nov 29  2019 [0;0mmydevdemo_mmap.mod[m
+-rw-r--r--    1 root     root           593 Nov 29  2019 [0;0mmydevdemo_mmap.mod.c[m
+-rw-r--r--    1 root     root         74064 Nov 29  2019 [0;0mmydevdemo_mmap.mod.o[m
+-rw-r--r--    1 root     root        148392 Nov 29  2019 [0;0mmydevdemo_mmap.o[m
+-rw-r--r--    1 root     root         10400 Nov 29  2019 [0;0mslabinfo.txt[m
+-rwxr-xr-x    1 root     root       3533717 Nov 29  2019 [1;32mtest[m
+-rw-r--r--    1 root     root          1589 Nov 29  2019 [0;0mtest.c[m
+# man dmesg
+-sh: man: not found
+# insmod my# insmod mydev[Jm[J# insmod mydev[J
+mydev_mmap.c          mydevdemo_mmap.mod    mydevdemo_mmap.o
+mydev_mmap.o          mydevdemo_mmap.mod.c
+mydevdemo_mmap.ko     mydevdemo_mmap.mod.o
+# insmod mydev[Jd# insmod mydevdemo_mmap.[Jo[Jko
+insmod: can't insert 'mydevdemo_mmap.ko': File exists
+# rmmo[Jod md[Jyde# rmmod mydev[Jd# rmmod mydevdemo_mmap.[J
+removing device
+# # rmmod mydevdemo_mmap.[Jko
+rmmod: can't unload module 'mydevdemo_mmap': No such file or directory
+# i# rmmod mydevdemo_mmap.ko[J# rmmod mydevdemo_mmap.[J# insmod mydevdemo_mmap.ko[J# man dmesg[J# insmod mydevdemo_mmap.ko[J
+my_demo_devsucceeded register char device: my_demo_dev
+# ./te# ./test[J
+my_demo_devdemodrv_open: major=10, minor=59
+driver max buffer size=40960
+my_demo_devdemodrv_mmap: mapping 40960 bytes of device buffer at offset 0
+mmap driver buffer succeeded: 0x7f9044b000
+my_demo_devdemodrv_read: read nbytes=40960 done at pos=40960
+data modify and compare succussful
+# rmmod mydev# rmmod mydev[Jm[Jd# rmmod mydevdemo_mmap.[Jji[J[Jko
+my_demo_devremoving device
+# insmod myde# insmod mydev[Jd# insmod mydevdemo_mmap.[Je[Jko
+my_demo_dev: succeeded register char device: my_demo_dev
+# rmmmo[J[Jod myd# rmmod mydev[J[J# rmmod mydev[Jd# rmmod mydevdemo_mmap.[J
+my_demo_dev: removing device
+# insmod myde# insmod mydev[Jde# insmod mydevdemo_mmap.[Jko
+my_demo_dev=> succeeded register char device: my_demo_dev
+# ./my# ./mydev[J-[J）[J_[J[J_te[J[J[J[J[J[J[J[J[J[J[Jls
+[0;0mMakefile[m              [0;0mmydev_mmap.c[m          [0;0mmydevdemo_mmap.mod.o[m
+[0;0mModule.symvers[m        [0;0mmydev_mmap.o[m          [0;0mmydevdemo_mmap.o[m
+[0;0mREADME[m                [0;0mmydevdemo_mmap.ko[m     [0;0mslabinfo.txt[m
+[1;32mmmap_test[m             [0;0mmydevdemo_mmap.mod[m    [1;32mtest[m
+[0;0mmodules.order[m         [0;0mmydevdemo_mmap.mod.c[m  [0;0mtest.c[m
+# ./mm# ./mmap_test [J
+my_demo_dev=> demodrv_open: major=10, minor=59
+driver max buffer size=40960
+my_demo_dev=> demodrv_mmap: mapping 40960 bytes of device buffer at offset 0
+mmap driver buffer succeeded: 0xf7b50000
+my_demo_dev=> demodrv_read: read nbytes=40960 done at pos=40960
+data modify and compare succussful
+# QEMU: Terminated
+make[1]:正在离开目录 `/labs/linux-lab'
