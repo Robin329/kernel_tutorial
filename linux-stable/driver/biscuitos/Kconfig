@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: GPL-2.0
+menu "BiscuitOS"
+
+config BISCUITOS
+    bool "BiscuitOS Driver"
+    ---help---
+        Enable support for BiscuitOS drivers
+        
+if BISCUITOS
+
+config BISCUITOS_MISC
+    bool "BiscuitOS misc driver"
+
+config BISCUITOS_THREAD_INFO
+    bool "thread_info"
+
+if BISCUITOS_THREAD_INFO
+
+config DEBUG_BISCUITOS_THREAD_INFO
+    bool "THREAD_INFO"
+
+endif # BISCUITOS_THREAD_INFO
+
+endif # BISCUITOS
+
+endmenu
