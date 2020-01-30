@@ -1,0 +1,19 @@
+{
+    "author": "Wu Zhangjin <wuzhangjin@gmail.com>",
+    "description": "这是开源书籍《Shell 编程范例》的 GitBook 版本",
+    "generator": "site",
+    "plugins" : [ "disqus", "collapsible-menu"],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "tinylab"
+        }
+    },
+    "links": {
+        "sidebar": {
+            "项目首页": "http://www.tinylab.org/open-shell-book/",
+            "泰晓科技": "http://www.tinylab.org",
+            "C 语言编程透视": "http://tinylab.gitbooks.io/cbook"
+        }
+    },
+    "title": "Shell 编程范例"
+}
