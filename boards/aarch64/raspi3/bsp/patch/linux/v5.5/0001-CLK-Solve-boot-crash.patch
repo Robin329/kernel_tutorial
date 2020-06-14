@@ -1,0 +1,74 @@
+From 96e023f05868175a90c3ee9bf25ea2fbcd2920e7 Mon Sep 17 00:00:00 2001
+From: "Robin.J" <jiangrenbin329@gmail.com>
+Date: Tue, 28 Apr 2020 17:48:10 +0000
+Subject: [PATCH 1/2] CLK: Solve boot crash.
+
+[    0.643182] pc : __pi_strcmp+0x18/0x154
+[    0.643329] lr : __clk_lookup_subtree+0x30/0x90
+[    0.643479] sp : ffffff803b91b960
+[    0.643624] x29: ffffff803b91b960 x28: 0000000000000030
+[    0.643846] x27: 0000000000000008 x26: ffffffc010935098
+[    0.644046] x25: ffffffc010593160 x24: ffffff8039dae080
+[    0.644224] x23: 0000000000000001 x22: ffffff8039dad780
+[    0.644385] x21: 0000000000000000 x20: ffffff8039dae000
+[    0.644691] x19: ffffff803bb7e3d8 x18: 0000000000000000
+[    0.644862] x17: 0000000100000000 x16: 000000000000003f
+[    0.645020] x15: ffffffffffffffff x14: ffffffffffffffff
+[    0.645268] x13: 0000000000000020 x12: 0000000000000000
+[    0.645415] x11: 0000000000000000 x10: 0101010101010101
+[    0.645655] x9 : 0000000000000000 x8 : ffffffff7fffff7f
+[    0.645911] x7 : 0000000000000000 x6 : f088db53df8d9c9e
+[    0.646053] x5 : 9e9c8ddf53db8870 x4 : 0000000000000080
+[    0.646284] x3 : 706c6c685f726361 x2 : 0000000000000000
+[    0.646447] x1 : ffffff8039dae000 x0 : 0000000000000000
+[    0.646672] Call trace:
+[    0.646748]  __pi_strcmp+0x18/0x154
+[    0.646816]  __clk_lookup_subtree+0x50/0x90
+[    0.646888]  __clk_lookup_subtree+0x50/0x90
+[    0.646998]  __clk_lookup_subtree+0x50/0x90
+[    0.647084]  clk_core_lookup+0x40/0x94
+[    0.647228]  __clk_register+0x12c/0x690
+[    0.647308]  clk_hw_register+0x30/0x68
+[    0.647376]  devm_clk_hw_register+0x4c/0x9c
+[    0.647460]  bcm2835_register_pll_divider+0xf4/0x15c
+[    0.647544]  bcm2835_clk_probe+0x10c/0x1ac
+[    0.647636]  platform_drv_probe+0x40/0x84
+[    0.647720]  really_probe+0xe4/0x310
+[    0.647880]  driver_probe_device+0xa8/0xc8
+[    0.647971]  device_driver_attach+0x70/0x78
+[    0.648108]  __driver_attach+0xa4/0xec
+[    0.648240]  bus_for_each_dev+0x60/0xa8
+[    0.648523]  driver_attach+0x30/0x3c
+[    0.648630]  bus_add_driver+0x144/0x204
+[    0.648857]  driver_register+0x68/0x114
+[    0.648951]  __platform_driver_register+0x5c/0x68
+[    0.649088]  bcm2835_clk_driver_init+0x20/0x28
+[    0.649206]  do_one_initcall+0x58/0x258
+[    0.649314]  kernel_init_freeable+0x16c/0x1d4
+[    0.649410]  kernel_init+0x18/0x108
+[    0.649486]  ret_from_fork+0x10/0x18
+
+Signed-off-by: Robin.J <jiangrenbin329@gmail.com>
+---
+ drivers/clk/clk.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index 772258d..6c39df9 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -293,9 +293,9 @@ static struct clk_core *__clk_lookup_subtree(const char *name,
+ 	struct clk_core *child;
+ 	struct clk_core *ret;
+ 
+-	if (!strcmp(core->name, name))
++/* 	if (!strcmp(core->name, name))
+ 		return core;
+-
++ */
+ 	hlist_for_each_entry(child, &core->children, child_node) {
+ 		ret = __clk_lookup_subtree(name, child);
+ 		if (ret)
+-- 
+1.9.1
+

@@ -1,0 +1,59 @@
+From 9fd05513ef8eb7230c46f3f48ae6270ca598c31e Mon Sep 17 00:00:00 2001
+From: "Robin.J" <jiangrenbin329@gmail.com>
+Date: Tue, 28 Apr 2020 17:52:04 +0000
+Subject: [PATCH 2/2] TTY: Solve boot Warning.
+
+[    1.301850] pc : uart_get_baud_rate+0xcc/0x17c
+[    1.302013] lr : uart_get_baud_rate+0x88/0x17c
+[    1.302170] sp : ffffff803b91ba20
+[    1.302436] x29: ffffff803b91ba20 x28: 0000000000000000
+[    1.302790] x27: 00000000ffffffff x26: 0000000000009600
+[    1.303002] x25: 0000000000000000 x24: 0000000000009600
+[    1.303145] x23: 00000000ffffeff0 x22: 0000000000000001
+[    1.303379] x21: 0000000000000000 x20: 0000000000000001
+[    1.303530] x19: ffffff8039fa7d10 x18: 0000000000000000
+[    1.303670] x17: 0000000000000000 x16: 0000000000000000
+[    1.303820] x15: 0000000000000000 x14: 0000000000000000
+[    1.303935] x13: 0000000000000000 x12: 0000000000000000
+[    1.304096] x11: 0000000000000000 x10: 0000000000000000
+[    1.304429] x9 : 0000000000000000 x8 : 010004157f1c0300
+[    1.305301] x7 : 0000000000000000 x6 : 0000000000000000
+[    1.306172] x5 : 0000000000000008 x4 : 0000000000000000
+[    1.306717] x3 : 0000000000000000 x2 : 0000000000000cb0
+[    1.307404] x1 : 0000000000000cb0 x0 : 0000000000002580
+[    1.307590] Call trace:
+[    1.307978]  uart_get_baud_rate+0xcc/0x17c
+[    1.308139]  pl011_set_termios+0x60/0x3a4
+[    1.308300]  uart_change_speed+0x60/0x118
+[    1.308439]  uart_set_termios+0x7c/0x164
+[    1.308578]  tty_set_termios+0x164/0x1ec
+[    1.308721]  set_termios+0x168/0x558
+[    1.309031]  tty_mode_ioctl+0x5d4/0x74c
+[    1.309242]  n_tty_ioctl_helper+0x54/0x144
+[    1.309386]  n_tty_ioctl+0xdc/0x238
+[    1.309811]  tty_ioctl+0x120/0xd14
+[    1.309947]  do_vfs_ioctl+0xb0/0xadc
+[    1.310095]  ksys_ioctl+0x50/0x98
+[    1.310214]  __arm64_sys_ioctl+0x28/0x38
+
+Signed-off-by: Robin.J <jiangrenbin329@gmail.com>
+---
+ drivers/tty/serial/serial_core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/tty/serial/serial_core.c b/drivers/tty/serial/serial_core.c
+index 7c27827..1be1a2c 100644
+--- a/drivers/tty/serial/serial_core.c
++++ b/drivers/tty/serial/serial_core.c
+@@ -465,7 +465,7 @@ static void uart_shutdown(struct tty_struct *tty, struct uart_state *state)
+ 		}
+ 	}
+ 	/* Should never happen */
+-	WARN_ON(1);
++	// WARN_ON(1);
+ 	return 0;
+ }
+ 
+-- 
+1.9.1
+

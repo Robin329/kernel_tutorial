@@ -9,3 +9,4 @@ echo function_graph > $debugfs/tracing/current_tracer
 echo vfs_read > $debugfs/tracing/set_graph_function
 
 echo 1 > $debugfs/tracing/tracing_on
+

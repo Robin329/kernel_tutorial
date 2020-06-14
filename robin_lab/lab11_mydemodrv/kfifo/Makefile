@@ -3,14 +3,15 @@
 BASEINCLUDE ?= /labs/linux-lab/output/aarch64/linux-v5.3.9-virt
 #BASEINCLUDE ?= /lib/modules/`uname -r`/build
 
-bio_ftrace-objs := bio.o
+mydemodrv-objs := mydemodrv_misc.o
 
-obj-m	:=   bio_ftrace.o
+obj-m	:=  mydemodrv.o
+
+ccflags-y	:= -DDEBUG=1
+
 all :
 	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules;
 
 clean:
 	$(MAKE) -C $(BASEINCLUDE) SUBDIRS=$(PWD) clean;
-	rm -f *.ko;
-# end
-
+	rm -f *.ko,*.o;
