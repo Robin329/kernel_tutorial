@@ -115,3 +115,4 @@ if ! shopt -oq posix; then
   fi
 fi
 source  ~/.config/up/up.sh
+source ~/.config/z.sh
