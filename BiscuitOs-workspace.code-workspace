@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "../BiscuitOS"
+			"path": "../BiscuitOS/output/linux-newest-arm64/linux/linux_github"
 		}
 	]
 }
