@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
 
+.code-workspace
 # Object files
 *.o
 *.ko
