@@ -3,15 +3,15 @@
  *
  *       Filename:  enum_demo.c
  *
- *    Description: Enum value test. 
+ *    Description: Enum value test.
  *
  *        Version:  1.0
  *        Created:  2019年12月10日 14时12分30秒
  *       Revision:  none
  *       Compiler:  gcc
  *
- *         Author:  jiangrenbin (), 
- *   Organization:  
+ *         Author:  jiangrenbin (),
+ *   Organization:
  *
  * =====================================================================================
  */
@@ -63,9 +63,10 @@ enum fixed_address {
 
 int main(int argc, char * argv[])
 {
-	printf("FIX_HOLE <%p> <%d>\n"
-		   "FIX_FDT_END <%p> <%d>\n"
-			"FIX_EARLYCON_MEM_BASE <%p> <%d>\n", \
-			FIX_HOLE, FIX_HOLE, FIX_FDT_END, FIX_FDT_END, \
-			FIX_EARLYCON_MEM_BASE, FIX_EARLYCON_MEM_BASE);	
+  printf(
+      "FIX_HOLE <%p> <%d>\n"
+      "FIX_FDT_END <%p> <%d> FIX_FDT_SIZE:%d\n"
+      "FIX_EARLYCON_MEM_BASE <%p> <%d>\n",
+      FIX_HOLE, FIX_HOLE, FIX_FDT_END, FIX_FDT_END,
+      FIX_FDT_SIZE, FIX_EARLYCON_MEM_BASE, FIX_EARLYCON_MEM_BASE);
 }

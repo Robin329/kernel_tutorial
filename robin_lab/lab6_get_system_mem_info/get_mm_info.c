@@ -22,7 +22,7 @@ static int __init my_init(void)
 	num_physpages = get_num_physpages();
 	pr_err("sizeof struct page is %u\n", sizeof(struct page));
 	pr_err("VA_BITS = %d\n", VA_BITS);
-	pr_err("VA_START = 0x%016lx\n", VA_START);
+	pr_err("VMEMMAP_START = 0x%016lx\n", VMEMMAP_START);
 	pr_err("PAGE_OFFSET = 0x%016lx\n", PAGE_OFFSET);
 	pr_err("KIMAGE_VADDR = 0x%016lx\n", KIMAGE_VADDR);
 	pr_err("BPF_JIT_REGION_START = 0x%lx\n", BPF_JIT_REGION_START);
@@ -40,10 +40,10 @@ static int __init my_init(void)
 	pr_err("PUD_SHIFT = %lu PUD_SIZE = %luMB PUD_MASK = 0x%016llx\n", PUD_SHIFT, PUD_SIZE / (1024 * 1024), PUD_MASK);
 	pr_err("PMD_SHIFT = %lu PMD_SIZE = %luMB PMD_MASK = 0x%016llx\n", PMD_SHIFT, PMD_SIZE / (1024 * 1024), PMD_MASK);
 	pr_err("PGDIR_SHIFT = %lu PGDIR_SIZE = %luMB PGDIR_MASK = 0x%016llx\n", PGDIR_SHIFT, PGDIR_SIZE / (1024 * 1024), PGDIR_MASK);
-	pr_err("SECTION_SHIFT = %lu SECTION_SIZE = %luMB SECTION_MASK = 0x%016llx\n", SECTION_SHIFT, SECTION_SIZE / (1024 * 1024), SECTION_MASK);
-	
+	pr_err("SECTION_SHIFT = %lu SECTION_SIZE = %luMB SECTION_MASK = 0x%016llx\n", SECTIONS_SHIFT, SUBSECTION_SIZE / (1024 * 1024), SECTIONS_MASK);
+
 	pr_err("CONFIG_ARM64_PA_BITS = %d PHYS_MASK_SHIFT = %d\n", CONFIG_ARM64_PA_BITS, CONFIG_ARM64_PA_BITS);
-	pr_err("PHYS_MASK = 0x%016llx\n", PHYS_MASK);
+	pr_err("PHYS_MASK = 0x%016lx\n", PHYS_MASK);
 
 
 
@@ -57,7 +57,7 @@ static int __init my_init(void)
 
 		valid++;
 		p = pfn_to_page(pfn);
-		
+
 		if (!p)
 			continue;
 		/* page_count(page) == 0 is a free page. */
@@ -88,7 +88,7 @@ static int __init my_init(void)
 		if (PageMappedToDisk(p))
 			mappedtodisk++;
 	}
-	pr_err("sizeof struct p is %u\n", sizeof(*p));
+	pr_err("sizeof struct p is %lu\n", sizeof(*p));
 	pr_info("\nExamining %ld pages (num_phys_pages) = %ld MB\n",
 		num_physpages, num_physpages * PAGE_SIZE / 1024 / 1024);
 	pr_info("Pages with valid PFN's=%ld, = %ld MB\n", valid,
@@ -119,5 +119,5 @@ static void __exit my_exit(void)
 module_init(my_init);
 module_exit(my_exit);
 
-MODULE_AUTHOR("Ben Shushu");
+MODULE_AUTHOR("Robin");
 MODULE_LICENSE("GPL v2");
