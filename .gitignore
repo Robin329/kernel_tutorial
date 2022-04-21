@@ -2,6 +2,8 @@
 *.d
 
 .code-workspace
+.vscode/*
+*.code-workspace
 # Object files
 *.o
 *.ko
