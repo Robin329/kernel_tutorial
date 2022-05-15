@@ -3,9 +3,9 @@ menu "BiscuitOS"
 
 config BISCUITOS
     bool "BiscuitOS Driver"
-    ---help---
-        Enable support for BiscuitOS drivers
-        
+    help
+      Enable support for BiscuitOS drivers
+
 if BISCUITOS
 
 config BISCUITOS_MISC

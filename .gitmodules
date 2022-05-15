@@ -1,3 +1,6 @@
 [submodule "BiscuitOS/HardStack"]
 	path = BiscuitOS/HardStack
 	url = https://gitee.com/BiscuitOS_team/HardStack.git
+[submodule "HardStack"]
+	path = HardStack
+	url = https://gitee.com/BiscuitOS_team/HardStack.git

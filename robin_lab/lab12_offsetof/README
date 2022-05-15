@@ -1,0 +1,9 @@
+[   30.333501] core: loading out-of-tree module taints kernel.
+[   30.334588] demo_node->size:	0
+[   30.334597] demo_node->page:	4
+[   30.334601] demo_node->offset:	8
+[   30.334606] demo_node->next:	16
+[   30.334610] demo_node->name:	24
+[   30.334615] demo_node->index:	32
+[   30.334619] demo_node->iname[0]:	36
+[   30.334623] demo_node->iname[1]:	37
