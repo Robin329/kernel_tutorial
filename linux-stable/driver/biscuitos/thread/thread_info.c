@@ -28,7 +28,7 @@ static __init int thread_demo_init(void)
 
 	printk("thread_info AD: %#lx\n", (__force unsigned long)info);
 	printk("stack AD: %#lx\n", current_stack_pointer);
-	printk("THREAD SIZE = %d\n", THREAD_SIZE);
+	printk("THREAD SIZE = %ld\n", THREAD_SIZE);
 	printk("thread_union end AD: %#lx\n", stack);
 
 	return 0;
