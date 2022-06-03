@@ -54,7 +54,7 @@ extern struct list_head aliases_lookup;
 static __init int bindirect_demo_init(void)
 {
 	struct alias_prop *ap;
-	printk("%s:[%d] RRR\n", __FUNCTION__, __LINE__);
+	pr_info("%s:[%d] RRR\n", __FUNCTION__, __LINE__);
 	list_for_each_entry(ap, &aliases_lookup, link)
 		pr_info("robin --> %s\n", ap->alias);
 

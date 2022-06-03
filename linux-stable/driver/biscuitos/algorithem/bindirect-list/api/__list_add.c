@@ -73,7 +73,7 @@ static __init int bindirect_demo_init(void)
 	__list_add(&node6.list, &BiscuitOS_list, BiscuitOS_list.next);
 
 	/* Traverser all node on bindirect-list */
-	list_for_each_entry (np, &BiscuitOS_list, list)
+	list_for_each_entry(np, &BiscuitOS_list, list)
 		pr_info("%s\n", np->name);
 
 	return 0;
