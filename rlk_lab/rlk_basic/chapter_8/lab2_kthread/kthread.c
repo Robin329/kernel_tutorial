@@ -9,8 +9,8 @@ static struct task_struct *tsk[NR_CPUS];
 static void show_reg(void)
 {
 	unsigned int cpsr, sp;
-	
-	asm("mrs %0, cpsr" : "=r" (cpsr) : : "cc");
+
+    asm("mrs %0, cpsr" : "=r" (cpsr) : : "cc");
 	asm("mov %0, sp" : "=r" (sp) : : "cc");
 
 	printk("cpsr:0x%x, sp:0x%x\n", cpsr, sp);

@@ -1,12 +1,10 @@
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 2 as
-# published by the Free Software Foundation.
-ifneq ($(KERNELRELEASE),)
+
+# modify right kernel PATH for your system
 $(warning "kernel release:$(KERNELRELEASE)")
 # SRC
-obj-m	:= core.o
+kthreadDemo-objs := kthread_demo.o
+kthreadPlus-objs := kthread_plus.o
 
-else
 BSROOT=/home/robin
 CROSS_TOOLS=aarch64-linux-gnu
 ARCH=arm64
@@ -17,7 +15,7 @@ CROSS_COMPILE_PATH=$(BSROOT)/workspace/project/rk3399/ToolChain-6.3.1/gcc-linaro
 CROSS_COMPILE=$(CROSS_COMPILE_PATH)/$(CROSS_TOOLS)-
 INCLUDEDIR=$(KERNELDIR)/include
 ARCHINCLUDEDIR=$(KERNELDIR)/arch/$(ARCH)/include
-INSTALLDIR=$(BSROOT)/nfs_rootfs
+INSTALLDIR=$(BSROOT)/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
 
 # Compile
 AS		= $(CROSS_COMPILE)as
@@ -34,18 +32,16 @@ OBJDUMP		= $(CROSS_COMPILE)objdump
 CFLAGS += -I$(INCLUDEDIR) -I$(ARCHINCLUDEDIR)
 
 # Target
-obj-m	+= core.o
-
+obj-m	+=   kthreadDemo.o
+obj-m	+=   kthreadPlus.o
+$(warning "kernel CFLAGS:$(CFLAGS)")
 all: $(OBJS)
 	make -C $(KERNELDIR) M=$(PWD) ARCH=$(ARCH) \
                 CROSS_COMPILE=$(CROSS_COMPILE) modules
 
-install:
-	make -C $(KERNELDIR) M=$(PWD) ARCH=$(ARCH) \
-		INSTALL_MOD_PATH=$(INSTALLDIR) modules_install
-
+install:all
+	install -v kthreadDemo.ko $(INSTALLDIR)
+	install -v kthreadPlus.ko $(INSTALLDIR)
 clean:
 	@rm -rf *.ko *.o *.mod.o *.mod.c *.symvers *.order \
                .*.o.cmd .tmp_versions *.ko.cmd .*.ko.cmd *.mod
-
-endif
