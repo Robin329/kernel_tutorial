@@ -19,7 +19,6 @@
 #endif
 
 static struct task_struct *my_thread = NULL;
-struct led_classdev *led_cdev;
 
 static int print_hello(void *data) {
     char *mydata = kmalloc(strlen(data) + 1, GFP_KERNEL);
@@ -41,7 +40,6 @@ static int print_hello(void *data) {
     return 0;
 }
 static int __init kthread_demo_init(void) {
-    led_cdev->brightness = 0;
     my_thread = kthread_run(print_hello, "hello", "my_thread");
 
     pr_info("%s: init start ...\n", __func__);

@@ -4,6 +4,7 @@ $(warning "kernel release:$(KERNELRELEASE)")
 # SRC
 kthreadDemo-objs := kthread_demo.o
 kthreadPlus-objs := kthread_plus.o
+kthreadLed-objs  := kthread_led.o
 
 BSROOT=/home/robin
 CROSS_TOOLS=aarch64-linux-gnu
@@ -34,6 +35,7 @@ CFLAGS += -I$(INCLUDEDIR) -I$(ARCHINCLUDEDIR)
 # Target
 obj-m	+=   kthreadDemo.o
 obj-m	+=   kthreadPlus.o
+obj-m	+=   kthreadLed.o
 $(warning "kernel CFLAGS:$(CFLAGS)")
 all: $(OBJS)
 	make -C $(KERNELDIR) M=$(PWD) ARCH=$(ARCH) \
@@ -42,6 +44,7 @@ all: $(OBJS)
 install:all
 	install -v kthreadDemo.ko $(INSTALLDIR)
 	install -v kthreadPlus.ko $(INSTALLDIR)
+	install -v kthreadLed.ko $(INSTALLDIR)
 clean:
 	@rm -rf *.ko *.o *.mod.o *.mod.c *.symvers *.order \
                .*.o.cmd .tmp_versions *.ko.cmd .*.ko.cmd *.mod
