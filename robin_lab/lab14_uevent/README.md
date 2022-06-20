@@ -1,4 +1,4 @@
-# aarch64-linux-gnu-g++ uvent.c -o uevent
+# aarch64-linux-gnu-g++ uvent.c uevent.h main.c -o uevent
 
 * push uevent to board
 
