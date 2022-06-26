@@ -64,6 +64,10 @@ static unsigned long vaddr2paddr(unsigned long vaddr)
 	unsigned long paddr = 0;
 	unsigned long page_addr = 0;
 	unsigned long page_offset = 0;
+	ttbr0 = read_sysreg_s(SYS_TTBR0_EL1);
+	ttbr1 = read_sysreg_s(SYS_TTBR1_EL1);
+
+	pr_info("ttbr0 = %#llx,ttbr1 = %#llx\n", ttbr0, ttbr1);
 	// pgd_offset函数传入的第一个参数时当前进程的mm_struct结构
 	//我们申请的线性地址是在内核空间的，所以我们要查的页表也是内核页表
 	//所有的进程都共享同一个内核页表，所以可以用当前进程的
@@ -92,8 +96,9 @@ static unsigned long vaddr2paddr(unsigned long vaddr)
 	}
 
 	pmd = pmd_offset(pud, vaddr);
-	pr_info("pmd_val = 0x%lx,pmd_index = %lu\n", pmd_val(*pmd),
-		pmd_index(vaddr));
+	pr_info("pmd_val = 0x%lx,pmd_index = %lu __pmd_to_phys = %#lx pmd_pte()=%#llx\n",
+		pmd_val(*pmd), pmd_index(vaddr), pmd_page_paddr(*pmd),
+		pmd_pte(*pmd));
 	if (pmd_none(READ_ONCE(*pmd))) {
 		pr_info("not mapped in pmd\n");
 		return -1;
@@ -129,7 +134,7 @@ static int __init v2p_init(void)
 	pr_info("\n");
 	//使用get_free_page函数在内核的ZONE_NORMAL中申请了一块页面
 	//GFP_KERNEL是用来指示它是优先从内存的ZONE_NORMAL区中申请页框的
-	int count = 100;
+	int count = 10;
 	while (count--) {
 		vaddr = __get_free_page(GFP_PGTABLE_USER);
 		// vaddr = module_param_value;

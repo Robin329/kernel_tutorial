@@ -1,0 +1,15 @@
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# ls
+module_param_value_1  module_param_value_2  module_param_value_3  module_param_value_4
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# cat module_param_value_1
+1
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# cat module_param_value_2
+2
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# cat module_param_value_3
+[ 6301.913432] module_demo: [param_ops_get:164] val:3
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# cat module_param_value_4
+[ 6305.337966] module_demo: [param_ops_get:164] val:20
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# cat module_param_value_2
+2
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# echo 1000 > module_param_value_2
+[root@roc-rk3399-pc:/sys/module/module_demo/parameters]# cat module_param_value_2
+1000

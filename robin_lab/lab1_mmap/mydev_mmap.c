@@ -36,8 +36,8 @@ static int demodrv_release(struct inode *inode, struct file *file)
 static ssize_t
 demodrv_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
 {
-	int nbytes = 
-		simple_read_from_buffer(buf, count, ppos, device_buffer, MAX_DEVICE_BUFFER_SIZE);
+	int nbytes = simple_read_from_buffer(buf, count, ppos, device_buffer,
+					     MAX_DEVICE_BUFFER_SIZE);
 
 	pr_info("%s: read nbytes=%d done at pos=%d\n",
 		 __func__, nbytes, (int)*ppos);
@@ -48,8 +48,8 @@ demodrv_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
 static ssize_t
 demodrv_write(struct file *file, const char __user *buf, size_t count, loff_t *ppos)
 {
-	int nbytes = 
-		simple_write_to_buffer(device_buffer, MAX_DEVICE_BUFFER_SIZE, ppos, buf, count);
+	int nbytes = simple_write_to_buffer(
+		device_buffer, MAX_DEVICE_BUFFER_SIZE, ppos, buf, count);
 
 	pr_info("%s: write nbytes=%d done at pos=%d\n",
 		 __func__, nbytes, (int)*ppos);
@@ -57,8 +57,7 @@ demodrv_write(struct file *file, const char __user *buf, size_t count, loff_t *p
 	return nbytes;
 }
 
-static int 
-demodrv_mmap(struct file *filp, struct vm_area_struct *vma)
+static int demodrv_mmap(struct file *filp, struct vm_area_struct *vma)
 {
 	unsigned long pfn;
 	unsigned long offset = vma->vm_pgoff << PAGE_SHIFT;
@@ -147,6 +146,6 @@ static void __exit simple_char_exit(void)
 module_init(simple_char_init);
 module_exit(simple_char_exit);
 
-MODULE_AUTHOR("Benshushu");
+MODULE_AUTHOR("Robin.J");
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("simpe character device");
