@@ -13,13 +13,16 @@ endif
 #BASEINCLUDE ?= /lib/modules/`uname -r`/build
 
 mm_info-objs := get_mm_info.o
+mmu_demo-objs := mmu_demo.o
 
-obj-m	:=   mm_info.o
+obj-m	+=   mm_info.o
+obj-m	+=   mmu_test.o
 all :
 	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules;
 
 install: all
 	install -v mm_info.ko $(DESTDIR)
+	install -v mmu_demo.ko $(DESTDIR)
 clean:
 	@rm -rf *.ko *.o *.mod.o *.mod.c *.symvers *.order \
                .*.o.cmd .tmp_versions *.ko.cmd .*.ko.cmd *.mod
