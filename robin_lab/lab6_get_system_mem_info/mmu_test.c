@@ -68,6 +68,32 @@ static unsigned long vaddr2paddr(unsigned long vaddr)
 	ttbr1 = read_sysreg_s(SYS_TTBR1_EL1);
 
 	pr_info("ttbr0 = %#llx,ttbr1 = %#llx\n", ttbr0, ttbr1);
+	pr_info("----------------------------------------------\n\n");
+	pr_info("current task info:\n");
+	pr_info("    thread_info.flags: %lu\n", current->thread_info.flags);
+	pr_info("      thread_info.cpu: %lu\n", current->thread_info.cpu);
+	pr_info("    task_struct.flags:%d\n", current->flags);
+	pr_info("    task_struct.on_cpu:%d\n", current->on_cpu);
+	pr_info("    task_struct->stack:%#llx\n", current->stack);
+	pr_info("    task_struct.recent_used_cpu:%d\n",
+		current->recent_used_cpu);
+	pr_info("    task_struct.wake_cpu:%d\n", current->wake_cpu);
+	pr_info("    task_struct.on_rq:%d\n", current->on_rq);
+	pr_info("    task_struct.prio:%d\n", current->prio);
+	pr_info("    task_struct.static_prio:%d\n", current->static_prio);
+	pr_info("    task_struct.rt_priority:%d\n", current->rt_priority);
+	pr_info("    task_struct.policy:%d\n", current->policy);
+	pr_info("    task_struct.nr_cpus_allowed:%d\n",
+		current->nr_cpus_allowed);
+	pr_info("    task_struct.normal_prio:%d\n", current->normal_prio);
+	pr_info("    task_struct.pid:%d\n", current->pid);
+	pr_info("    task_struct.tgid:%d\n", current->tgid);
+	pr_info("    task_struct.start_boottime:%lld\n",
+		current->start_boottime);
+	pr_info("    task_struct.utime:%lld\n", current->utime);
+	pr_info("    task_struct.stime:%lld\n", current->stime);
+	pr_info("    task_struct.gtime:%lld\n", current->gtime);
+	pr_info("----------------------------------------------\n\n");
 	// pgd_offset函数传入的第一个参数时当前进程的mm_struct结构
 	//我们申请的线性地址是在内核空间的，所以我们要查的页表也是内核页表
 	//所有的进程都共享同一个内核页表，所以可以用当前进程的
@@ -134,7 +160,7 @@ static int __init v2p_init(void)
 	pr_info("\n");
 	//使用get_free_page函数在内核的ZONE_NORMAL中申请了一块页面
 	//GFP_KERNEL是用来指示它是优先从内存的ZONE_NORMAL区中申请页框的
-	int count = 10;
+	int count = 5;
 	while (count--) {
 		vaddr = __get_free_page(GFP_PGTABLE_USER);
 		// vaddr = module_param_value;
