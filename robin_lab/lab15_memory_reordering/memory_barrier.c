@@ -3,7 +3,7 @@
 /**
  * mb_test.c - memory barrier test.
  *
- * Copyright (c) 2019 songmuchun <smcdef@163.com>
+ * Copyright (c) 2019 robin.jiang <jiangrenbin123@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -26,38 +26,32 @@
 #include <linux/proc_fs.h>
 #include <linux/seq_file.h>
 
-#ifndef DEFINE_SHOW_ATTRIBUTE
-#define DEFINE_SHOW_ATTRIBUTE(__name)					\
-static int __name ## _open(struct inode *inode, struct file *file)	\
-{									\
-	return single_open(file, __name ## _show, inode->i_private);	\
-}									\
-									\
-static const struct file_operations __name ## _fops = {			\
-	.owner		= THIS_MODULE,					\
-	.open		= __name ## _open,				\
-	.read		= seq_read,					\
-	.llseek		= seq_lseek,					\
-	.release	= single_release,				\
-}
-#endif
+#define DEFINE_MB_SHOW_ATTRIBUTE(__name)                                       \
+	static int __name##_open(struct inode *inode, struct file *file)       \
+	{                                                                      \
+		return single_open(file, __name##_show, inode->i_private);     \
+	}                                                                      \
+                                                                               \
+	static const struct proc_ops __name##_fops = {                         \
+		.proc_open = __name##_open,                                    \
+		.proc_read = seq_read,                                         \
+		.proc_lseek = seq_lseek,                                       \
+		.proc_release = single_release,                                \
+	};
 
-#ifndef DEFINE_SHOW_STORE_ATTRIBUTE
-#define DEFINE_SHOW_STORE_ATTRIBUTE(__name)				\
-static int __name ## _open(struct inode *inode, struct file *file)	\
-{									\
-	return single_open(file, __name ## _show, inode->i_private);	\
-}									\
-									\
-static const struct file_operations __name ## _fops = {			\
-	.owner		= THIS_MODULE,					\
-	.open		= __name ## _open,				\
-	.read		= seq_read,					\
-	.write		= __name ## _store,				\
-	.llseek		= seq_lseek,					\
-	.release	= single_release,				\
-}
-#endif
+#define DEFINE_MB_SHOW_STORE_ATTRIBUTE(__name)                                 \
+	static int __name##_open(struct inode *inode, struct file *file)       \
+	{                                                                      \
+		return single_open(file, __name##_show, inode->i_private);     \
+	}                                                                      \
+                                                                               \
+	static const struct proc_ops __name##_fops = {                         \
+		.proc_open = __name##_open,                                    \
+		.proc_read = seq_read,                                         \
+		.proc_write = __name##_store,                                  \
+		.proc_lseek = seq_lseek,                                       \
+		.proc_release = single_release,                                \
+	};
 
 #define MB_TEST_PROC_DIR	"mb_test"
 
@@ -107,7 +101,7 @@ static void mb_test_thread_fn(unsigned int cpu)
 		if ((int)(d - c) > 0) {
 			should_run = 0;
 			pr_info("a = %d, b = %d(cpu: %d)\n", c, d, cpu);
-			msleep(1000);
+			// usleep_range(1000, 2000);
 			pr_info("after 1 second ...\n");
 			pr_info("a = %d, b = %d(cpu: %d)\n", a, b, cpu);
 		}
@@ -144,7 +138,7 @@ static int values_show(struct seq_file *seq, void *offset)
 	return 0;
 }
 
-DEFINE_SHOW_ATTRIBUTE(values);
+DEFINE_MB_SHOW_ATTRIBUTE(values);
 
 static int count_show(struct seq_file *seq, void *offset)
 {
@@ -153,7 +147,7 @@ static int count_show(struct seq_file *seq, void *offset)
 	return 0;
 }
 
-DEFINE_SHOW_ATTRIBUTE(count);
+DEFINE_MB_SHOW_ATTRIBUTE(count);
 
 static ssize_t should_run_store(struct file *file, const char __user *ubuf,
 				size_t size, loff_t *ppos)
@@ -171,8 +165,9 @@ static ssize_t should_run_store(struct file *file, const char __user *ubuf,
 		unsigned int cpu;
 
 		should_run = 1;
-		for_each_online_cpu(cpu)
+		for_each_online_cpu (cpu) {
 			wake_up_process(*per_cpu_ptr(mb_smp_thread.store, cpu));
+		}
 	} else if (buf[0] == '0' || !strncmp(buf, "off", 3)) {
 		should_run = 0;
 	} else
@@ -189,7 +184,7 @@ static int should_run_show(struct seq_file *seq, void *offset)
 	return 0;
 }
 
-DEFINE_SHOW_STORE_ATTRIBUTE(should_run);
+DEFINE_MB_SHOW_STORE_ATTRIBUTE(should_run);
 
 static inline void mb_procs_create(void)
 {
@@ -212,6 +207,7 @@ static inline void mb_procs_remove(void)
 
 static int __init mb_test_init(void)
 {
+	pr_info("[%s:%d] init\n", __FUNCTION__, __LINE__);
 	mb_procs_create();
 	smpboot_register_percpu_thread(&mb_smp_thread);
 
@@ -220,11 +216,12 @@ static int __init mb_test_init(void)
 
 static void __exit mb_test_exit(void)
 {
+	pr_info("[%s:%d] exit\n", __FUNCTION__, __LINE__);
 	mb_procs_remove();
 	smpboot_unregister_percpu_thread(&mb_smp_thread);
 }
 
 module_init(mb_test_init);
 module_exit(mb_test_exit);
-MODULE_AUTHOR("songmuchun <smcdef@163.com>");
+MODULE_AUTHOR("jiangrenbin <jiangrenbin123@gmail.com>");
 MODULE_LICENSE("GPL v2");

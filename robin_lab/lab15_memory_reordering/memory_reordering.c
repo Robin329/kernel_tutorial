@@ -13,6 +13,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  */
+
+#define CONFIG_MODULE_AUTHOR "jiangrenbin <jiangrenbin123@gmail.com>"
+
 #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
 
 #include <linux/kernel.h>
@@ -171,6 +174,4 @@ module_init(ordering_init);
 module_exit(ordering_exit);
 
 MODULE_AUTHOR(CONFIG_MODULE_AUTHOR);
-MODULE_VERSION(CONFIG_MODULE_VERSION);
-MODULE_LICENSE(CONFIG_MODULE_LICENSE);
-MODULE_DESCRIPTION(CONFIG_MODULE_DESCRIPTION);
+MODULE_LICENSE("GPL v2");
