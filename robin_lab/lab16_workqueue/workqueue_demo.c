@@ -15,10 +15,15 @@
 #include <linux/delay.h>
 #include <asm-generic/errno-base.h>
 
-#define INTERVAL_MS 1000
+#define INTERVAL_MS     1000
+#define USE_CREATE_WORK 0
+
 static struct delayed_work *delay_work;
 static struct work_struct *work;
+#if USE_CREATE_WORK
 static struct workqueue_struct *workqueue;
+#endif
+
 static void wq_print(struct work_struct *work)
 {
 	pr_info("wq print!\n");
@@ -32,36 +37,35 @@ static void delay_wq_print(struct work_struct *work)
 static int __init workqueue_modules_init(void)
 {
 	/* The statement must be placed at the top, otherwise report '-Wdeclaration-after-statement'. */
-
 	pr_info("workque modules init\n");
-
-	workqueue = create_workqueue("wq_modules");
-	if (!workqueue) {
-		pr_err("Allocation failed\n");
-		return -EINVAL;
-	}
 
 	work = kmalloc(sizeof(struct work_struct), GFP_KERNEL);
 	if (!work) {
 		pr_err("Allocation failed\n");
-		destroy_workqueue(workqueue);
 		return -ENOMEM;
 	}
 
 	delay_work = kmalloc(sizeof(struct delayed_work), GFP_KERNEL);
 	if (!delay_work) {
 		pr_err("Allocation failed\n");
-		destroy_workqueue(workqueue);
 		return -ENOMEM;
 	}
 
 	INIT_WORK(work, wq_print);
 	INIT_DELAYED_WORK(delay_work, delay_wq_print);
+#if USE_CREATE_WORK
+	workqueue = create_workqueue("wq_modules");
+	if (!workqueue) {
+		pr_err("Allocation failed\n");
+		return -EINVAL;
+	}
 	queue_work(workqueue, work);
 	queue_delayed_work(workqueue, delay_work, INTERVAL_MS);
-	schedule_work(work);
 	flush_workqueue(workqueue);
+#else
+	schedule_work(work);
 	schedule_delayed_work(delay_work, msecs_to_jiffies(INTERVAL_MS));
+#endif
 	return 0;
 }
 
@@ -70,7 +74,9 @@ static void __exit workqueue_modules_exit(void)
 	pr_info("Module exit\n");
 	cancel_delayed_work_sync(delay_work);
 	cancel_work_sync(work);
+#if USE_CREATE_WORK
 	destroy_workqueue(workqueue);
+#endif
 	if (work)
 		kfree(work);
 
