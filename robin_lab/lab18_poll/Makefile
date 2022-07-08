@@ -11,15 +11,14 @@ else
 	DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
 endif
 
-obj-m	+=   timer_demo.o
-obj-m	+=   simple_timer_demo.o
+obj-m	+=   poll_driver_demo.o
 
 all :
 	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules;
 
 install: all
-	install -v timer_demo.ko $(DESTDIR)
-	install -v simple_timer_demo.ko $(DESTDIR)
+	install -v poll_driver_demo.ko $(DESTDIR)
+
 clean:
 	@rm -rf *.ko *.o *.mod.o *.mod.c *.symvers *.order \
                .*.o.cmd .tmp_versions *.ko.cmd .*.ko.cmd *.mod
