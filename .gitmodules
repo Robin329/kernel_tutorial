@@ -7,3 +7,6 @@
 [submodule "ldd3"]
 	path = ldd3
 	url = https://github.com/martinezjavier/ldd3.git
+[submodule "Tutorials"]
+	path = Tutorials
+	url = https://github.com/Embetronicx/Tutorials.git
