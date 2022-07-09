@@ -14,7 +14,7 @@ struct pollfd {
                int   fd;         /* file descriptor */
                short events;     /* requested events */
                short revents;    /* returned events */
-           };
+};
 
 ```
 
@@ -113,3 +113,4 @@ select() 和 poll() 系统调用的本质一样，poll() 的机制与 select() �
 
 ### Referece
 [Linux网络编程——I/O复用之poll函数](https://blog.csdn.net/lianghe_work/article/details/46534029)
+[Linux poll函数使用](https://blog.csdn.net/zhouzhenhe2008/article/details/75807720)
