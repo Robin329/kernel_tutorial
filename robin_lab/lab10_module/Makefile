@@ -1,6 +1,5 @@
 
 # modify right kernel PATH for your system
-<<<<<<< Updated upstream
 HOST=$(shell cat /etc/hostname)
 $(warning "HOST NAME:${HOST}")
 ifneq ($(HOST),ubuntu)

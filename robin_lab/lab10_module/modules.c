@@ -120,7 +120,18 @@ static int slab_demo(void)
 	}
 
 	pr_info("===============SLAB DEMO END===============\n");
-
+	if (unlikely(1)) {
+		pr_info("unlikely 1\n");
+	}
+	if (unlikely(0)) {
+		pr_info("unlikely 0\n");
+	}
+	if (likely(1)) {
+		pr_info("likely 1\n");
+	}
+	if (likely(0)) {
+		pr_info("likely 0\n");
+	}
 	return 0;
 }
 

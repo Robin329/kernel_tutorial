@@ -36,7 +36,7 @@ kthread_run()
 这里有两个长得很像的函数：`create_kthread()` 和 `kthread_create()`。（这不是长得像，根本就是一样的好吧，有点难记），这里只是函数封装的很像，但本质上还是`kernel_thread()`和 `kthread_create()`这两个函数的区别。
 
 **从上面的函数调用便可以看出：**
-`kernel_thread()`函数是通过调用`do_fork()`函数创建的线程，而`do_fork()`则是在应用层`fork()`, `vfork()`和`clone()`函数的系统调用；此外还需要在其执行函数里调用`daemonize()`进行资源的释放；该线程挂接在init进程下。
+`kernel_thread()`函数是通过调用`kernel_clone()`函数创建的线程，而`kernel_clone()`则是在应用层`fork()`, `vfork()`和`clone()`函数的系统调用；此外还需要在其执行函数里调用`daemonize()`进行资源的释放；该线程挂接在init进程下。
 `kthread_create()`函数是通过工作队列workqueue创建的线程，此线程挂在kthreadd线程下。
 `kthread_run()`函数本质上是调用了`kthread_create()`和`wake_up_process()`, 就是除了挂在工作队列上后，便唤醒进行工作。
 `kthread_create()`是比较推崇的创建内核线程的方式。

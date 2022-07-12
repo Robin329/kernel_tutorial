@@ -11,7 +11,7 @@
 #define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
 
 #define TIMER_ONE_TIMEOUT 3
-#define TIMER_TWO_TIMEOUT 200
+#define TIMER_TWO_TIMEOUT 500
 
 static struct timer_list timer_one;
 static struct timer_list timer_two;
