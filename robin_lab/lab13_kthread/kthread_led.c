@@ -1,3 +1,4 @@
+// SPDX - License - Identifier : GPL - 2.0
 #include <linux/delay.h>
 #include <linux/errno.h>
 #include <linux/gpio.h>
@@ -11,6 +12,8 @@
 #include <linux/property.h>
 #include <linux/sched.h> //wake_up_process()
 #include <linux/slab.h>
+
+#define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
 
 #define DEMO_NAME "led_kthread"
 #ifndef SLEEP_MILLI_SEC
@@ -321,7 +324,7 @@ static int led_thread_probe(struct platform_device *pdev)
 	struct gpio_led_platform_data *pdata = dev_get_platdata(&pdev->dev);
 	struct gpio_leds_priv *priv;
 	int i, ret = 0;
-
+	pr_info(" Enter!\n");
 	if (pdata && pdata->num_leds) {
 		priv = devm_kzalloc(&pdev->dev,
 				    struct_size(priv, leds, pdata->num_leds),
@@ -360,8 +363,8 @@ static int led_thread_probe(struct platform_device *pdev)
 	}
 	platform_set_drvdata(pdev, priv);
 	led1_thread = kthread_run(led1_set, &priv->leds[0], "led1_set");
-	// led2_thread = kthread_run(led2_set, &priv->leds[1], "led2_set");
-	// led3_thread = kthread_run(led3_set, &priv->leds[2], "led3_set");
+	led2_thread = kthread_run(led2_set, &priv->leds[1], "led2_set");
+	led3_thread = kthread_run(led3_set, &priv->leds[2], "led3_set");
 
 	pr_info("%s: init start ...\n", __func__);
 
@@ -381,8 +384,8 @@ static int led_thread_remove(struct platform_device *pdev)
 		led_classdev_unregister(&led->cdev);
 	}
 	kthread_stop(led1_thread);
-	// kthread_stop(led2_thread);
-	// kthread_stop(led3_thread);
+	kthread_stop(led2_thread);
+	kthread_stop(led3_thread);
 	pr_info("Stop led_thread ...\n");
 	return 0;
 }
