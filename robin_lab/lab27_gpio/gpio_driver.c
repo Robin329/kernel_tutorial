@@ -23,7 +23,7 @@
 #include <linux/of_gpio.h>
 
 #define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
-#define DEV_NAME "gpio-leds"
+#define DEV_NAME "gpio-ir-receiver"
 //LED is connected to this GPIO
 #define GPIO_27 (27)
 
@@ -135,9 +135,9 @@ static int rb_gpio_probe(struct platform_device *pdev)
 
 	if (!pdev || !pdev->dev.of_node)
 		return -ENODEV;
-	dev_err(&pdev->dev, "rb gpio probe\n");
+	dev_info(&pdev->dev, "rb gpio probe\n");
 	rb_gpiod = devm_kzalloc(&pdev->dev, sizeof(*rb_gpiod), GFP_KERNEL);
-	pr_info("Enten\n");
+
 	if (!rb_gpiod) {
 		pr_info("Error, rb_gpiod is NULL\n");
 		return -ENOMEM;
@@ -145,12 +145,12 @@ static int rb_gpio_probe(struct platform_device *pdev)
 	rb_gpiod->dev = &pdev->dev;
 	np = pdev->dev.of_node;
 	platform_set_drvdata(pdev, rb_gpiod);
-	gpiod = devm_gpiod_get(&pdev->dev, "green:work", GPIOD_OUT_LOW);
-	if (IS_ERR(gpiod)) {
-		dev_err(&pdev->dev, "failed to get ID_OUT GPIO\n");
-		return PTR_ERR(gpiod);
-	}
-	rb_gpiod->desc = gpiod;
+	// gpiod = devm_gpiod_get(&pdev->dev, "green:work", GPIOD_OUT_LOW);
+	// if (IS_ERR(gpiod)) {
+	// 	dev_err(&pdev->dev, "failed to get ID_OUT GPIO\n");
+	// 	return PTR_ERR(gpiod);
+	// }
+	gpiod = rb_gpiod->desc;
 	/*Allocating Major number*/
 	if ((alloc_chrdev_region(&dev, 0, 1, "rb_dev")) < 0) {
 		pr_err("Cannot allocate major number\n");
@@ -241,7 +241,7 @@ static int rb_gpio_remove(struct platform_device *pdev)
 
 static const struct of_device_id rb_gpio_of_match[] = {
 	{
-		.compatible = "gpio-leds",
+		.compatible = "gpio-ir-receiver",
 	},
 	{},
 };
