@@ -25,7 +25,7 @@
 #define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
 #define DEV_NAME "gpio-ir-receiver"
 //LED is connected to this GPIO
-#define GPIO_27 (27)
+#define GPIO_6 (6)
 
 dev_t dev = 0;
 static struct class *dev_class;
@@ -131,7 +131,6 @@ static ssize_t rb_write(struct file *filp, const char __user *buf, size_t len,
 static int rb_gpio_probe(struct platform_device *pdev)
 {
 	struct device_node *np;
-	struct gpio_desc *gpiod;
 
 	if (!pdev || !pdev->dev.of_node)
 		return -ENODEV;
@@ -146,11 +145,11 @@ static int rb_gpio_probe(struct platform_device *pdev)
 	np = pdev->dev.of_node;
 	platform_set_drvdata(pdev, rb_gpiod);
 	// gpiod = devm_gpiod_get(&pdev->dev, "green:work", GPIOD_OUT_LOW);
-	// if (IS_ERR(gpiod)) {
+	// if (IS_ERR(rb_gpiod->desc)) {
 	// 	dev_err(&pdev->dev, "failed to get ID_OUT GPIO\n");
-	// 	return PTR_ERR(gpiod);
+	// 	return PTR_ERR(rb_gpiod->desc);
 	// }
-	gpiod = rb_gpiod->desc;
+
 	/*Allocating Major number*/
 	if ((alloc_chrdev_region(&dev, 0, 1, "rb_dev")) < 0) {
 		pr_err("Cannot allocate major number\n");
@@ -184,7 +183,7 @@ static int rb_gpio_probe(struct platform_device *pdev)
 		pr_err("GPIO %d is not valid\n", of_get_gpio(np, 0));
 		goto r_device;
 	}
-
+	pr_info("GPIO %d is valid!\n", of_get_gpio(np, 0));
 	//Requesting the GPIO
 	if (gpio_request(of_get_gpio(np, 0), dev_name(&pdev->dev)) < 0) {
 		pr_err("ERROR: GPIO(%s) %d request\n", dev_name(&pdev->dev),
@@ -193,7 +192,7 @@ static int rb_gpio_probe(struct platform_device *pdev)
 	}
 
 	//configure the GPIO as output
-	gpiod_direction_output(gpiod, 0);
+	gpiod_direction_output(rb_gpiod->desc, 0);
 
 	/*  Using this call the GPIO 27 will be visible in /sys/class/gpio/
      *  Now you can change the gpio values by using below commands also.
@@ -203,7 +202,7 @@ static int rb_gpio_probe(struct platform_device *pdev)
      *
      *  the second argument prevents the direction from being changed.
      */
-	gpiod_export(gpiod, false);
+	gpio_export(GPIO_6, false);
 
 	pr_info("Device Driver Insert...Done!!!\n");
 	return 0;
