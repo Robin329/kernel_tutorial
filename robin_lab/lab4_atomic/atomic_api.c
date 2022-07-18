@@ -131,6 +131,25 @@ static int atomic_inc_unless_negative_api(void)
 	return 0;
 }
 
+static int atomic_and_api(void)
+{
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	/* Atomic and */
+	atomic_and(1, &rb_counter3);
+
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+
+	atomic_and(2, &rb_counter3);
+
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+
+	atomic_and(3, &rb_counter3);
+
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+
+	return 0;
+}
+
 static int __init atomic_api_init(void)
 {
 	pr_info("atomic rapi init\n");
@@ -160,6 +179,8 @@ static int __init atomic_api_init(void)
 	atomic_add_unless_api();
 
 	atomic_inc_unless_negative_api();
+
+	atomic_and_api();
 	return 0;
 }
 
