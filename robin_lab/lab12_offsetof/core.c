@@ -50,5 +50,5 @@ module_init(Demo_init);
 module_exit(Demo_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("BiscuitOS <buddy.zhang@aliyun.com>");
+MODULE_AUTHOR("robin.jiang <jiangrenbin329@gmail.com>");
 MODULE_DESCRIPTION("BiscuitOS");

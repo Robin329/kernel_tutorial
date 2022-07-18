@@ -132,6 +132,7 @@ static int slab_demo(void)
 	if (likely(0)) {
 		pr_info("likely 0\n");
 	}
+
 	return 0;
 }
 
