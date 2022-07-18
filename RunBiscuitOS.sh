@@ -24,9 +24,10 @@ DL=/home/$HOST_NAME/workspace/BiscuitOS/dl
 DEBIAN_PACKAGE=buster-base-arm64.tar.gz.N.bsp
 RAM_SIZE=512
 LINUX_DIR=${ROOT}/linux/linux/out/arch
-HOSTSHARE=/home/ubuntu/workspace/BiscuitOS/hostshare
+HOSTSHARE=/home/$HOST_NAME/workspace/BiscuitOS/hostshare
 NET_CFG=${ROOT}/package/networking
-CMDLINE="earlycon root=/dev/vda rw rootfstype=${FS_TYPE} console=ttyAMA0 init=/linuxrc loglevel=8 route=192.168.64.5 iface=eth0 rw fsck.repair=yes  rootwait sharetag=hostshare sharedir=/hostshare"
+ROUTE=`ifconfig |awk '{print $2}'|sed -n '2p'`
+CMDLINE="earlycon root=/dev/vda rw rootfstype=${FS_TYPE} console=ttyAMA0 init=/linuxrc loglevel=8 route=192.168.88.136 iface=eth0 rw fsck.repair=yes  rootwait sharetag=hostshare sharedir=/hostshare"
 
 do_running()
 {
