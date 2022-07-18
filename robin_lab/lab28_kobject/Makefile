@@ -12,16 +12,17 @@ else
 	DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
 endif
 
-obj-m	+=   atomic_variable.o
-obj-m   +=   atomic_api.o
+obj-m	+= kobject_create_demo.o
+obj-m	+= kobject_get_demo.o
+obj-m   += kobject_sysfs_init.o
 
 all :
 	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules;
 
 install: all
-	install -v atomic_variable.ko $(DESTDIR)
-	install -v atomic_api.ko $(DESTDIR)
-
+	install -v kobject_create_demo.ko $(DESTDIR)
+	install -v kobject_get_demo.ko $(DESTDIR)
+	install -v kobject_sysfs_init.ko $(DESTDIR)
 clean:
 	@rm -rf *.ko *.o *.mod.o *.mod.c *.symvers *.order \
                .*.o.cmd .tmp_versions *.ko.cmd .*.ko.cmd *.mod

@@ -150,6 +150,141 @@ static int atomic_and_api(void)
 	return 0;
 }
 
+static int atomic_fetch_add_api(void)
+{
+	int val;
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	/* Atomic add */
+	val = atomic_fetch_add(1, &rb_counter3);
+
+	pr_info("Atomic: %d\n", val);
+
+	return 0;
+}
+
+static int atomic_dec_api(void)
+{
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	/* Atomic value before data  */
+	pr_info("[0]Atomic: oiginal-> %d\n", atomic_read(&rb_counter3));
+
+	/* atomic_dec */
+	atomic_dec(&rb_counter3);
+
+	/* Atomic value after data  */
+	pr_info("[1]Atomic: new->     %d\n", atomic_read(&rb_counter3));
+
+	return 0;
+}
+
+static int atomic_cmpxchg_api(void)
+{
+	int val;
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	/* Atomic cmpxchg: Old == original */
+	val = atomic_cmpxchg(&rb_counter3, atomic_read(&rb_counter3), 2);
+
+	pr_info("[0]Atomic: original-> %d new-> %d\n", val,
+		atomic_read(&rb_counter3));
+
+	/* Atomic cmpxchg: Old != original */
+	val = atomic_cmpxchg(&rb_counter3, 1, 5);
+
+	pr_info("[1]Atomic: original-> %d new-> %d\n", val,
+		atomic_read(&rb_counter3));
+	return 0;
+}
+
+static int atomic_dec_if_postive_api(void)
+{
+	atomic_set(&rb_counter3, -2);
+	pr_info("Atomic:%d\n", atomic_read(&rb_counter3));
+	/* Legacy data */
+	pr_info("[0]Atomic: %d\n", atomic_read(&rb_counter3));
+
+	atomic_dec_if_positive(&rb_counter3);
+
+	/* New data */
+	pr_info("[1]Atomic: %d\n", atomic_read(&rb_counter3));
+
+	/* add > 0 */
+	atomic_add(3, &rb_counter3);
+	pr_info("[2]Atomic: %d\n", atomic_read(&rb_counter3));
+
+	atomic_dec_if_positive(&rb_counter3);
+
+	/* New data */
+	pr_info("[3]Atomic: %d\n", atomic_read(&rb_counter3));
+	return 0;
+}
+
+static int atomic_dec_return_api(void)
+{
+	/* Atomic value before data  */
+	pr_info("[0]Atomic: oiginal-> %d\n", atomic_read(&rb_counter3));
+
+	/* Atomic value after data  */
+	pr_info("[1]Atomic: new->     %d\n", atomic_dec_return(&rb_counter3));
+	return 0;
+}
+
+static int atomic_set_api(void)
+{
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	atomic_set(&rb_counter3, 10);
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	return 0;
+}
+
+static int atomic_or_api(void)
+{
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	/* Atomic or */
+	atomic_or(1, &rb_counter3);
+
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	return 0;
+}
+
+static int atomic_sub_api(void)
+{
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	/* Atomic sub */
+	atomic_sub(1, &rb_counter3);
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	atomic_sub(2, &rb_counter3);
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+
+	return 0;
+}
+
+static int atomic_sub_return_api(void)
+{
+	int val;
+
+	pr_info("Atomic: %d\n", atomic_read(&rb_counter3));
+	/* Atomic sub */
+	val = atomic_sub_return(1, &rb_counter3);
+
+	pr_info("Atomic: %d\n", val);
+
+	/* Atomic sub */
+	val = atomic_sub_return(1, &rb_counter3);
+
+	pr_info("Atomic: %d\n", val);
+
+	/* Atomic sub */
+	val = atomic_sub_return(1, &rb_counter3);
+
+	pr_info("Atomic: %d\n", val);
+	/* Atomic sub */
+	val = atomic_sub_return(1, &rb_counter3);
+
+	pr_info("Atomic: %d\n", val);
+
+	return 0;
+}
+
 static int __init atomic_api_init(void)
 {
 	pr_info("atomic rapi init\n");
@@ -181,6 +316,24 @@ static int __init atomic_api_init(void)
 	atomic_inc_unless_negative_api();
 
 	atomic_and_api();
+
+	atomic_fetch_add_api();
+
+	atomic_dec_api();
+
+	atomic_cmpxchg_api();
+
+	atomic_dec_if_postive_api();
+
+	atomic_dec_return_api();
+
+	atomic_set_api();
+
+	atomic_or_api();
+
+	atomic_sub_api();
+
+	atomic_sub_return_api();
 	return 0;
 }
 
