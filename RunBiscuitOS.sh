@@ -8,18 +8,19 @@
 # it under the terms of the GNU General Public License version 2 as
 # published by the Free Software Foundation.
 
-ROOT=/home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64
-QEMUT=/home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64/qemu-system/qemu-system/aarch64-softmmu/qemu-system-aarch64
+HOST_NAME=$(ls /home/)
+ROOT=/home/$HOST_NAME/workspace/BiscuitOS/output/linux-newest-arm64
+QEMUT=/home/$HOST_NAME/workspace/BiscuitOS/output/linux-newest-arm64/qemu-system/qemu-system/aarch64-softmmu/qemu-system-aarch64
 ARCH=arm64
-BUSYBOX=/home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64/busybox/busybox
-OUTPUT=/home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64
+BUSYBOX=/home/$HOST_NAME/workspace/BiscuitOS/output/linux-newest-arm64/busybox/busybox
+OUTPUT=/home/$HOST_NAME/workspace/BiscuitOS/output/linux-newest-arm64
 ROOTFS_NAME=ext4
 CROSS_COMPILE=aarch64-linux-gnu
 FS_TYPE=ext4
 FS_TYPE_TOOLS=mkfs.ext4
 ROOTFS_SIZE=150
 FREEZE_SIZE=512
-DL=/home/ubuntu/workspace/BiscuitOS/dl
+DL=/home/$HOST_NAME/workspace/BiscuitOS/dl
 DEBIAN_PACKAGE=buster-base-arm64.tar.gz.N.bsp
 RAM_SIZE=512
 LINUX_DIR=${ROOT}/linux/linux/out/arch
@@ -38,7 +39,7 @@ do_running()
 		ARGS+="mac=E0:FE:D0:3C:2E:EE "
 		ARGS+="-netdev tap,id=bsnet0,ifname=bsTap0 "
 	fi
-	
+
 
 	sudo ${QEMUT} ${ARGS} \
 	-M virt \
