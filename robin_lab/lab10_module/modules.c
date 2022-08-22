@@ -210,8 +210,9 @@ static bool param;
 module_param_call(module_param_value_5, param_set_bool, param_get_bool, &param,
 		  0644);
 
-module_init(modules_init) module_exit(modules_exit)
+module_init(modules_init);
+module_exit(modules_exit);
 
-	MODULE_AUTHOR("Robin <jiangrenbin329@gmail.com>");
+MODULE_AUTHOR("Robin <jiangrenbin329@gmail.com>");
 MODULE_DESCRIPTION("Module param value demo");
 MODULE_LICENSE("GPL V2");
