@@ -2,7 +2,7 @@
 # modify right kernel PATH for your system
 HOST=$(shell ls /home/)
 $(warning "HOST NAME:${HOST}")
-ifneq ($(HOST),ubuntu)
+ifeq ($(HOST),ubuntu)
     BASEINCLUDE ?= /home/$(HOST)/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
 	DESTDIR=/home/$(HOST)/workspace/BiscuitOS/hostshare/lib/modules/5.15.0+/
 else
