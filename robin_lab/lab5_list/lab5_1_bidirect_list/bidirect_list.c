@@ -96,7 +96,7 @@ static int __init bindirect_demo_init(void) {
   pr_err("BIT(10):%#x\n", BIT(10));
   pr_err("ctl_reg:%#x\n", ctl_reg);
 
-  ctl_reg |= 7 & GENMASK(2, 0) << 7;
+  ctl_reg |= (7 & GENMASK(2, 0)) << 7;
   pr_err("ctl_reg:%#x\n", ctl_reg);
 
   ctl_reg |= (0 & GENMASK(1, 0)) << 5;

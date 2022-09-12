@@ -13,7 +13,6 @@ endif
 module_demo-objs := modules.o
 
 obj-m	:=  module_demo.o
-
 ccflags-y	:= -DDEBUG=1
 
 all :
