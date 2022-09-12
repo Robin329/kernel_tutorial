@@ -1,18 +1,27 @@
-[submodule "BiscuitOS/HardStack"]
+[submodule "repo/BiscuitOS/HardStack"]
 	path = BiscuitOS/HardStack
 	url = https://gitee.com/BiscuitOS_team/HardStack.git
-[submodule "HardStack"]
+[submodule "repo/HardStack"]
 	path = HardStack
 	url = https://gitee.com/BiscuitOS_team/HardStack.git
-[submodule "ldd3"]
+[submodule "repo/ldd3"]
 	path = ldd3
 	url = https://github.com/martinezjavier/ldd3.git
-[submodule "Tutorials"]
+[submodule "repo/Tutorials"]
 	path = Tutorials
 	url = https://github.com/Embetronicx/Tutorials.git
-[submodule "project/lua"]
+[submodule "repo/project/lua"]
 	path = project/lua
 	url = https://github.com/Robin329/lua.git
-[submodule "Linux_Driver_Tutorial"]
+[submodule "repo/Linux_Driver_Tutorial"]
 	path = Linux_Driver_Tutorial
 	url = https://github.com/Johannes4Linux/Linux_Driver_Tutorial
+[submodule "project/shell/shell-scripting-tutorial"]
+	path = project/shell/shell-scripting-tutorial
+	url = https://github.com/techarkit/shell-scripting-tutorial.git
+[submodule "project/shell/pure-bash-bible"]
+	path = project/shell/pure-bash-bible
+	url = https://github.com/dylanaraps/pure-bash-bible.git
+[submodule "project/shell/100-shell-script-examples"]
+	path = project/shell/100-shell-script-examples
+	url = https://github.com/epety/100-shell-script-examples.git

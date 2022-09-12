@@ -1,0 +1,2 @@
+config BISCUITOS_LDD_PLATFORM_RES
+	tristate "LDD: Platform Resource"
