@@ -1,6 +1,0 @@
-[File]
-init/main.c
-[Func]
-build_all_zonelists()
-[Content]
-BiscuitOS_Running()

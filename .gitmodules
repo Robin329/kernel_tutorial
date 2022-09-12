@@ -1,20 +1,17 @@
-[submodule "repo/BiscuitOS/HardStack"]
-	path = BiscuitOS/HardStack
-	url = https://gitee.com/BiscuitOS_team/HardStack.git
 [submodule "repo/HardStack"]
-	path = HardStack
+	path = repo/HardStack
 	url = https://gitee.com/BiscuitOS_team/HardStack.git
 [submodule "repo/ldd3"]
-	path = ldd3
+	path = repo/ldd3
 	url = https://github.com/martinezjavier/ldd3.git
 [submodule "repo/Tutorials"]
-	path = Tutorials
+	path = repo/Tutorials
 	url = https://github.com/Embetronicx/Tutorials.git
-[submodule "repo/project/lua"]
+[submodule "project/lua"]
 	path = project/lua
 	url = https://github.com/Robin329/lua.git
 [submodule "repo/Linux_Driver_Tutorial"]
-	path = Linux_Driver_Tutorial
+	path = repo/Linux_Driver_Tutorial
 	url = https://github.com/Johannes4Linux/Linux_Driver_Tutorial
 [submodule "project/shell/shell-scripting-tutorial"]
 	path = project/shell/shell-scripting-tutorial

@@ -1,2 +1,0 @@
-menuconfig BISCUITOS_SYSCALL_OPEN
-	bool "open: sys_BiscuitOS_open()"

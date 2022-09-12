@@ -1,2 +1,0 @@
-config BISCUITOS_BITOPS
-	tristate "BITOPS Device Driver"

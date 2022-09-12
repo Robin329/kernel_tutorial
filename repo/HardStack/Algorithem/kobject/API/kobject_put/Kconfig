@@ -1,2 +1,0 @@
-config BISCUITOS_KOBJECT_PUT
-	tristate "Kobject: kobject_put"

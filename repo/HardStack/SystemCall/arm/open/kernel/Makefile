@@ -1,1 +1,0 @@
-obj-$(CONFIG_BISCUITOS_SYSCALL_OPEN)	+= open.o

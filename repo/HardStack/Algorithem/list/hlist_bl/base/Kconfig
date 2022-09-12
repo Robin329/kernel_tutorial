@@ -1,2 +1,0 @@
-config BISCUITOS_HLIST_BL
-	tristate "Hash: hlist_bl"

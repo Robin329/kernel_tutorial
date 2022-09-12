@@ -1,6 +1,0 @@
-[File]
-init/main.c
-[Func]
-setup_arch()
-[Content]
-BiscuitOS_Running()

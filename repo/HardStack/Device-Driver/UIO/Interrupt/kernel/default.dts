@@ -1,9 +1,0 @@
-/* arch/arm/boot/dts/bcm2711-rpi-4-b.dts */
-
-&soc {
-	UIO_intr {
-		compatible = "BiscuitOS, UIO_intr";
-		status = "okay";
-		BD-gpio = <&gpio 25 GPIO_ACTIVE_HIGH>;
-	};
-};

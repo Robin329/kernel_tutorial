@@ -1,2 +1,0 @@
-config BISCUITOS_LDD_PLATFORM_RESDTS
-	tristate "LDD: Platform Resource with DTS module"

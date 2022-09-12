@@ -1,2 +1,0 @@
-config BISCUITOS_XARRAY
-	tristate "XARRAY"

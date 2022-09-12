@@ -1,2 +1,0 @@
-config BISCUITOS_KOBJECT_GET
-	tristate "Kobject: kobject_get"

@@ -1,2 +1,0 @@
-config BISCUITOS_CMA_DEBRIS
-	tristate "CMA: Debris issue"
