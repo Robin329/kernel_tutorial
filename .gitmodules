@@ -7,9 +7,6 @@
 [submodule "repo/Tutorials"]
 	path = repo/Tutorials
 	url = https://github.com/Embetronicx/Tutorials.git
-[submodule "project/lua"]
-	path = project/lua
-	url = https://github.com/Robin329/lua.git
 [submodule "repo/Linux_Driver_Tutorial"]
 	path = repo/Linux_Driver_Tutorial
 	url = https://github.com/Johannes4Linux/Linux_Driver_Tutorial
