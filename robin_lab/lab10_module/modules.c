@@ -193,9 +193,9 @@ MODULE_PARM_DESC(module_param_value_1, "Module param value demo");
 module_param_cb(module_param_value_2, &param_ops_uint, &module_param_value_2,
 		0644);
 MODULE_PARM_DESC(module_param_value_2, "Module param cb param_ops_unit");
-module_param_cb(module_param_value_3, &param_ops_test_1, &module_param_value_3,
+module_param_cb(module_param_3, &param_ops_test_1, &module_param_value_3,
 		0644);
-MODULE_PARM_DESC(module_param_value_3, "Module param cb param_ops_test");
+MODULE_PARM_DESC(module_param_3, "Module param cb param_ops_test");
 
 static char param_value_4[20];
 static struct kparam_string newchan_kps = {
@@ -210,8 +210,9 @@ static bool param;
 module_param_call(module_param_value_5, param_set_bool, param_get_bool, &param,
 		  0644);
 
-module_init(modules_init) module_exit(modules_exit)
+module_init(modules_init);
+module_exit(modules_exit);
 
-	MODULE_AUTHOR("Robin <jiangrenbin329@gmail.com>");
+MODULE_AUTHOR("Robin <jiangrenbin329@gmail.com>");
 MODULE_DESCRIPTION("Module param value demo");
 MODULE_LICENSE("GPL V2");

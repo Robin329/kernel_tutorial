@@ -27,6 +27,9 @@
 /* header of list */
 #include <linux/list.h>
 
+#undef pr_fmt
+#define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
+
 /* private structure */
 struct node {
   const char *name;
@@ -86,6 +89,20 @@ static int __init bindirect_demo_init(void) {
   list_add_valid(np);
   /* Traverser all node on bindirect-list */
   list_for_each_entry(np, &BiscuitOS_list, list) printk("%s\n", np->name);
+
+  pr_info("Module init\n");
+  int32_t ctl_reg = 0x00000604;
+  ctl_reg |= BIT(10);
+  pr_err("BIT(10):%#x\n", BIT(10));
+  pr_err("ctl_reg:%#x\n", ctl_reg);
+
+  ctl_reg |= (7 & GENMASK(2, 0)) << 7;
+  pr_err("ctl_reg:%#x\n", ctl_reg);
+
+  ctl_reg |= (0 & GENMASK(1, 0)) << 5;
+  pr_err("ctl_reg:%#x\n", ctl_reg);
+
+  pr_err("ctl_reg:%#x\n", ctl_reg);
 
   return 0;
 }
