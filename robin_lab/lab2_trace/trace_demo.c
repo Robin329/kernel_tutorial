@@ -22,7 +22,7 @@ timeout = schedule_timeout(timeout); \
 static struct task_struct * my_thread = NULL;
 
 static int print_hello(void *data)
-{   
+{
     char *mydata = kmalloc(strlen(data)+1,GFP_KERNEL);
     memset(mydata, '\0', strlen(data)+1);
     strncpy(mydata, data, strlen(data));
@@ -37,7 +37,10 @@ static int print_hello(void *data)
 static int __init trace_demo_init(void)
 {
     my_thread = kthread_run(print_hello, "hello", "my_thread");
-
+    pr_info("__ffs(0xa0000000):%d\n",__ffs(0xa0000000));
+    pr_info("__ffs(0x7430400):%d\n", __ffs(0x7430400));
+    pr_info("__ffs():%d\n", __ffs(0x7430400 | 0xa0000000|BIT(4)));
+    pr_info("DIV_ROUND_UP:%d\n", DIV_ROUND_UP(1280*720*3/(8*2), 0x1000+1));
     pr_info("%s: init start ...\n", __func__);
 
     return 0;

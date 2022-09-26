@@ -48,6 +48,7 @@ do_running()
 	-cpu cortex-a53 \
 	-smp 2 \
 	-kernel ${LINUX_DIR}/${ARCH}/boot/Image \
+	-dtb ${LINUX_DIR}/${ARCH}/boot/dts/qemu/qemu_virt.dtb  \
 	-device virtio-blk-device,drive=hd1 \
 	-drive if=none,file=${ROOT}/Freeze.img,format=raw,id=hd1 \
 	-device virtio-blk-device,drive=hd0 \
