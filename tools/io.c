@@ -29,7 +29,7 @@ static void usage(char *argv0)
 	if (basename)
 		argv0 = basename + 1;
 	fprintf(stderr,
-		"Raw memory i/o utility - $Revision: 3.0 $\n\n"
+		"Raw memory i/o utility - $Revision: 2.5 $\n\n"
 		"%s -v -1|2|4|8 -r|w|a|o|x [-l <len>] [-f <file>] <addr> [<value>]\n\n"
 		"    -v         Verbose, asks for confirmation\n"
 		"    -1|2|4|8   Sets memory access size in bytes (default byte)\n"
@@ -66,15 +66,13 @@ static void memread_memory(char *phys_addr, char *addr, int len,
 				printf(" %02x", *(uint8_t *)addr & 0xff);
 				break;
 			case U16:
-				printf(" %04x",
-				       htobe16(*(uint16_t *)addr & 0xffff));
+				printf(" %04x", (*(uint16_t *)addr & 0xffff));
 				break;
 			case U32:
-				printf(" %08x", htobe32(*(uint32_t *)addr));
+				printf(" %08x", (*(uint32_t *)addr));
 				break;
 			case U64:
-				printf(" %016" PRIx64,
-				       htobe64(*(uint64_t *)addr));
+				printf(" %016" PRIx64, (*(uint64_t *)addr));
 				break;
 			}
 			addr += iosize;
@@ -94,13 +92,13 @@ static void write_memory(char *addr, int len, enum iosize iosize,
 			*(uint8_t *)addr = value;
 			break;
 		case U16:
-			*(uint16_t *)addr = be16toh(value);
+			*(uint16_t *)addr = (value);
 			break;
 		case U32:
-			*(uint32_t *)addr = be32toh(value);
+			*(uint32_t *)addr = (value);
 			break;
 		case U64:
-			*(uint64_t *)addr = be64toh(value);
+			*(uint64_t *)addr = (value);
 			break;
 		}
 		len -= iosize;
@@ -117,13 +115,13 @@ static void and_write_memory(char *addr, int len, enum iosize iosize,
 			*(uint8_t *)addr &= value;
 			break;
 		case U16:
-			*(uint16_t *)addr &= be16toh(value);
+			*(uint16_t *)addr &= (value);
 			break;
 		case U32:
-			*(uint32_t *)addr &= be32toh(value);
+			*(uint32_t *)addr &= (value);
 			break;
 		case U64:
-			*(uint64_t *)addr &= be64toh(value);
+			*(uint64_t *)addr &= (value);
 			break;
 		}
 		len -= iosize;
@@ -140,13 +138,13 @@ static void or_write_memory(char *addr, int len, enum iosize iosize,
 			*(uint8_t *)addr |= value;
 			break;
 		case U16:
-			*(uint16_t *)addr |= be16toh(value);
+			*(uint16_t *)addr |= (value);
 			break;
 		case U32:
-			*(uint32_t *)addr |= be32toh(value);
+			*(uint32_t *)addr |= (value);
 			break;
 		case U64:
-			*(uint64_t *)addr |= be64toh(value);
+			*(uint64_t *)addr |= (value);
 			break;
 		}
 		len -= iosize;
@@ -163,13 +161,13 @@ static void xor_write_memory(char *addr, int len, enum iosize iosize,
 			*(uint8_t *)addr ^= value;
 			break;
 		case U16:
-			*(uint16_t *)addr ^= be16toh(value);
+			*(uint16_t *)addr ^= (value);
 			break;
 		case U32:
-			*(uint32_t *)addr ^= be32toh(value);
+			*(uint32_t *)addr ^= (value);
 			break;
 		case U64:
-			*(uint64_t *)addr ^= be64toh(value);
+			*(uint64_t *)addr ^= (value);
 			break;
 		}
 		len -= iosize;
