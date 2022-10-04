@@ -1,5 +1,6 @@
 
 # modify right kernel PATH for your system
+<<<<<<< Updated upstream
 HOST=$(shell ls /home/)
 $(warning "HOST NAME:${HOST}")
 ifeq ($(HOST),ubuntu)
@@ -9,6 +10,11 @@ else
     BASEINCLUDE ?= /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
 	DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
 endif
+=======
+BASEINCLUDE ?= /home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
+#BASEINCLUDE ?= /lib/modules/`uname -r`/build
+DESTDIR=/home/ubuntu/workspace/BiscuitOS/hostshare/lib/modules/5.15.0+/
+>>>>>>> Stashed changes
 
 module_demo-objs := modules.o
 
