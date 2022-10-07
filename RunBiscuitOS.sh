@@ -111,6 +111,7 @@ TFTP_KERNEL="tftpboot $KRN_ADDR $KERNEL_IMG;"
 [ "$RDK_ADDR" != "-" ] && TFTP_RAMDISK="tftpboot $RDK_ADDR $RAMDISK_IMG;"
 [ "$DTB_ADDR" != "-" ] && TFTP_DTB="tftpboot $DTB_ADDR $DTB_IMG;"
 
+IP=192.168.64.5
 # Get delayed ip, route and cmdline
 echo $IP | grep -q ifconfig
 [ $? -eq 0 ] && eval "IP=\"$IP\""
@@ -274,11 +275,12 @@ sed -i -e "${line}i#undef CONFIG_BOOTCOMMAND" $CONFIG_FILE
 sed -i -e "${line}i#ifdef CONFIG_BOOTCOMMAND" $CONFIG_FILE
 
 pushd $_UBOOT_DIR >/dev/null
-
-make qemu_arm64_defconfig 2>/dev/null
-make -j32 2>/dev/null
-popd 2>/dev/null
-####### config.sh
+if [ ${1}X = "uboot"X ]; then
+	make qemu_arm64_defconfig 2>/dev/null
+	make -j32 2>/dev/null
+	popd 2>/dev/null
+fi
+################ config.sh
 
 do_ubootimg() {
 	if [ "${BOOTDEV}" == "pflash" -o "${BOOTDEV}" == "flash" ]; then
