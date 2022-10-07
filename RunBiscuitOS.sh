@@ -49,11 +49,12 @@ PFLASH_IMG=${ROOT}/pflash.img
 SD_IMG=${ROOT}/sd.img
 ENV_IMG=${ROOT}/env.img
 # Get DRAM start & size via `bdinfo`
-KRN_ADDR="0x40400000"
+KRN_ADDR="0x45000000"
 KRN_SIZE=20
-RDK_ADDR="-"
+# ramdisk_addr_r=0x44000000
+RDK_ADDR="0x42000000"
 RDK_SIZE=6
-DTB_ADDR="0x40000000"
+DTB_ADDR="0x44000000"
 DTB_SIZE=2
 PFLASH_SIZE=64
 BOOTDEV=flash
@@ -69,14 +70,72 @@ PFLASH_BASE="0x4000000"
 PFLASH_SIZE=64
 PFLASH_BS=512
 # Environment Offset, see CONFIG_ENV_OFFSET in $UCONFIG
+# ENV_DEV=flash
 ENV_OFFSET=0
-ENV_SIZE=1
+ENV_SIZE=2
 ENVDEV=pflash
 if [ "${ENV_DEV}" = "flash" ]; then
 	ENV_ADDR=0x4000000
 else
 	ENV_ADDR=0x49000000
 fi
+####
+# config.sh
+####
+_UBOOT_DIR=/home/$HOST_NAME/workspace/BiscuitOS/output/BiscuitOS-uboot/u-boot/u-boot
+_CONFIG_FILE=qemu-arm.h
+CONFIG_FILE=$_UBOOT_DIR/include/configs/$_CONFIG_FILE
+KERNEL_IMG=uImage
+RAMDISK_IMG=ramdisk
+DTB_IMG=dtb
+
+# By default, boot from tftp
+U_BOOT_CMD=bootcmd1
+if [ "${BOOTDEV}" = "sdcard" ]; then
+	U_BOOT_CMD=bootcmd2
+fi
+echo "BOOTDEV:${BOOTDEV}"
+if [ "${BOOTDEV}" = "flash" ]; then
+	echo -e "Use bootcmd3"
+	U_BOOT_CMD=bootcmd3
+fi
+if [ "${BOOTDEV}" = "ram" ]; then
+	U_BOOT_CMD=bootcmd4
+	RAM_BOOT=1
+fi
+
+# Core configuration
+
+## boot from tftp
+TFTP_KERNEL="tftpboot $KRN_ADDR $KERNEL_IMG;"
+[ "$RDK_ADDR" != "-" ] && TFTP_RAMDISK="tftpboot $RDK_ADDR $RAMDISK_IMG;"
+[ "$DTB_ADDR" != "-" ] && TFTP_DTB="tftpboot $DTB_ADDR $DTB_IMG;"
+
+# Get delayed ip, route and cmdline
+echo $IP | grep -q ifconfig
+[ $? -eq 0 ] && eval "IP=\"$IP\""
+echo $ROUTE | grep -q ifconfig
+[ $? -eq 0 ] && eval "ROUTE=\"$ROUTE\""
+echo $CMDLINE | grep -q ifconfig
+[ $? -eq 0 ] && eval "CMDLINE=\"$CMDLINE\""
+
+# echo -----------------------------
+#
+# echo $IP
+# echo $ROUTE
+# echo $CMDLINE
+#
+# echo -----------------------------
+
+IPADDR="setenv ipaddr $IP;"
+SERVERIP="setenv serverip $ROUTE;"
+BOOTARGS="setenv bootargs '"$(echo -n "$CMDLINE" | sed 's%"%\\\\"%g' | sed "s%'%\\\\\"%g")"';"
+TFTPS="$TFTP_KERNEL $TFTP_RAMDISK $TFTP_DTB"
+[ "$DTB_ADDR" == "-" ] && DTB_ADDR=""
+BOOTM="$BOOTX $KRN_ADDR $RDK_ADDR $DTB_ADDR"
+
+BOOT_TFTP="$IPADDR $SERVERIP $BOOTARGS $TFTPS $BOOTM"
+
 # Get the real address if not specified
 [ -z "$ENV_ADDR" ] && ENV_ADDR=$(_size16b $(($PFLASH_BASE + $ENV_OFFSET)))
 
@@ -86,10 +145,10 @@ _KRN_SIZE=$(_size16b_m $KRN_SIZE)
 _RDK_SIZE=$(_size16b_m $RDK_SIZE)
 _DTB_SIZE=$(_size16b_m $DTB_SIZE)
 
-echo "_ENV_SIZE:${_ENV_SIZE}"
-echo "_KRN_SIZE:${_KRN_SIZE}"
-echo "_RDK_SIZE:${_RDK_SIZE}"
-echo "_DTB_SIZE:${_DTB_SIZE}"
+echo "_ENV_SIZE:${_ENV_SIZE} ADDR:$ENV_ADDR"
+echo "_KRN_SIZE:${_KRN_SIZE} ADDR:$KRN_ADDR"
+echo "_RDK_SIZE:${_RDK_SIZE} ADDR:$RDK_ADDR"
+echo "_DTB_SIZE:${_DTB_SIZE} ADDR:$DTB_ADDR"
 
 KERNEL_BASE=$(_size16b $(($PFLASH_BASE + $_ENV_SIZE)))
 RAMDISK_BASE=$(_size16b $(($PFLASH_BASE + $_ENV_SIZE + $_KRN_SIZE)))
@@ -101,12 +160,125 @@ BOOTX=booti
 [ "$DTB_ADDR" == "-" ] && DTB_ADDR=""
 BOOTM="$BOOTX $KRN_ADDR $RDK_ADDR $DTB_ADDR"
 
+echo "KERNEL_BASE ADDR BASE:$KERNEL_BASE"
+echo "RAMDISK_BASE ADDR BASE:$RAMDISK_BASE"
+echo "DTB_BASE ADDR BASE:$DTB_BASE"
+
 PFLOAD_KERNEL="cp $KERNEL_BASE $KRN_ADDR $_KRN_SIZE;"
 [ "$RDK_ADDR" != "-" ] && PFLOAD_RAMDISK="cp $RAMDISK_BASE $RDK_ADDR $_RDK_SIZE;"
 [ "$DTB_ADDR" != "-" ] && PFLOAD_DTB="cp $DTB_BASE $DTB_ADDR $_DTB_SIZE;"
 PFLOADS="$PFLOAD_KERNEL $PFLOAD_RAMDISK $PFLOAD_DTB"
 BOOT_PFLASH="$BOOTARGS $PFLOADS  $BOOTM"
-boot_cmd=$BOOT_PFLASH
+
+## boot from sdcard/mmc
+FATLOAD_KERNEL="fatload mmc 0:0 $KRN_ADDR $KERNEL_IMG;"
+[ "$RDK_ADDR" != "-" ] && FATLOAD_RAMDISK="fatload mmc 0:0 $RDK_ADDR $RAMDISK_IMG;"
+[ "$DTB_ADDR" != "-" ] && FATLOAD_DTB="fatload mmc 0:0 $DTB_ADDR $DTB_IMG;"
+FATLOADS="$FATLOAD_KERNEL $FATLOAD_RAMDISK $FATLOAD_DTB"
+
+BOOT_SDCARD="$BOOTARGS $FATLOADS $BOOTM"
+
+BOOT_PFLASH="$BOOTARGS $PFLOADS $BOOTM"
+
+BOOT_RAM="$BOOTARGS $BOOTM"
+
+## Use tftp by default
+BOOT_CMD=$U_BOOT_CMD
+
+# build env image or customize config file?
+
+## build env image
+# if [ -z "$_CONFIG_FILE" ]; then
+
+case $BOOT_CMD in
+bootcmd4)
+	boot_cmd=$BOOT_RAM
+	;;
+bootcmd3)
+	boot_cmd=$BOOT_PFLASH
+	;;
+bootcmd2)
+	boot_cmd=$BOOT_SDCARD
+	;;
+*)
+	boot_cmd=$BOOT_TFTP
+	;;
+esac
+truncate -s 1M $ENV_IMG
+echo -e -n "bootcmdx=${boot_cmd}\0" >$ENV_IMG
+hexdump -C $ENV_IMG
+# exit 0
+# fi
+## customize config file
+
+# Others
+CONFIG_SYS_CBSIZE=1024
+CONFIG_INITRD_TAG=1
+CONFIG_OF_LIBFDT=1
+# aligh with 1M for env partition, for saveenv command
+FLASH_MAX_SECTOR_SIZE=0x00100000
+CONFIG_EXTRA_ENV_SETTINGS="\"bootcmd1=$BOOT_TFTP\\\\0bootcmd2=$BOOT_SDCARD\\\\0bootcmd3=$BOOT_PFLASH\\\\0bootcmd4=$BOOT_RAM\\\\0bootcmdx=run $BOOT_CMD\\\\0\""
+
+# Convert from M to bytes
+ENV_OFFSET=$(_size16b_m $ENV_OFFSET)
+echo "ENV_OFFSET:$ENV_OFFSET"
+# Get the real address if not specified
+CONFIG_BOOTCOMMAND="\"env import $ENV_ADDR $CONFIG_SYS_CBSIZE; run bootcmdx\""
+# The header for SZ_16M is not always there, use magic number directly
+CONFIG_SYS_BOOTM_LEN=0x01000000
+
+# More
+EXTRA_CONFIGS=$(env | grep ^CONFIG | cut -d'=' -f1)
+
+echo $CONFIG_BOOTCOMMAND
+
+# Build the config lines
+
+CONFIGS="CONFIG_EXTRA_ENV_SETTINGS FLASH_MAX_SECTOR_SIZE CONFIG_BOOTCOMMAND CONFIG_SYS_CBSIZE CONFIG_INITRD_TAG CONFIG_OF_LIBFDT CONFIG_SYS_BOOTM_LEN $EXTRA_CONFIGS"
+
+# Reset changes
+pushd $_UBOOT_DIR >/dev/null
+git checkout -- include/configs/$_CONFIG_FILE
+
+# FIXME: mkimage build error with host-side libfdt-dev, we can remove libfdt-dev or simply disable mkimage build
+echo "LOG: Disable mkimage to fix up build error with host side libfdt-dev"
+git checkout -- tools/Makefile
+sed -i -e "/hostprogs-.*mkimage/s/^/# /g" tools/Makefile
+
+popd 2>/dev/null
+
+# Update the new one
+# Insert the new configs in the end of the external #if .. #endif condition
+sed -i -e "/ROBININSERT START/,/ROBIN INSERT END/d" $CONFIG_FILE
+
+line=$(grep -n "#endif" $CONFIG_FILE | tail -1 | cut -d':' -f1)
+
+sed -i -e "${line}i/* ROBIN INSERT END */" $CONFIG_FILE
+
+for config in $CONFIGS; do
+	value=$(eval echo \$${config})
+
+	grep -q "^#define $config" $CONFIG_FILE
+	if [ $? -eq 0 ]; then
+		sed -i -e "s%^#define $config[^\\]*\([\\]*\)$%#define $config\t${value}\1%g" $CONFIG_FILE
+	else
+		sed -i -e "${line}i#define ${config}\t${value}" $CONFIG_FILE
+	fi
+	grep "^#define $config" $CONFIG_FILE
+done
+
+sed -i -e "${line}i/* ROBIN INSERT START */" $CONFIG_FILE
+
+sed -i -e "${line}i#endif" $CONFIG_FILE
+sed -i -e "${line}i#undef CONFIG_BOOTCOMMAND" $CONFIG_FILE
+sed -i -e "${line}i#ifdef CONFIG_BOOTCOMMAND" $CONFIG_FILE
+
+pushd $_UBOOT_DIR >/dev/null
+
+make qemu_arm64_defconfig 2>/dev/null
+make -j32 2>/dev/null
+popd 2>/dev/null
+####### config.sh
 
 do_ubootimg() {
 	if [ "${BOOTDEV}" == "pflash" -o "${BOOTDEV}" == "flash" ]; then
@@ -115,22 +287,24 @@ do_ubootimg() {
 
 		truncate -s $(($PFLASH_SIZE * 1024))K $PFLASH_IMG
 
-		# Save env to the last 1M of pflash
-		if [ -n "$ENV_IMG" ]; then
-			truncate -s 1M $ENV_IMG
-			echo "boot_cmd: $boot_cmd"
-			echo -e -n "bootcmdx=${boot_cmd}\0" >$ENV_IMG
-			hexdump -C $ENV_IMG
-			[ ! -f $PFLASH_IMG ] && truncate -s $(($PFLASH_SIZE * 1024))K $PFLASH_IMG
-			dd if=$ENV_IMG of=$PFLASH_IMG bs=1M seek=$ENV_OFFSET conv=notrunc status=none
-		fi
-
 		[ -n "$KERNEL_IMAGE" -a -f "$KERNEL_IMAGE" ] && dd if=$KERNEL_IMAGE of=$PFLASH_IMG status=none seek=$(($ENV_SIZE * 1024 / $PFLASH_BS)) conv=notrunc bs=${PFLASH_BS}K
 		echo "kernel image seek:$(($ENV_SIZE * 1024 / $PFLASH_BS))"
-		echo "KERNEL_IMAGE:${KERNEL_IMAGE} DTB_IMAGE:${DTB_IMAGE}"
+		echo "KERNEL_IMAGE:${KERNEL_IMAGE} \n\r DTB_IMAGE:${DTB_IMAGE}"
+		[ -n "$ROOT_IMAGE" -a -f "$ROOT_IMAGE" ] && dd if=$ROOT_IMAGE of=$PFLASH_IMG status=none conv=notrunc seek=$((($ENV_SIZE + $KRN_SIZE) * 1024 / $PFLASH_BS)) bs=${PFLASH_BS}K
 
-		[ -n "$DTB_IMAGE" -a -f "$DTB_IMAGE" ] && dd if=$DTB_IMAGE of=$PFLASH_IMG status=none conv=notrunc seek=$((($ENV_SIZE + $KRN_SIZE) * 1024 / $PFLASH_BS)) bs=${PFLASH_BS}K
+		[ -n "$DTB_IMAGE" -a -f "$DTB_IMAGE" ] && dd if=$DTB_IMAGE of=$PFLASH_IMG status=none conv=notrunc seek=$((($ENV_SIZE + $KRN_SIZE + $RDK_SIZE) * 1024 / $PFLASH_BS)) bs=${PFLASH_BS}K
 		echo "dtb seek:$((($ENV_SIZE + $KRN_SIZE) * 1024 / $PFLASH_BS))"
+
+		# Save env to the last 1M of pflash
+		if [ -n "$ENV_IMG" ]; then
+			# truncate -s 1M $ENV_IMG
+			echo "BOOT_CMD: $BOOT_CMD"
+			# echo -e -n "bootcmdx=${BOOT_CMD}\0" >$ENV_IMG
+			hexdump -C $ENV_IMG
+			if [ -n "$ENV_IMG" ]; then
+				dd if=$ENV_IMG of=$PFLASH_IMG bs=1M seek=$ENV_OFFSET conv=notrunc status=none
+			fi
+		fi
 
 		sync
 	fi
@@ -153,13 +327,13 @@ do_running() {
 		# Load pflash for booting with uboot every time
 		# pflash is at least used as the env storage
 		# unit=1 means the second pflash, the first one is unit=0
-		KERNEL_BOOT=" -bios /home/ubuntu/workspace/BiscuitOS/output/BiscuitOS-uboot/u-boot/u-boot/u-boot.bin -device loader,file=${ENV_IMG},addr=0x49000000 -drive if=pflash,file=${PFLASH_IMG},format=raw,unit=1 -drive if=none,file=${ROOT_IMAGE}/rootfs.ext4,format=raw,id=virtio-vda -device virtio-blk-device,drive=virtio-vda "
+		KERNEL_BOOT=" -bios /home/ubuntu/workspace/BiscuitOS/output/BiscuitOS-uboot/u-boot/u-boot/u-boot.bin -device loader,file=${ENV_IMG},addr=$ENV_ADDR -drive if=pflash,file=${PFLASH_IMG},format=raw,unit=1 -drive if=none,file=${ROOT_IMAGE}/rootfs.ext4,format=raw,id=virtio-vda -device virtio-blk-device,drive=virtio-vda "
 		APPEND=
 		U_CMDLINE=
 		sudo ${QEMUT} ${ARGS} \
 			-M virt \
 			-m ${RAM_SIZE}M \
-			-cpu cortex-a57 \
+			-cpu cortex-a53 \
 			-smp 2 \
 			${KERNEL_BOOT} ${APPEND} ${U_CMDLINE} \
 			-nographic \
