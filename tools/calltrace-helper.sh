@@ -119,7 +119,7 @@ if [ -n "${addr2line}" -a "${addr2line}" = "faddr2line" -a -f ${faddr2line} ]; t
 
   eval ${cc_faddr2line} ${vmlinux_debuginfo} ${calltrace_lastcall}
   file_line=$(eval ${cc_faddr2line} ${vmlinux_debuginfo} ${calltrace_lastcall} | tail -1 | cut -d' ' -f3)
-
+  echo "file_line:$file_line  cc_faddr2line:$cc_faddr2line"
 else
 
   cc_nm=${cc_path_pre}nm
@@ -131,27 +131,27 @@ else
 
   echo ${cc_nm} ${vmlinux_debuginfo}
 
-  addr=$(${cc_nm} ${vmlinux_debuginfo} | grep " [Tt] ${func}$" | cut -d' ' -f1)
+  addr=$(${cc_nm} ${vmlinux_debuginfo} | grep " [Tt] ${func}$" | cut -d' ' -f1 | sed -n "1p")
 
   echo "func: $func addr: $addr"
 
   err_offset=$(echo $calltrace_lastcall | cut -d'+' -f2 | cut -d'/' -f1)
   func_len=$(echo $calltrace_lastcall | cut -d'+' -f2 | cut -d'/' -f2)
-
+  echo "-----------------------------------"
   echo "offset: $err_offset len: $func_len"
-
+  echo "-----------------------------------"
   startaddr=${addr}
 
   addrprefix=$(echo ${addr} | sed -e "s#\(f\{1,\}\).*#\1#g")
   addrreal=$(echo ${addr} | sed -e "s/^f\{1,\}\([^f]*\)/\1/g")
-
+  echo "-----------------------------------"
   echo "prefix: $addrprefix real: $addrreal"
-
+  echo "-----------------------------------"
   stopaddr=${addrprefix}$(echo "obase=16;ibase=10;$((0x$addrreal+$func_len))" | bc)
   erraddr=${addrprefix}$(echo "obase=16;ibase=10;$((0x$addrreal+$err_offset))" | bc)
-
+  echo "-----------------------------------"
   echo "start: $startaddr stop: $stopaddr err: $erraddr"
-
+  echo "-----------------------------------"
   ${cc_addr2line} -e ${vmlinux_debuginfo} ${erraddr}
   file_line=$(${cc_addr2line} -e ${vmlinux_debuginfo} ${erraddr} | cut -d' ' -f1)
 
