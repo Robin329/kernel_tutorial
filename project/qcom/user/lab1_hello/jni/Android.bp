@@ -1,0 +1,14 @@
+cc_binary {
+
+    name: "hello_ndk_build",
+
+    srcs: ["hello.cpp"],
+
+    cflags: [
+        "-DDEBUG",
+        "-Werror",
+    ],
+
+    // LOCAL_SHARED_LIBRARIES :=
+    // include $(BUILD_SHARED_LIBRARY)
+}
