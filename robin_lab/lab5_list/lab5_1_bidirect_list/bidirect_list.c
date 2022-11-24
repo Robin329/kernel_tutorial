@@ -106,6 +106,8 @@ static int __init bindirect_demo_init(void) {
   val = 0x34;
   pr_err("val:%#x\n", val & GENMASK(31,3) | 0x2);
 
+  pr_err("le32_to_cpu(0x12345678):%#x\n", le32_to_cpu(0x12345678));
+  pr_err("__LITTLE_ENDIAN:%d\n", __LITTLE_ENDIAN);
   return 0;
 }
 
