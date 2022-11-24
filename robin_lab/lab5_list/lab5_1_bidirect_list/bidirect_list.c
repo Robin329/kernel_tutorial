@@ -91,7 +91,7 @@ static int __init bindirect_demo_init(void) {
   list_for_each_entry(np, &BiscuitOS_list, list) printk("%s\n", np->name);
 
   pr_info("Module init\n");
-  int32_t ctl_reg = 0x00000604;
+  int32_t ctl_reg = 0x00000604, val;
   ctl_reg |= BIT(10);
   pr_err("BIT(10):%#x\n", BIT(10));
   pr_err("ctl_reg:%#x\n", ctl_reg);
@@ -103,6 +103,8 @@ static int __init bindirect_demo_init(void) {
   pr_err("ctl_reg:%#x\n", ctl_reg);
 
   pr_err("ctl_reg:%#x\n", ctl_reg);
+  val = 0x34;
+  pr_err("val:%#x\n", val & GENMASK(31,3) | 0x2);
 
   return 0;
 }

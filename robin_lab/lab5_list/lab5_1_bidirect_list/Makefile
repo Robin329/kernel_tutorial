@@ -1,11 +1,18 @@
 
 # modify right kernel PATH for your system
 HOST=$(shell cat /etc/hostname)
+$(shell export ARCH=arm64)
+$(shell export CROSS_COMPILE=aarch64-linux-gnu-)
 $(warning "HOST NAME:${HOST}")
 $(warning "kernel release:$(KERNELRELEASE)")
 ifneq ($(HOST),ubuntu)
-    BASEINCLUDE ?= /home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
-	DESTDIR=/home/ubuntu/workspace/BiscuitOS/hostshare/lib/modules/5.15.0+/
+	ifeq ($(HOST),DESKTOP-QO02B48)
+		BASEINCLUDE ?= /home/bst/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
+		DESTDIR=/home/bst/workspace/BiscuitOS/hostshare/lib/modules/5.17.0+/
+	else
+		BASEINCLUDE ?= /home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
+		DESTDIR=/home/ubuntu/workspace/BiscuitOS/hostshare/lib/modules/5.15.0+/
+	endif
 else
     BASEINCLUDE ?= /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
 	DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
