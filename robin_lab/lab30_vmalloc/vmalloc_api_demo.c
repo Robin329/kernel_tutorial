@@ -15,7 +15,7 @@
 #include <linux/mm.h>
 
 #undef pr_fmt
-#define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
+#define pr_fmt(fmt) KBUILD_MODNAME "  [%s:%d] " fmt, __func__, __LINE__
 
 /* Module initialize entry */
 static int __init vmalloc_api_demo_init(void)

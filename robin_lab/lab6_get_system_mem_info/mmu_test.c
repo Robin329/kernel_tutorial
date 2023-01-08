@@ -10,7 +10,8 @@
 #include <linux/moduleparam.h>
 #include <asm/sysreg.h>
 #include <asm-generic/pgalloc.h>
-// #include <asm-generic/pgtable-nopud.h>
+#include <linux/slab.h>
+#include <asm-generic/pgtable-nopud.h>
 /*
 该内核模块的主要功能是在内核中申请一个页面，然后利用内核提供的函数按照寻页的步骤一步步查询各级页目录
 最终找到对应的物理地址，这些步骤就像我们手动模拟了MMU单元的寻页过程。
@@ -162,8 +163,13 @@ static int __init v2p_init(void)
 	//GFP_KERNEL是用来指示它是优先从内存的ZONE_NORMAL区中申请页框的
 	int count = 5;
 	while (count--) {
-		vaddr = __get_free_page(GFP_PGTABLE_USER);
-		// vaddr = module_param_value;
+#ifdef CONFIG_MODULE_PARAM
+		vaddr = module_param_value;
+#else
+		// vaddr = __get_free_page(GFP_PGTABLE_KERNEL);
+		vaddr = kmalloc(sizeof(unsigned long), GFP_KERNEL);
+#endif
+		pr_info("vaddr:%#lx\n", vaddr);
 		if (vaddr == 0) {
 			pr_info("__get_free_page failed..\n");
 			return 0;
