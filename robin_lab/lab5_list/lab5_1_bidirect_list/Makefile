@@ -14,14 +14,20 @@ ifneq ($(HOST),ubuntu)
 		DESTDIR=/home/ubuntu/workspace/BiscuitOS/hostshare/lib/modules/5.15.0+/
 	endif
 else
-    BASEINCLUDE ?= /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
+
+endif
+ifeq ($(HOST),rock-5b)
+	BASEINCLUDE =  /usr/src/linux-headers-$(shell uname -r)/
+	# /lib/modules/$(shell uname -r)/build
+else
+    BASEINCLUDE = /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
 	DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
 endif
 
 obj-m	+=   bidirect_list.o
 
 all :
-	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules;
+	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules
 
 install: all
 	install -v bidirect_list.ko $(DESTDIR)

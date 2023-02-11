@@ -2,7 +2,6 @@
 # modify right kernel PATH for your system
 BASEINCLUDE ?= /labs/linux-lab/output/aarch64/linux-v5.3.9-virt
 #BASEINCLUDE ?= /lib/modules/`uname -r`/build
-
 bio_ftrace-objs := bio.o
 
 obj-m	:=   bio_ftrace.o
