@@ -11,7 +11,14 @@ CROSS_TOOLS=aarch64-linux-gnu-
 ARCH=arm64
 
 # Don't Edit
-KERNELDIR=$(BSROOT)/workspace/project/rk3399/rk3399-roc-pc/out
+#KERNELDIR=$(BSROOT)/workspace/project/rk3399/rk3399-roc-pc/out
+ifeq ($(shell cat /etc/hostname),rock-5b)
+	KERNELDIR ?=  /usr/src/linux-headers-$(shell uname -r)/
+	# /lib/modules/$(shell uname -r)/build
+else
+    KERNELDIR ?= /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
+endif
+
 # CROSS_COMPILE_PATH=$(BSROOT)/workspace/project/rk3399/ToolChain-6.3.1/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin
 # CROSS_COMPILE=$(CROSS_COMPILE_PATH)/$(CROSS_TOOLS)-
 INCLUDEDIR=$(KERNELDIR)/include
