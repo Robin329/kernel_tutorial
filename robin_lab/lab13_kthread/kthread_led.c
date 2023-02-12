@@ -56,15 +56,15 @@ static int led1_set(void *data)
 	while (!kthread_should_stop()) {
 		// gpio_led_set(&priv->cdev, 0);
 		led_set_brightness(&priv->cdev, 0);
-		pr_info("%s: max:%d brightness -> %d,actived:%d   =_= ...\n",
-			__func__, priv->cdev.max_brightness,
-			priv->cdev.brightness, priv->cdev.activated);
-		SLEEP_MILLI_SEC(1000);
+		pr_info(" max:%d brightness -> %d,actived:%d   =_= ...\n",
+			priv->cdev.max_brightness, priv->cdev.brightness,
+			priv->cdev.activated);
+		msleep(5000);
 		// gpio_led_set(&priv->cdev, 1);
 		led_set_brightness(&priv->cdev, 1);
-		pr_info("%s: max:%d brightness -> %d,actived:%d   =_= ...\n",
-			__func__, priv->cdev.max_brightness,
-			priv->cdev.brightness, priv->cdev.activated);
+		pr_info(" max:%d brightness -> %d,actived:%d   =_= ...\n",
+			priv->cdev.max_brightness, priv->cdev.brightness,
+			priv->cdev.activated);
 	}
 	return 0;
 }
@@ -83,12 +83,10 @@ static int led2_set(void *data)
      */
 	while (!kthread_should_stop()) {
 		gpio_led_set(&priv->cdev, 0);
-		pr_info("%s: brightness -> %d =_= ...\n", __func__,
-			priv->cdev.brightness);
-		SLEEP_MILLI_SEC(1000);
+		pr_info(" brightness -> %d =_= ...\n", priv->cdev.brightness);
+		msleep(3000);
 		gpio_led_set(&priv->cdev, 1);
-		pr_info("%s: brightness -> %d =_= ...\n", __func__,
-			priv->cdev.brightness);
+		pr_info(" brightness -> %d =_= ...\n", priv->cdev.brightness);
 	}
 	return 0;
 }
@@ -108,12 +106,10 @@ static int led3_set(void *data)
      */
 	while (!kthread_should_stop()) {
 		gpio_led_set(&priv->cdev, 0);
-		pr_info("%s: brightness -> %d =_= ...\n", __func__,
-			priv->cdev.brightness);
-		SLEEP_MILLI_SEC(1000);
+		pr_info(" brightness -> %d =_= ...\n", priv->cdev.brightness);
+		msleep(5000);
 		gpio_led_set(&priv->cdev, 1);
-		pr_info("%s: brightness -> %d =_= ...\n", __func__,
-			priv->cdev.brightness);
+		pr_info(" brightness -> %d =_= ...\n", priv->cdev.brightness);
 	}
 	return 0;
 }
@@ -392,7 +388,7 @@ static int led_thread_remove(struct platform_device *pdev)
 
 static const struct of_device_id led_thread_of_match[] = {
 	{
-		.compatible = "gpio-leds",
+		.compatible = "gpio-leds-diy",
 	},
 	{},
 };
@@ -402,7 +398,7 @@ MODULE_DEVICE_TABLE(of, led_thread_of_match);
 static struct platform_driver led_thread_driver = {
         .driver =
                 {
-                        .name = "gpio-leds",
+                        .name = "gpio-leds-diy",
                         .of_match_table = led_thread_of_match,
                         .suppress_bind_attrs = true,
                 },
