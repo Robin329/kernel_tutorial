@@ -2,19 +2,23 @@
 # modify right kernel PATH for your system
 
 HOST=$(shell ls /home/)
+KERNELRELEASE=5.17.0-g615ce4b05b3d
+$(warning "kernel release:$(KERNELRELEASE)")
 HOST_NAME=$(shell cat /etc/hostname)
 $(warning "HOST:${HOST}, HOST_NAME:$(HOST_NAME)")
 ifeq ($(HOST),ubuntu)
     BASEINCLUDE ?= /home/$(HOST)/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
 	DESTDIR=/home/$(HOST)/workspace/BiscuitOS/hostshare/lib/modules/5.15.0+/
 else
-ifeq ($(HOST_NAME),rock-5b)
-	BASEINCLUDE ?=  /usr/src/linux-headers-$(shell uname -r)/
-	# /lib/modules/$(shell uname -r)/build
-else
-    BASEINCLUDE ?= /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
-	DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
-endif
+   ifeq ($(HOST_NAME),rock-5b)
+        # BASEINCLUDE ?=  /usr/src/linux-headers-$(shell uname -r)/
+        # /lib/modules/$(shell uname -r)/build
+		BASEINCLUDE ?= /home/rock/workspace/rk3399-roc-pc/out
+        DESTDIR=/home/rock/nfs_rootfs/lib/modules/$(KERNELRELEASE)/kernel/
+	else
+    	BASEINCLUDE ?= /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
+        DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
+	endif
 endif
 
 # BASEINCLUDE ?= /home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out

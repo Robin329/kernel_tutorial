@@ -3,9 +3,11 @@
 HOST=$(shell cat /etc/hostname)
 $(shell export ARCH=arm64)
 $(shell export CROSS_COMPILE=aarch64-linux-gnu-)
-$(warning "HOST NAME:${HOST}")
+KERNELRELEASE=5.17.0-g615ce4b05b3d
+HOST_NAME=$(shell cat /etc/hostname)
+$(warning "HOST:${HOST}, HOST_NAME:$(HOST_NAME)")
 $(warning "kernel release:$(KERNELRELEASE)")
-ifneq ($(HOST),ubuntu)
+ifeq ($(HOST),ubuntu)
 	ifeq ($(HOST),DESKTOP-QO02B48)
 		BASEINCLUDE ?= /home/bst/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
 		DESTDIR=/home/bst/workspace/BiscuitOS/hostshare/lib/modules/5.17.0+/
@@ -14,14 +16,15 @@ ifneq ($(HOST),ubuntu)
 		DESTDIR=/home/ubuntu/workspace/BiscuitOS/hostshare/lib/modules/5.15.0+/
 	endif
 else
-
-endif
-ifeq ($(HOST),rock-5b)
-	BASEINCLUDE =  /usr/src/linux-headers-$(shell uname -r)/
-	# /lib/modules/$(shell uname -r)/build
-else
-    BASEINCLUDE = /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
-	DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
+   ifeq ($(HOST_NAME),rock-5b)
+        # BASEINCLUDE ?=  /usr/src/linux-headers-$(shell uname -r)/
+        # /lib/modules/$(shell uname -r)/build
+		BASEINCLUDE ?= /home/rock/workspace/rk3399-roc-pc/out
+        DESTDIR=/home/rock/nfs_rootfs/lib/modules/$(KERNELRELEASE)/kernel/
+	else
+    	BASEINCLUDE ?= /home/robin/workspace/project/rk3399/rk3399-roc-pc/out
+        DESTDIR=/home/robin/nfs_rootfs/lib/modules/5.17.0-g18a8639f6726-dirty/kernel/
+	endif
 endif
 
 obj-m	+=   bidirect_list.o
