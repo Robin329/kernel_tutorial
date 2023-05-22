@@ -1,0 +1,1 @@
+obj-m += spi-rockchip-ssd1327.o

@@ -14,6 +14,15 @@ config BISCUITOS_MISC
 config BISCUITOS_THREAD_INFO
     bool "thread_info"
 
+config BISCUITOS_SPI
+    bool "BiscuitOS spi"
+
+config BISCUITOS_I2C
+    bool "BiscuitOS i2c"
+
+config BISCUITOS_MIPI
+    bool "BiscuitOS mipi"
+
 if BISCUITOS_THREAD_INFO
 
 config DEBUG_BISCUITOS_THREAD_INFO

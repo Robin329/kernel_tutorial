@@ -320,6 +320,7 @@ static int led_thread_probe(struct platform_device *pdev)
 	struct gpio_led_platform_data *pdata = dev_get_platdata(&pdev->dev);
 	struct gpio_leds_priv *priv;
 	int i, ret = 0;
+
 	pr_info(" Enter!\n");
 	if (pdata && pdata->num_leds) {
 		priv = devm_kzalloc(&pdev->dev,

@@ -91,11 +91,11 @@ BEFORE_LINES=8
 
 # vmlinux_debuginfo=$1
 # vmlinux path
-vmlinux_debuginfo="../../out/vmlinux"
+vmlinux_debuginfo="../../../build/vmlinux"
 calltrace_lastcall=$1
 # kernel_gitsrc=$3
 # Source code path
-kernel_gitsrc="../../"
+kernel_gitsrc="../../../"
 # cross compile tool path
 cc_path=" "
 # compile tools prefix-
