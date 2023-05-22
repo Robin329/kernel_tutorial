@@ -27,8 +27,19 @@
 /* header of list */
 #include <linux/list.h>
 
-#undef pr_fmt
-#define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
+// #undef pr_fmt
+// #define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
+#ifdef __KERNEL__
+sss
+#endif
+
+#define DISP_TAG "disp_fw_cmd"
+#define DISP_INFO(fmt, ...)                                                    \
+	pr_info("[%s] [%s:%d]" fmt, DISP_TAG, __func__, __LINE__, ##__VA_ARGS__)
+#define DISP_WARN(fmt, ...)                                                    \
+	pr_warn("[%s] [%s:%d]" fmt, DISP_TAG, __func__, __LINE__, ##__VA_ARGS__)
+#define DISP_ERR(fmt, ...)                                                     \
+	pr_err("[%s] [%s:%d]" fmt, DISP_TAG, __func__, __LINE__, ##__VA_ARGS__)
 
 /* private structure */
 struct node {
@@ -106,14 +117,18 @@ static int __init bindirect_demo_init(void) {
   val = 0x34;
   pr_err("val:%#x\n", val & GENMASK(31,3) | 0x2);
 
-  pr_err("le32_to_cpu(0x12345678):%#x\n", le32_to_cpu(0x12345678));
-  pr_err("__LITTLE_ENDIAN:%d\n", __LITTLE_ENDIAN);
+  DISP_ERR("le32_to_cpu(0x12345678):%#x\n", le32_to_cpu(0x12345678));
+  DISP_ERR("__LITTLE_ENDIAN:%d\n", __LITTLE_ENDIAN);
   return 0;
 }
+
+
 
 static void __exit bindirect_demo_exit(void) {
   pr_info("%s: exit ...\n", __func__);
 }
+
+
 module_init(bindirect_demo_init);
 module_exit(bindirect_demo_exit);
 

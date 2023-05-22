@@ -7,7 +7,7 @@ KERNELRELEASE=5.17.0-g615ce4b05b3d
 HOST_NAME=$(shell cat /etc/hostname)
 $(warning "HOST:${HOST}, HOST_NAME:$(HOST_NAME)")
 $(warning "kernel release:$(KERNELRELEASE)")
-ifeq ($(HOST),ubuntu)
+ifneq ($(HOST),ubuntu)
 	ifeq ($(HOST),DESKTOP-QO02B48)
 		BASEINCLUDE ?= /home/bst/workspace/BiscuitOS/output/linux-newest-arm64/linux/linux/out
 		DESTDIR=/home/bst/workspace/BiscuitOS/hostshare/lib/modules/5.17.0+/
