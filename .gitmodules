@@ -19,3 +19,6 @@
 [submodule "project/shell/100-shell-script-examples"]
 	path = project/shell/100-shell-script-examples
 	url = https://github.com/epety/100-shell-script-examples.git
+[submodule "project/lua"]
+	path = project/lua
+	url = https://github.com/Robin329/lua.git

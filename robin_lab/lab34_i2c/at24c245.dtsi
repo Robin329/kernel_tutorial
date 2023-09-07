@@ -1,0 +1,11 @@
+&i2c {
+	status = "okay";
+	samsung,i2c-max-bus-freq = <200000>;
+	eeprom@50 {
+		compatible = "atmel,24c256";
+		reg = <0x50>;
+		pagesize = <32>;
+		status = "okay";
+	};
+
+};
