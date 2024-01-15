@@ -415,8 +415,9 @@ void dump_pps(struct dsc_picture_parameter_set *pps_payload) {
     u32 *pps = (u32 *)pps_payload;
     u32 count = 0;
 
-    for (;count <sizeof(*pps)/sizeof(u32);count++) {
-        pr_info("pps[%d] = %#x\n", pps[count]);
+	pr_info("sizeof *pps:%d sizeof pps:%d\n", sizeof(*pps), sizeof pps);
+    for (;count < (sizeof(*pps_payload)/sizeof(u32));count++) {
+        pr_info("pps[%d-%d] = %#x\n", count* 4, (count + 1)*4-1, pps[count]);
     }
 }
 
