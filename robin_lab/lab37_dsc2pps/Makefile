@@ -1,8 +1,6 @@
 
 # modify right kernel PATH for your system
 HOST=$(shell ls /home/)
-ARCH=arm64
-CROSS_COMPILE=aarch64-linux-gnu-
 $(warning "HOST NAME:${HOST}")
 $(warning "kernel release:$(KERNELRELEASE)")
 $(warning "find str:$(findstring rk3399, $(PWD))")
@@ -24,15 +22,15 @@ else
 
 endif
 
-obj-m	+= api_test.o
+obj-m	+= dsc2pps.o
 
 all:comp install
 
 install:
-	install -v api_test.ko $(DESTDIR)
+	install -v dsc2pps.ko $(DESTDIR)
 
 comp:
-	$(MAKE) CROSS_COMPILE=$(CROSS_COMPILE)  ARCH=$ARCH -C $(BASEINCLUDE) M=$(PWD) modules;
+	$(MAKE) -C $(BASEINCLUDE) M=$(PWD) modules;
 
 ccflags-y += -I$(INCLUDEDIR)
 
