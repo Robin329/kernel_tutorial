@@ -5,7 +5,7 @@ linux-lab or BiscuitOS workspace
 You need move `workspace` directory under the kernel source code directory.
 
 #### Step 2
-~# sudo ln -s $(pwd)/linux_stable/driver/biscuitos   $(pwd)/../driver/biscuitos
+~# sudo ln -s $(pwd)/linux_stable/drivers/biscuitos   $(pwd)/../drivers/biscuitos
 
 #### Step 3
 * 1. add `source "drivers/biscuitos/Kconfig"` in `driver/Kconfig` file.

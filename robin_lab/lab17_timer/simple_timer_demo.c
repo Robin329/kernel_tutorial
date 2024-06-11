@@ -10,6 +10,7 @@
 #include <linux/timer.h>
 #include <linux/uaccess.h>
 
+#undef pr_fmt
 #define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
 
 // Timer Variable

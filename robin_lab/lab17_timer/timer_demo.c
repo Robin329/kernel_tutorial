@@ -8,6 +8,7 @@
 #include <linux/slab.h>
 #include <linux/vmalloc.h>
 
+#undef pr_fmt
 #define pr_fmt(fmt) KBUILD_MODNAME ":[%s:%d] " fmt, __func__, __LINE__
 
 #define TIMER_ONE_TIMEOUT 3
