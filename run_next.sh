@@ -33,16 +33,15 @@ ROOTFS_SIZE=150
 FREEZE_SIZE=512
 DL=/home/$HOST_NAME/workspace/BiscuitOS/dl
 DEBIAN_PACKAGE=buster-base-arm64.tar.gz.N.bsp
-RAM_SIZE=4096
-LINUX_DIR=${ROOT}/linux/linux/build/arch
+RAM_SIZE=2048
+LINUX_DIR=${ROOT}/linux/linux-next/build/arch
 HOSTSHARE=/home/$HOST_NAME/workspace/BiscuitOS/hostshare
 NET_CFG=${ROOT}/package/networking
 ROUTE=$(ifconfig | awk '{print $2}' | sed -n '2p')
-# CMDLINE="earlycon root=/dev/vda rw rootfstype=${FS_TYPE} console=ttyAMA0 init=/sbin/init loglevel=8 route=192.88.1.136 iface=eth0 rw fsck.repair=yes  rootwait sharetag=hostshare sharedir=/hostshare"
-CMDLINE="earlycon root=/dev/vda rw rootfstype=${FS_TYPE} console=ttyAMA0  init=/sbin/init loglevel=8 route=192.88.1.136 iface=eth0 rw fsck.repair=yes  rootwait sharetag=hostshare sharedir=/hostshare"
+CMDLINE="earlycon root=/dev/vda rw rootfstype=${FS_TYPE} console=ttyAMA0 init=/sbin/init loglevel=8 route=192.168.11.103 iface=eth0 rw fsck.repair=yes  rootwait sharetag=hostshare sharedir=/hostshare"
 
 #------------------------------------------------------
-U_ROOT_IMAGE=/home/$HOST_NAME/workspace/BiscuitOS/output/linux-newest-arm64/buildroot-master/output/images
+U_ROOT_IMAGE=/home/ubuntu/workspace/BiscuitOS/output/linux-newest-arm64/buildroot-master/output/images
 ROOT_IMAGE=${U_ROOT_IMAGE}
 DTB_IMAGE=${LINUX_DIR}/${ARCH}/boot/dts/qemu/qemu_virt.dtb
 KERNEL_IMAGE=${LINUX_DIR}/${ARCH}/boot/Image
@@ -54,12 +53,10 @@ ENV_IMG=${ROOT}/env.img
 KRN_ADDR="0x45000000"
 KRN_SIZE=20
 # ramdisk_addr_r=0x44000000
-# RDK_ADDR="0x42000000"
 RDK_ADDR="-"
 RDK_SIZE=6
 DTB_ADDR="0x44000000"
 DTB_SIZE=2
-PFLASH_SIZE=64
 BOOTDEV=flash
 # Boot images from pflash
 ##
@@ -76,7 +73,7 @@ PFLASH_BS=512
 # ENV_DEV=flash
 ENV_OFFSET=0
 ENV_SIZE=1
-ENV_DEV=pflash
+ENVDEV=pflash
 if [ "${ENV_DEV}" = "flash" ]; then
 	ENV_ADDR=0x4000000
 else
@@ -114,7 +111,7 @@ TFTP_KERNEL="tftpboot $KRN_ADDR $KERNEL_IMG;"
 [ "$RDK_ADDR" != "-" ] && TFTP_RAMDISK="tftpboot $RDK_ADDR $RAMDISK_IMG;"
 [ "$DTB_ADDR" != "-" ] && TFTP_DTB="tftpboot $DTB_ADDR $DTB_IMG;"
 
-IP=192.168.1.10
+IP=192.168.64.5
 # Get delayed ip, route and cmdline
 echo $IP | grep -q ifconfig
 [ $? -eq 0 ] && eval "IP=\"$IP\""
@@ -167,18 +164,12 @@ BOOTM="$BOOTX $KRN_ADDR $RDK_ADDR $DTB_ADDR"
 echo "KERNEL_BASE ADDR BASE:$KERNEL_BASE"
 echo "RAMDISK_BASE ADDR BASE:$RAMDISK_BASE"
 echo "DTB_BASE ADDR BASE:$DTB_BASE"
-# _ENV_SIZE:0x100000 ADDR:0x49000000
-# _KRN_SIZE:0x1400000 ADDR:0x45000000
-# _RDK_SIZE:0x600000 ADDR:0x42000000
-# _DTB_SIZE:0x200000 ADDR:0x44000000
-# KERNEL_BASE ADDR BASE:0x4100000
-# RAMDISK_BASE ADDR BASE:0x5500000
-# DTB_BASE ADDR BASE:0x5B00000
-PFLOAD_KERNEL="cp $KERNEL_BASE $KRN_ADDR $_KRN_SIZE;"
+
+PFLOAD_KERNEL="cp.b $KERNEL_BASE $KRN_ADDR $_KRN_SIZE;"
 [ "$RDK_ADDR" != "-" ] && PFLOAD_RAMDISK="cp $RAMDISK_BASE $RDK_ADDR $_RDK_SIZE;"
 [ "$DTB_ADDR" != "-" ] && PFLOAD_DTB="cp $DTB_BASE $DTB_ADDR $_DTB_SIZE;"
 PFLOADS="$PFLOAD_KERNEL $PFLOAD_RAMDISK $PFLOAD_DTB"
-BOOT_PFLASH="$PFLOADS $BOOTARGS  $BOOTM"
+BOOT_PFLASH="$BOOTARGS $PFLOADS  $BOOTM"
 
 ## boot from sdcard/mmc
 FATLOAD_KERNEL="fatload mmc 0:0 $KRN_ADDR $KERNEL_IMG;"
@@ -227,11 +218,10 @@ CONFIG_INITRD_TAG=1
 CONFIG_OF_LIBFDT=1
 # aligh with 1M for env partition, for saveenv command
 FLASH_MAX_SECTOR_SIZE=0x00100000
-CONFIG_EXTRA_ENV_SETTINGS="\"bootcmd1=$BOOT_TFTP\\\\0\bootcmd2=$BOOT_SDCARD\\\\0bootcmd3=$BOOT_PFLASH\\\\0bootcmd4=$BOOT_RAM\\\\0bootcmdx=run $BOOT_CMD\\\\0\""
+CONFIG_EXTRA_ENV_SETTINGS="\"bootcmd1=$BOOT_TFTP\\\\0bootcmd2=$BOOT_SDCARD\\\\0bootcmd3=$BOOT_PFLASH\\\\0bootcmd4=$BOOT_RAM\\\\0bootcmdx=run $BOOT_CMD\\\\0\""
 
 # Convert from M to bytes
 ENV_OFFSET=$(_size16b_m $ENV_OFFSET)
-# Get the real address if not specified
 [ -z "$ENV_ADDR" ] && ENV_ADDR=$(_size16b $((PFLASH_BASE + ENV_OFFSET)))
 echo "ENV_OFFSET:$ENV_OFFSET"
 # Get the real address if not specified
@@ -261,7 +251,7 @@ popd 2>/dev/null
 
 # Update the new one
 # Insert the new configs in the end of the external #if .. #endif condition
-sed -i -e "/ROBIN INSERT START/,/ROBIN INSERT END/d" $CONFIG_FILE
+sed -i -e "/ROBININSERT START/,/ROBIN INSERT END/d" $CONFIG_FILE
 
 line=$(grep -n "#endif" $CONFIG_FILE | tail -1 | cut -d':' -f1)
 
@@ -319,7 +309,7 @@ do_ubootimg() {
 			fi
 		fi
 
-		# sync
+		sync
 	fi
 
 }
@@ -331,28 +321,26 @@ do_running() {
 	set -x
 	[ ${1}X = "debug"X -o ${2}X = "debug"X ] && ARGS+="-s -S "
 	if [ ${1}X = "net"X -o ${2}X = "net"X ]; then
-		# ARGS+="-net tap "
-		# ARGS+="-netdev tap,id=bsnet0,ifname=bsTap0 "
-		# ARGS+="-device virtio-net-device,netdev=bsnet0,"
-		# ARGS+="mac=E0:FE:D0:3C:2E:EE "
-		ARGS+="-device virtio-net-device,netdev=usernet -netdev user,id=usernet,hostfwd=tcp:127.0.0.1:5555-:22 "
+		ARGS+="-net tap "
+		ARGS+="-device virtio-net-device,netdev=bsnet0,"
+		ARGS+="mac=E0:FE:D0:3C:2E:EE "
+		ARGS+="-netdev tap,id=bsnet0,ifname=bsTap0 "
 	fi
 	if [ ${1}X = "uboot"X ]; then
 		# Load pflash for booting with uboot every time
 		# pflash is at least used as the env storage
 		# unit=1 means the second pflash, the first one is unit=0
-		# KERNEL_BOOT=" -bios ${ROOT}/BiscuitOS/output/BiscuitOS-uboot/u-boot/u-boot/u-boot.bin -device loader,file=${ENV_IMG},addr=$ENV_ADDR -drive if=pflash,file=${PFLASH_IMG},format=raw,unit=1 -drive if=none,file=${ROOT_IMAGE}/rootfs.ext4,format=raw,id=virtio-vda -device virtio-blk-device,drive=virtio-vda "
-		# cp 0x4100000 0x115000000 0x1000000
-
+		# KERNEL_BOOT=" -bios /home/ubuntu/workspace/BiscuitOS/output/BiscuitOS-uboot/u-boot/u-boot/u-boot.bin -device loader,file=${ENV_IMG},addr=$ENV_ADDR -drive if=pflash,file=${PFLASH_IMG},format=raw,unit=1 -drive if=none,file=${ROOT_IMAGE}/rootfs.ext4,format=raw,id=virtio-vda -device virtio-blk-device,drive=virtio-vda "
 		ARGS+="-device virtio-net-device,netdev=usernet -netdev user,id=usernet,hostfwd=tcp:127.0.0.1:6666-:22 "
 
 		KERNEL_BOOT=" -bios ${ROOT}/u-boot/u-boot.bin -device loader,file=${ENV_IMG},addr=$ENV_ADDR -drive if=pflash,file=${PFLASH_IMG},format=raw,unit=1  -device virtio-blk-device,drive=hd1 -drive if=none,file=${ROOT}/Freeze.img,format=raw,id=hd1 -device virtio-blk-device,drive=hd0 -drive if=none,file=${ROOT}/BiscuitOS.img,format=raw,id=hd0 "
+		APPEND=
 		APPEND=
 		U_CMDLINE=
 		sudo ${QEMUT} \
 			-M virt \
 			-m ${RAM_SIZE}M \
-			-cpu cortex-a53 \
+			-cpu cortex-a72 \
 			-smp 2 \
 			${KERNEL_BOOT} ${APPEND} ${U_CMDLINE} \
 			-nographic \
@@ -363,20 +351,21 @@ do_running() {
 
 		U_CMDLINE=${CMDLINE}
 		APPEND="-append"
-		sudo ${QEMUT} ${ARGS} \
+		sudo ${QEMUT} \
 			-M virt \
 			-m ${RAM_SIZE}M \
-			-cpu cortex-a57 \
-			-smp 2 \
+			-cpu cortex-a72 \
+			-smp 4 \
 			${KERNEL_BOOT} ${APPEND} "${U_CMDLINE}" \
 			-nographic \
-			-fsdev local,path=${HOSTSHARE},security_model=passthrough,id=fsdev0 -device virtio-9p-device,fsdev=fsdev0,mount_tag=hostshare
+			-fsdev local,path=${HOSTSHARE},security_model=passthrough,id=fsdev0 -device virtio-9p-device,fsdev=fsdev0,mount_tag=hostshare \
+			${ARGS}
 	fi
 
 }
 
 do_package() {
-	sudo cp ${BUSYBOX}/_install/* ${OUTPUT}/rootfs/${ROOTFS_NAME} -raf
+	# sudo cp ${BUSYBOX}/_install/* ${OUTPUT}/rootfs/${ROOTFS_NAME} -raf
 	sudo chown root.root ${OUTPUT}/rootfs/${ROOTFS_NAME}/* -R
 	dd if=/dev/zero of=${OUTPUT}/rootfs/ramdisk bs=1M count=${ROOTFS_SIZE}
 	${FS_TYPE_TOOLS} -E lazy_itable_init=1,lazy_journal_init=1 -F ${OUTPUT}/rootfs/ramdisk
