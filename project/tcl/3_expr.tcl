@@ -21,7 +21,11 @@ puts $result
 set variableA "10.0"
 set result [expr $variableA / 9];
 puts $result
-
+set variableA 25175
+set b 1
+set result [expr $variableA * 1000 / $b];
+puts  $result
+puts ------------------
 set variableA "10"
 set tcl_precision 5
 set result [expr $variableA / 9.0];
