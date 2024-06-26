@@ -1,0 +1,15 @@
+cp: 不会以'./module/.fsm/tb.v' 覆盖刚创建的'./sim/tb.v'
+cp: 不会以'./module/.counter/tb.v' 覆盖刚创建的'./sim/tb.v'
+cp: 不会以'./module/.breath_led/tb.v' 覆盖刚创建的'./sim/tb.v'
+cp: 不会以'./module/learn/tb.v' 覆盖刚创建的'./sim/tb.v'
+cp: 不会以'./module/.decode38/tb.v' 覆盖刚创建的'./sim/tb.v'
+cp: 不会以'./module/.flashled/tb.v' 覆盖刚创建的'./sim/tb.v'
+cp: 不会以'./module/.crc/tb.v' 覆盖刚创建的'./sim/tb.v'
+cp: 不会以'./module/.bcdcbt/tb.v' 覆盖刚创建的'./sim/tb.v'
+tb.v:44: Module tb was already declared here: tb_idata.v:3
+
+tb_voter.v:36: Module tb was already declared here: tb_idata.v:3
+
+vfile.v:1: syntax error
+I give up.
+wave: Unable to open input file.

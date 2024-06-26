@@ -1,0 +1,132 @@
+;系统时钟为12MHz
+;目标硬件为 小脚丫FPGA step-maxo2-c，这个型号是U盘模式，流文件会下载到mcu，每次上电由mcu配置FPGA
+
+;功能 ： 对应中断来了，与其对应的寄存器值加1
+
+constant var_a,00   ;   定义变量a，存储地址为 00 
+constant isr_port, ff;  定义用于区分中断的io地址
+
+start:
+    load s1,05
+    load s0,00
+    load s1,00
+    load s2,00
+    load s3,00
+    load s4,00
+    load s5,00
+    load s6,00
+    load s7,00
+
+    load sA,00
+    output sA,isr_port   ; 初始化时所有中断标志清零
+
+    enable interrupt   ;使能中断
+wait:
+    jump wait 
+
+
+isr0:
+    add s0,01
+    load sC,sB
+    and sC,11111110'b ;'
+    output sC,isr_port ;清除中断0的标志
+    return 
+
+isr1:
+    add s1,01
+    load sC,sB
+    and sC,11111101'b ;'
+    output sC,isr_port ;清除中断1的标志
+    return 
+
+isr2:
+    add s2,01
+    load sC,sB
+    and sC,11111011'b ;'
+    output sC,isr_port ;清除中断2的标志
+    return 
+
+isr3:
+    add s3,01
+    load sC,sB
+    and sC,11110111'b ;'
+    output sC,isr_port ;清除中断3的标志
+    return 
+
+isr4:
+    add s4,01
+    load sC,sB
+    and sC,11101111'b ;'
+    output sC,isr_port ;清除中断4的标志
+    return 
+
+isr5:
+    add s5,01
+    load sC,sB
+    and sC,11011111'b ;'
+    output sC,isr_port ;清除中断5的标志
+    return 
+
+isr6:
+    add s6,01
+    load sC,sB
+    and sC,10111111'b ;'
+    output sC,isr_port ;清除中断6的标志
+    return 
+
+isr7:
+    add s7,01
+    load sC,sB
+    and sC,01111111'b ;'
+    output sC,isr_port ;清除中断7的标志
+    return 
+
+;中断入口地址  -- 此处必须这样写，我写的脚本如果检测到你使能了中断会默认去这个地址找
+;找到后将地址动态连接到前面程序的地址后面
+ADDRESS 3FF    
+ISR:
+    disable interrupt  ;关闭中断响应，准备处理中断的事情
+    input sB,isr_port  ;读取中断标志
+
+    load sC,sB
+    and sC,00000001'b ;'
+    compare sC,01 
+    call z ,isr0  ;中断0来临
+
+    load sC,sB
+    and sC,00000010'b ;'
+    compare sC,00000010'b ;'
+    call z ,isr1  ;中断1来临   
+
+    load sC,sB
+    and sC,00000100'b ;'
+    compare sC,00000100'b ;'
+    call z ,isr2  ;中断2来临 
+
+    load sC,sB
+    and sC,00001000'b ;'
+    compare sC,00001000'b ;'
+    call z ,isr3  ;中断3来临     
+
+    load sC,sB
+    and sC,00010000'b ;'
+    compare sC,00010000'b ;'
+    call z ,isr4  ;中断4来临   
+
+    load sC,sB
+    and sC,00100000'b ;'
+    compare sC,00100000'b ;'
+    call z ,isr5  ;中断5来临  
+
+    load sC,sB
+    and sC,01000000'b ;'
+    compare sC,01000000'b ;'
+    call z ,isr6  ;中断6来临   
+
+    load sC,sB
+    and sC,10000000'b ;'
+    compare sC,10000000'b ;'
+    call z ,isr7  ;中断7来临   
+
+    returni enable 
+

@@ -1,0 +1,8 @@
+#Start recording tcl command: 7/27/2020 20:21:26
+#Project Location: F:/home/step_tp; Project name: step_tp
+prj_project open "F:/home/step_tp/step_tp.ldf"
+hlp prj
+help prj
+help prj_project
+help prj_project open
+#Stop recording: 7/27/2020 22:59:35

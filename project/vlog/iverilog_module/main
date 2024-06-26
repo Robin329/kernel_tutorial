@@ -1,0 +1,56 @@
+#!/bin/bash 
+##要被本脚本检测到，需要脚本的后缀和F_TYPE一样，并且包含#type 和 #title
+#by yuanhp 2020
+F_TYPE=iverilog #要列入统计范畴的自定义文件标志
+dir=`dirname $0`
+cd $dir
+dpath=$(cat db.dat)
+dis_echo()
+{
+    echo -e "\033[35m$*\033[0m"
+}
+function note()
+{
+    echo -e "\033[32m$*\033[0m"
+}
+
+clear
+dis_echo "---------------$F_TYPE仿真项目menu---------------"
+cd module
+M_DIR=$(ls -al ./ |awk '/^d/ {print $NF}')
+cd ..
+
+idx=0
+for i in $M_DIR
+do
+	realdir=$dir/module/$i
+	README=$realdir/readme.md 
+	#echo "$README"
+	README=${README//\/\//\/}
+	#echo "$README"
+	if [ -f "$README" ];then
+		nt=`awk -F':' '/title:/{print $2}' $README` #获取项目简短说明
+		if [ -z $nt ];then #空跳转
+			continue
+		fi 
+		idx=$[$idx + 1]
+		dis_echo $idx.$nt
+		list[$idx]=$realdir
+	fi
+done
+
+dis_echo "0.exit"
+dis_echo
+
+read -p "请输入相应的指令代码：" key
+
+if [ $key -eq 0 ];then
+       	echo "退出"
+	exit
+else
+    	echo "******************* running verilog is ${list[key]} *******************"
+    	./run -d ${list[key]}
+		echo $dpath > db.dat
+    	echo
+    	exit
+fi  

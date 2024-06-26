@@ -1,0 +1,25 @@
+;系统时钟为12MHz
+;目标硬件为 小脚丫FPGA step-maxo2-c，这个型号是U盘模式，流文件会下载到mcu，每次上电由mcu配置FPGA
+
+start:
+    load s1, 00   ;  0x0064   == 100
+    load s0 , 64   
+    load s3 , 02  ;  0x26d  ==  621 
+    load s2 , 6d 
+    
+    call mult   ;    
+wait:
+    jump wait 
+
+
+;16位乘法   [s1,s0] * [s3,s2]   => [s5,s4]
+mult : 
+    load s5,00
+    load s4,00
+mult_loop:
+    add s4,s2
+    addcy s5,s3
+    sub s0,01
+    subcy s1,00
+    jump nz,mult_loop
+    return 

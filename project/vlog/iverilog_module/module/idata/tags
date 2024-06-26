@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+clk	idata1.v	/^    input clk,$/;"	p
+clk	idata2.v	/^    input clk,$/;"	p
+clk	tb_idata.v	/^reg clk;$/;"	r
+clk	topdata.v	/^    input clk,$/;"	p
+do1	tb_idata.v	/^wire [7:0]do1;$/;"	n
+do2	tb_idata.v	/^wire [7:0]do2;$/;"	n
+idata1	idata1.v	/^module idata1($/;"	m
+idata2	idata2.v	/^module idata2($/;"	m
+input	idata1.v	/^    input rst_n,$/;"	p
+input	idata2.v	/^    input rst_n,$/;"	p
+input	topdata.v	/^    input rst_n,$/;"	p
+reg	idata1.v	/^    output reg [7:0]do1,$/;"	p
+reg	idata2.v	/^    output reg [7:0]do2$/;"	p
+rst_n	tb_idata.v	/^reg rst_n;$/;"	r
+tb	tb_idata.v	/^module tb;$/;"	m
+td	idata1.v	/^    output [7:0]td$/;"	p
+topdata	topdata.v	/^module topdata($/;"	m
+wire	topdata.v	/^    output wire [7:0]do1,$/;"	p
+wire	topdata.v	/^    output wire [7:0]do2$/;"	p

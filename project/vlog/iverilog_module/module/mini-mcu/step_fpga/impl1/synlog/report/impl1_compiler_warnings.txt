@@ -1,0 +1,3 @@
+@W: CL169 :"F:\home\mini-mcu\hardware\mcu\step_fpga\divide.v":63:1:63:6|Pruning unused register clk_n. Make sure that there are no unused intermediate registers.
+@W: CL169 :"F:\home\mini-mcu\hardware\mcu\step_fpga\divide.v":53:1:53:6|Pruning unused register cnt_n[19:0]. Make sure that there are no unused intermediate registers.
+

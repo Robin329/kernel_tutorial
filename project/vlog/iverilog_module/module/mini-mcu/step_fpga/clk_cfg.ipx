@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiamondModule name="clk_cfg" module="PLL" VendorName="Lattice Semiconductor Corporation" generator="IPexpress" date="2020 11 27 00:51:58.909" version="5.8" type="Module" synthesis="lse" source_format="Verilog">
+  <Package>
+		<File name="clk_cfg.lpc" type="lpc" modified="2020 11 27 00:51:52.095"/>
+		<File name="clk_cfg.v" type="top_level_verilog" modified="2020 11 27 00:51:52.153"/>
+		<File name="clk_cfg_tmpl.v" type="template_verilog" modified="2020 11 27 00:51:52.153"/>
+  </Package>
+</DiamondModule>

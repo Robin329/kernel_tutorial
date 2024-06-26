@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+## 编译汇编程序并生成rom文件的脚本
+
+
+if [ -d tmp ] ;then
+    echo "存在tmp文件夹，清空tmp文件夹"
+    rm -rf tmp/*
+else
+    mkdir tmp 
+fi
+
+cp software/*.psm tmp/
+cp tools/kcpsm/* tmp/
+cd tmp 
+./kcpsm6.exe *.psm
+#deepin-wine kcpsm6.exe *.psm
+
+# 生成rom文件
+
+cd ..
+
+psmFile="tmp/$(ls tmp | grep "\.hex")"
+hex2rom $psmFile > rom.v
+
+
+
+
+
+
+
+
+
+
+

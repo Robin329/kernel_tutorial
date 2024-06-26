@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="MapVerilogSimFile">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="MapVHDLSimFile">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="IBIS">
+        <Message>
+            <ID>1191031</ID>
+            <Severity>Info</Severity>
+        </Message>
+    </Task>
+    <Task name="Lattice_Synthesis">
+        <Message>
+            <ID>35002000</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35001781</ID>
+            <Severity>Info</Severity>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>Info</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/mcu.v(3): </Dynamic>
+            <Dynamic>f:/home/mini-mcu/step_fpga/head.v</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/mcu.v</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>35901214</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/divide.v(23): </Dynamic>
+            <Dynamic>in</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/divide.v</Navigation>
+            <Navigation>23</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/top.v(7): </Dynamic>
+            <Dynamic>top</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/top.v</Navigation>
+            <Navigation>7</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/divide.v(13): </Dynamic>
+            <Dynamic>divide(N=12000000)</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/divide.v</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/divide.v(38): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>24</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/divide.v</Navigation>
+            <Navigation>38</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/divide.v(59): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>24</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/divide.v</Navigation>
+            <Navigation>59</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/mcu.v(7): </Dynamic>
+            <Dynamic>mcu</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/mcu.v</Navigation>
+            <Navigation>7</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/mcu.v(160): </Dynamic>
+            <Dynamic>18</Dynamic>
+            <Dynamic>12</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/mcu.v</Navigation>
+            <Navigation>160</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/mcu.v(203): </Dynamic>
+            <Dynamic>18</Dynamic>
+            <Dynamic>12</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/mcu.v</Navigation>
+            <Navigation>203</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/mcu.v(299): </Dynamic>
+            <Dynamic>18</Dynamic>
+            <Dynamic>12</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/mcu.v</Navigation>
+            <Navigation>299</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/rom.v(3): </Dynamic>
+            <Dynamic>rom</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/rom.v</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>Info</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/seg_display.v(5): </Dynamic>
+            <Dynamic>seg_display</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/seg_display.v</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/seg_display.v(12): </Dynamic>
+            <Dynamic>seg</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/seg_display.v</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35931038</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/seg_display.v(12): </Dynamic>
+            <Dynamic>seg_original_ramnet</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/seg_display.v</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n724</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n725</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n726</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n727</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n728</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n729</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n730</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n731</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n732</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n1039</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n1045</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic></Dynamic>
+            <Dynamic>n1051</Dynamic>
+        </Message>
+        <Message>
+            <ID>35931002</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/mcu.v(103): </Dynamic>
+            <Dynamic>\i630/C_N_337[0]</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/mcu.v</Navigation>
+            <Navigation>103</Navigation>
+        </Message>
+        <Message>
+            <ID>35935014</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>f:/home/mini-mcu/step_fpga/mcu.v(398): </Dynamic>
+            <Dynamic>\mcu/bram_enable_500</Dynamic>
+            <Navigation>f:/home/mini-mcu/step_fpga/mcu.v</Navigation>
+            <Navigation>398</Navigation>
+        </Message>
+        <Message>
+            <ID>35001611</ID>
+            <Severity>Warning</Severity>
+        </Message>
+    </Task>
+    <Task name="PAR">
+        <Message>
+            <ID>61001101</ID>
+            <Severity>Warning</Severity>
+        </Message>
+        <Message>
+            <ID>61061008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>clk_in_c</Dynamic>
+            <Dynamic>Primary</Dynamic>
+            <Dynamic>clk_in</Dynamic>
+            <Dynamic>C1</Dynamic>
+            <Dynamic>Primary</Dynamic>
+        </Message>
+        <Message>
+            <ID>66011008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>
+   Signal=in_port_7__N_37 loads=4 clock_loads=4</Dynamic>
+        </Message>
+        <Message>
+            <ID>66011008</ID>
+            <Severity>Warning</Severity>
+            <Dynamic>
+   Signal=in_port_7__N_37 loads=4 clock_loads=4</Dynamic>
+        </Message>
+    </Task>
+    <Task name="TimingSimFileVHD">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+    <Task name="TimingSimFileVlg">
+        <Message>
+            <ID>35400250</ID>
+            <Severity>Info</Severity>
+            <Dynamic>0</Dynamic>
+        </Message>
+    </Task>
+</BaliMessageLog>

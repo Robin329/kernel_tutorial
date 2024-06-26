@@ -1,0 +1,70 @@
+;系统时钟为12MHz
+;目标硬件为 小脚丫FPGA step-maxo2-c，这个型号是U盘模式，流文件会下载到mcu，每次上电由mcu配置FPGA
+
+constant sw_port,00 ;定义按键四段拨码开关  【按键 ： 开关 】
+
+;输出
+constant seg_port,00 ;定义数码管地址
+constant led_port,01 ;定义led_port为常量01
+constant rgb_port,02  ; rgb灯
+
+;定义一些变量
+constant var_seg,00    ;数码管
+constant var_led,01    ; led
+
+start:
+	load sA,FE ;  led等控制
+    output sA,led_port
+    store sA,var_led
+    load sB,66 ; 初始化数码管显示 
+    store sB,var_seg
+    output sB,seg_port 
+    load sC,00000111'b  ; ' rgb 灭
+    output sC,rgb_port ;rgb不亮
+    input sD,sw_port ; 读一次io口
+    enable interrupt    ;使能中断
+wait:
+    jump wait    ;循环等待
+;--------------------------------------------
+;数码管计数器 0--99 循环计数显示
+;该函数会在中断中被调用
+;--------------------------------------------
+seg_add:
+    fetch sC, var_seg 
+    add sC,01   ;数码管显示值加1
+    load sB,sC
+    and sB,0f ;
+    compare sB,0a  ;低四位是否等于10
+    jump nz,seg_add_return ;不等于10就准备返回显示，否则整体加6
+    add sC,06
+    load sB,sC
+    and sB,f0
+    compare sB,a0  ;高4位是否等于10
+    jump nz,seg_add_return ;不等于10就准备返回显示，否则整体归零，准备重新计数
+    load sC,00
+seg_add_return:
+    output sC,seg_port ;显示
+    store sC,var_seg  ;存储值到中间寄存器
+    return 
+    
+;--------------------------------------------
+;led流水灯循环点亮
+;该函数会在中断中被调用
+;--------------------------------------------
+
+led_dis:
+    fetch sA,var_led
+    RR sA
+    output sA,led_port
+    store sA,var_led
+    return 
+
+
+;中断入口地址  -- 此处必须这样写，我写的脚本如果检测到你使能了中断会默认去这个地址找
+;找到后将地址动态连接到前面程序的地址后面
+ADDRESS 3FF    
+ISR:
+    disable interrupt  ;关闭中断响应，准备处理中断的事情
+    call led_dis   ; led 
+    call seg_add   ; seg display
+    returni enable 

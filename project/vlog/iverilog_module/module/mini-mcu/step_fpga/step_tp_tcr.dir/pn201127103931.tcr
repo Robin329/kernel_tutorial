@@ -1,0 +1,10 @@
+#Start recording tcl command: 11/27/2020 10:31:39
+#Project Location: F:/home/mini-mcu/hardware/mcu/step_fpga; Project name: step_tp
+F:/tmp/verilog
+step_tp_test
+#Start recording tcl command: 11/27/2020 10:39:31
+#Project Location: F:/tmp/verilog; Project name: step_tp_test
+prj_project open "F:/home/mini-mcu/hardware/mcu/step_fpga/step_tp.ldf"
+prj_run Export -impl impl1
+prj_project saveas -name "step_tp_test" -dir "F:/tmp/verilog"
+#Stop recording: 11/27/2020 10:39:31

@@ -1,0 +1,135 @@
+                ;系统时钟为12MHz
+                ;目� �硬件为 小脚丫FPGA step-maxo2-c，这个型号是U盘模式，流文件会下载到mcu，每次上电由mcu配置FPGA
+                ;-----------------------------------------------------------------
+                ; 功能说明 : 在不操作的情况下，流水灯会一直跑，同时数� �管每秒� 1，
+                ; 满99后归零
+                ; 按下按键1 ： 数� �管下一次将从 01 开始计数
+                ; 按下按键2 ： 数� �管下一次将从 02 开始计数
+                ; 按下按键3 ： 数� �管下一次将从 03 开始计数
+                ; 按下按键4 ： 数� �管下一次将从 04 开始计数
+                ;-----------------------------------------------------------------
+                CONSTANT sw_port, 00    ;定义按键四段拨� �开关  【按键 ： 开关 】
+                ;输出
+                CONSTANT seg_port, 00   ;定义数� �管地址
+                CONSTANT led_port, 01   ;定义led_port为常量01
+                CONSTANT rgb_port, 02   ; rgb灯
+                ;定义以一些变量
+                CONSTANT var_seg, 00    ;数� �管
+                CONSTANT var_led, 01    ; led
+         start: 
+                LOAD sA, FE             ;  led等控制
+                OUTPUT sA, led_port
+                STORE sA, var_led
+                LOAD sB, 66             ; 初始化数� �管显示
+                STORE sB, var_seg
+                OUTPUT sB, seg_port
+                LOAD sC, 00000111'b     ; ' rgb 灭
+                OUTPUT sC, rgb_port     ;rgb不亮
+                INPUT sD, sw_port       ; 读一次io口
+                ENABLE INTERRUPT        ;使能中断
+                ;一下loop循环是扫描式按键检测的主循环
+          loop: 
+                INPUT sD, sw_port
+                SL0 sD
+                JUMP NC, key4           ;按下了准备key4函数
+                SL0 sD
+                JUMP NC, key3           ;按下了准备key3函数
+                SL0 sD
+                JUMP NC, key2           ;按下了准备key2函数
+                SL0 sD
+                JUMP NC, key1           ;按下了准备key1函数
+                JUMP loop               ;回去继续扫描
+                ;--------------------------------------------
+                ;扫描式按键检测响应
+                ;--------------------------------------------
+          key1: 
+                CALL delay_10ms         ;按键消抖，延时10ms
+                INPUT sE, sw_port
+                TEST sE, 10
+                JUMP C, loop
+                LOAD sE, 00
+                STORE sE, var_seg       ;按下了key1让数� �管显示01
+                JUMP loop
+          key2: 
+                CALL delay_10ms
+                INPUT sE, sw_port
+                TEST sE, 20
+                JUMP C, loop
+                LOAD sE, 01
+                STORE sE, var_seg       ;按下了key2让数� �管显示02
+                JUMP loop
+          key3: 
+                CALL delay_10ms
+                INPUT sE, sw_port
+                TEST sE, 40
+                JUMP C, loop
+                LOAD sE, 02
+                STORE sE, var_seg       ;按下了key3让数� �管显示03
+                JUMP loop
+          key4: 
+                CALL delay_10ms
+                INPUT sE, sw_port
+                TEST sE, 80
+                JUMP C, loop
+                LOAD sE, 03
+                STORE sE, var_seg       ;按下了key4让数� �管显示04
+                JUMP loop
+                ;--------------------------------------------
+                ;12MHz的系统时钟下延时10ms
+                ;--------------------------------------------
+    delay_10ms: LOAD s2, 00             ;   ==> 10000 *1.2
+                LOAD s1, 2E
+                LOAD s0, E0
+                JUMP software_delay
+                ;--------------------------------------------
+                ;12MHz的系统时钟下延时200ms
+                ;--------------------------------------------
+   delay_200ms: LOAD s2, 03             ;
+                LOAD s1, A9
+                LOAD s0, 80
+                JUMP software_delay
+software_delay: LOAD s0, s0             ;pad loop to make it 10 clock cycles (5 instructions), if clk 12MHz  --> 1/1.2 us
+                SUB s0, 01
+                SUBCY s1, 00
+                SUBCY s2, 00
+                JUMP NZ, software_delay
+                RETURN 
+                ;--------------------------------------------
+                ;数� �管计数器 0--99 循环计数显示
+                ;该函数会在中断中被调用
+                ;--------------------------------------------
+       seg_add: 
+                FETCH sC, var_seg
+                ADD sC, 01              ;数� �管显示值� 1
+                LOAD sB, sC
+                AND sB, 0F              ;
+                COMPARE sB, 0A          ;低四位是否等于10
+                JUMP NZ, seg_add_return ;不等于10就准备返回显示，否则整体� 6
+                ADD sC, 06
+                LOAD sB, sC
+                AND sB, F0
+                COMPARE sB, A0          ;高4位是否等于10
+                JUMP NZ, seg_add_return ;不等于10就准备返回显示，否则整体归零，准备重新计数
+                LOAD sC, 00
+seg_add_return: 
+                OUTPUT sC, seg_port
+                STORE sC, var_seg
+                RETURN 
+                ;--------------------------------------------
+                ;led流水灯循环点亮
+                ;该函数会在中断中被调用
+                ;--------------------------------------------
+       led_dis: 
+                FETCH sA, var_led
+                RR sA
+                OUTPUT sA, led_port
+                STORE sA, var_led
+                RETURN 
+                ;中断入口地址  -- 此处必须这� �写，我写的脚本如果检测到� 使能了中断会默认去这个地址找
+                ;找到后将地址动态连接到前面程序的地址后面
+                ADDRESS 3FF
+           ISR: 
+                DISABLE INTERRUPT       ;关闭中断响应，准备处理中断的事情
+                CALL led_dis            ; led
+                CALL seg_add            ; seg display
+                RETURNI ENABLE

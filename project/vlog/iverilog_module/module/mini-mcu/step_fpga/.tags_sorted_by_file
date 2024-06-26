@@ -1,0 +1,267 @@
+**	_Real_._Math_.vhd	/^    function "**" (X : in INTEGER; Y : in REAL) return REAL is$/;"	f
+**	_Real_._Math_.vhd	/^    function "**" (X : in REAL; Y : in REAL) return REAL is$/;"	f
+ARCCOS	_Real_._Math_.vhd	/^   function ARCCOS (X : in REAL) return REAL is$/;"	f
+ARCCOSH	_Real_._Math_.vhd	/^   function ARCCOSH (X : in REAL) return REAL is$/;"	f
+ARCSIN	_Real_._Math_.vhd	/^   function ARCSIN (X : in REAL ) return REAL is$/;"	f
+ARCSINH	_Real_._Math_.vhd	/^    function ARCSINH (X : in REAL) return REAL is$/;"	f
+ARCTAN	_Real_._Math_.vhd	/^   function ARCTAN (Y : in REAL) return REAL is$/;"	f
+ARCTAN	_Real_._Math_.vhd	/^   function ARCTAN (Y : in REAL; X : in REAL) return REAL is$/;"	f
+ARCTANH	_Real_._Math_.vhd	/^    function ARCTANH (X : in REAL) return REAL is$/;"	f
+BASE_EPS	_Real_._Math_.vhd	/^    constant  BASE_EPS: REAL := 0.00001;  -- Factor for convergence criteria$/;"	c
+CBRT	_Real_._Math_.vhd	/^    function CBRT (X : in REAL ) return REAL is$/;"	f
+CEIL	_Real_._Math_.vhd	/^    function CEIL (X : in REAL ) return REAL is$/;"	f
+CORDIC	_Real_._Math_.vhd	/^    function CORDIC ( X0 : in REAL;$/;"	f
+CORDIC_MODE_TYPE	_Real_._Math_.vhd	/^    type CORDIC_MODE_TYPE is (ROTATION, VECTORING);$/;"	t
+COS	_Real_._Math_.vhd	/^   function COS (X : in REAL) return REAL is$/;"	f
+COSH	_Real_._Math_.vhd	/^    function  COSH (X : in REAL) return REAL is$/;"	f
+CopyRightNotice	_Real_._Math_.vhd	/^    constant CopyRightNotice: STRING$/;"	c
+EPSILON	_Real_._Math_.vhd	/^    constant EPSILON : REAL_VECTOR_N := ($/;"	c
+EXP	_Real_._Math_.vhd	/^    function EXP  (X : in REAL ) return REAL is$/;"	f
+FLOOR	_Real_._Math_.vhd	/^    function FLOOR (X : in REAL ) return REAL is$/;"	f
+ILOGB	_Real_._Math_.vhd	/^    function ILOGB(X: in REAL) return INTEGER IS$/;"	f
+KC	_Real_._Math_.vhd	/^    constant  KC : REAL := 6.0725293500888142e-01; -- Constant for cordic$/;"	c
+LDEXP	_Real_._Math_.vhd	/^    function LDEXP(X: in REAL; N: in INTEGER) RETURN REAL IS$/;"	f
+LOG	_Real_._Math_.vhd	/^    function LOG (X : in REAL ) return REAL IS$/;"	f
+LOG	_Real_._Math_.vhd	/^    function LOG (X: in REAL; BASE: in REAL) return REAL is$/;"	f
+LOG10	_Real_._Math_.vhd	/^    function LOG10 (X: in REAL) return REAL is$/;"	f
+LOG2	_Real_._Math_.vhd	/^    function LOG2 (X: in REAL) return REAL is$/;"	f
+MATH_1_OVER_E	_Real_._Math_.vhd	/^    constant  MATH_1_OVER_E : REAL := 0.36787_94411_71442_32160;$/;"	c
+MATH_1_OVER_PI	_Real_._Math_.vhd	/^    constant  MATH_1_OVER_PI : REAL := 0.31830_98861_83790_67154;$/;"	c
+MATH_1_OVER_SQRT_2	_Real_._Math_.vhd	/^    constant  MATH_1_OVER_SQRT_2: REAL := 0.70710_67811_86547_52440;$/;"	c
+MATH_2_PI	_Real_._Math_.vhd	/^    constant  MATH_2_PI : REAL := 6.28318_53071_79586_47693;$/;"	c
+MATH_3_PI_OVER_2	_Real_._Math_.vhd	/^    constant  MATH_3_PI_OVER_2 : REAL := 4.71238_89803_84689_85769;$/;"	c
+MATH_DEG_TO_RAD	_Real_._Math_.vhd	/^    constant  MATH_DEG_TO_RAD: REAL := 0.01745_32925_19943_29577;$/;"	c
+MATH_E	_Real_._Math_.vhd	/^    constant  MATH_E : REAL := 2.71828_18284_59045_23536;$/;"	c
+MATH_EIGHT_PI	_Real_._Math_.vhd	/^    constant  MATH_EIGHT_PI : REAL := 25.13274_12287_18345_90770_115; --8*pi$/;"	c
+MATH_E_P10	_Real_._Math_.vhd	/^    constant  MATH_E_P10 :  REAL := 22026.46579_48067_17; -- e**10$/;"	c
+MATH_E_P2	_Real_._Math_.vhd	/^    constant  MATH_E_P2 :  REAL := 7.38905_60989_30650;   -- e**2$/;"	c
+MATH_LOG10_OF_E	_Real_._Math_.vhd	/^    constant  MATH_LOG10_OF_E: REAL := 0.43429_44819_03251_82765;$/;"	c
+MATH_LOG2_OF_E	_Real_._Math_.vhd	/^    constant  MATH_LOG2_OF_E : REAL := 1.44269_50408_88963_4074;$/;"	c
+MATH_LOG_OF_10	_Real_._Math_.vhd	/^    constant  MATH_LOG_OF_10 : REAL := 2.30258_50929_94045_68402;$/;"	c
+MATH_LOG_OF_2	_Real_._Math_.vhd	/^    constant  MATH_LOG_OF_2 : REAL := 0.69314_71805_59945_30942;$/;"	c
+MATH_PI	_Real_._Math_.vhd	/^    constant  MATH_PI : REAL := 3.14159_26535_89793_23846;$/;"	c
+MATH_PI_OVER_2	_Real_._Math_.vhd	/^    constant  MATH_PI_OVER_2 : REAL := 1.57079_63267_94896_61923;$/;"	c
+MATH_PI_OVER_3	_Real_._Math_.vhd	/^    constant  MATH_PI_OVER_3 : REAL := 1.04719_75511_96597_74615;$/;"	c
+MATH_PI_OVER_4	_Real_._Math_.vhd	/^    constant  MATH_PI_OVER_4 : REAL := 0.78539_81633_97448_30962;$/;"	c
+MATH_RAD_TO_DEG	_Real_._Math_.vhd	/^    constant  MATH_RAD_TO_DEG: REAL := 57.29577_95130_82320_87680;$/;"	c
+MATH_REAL	_Real_._Math_.vhd	/^package MATH_REAL is$/;"	P
+MATH_REAL	_Real_._Math_.vhd	/^package body MATH_REAL is$/;"	P
+MATH_SQRT_2	_Real_._Math_.vhd	/^    constant  MATH_SQRT_2: REAL := 1.41421_35623_73095_04880;$/;"	c
+MATH_SQRT_PI	_Real_._Math_.vhd	/^    constant  MATH_SQRT_PI: REAL := 1.77245_38509_05516_02730;$/;"	c
+MAX_COUNT	_Real_._Math_.vhd	/^    constant  MAX_COUNT: INTEGER := 150; -- Maximum count for number of tries$/;"	c
+MAX_ITER	_Real_._Math_.vhd	/^    constant  MAX_ITER:  INTEGER := 27;  -- Maximum precision factor for cordic$/;"	c
+MOD	_Real_._Math_.vhd	/^    function "MOD" (X, Y: in REAL ) return REAL is$/;"	f
+NATURAL_VECTOR	_Real_._Math_.vhd	/^    type NATURAL_VECTOR is array (NATURAL range <>) of NATURAL;$/;"	t
+POWER_OF_2_SERIES	_Real_._Math_.vhd	/^    function POWER_OF_2_SERIES (D : in NATURAL_VECTOR; INITIAL_VALUE : in REAL;$/;"	f
+QUADRANT	_Real_._Math_.vhd	/^    subtype QUADRANT is INTEGER range 0 to 3;$/;"	T
+REALMAX	_Real_._Math_.vhd	/^    function REALMAX (X, Y : in REAL ) return REAL is$/;"	f
+REALMIN	_Real_._Math_.vhd	/^    function REALMIN (X, Y : in REAL ) return REAL is$/;"	f
+REAL_ARR_2	_Real_._Math_.vhd	/^    subtype REAL_ARR_2 is REAL_VECTOR (0 to 1);$/;"	T
+REAL_ARR_3	_Real_._Math_.vhd	/^    subtype REAL_ARR_3 is REAL_VECTOR (0 to 2);$/;"	T
+REAL_VECTOR	_Real_._Math_.vhd	/^        type REAL_VECTOR is array (NATURAL range <>) of REAL;$/;"	t
+REAL_VECTOR	_Real_._Math_.vhd	/^    type REAL_VECTOR is array (NATURAL range <>) of REAL;$/;"	t
+REAL_VECTOR_N	_Real_._Math_.vhd	/^    subtype REAL_VECTOR_N is REAL_VECTOR (0 to MAX_ITER);$/;"	T
+ROUND	_Real_._Math_.vhd	/^    function ROUND (X : in REAL ) return REAL is$/;"	f
+SIGN	_Real_._Math_.vhd	/^    function SIGN (X: in REAL ) return REAL is$/;"	f
+SIN	_Real_._Math_.vhd	/^    function  SIN (X : in REAL ) return REAL is$/;"	f
+SINH	_Real_._Math_.vhd	/^    function SINH (X : in REAL) return REAL is$/;"	f
+SQRT	_Real_._Math_.vhd	/^    function SQRT (X : in REAL ) return REAL is$/;"	f
+TAN	_Real_._Math_.vhd	/^   function TAN (X : in REAL) return REAL is$/;"	f
+TANH	_Real_._Math_.vhd	/^    function  TANH (X : in REAL) return REAL is$/;"	f
+TRUNC	_Real_._Math_.vhd	/^    function TRUNC (X : in REAL ) return REAL is$/;"	f
+TWO_AT_MINUS	_Real_._Math_.vhd	/^    constant TWO_AT_MINUS : REAL_VECTOR := POWER_OF_2_SERIES($/;"	c
+UNIFORM	_Real_._Math_.vhd	/^    procedure UNIFORM(variable SEED1,SEED2:inout POSITIVE;variable X:out REAL)$/;"	p
+CLK_DIV_PERIOD	LED_shining.v	/^parameter CLK_DIV_PERIOD=12_000_000; \/\/��Ƶ��������$/;"	c
+LED_shining	LED_shining.v	/^module LED_shining$/;"	m
+clk_div	LED_shining.v	/^reg clk_div=0;            \/\/����reg�ͱ�����������Ƶ��ʱ�����$/;"	r
+clk_in	LED_shining.v	/^input clk_in,             \/\/����ϵͳ12MHzʱ��$/;"	p
+cnt	LED_shining.v	/^reg[23:0] cnt=0;                 \/\/��Ƶ�õļ�������2**cnt-1>CLK_DIV_PERIOD,���������ֵҪ���ڷ�Ƶ����$/;"	r
+input	LED_shining.v	/^input rst_n_in,           \/\/���븴λ�ź�$/;"	p
+led1	LED_shining.v	/^output led1,              \/\/���led1$/;"	p
+output	LED_shining.v	/^output led2               \/\/���led2����led1ȡ��$/;"	p
+CLKOP_t	clk_gen.v	/^    wire CLKOP_t;$/;"	n
+LOCK	clk_gen.v	/^    wire LOCK;$/;"	n
+clk_gen	clk_gen.v	/^module clk_gen (CLKI, CLKOP)\/* synthesis NGD_DRC_MASK=1 *\/;$/;"	m
+scuba_vlo	clk_gen.v	/^    wire scuba_vlo;$/;"	n
+wire	clk_gen.v	/^    input wire CLKI;$/;"	p
+wire	clk_gen.v	/^    output wire CLKOP;$/;"	p
+GetCmdLine	generate_core.tcl	/^proc GetCmdLine {lpcfile} {$/;"	p
+GetPlatform	generate_core.tcl	/^proc GetPlatform {} {$/;"	p
+CreateSynprojFile	generate_ngd.tcl	/^proc CreateSynprojFile {} {$/;"	p
+GetPlatform	generate_ngd.tcl	/^proc GetPlatform {} {$/;"	p
+Map_Twr	impl1\LED_shining_lse_lsetwr.html	/^<PRE><A name="Map_Twr"><\/A><B><U><big>Lattice Synthesis Timing Report<\/big><\/U><\/B>$/;"	a
+mtw1_ri	impl1\LED_shining_lse_lsetwr.html	/^<A name="mtw1_ri"><\/A><B><U><big>Report Information<\/big><\/U><\/B>$/;"	a
+mtw1_rs	impl1\LED_shining_lse_lsetwr.html	/^<A name="mtw1_rs"><\/A><B><U><big>Timing Report Summary<\/big><\/U><\/B>$/;"	a
+mtw1_ts	impl1\LED_shining_lse_lsetwr.html	/^<A name="mtw1_ts"><\/A><B><U><big>Timing summary:<\/big><\/U><\/B>$/;"	a
+GND_net	impl1\LED_shining_prim.v	/^    input GND_net;$/;"	p
+GND_net	impl1\LED_shining_prim.v	/^    wire GND_net, rst_n_in_c, led1_c, led2_c;$/;"	n
+LED_shining	impl1\LED_shining_prim.v	/^module LED_shining (clk_in, rst_n_in, led1, led2) \/* synthesis syn_module_defined=1 *\/ ;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(1[8:19])$/;"	m
+VCC_net	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+clk	impl1\LED_shining_prim.v	/^    output clk;$/;"	p
+clk	impl1\LED_shining_prim.v	/^    wire clk \/* synthesis SET_AS_NETWORK=clk, is_clock=1 *\/ ;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(9[6:9])$/;"	n
+clk_gen	impl1\LED_shining_prim.v	/^module clk_gen (clk_in_c, clk, GND_net) \/* synthesis NGD_DRC_MASK=1, syn_module_defined=1 *\/ ;$/;"	m
+clk_in	impl1\LED_shining_prim.v	/^    input clk_in;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(3[7:13])$/;"	p
+clk_in_c	impl1\LED_shining_prim.v	/^    input clk_in_c;$/;"	p
+clk_in_c	impl1\LED_shining_prim.v	/^    wire clk_in_c \/* synthesis is_clock=1 *\/ ;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(3[7:13])$/;"	n
+cnt	impl1\LED_shining_prim.v	/^    wire [31:0]cnt;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(19[11:14])$/;"	n
+led1	impl1\LED_shining_prim.v	/^    output led1;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(5[8:12])$/;"	p
+led1_N_68	impl1\LED_shining_prim.v	/^        n30_adj_72, n468, n29_adj_73, n127, led1_N_68, n27, n467, $/;"	n
+led1_c	impl1\LED_shining_prim.v	/^    wire GND_net, rst_n_in_c, led1_c, led2_c;$/;"	n
+led2	impl1\LED_shining_prim.v	/^    output led2;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(6[8:12])$/;"	p
+led2_c	impl1\LED_shining_prim.v	/^    wire GND_net, rst_n_in_c, led1_c, led2_c;$/;"	n
+n102	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n103	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n104	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n105	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n106	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n107	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n108	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n109	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n110	impl1\LED_shining_prim.v	/^        n110, n109, n108, n107, n106, n105, n104, n102, n103, $/;"	n
+n111	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n112	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n113	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n114	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n115	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n116	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n117	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n118	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n119	impl1\LED_shining_prim.v	/^        n119, n118, n117, n116, n115, n114, n113, n112, n111, $/;"	n
+n120	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n121	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n122	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n123	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n124	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n125	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n126	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n127	impl1\LED_shining_prim.v	/^        n30_adj_72, n468, n29_adj_73, n127, led1_N_68, n27, n467, $/;"	n
+n128	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n129	impl1\LED_shining_prim.v	/^        n129, n128, n126, n125, n124, n123, n122, n121, n120, $/;"	n
+n130	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n131	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n132	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n133	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n18	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+n22	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+n24	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+n25	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n26	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n26_adj_75	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+n27	impl1\LED_shining_prim.v	/^        n30_adj_72, n468, n29_adj_73, n127, led1_N_68, n27, n467, $/;"	n
+n28	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n280	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+n28_adj_74	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n29	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n29_adj_73	impl1\LED_shining_prim.v	/^        n30_adj_72, n468, n29_adj_73, n127, led1_N_68, n27, n467, $/;"	n
+n30	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n30_adj_72	impl1\LED_shining_prim.v	/^        n30_adj_72, n468, n29_adj_73, n127, led1_N_68, n27, n467, $/;"	n
+n31	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n31_adj_71	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n32	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n34	impl1\LED_shining_prim.v	/^    wire n32, n31, n30, n29, n28, n25, n26, n34, n31_adj_71, $/;"	n
+n446	impl1\LED_shining_prim.v	/^        n470, n498, n446;$/;"	n
+n447	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n448	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n449	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n450	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n451	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n452	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n453	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n454	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n455	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n456	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n457	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n458	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n459	impl1\LED_shining_prim.v	/^        n459, n458, n457, n456, n455, n133, n132, n131, n130, $/;"	n
+n460	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n461	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n462	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n463	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n464	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n465	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n466	impl1\LED_shining_prim.v	/^        n466, n465, n464, n463, n28_adj_74, n462, n461, n460, $/;"	n
+n467	impl1\LED_shining_prim.v	/^        n30_adj_72, n468, n29_adj_73, n127, led1_N_68, n27, n467, $/;"	n
+n468	impl1\LED_shining_prim.v	/^        n30_adj_72, n468, n29_adj_73, n127, led1_N_68, n27, n467, $/;"	n
+n469	impl1\LED_shining_prim.v	/^        n454, n453, n469, n452, n451, n450, n449, n448, n447, $/;"	n
+n470	impl1\LED_shining_prim.v	/^        n470, n498, n446;$/;"	n
+n471	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+n472	impl1\LED_shining_prim.v	/^        n280, n26_adj_75, n24, n22, n18, VCC_net, n472, n471, $/;"	n
+n498	impl1\LED_shining_prim.v	/^        n470, n498, n446;$/;"	n
+rst_n_in	impl1\LED_shining_prim.v	/^    input rst_n_in;   \/\/ f:\/home\/step_tp\/impl1\/source\/led_shining.v(4[7:15])$/;"	p
+rst_n_in_c	impl1\LED_shining_prim.v	/^    wire GND_net, rst_n_in_c, led1_c, led2_c;$/;"	n
+CLK_DIV_PERIOD	impl1\source\LED_shining.v	/^parameter CLK_DIV_PERIOD=120_000_000; \/\/��Ƶ��������$/;"	c
+LED_shining	impl1\source\LED_shining.v	/^module LED_shining$/;"	m
+clk	impl1\source\LED_shining.v	/^wire clk;$/;"	n
+clk_div	impl1\source\LED_shining.v	/^reg clk_div=0;            \/\/����reg�ͱ�����������Ƶ��ʱ�����$/;"	r
+clk_in	impl1\source\LED_shining.v	/^input clk_in,             \/\/����ϵͳ12MHzʱ��$/;"	p
+cnt	impl1\source\LED_shining.v	/^reg[31:0] cnt=0;                 \/\/��Ƶ�õļ�������2**cnt-1>CLK_DIV_PERIOD,���������ֵҪ���ڷ�Ƶ����$/;"	r
+input	impl1\source\LED_shining.v	/^input rst_n_in,           \/\/���븴λ�ź�$/;"	p
+led1	impl1\source\LED_shining.v	/^output led1,              \/\/���led1$/;"	p
+output	impl1\source\LED_shining.v	/^output led2               \/\/���led2����led1ȡ��$/;"	p
+Bgn	impl1\step_tp_impl1_bgn.html	/^<PRE><A name="Bgn"><\/A>BITGEN: Bitstream Generator Diamond (64-bit) 3.10.3.144$/;"	a
+bgn_ps	impl1\step_tp_impl1_bgn.html	/^<A name="bgn_ps"><\/A>$/;"	a
+Top	impl1\step_tp_impl1_iotiming.html	/^<PRE><A name="Top"><\/A><B><U><big>I\/O Timing Report<\/big><\/U><\/B>$/;"	a
+Mrp	impl1\step_tp_impl1_mrp.html	/^<PRE><A name="Mrp"><\/A>$/;"	a
+mrp_asic	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_asic"><\/A><B><U><big>ASIC Components<\/big><\/U><\/B>$/;"	a
+mrp_di	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_di"><\/A><B><U><big>Design Information<\/big><\/U><\/B>$/;"	a
+mrp_ds	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_ds"><\/A><B><U><big>Design Summary<\/big><\/U><\/B>$/;"	a
+mrp_dwe	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_dwe"><\/A><B><U><big>Design Errors\/Warnings<\/big><\/U><\/B>$/;"	a
+mrp_gsr	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_gsr"><\/A><B><U><big>GSR Usage<\/big><\/U><\/B>$/;"	a
+mrp_ioa	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_ioa"><\/A><B><U><big>IO (PIO) Attributes<\/big><\/U><\/B>$/;"	a
+mrp_mem	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_mem"><\/A><B><U><big>Memory Usage<\/big><\/U><\/B>$/;"	a
+mrp_pll	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_pll"><\/A><B><U><big>PLL\/DLL Summary<\/big><\/U><\/B>$/;"	a
+mrp_rm	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_rm"><\/A><B><U><big>Removed logic<\/big><\/U><\/B>$/;"	a
+mrp_runtime	impl1\step_tp_impl1_mrp.html	/^<A name="mrp_runtime"><\/A><B><U><big>Run Time and Memory Usage<\/big><\/U><\/B>$/;"	a
+Pad	impl1\step_tp_impl1_pad.html	/^<PRE><A name="Pad"><\/A>PAD Specification File$/;"	a
+pad_pin	impl1\step_tp_impl1_pad.html	/^<A name="pad_pin"><\/A><B><U><big>Pinout by Pin Number:<\/big><\/U><\/B>$/;"	a
+pad_vref	impl1\step_tp_impl1_pad.html	/^<A name="pad_vref"><\/A><B><U><big>Vref by Bank:<\/big><\/U><\/B>$/;"	a
+Par	impl1\step_tp_impl1_par.html	/^<PRE><A name="Par"><\/A>PAR: Place And Route Diamond (64-bit) 3.10.3.144.$/;"	a
+par_best	impl1\step_tp_impl1_par.html	/^<A name="par_best"><\/A><B><U><big>Best Par Run<\/big><\/U><\/B>$/;"	a
+par_clk	impl1\step_tp_impl1_par.html	/^<A name="par_clk"><\/A><B><U><big>Clock Report<\/big><\/U><\/B>$/;"	a
+par_cts	impl1\step_tp_impl1_par.html	/^<A name="par_cts"><\/A><B><U><big>Cost Table Summary<\/big><\/U><\/B>$/;"	a
+par_dus	impl1\step_tp_impl1_par.html	/^<A name="par_dus"><\/A><B><U><big>Device utilization summary:<\/big><\/U><\/B>$/;"	a
+Map_Twr	impl1\step_tp_impl1_tw1.html	/^<PRE><A name="Map_Twr"><\/A><B><U><big>Map TRACE Report<\/big><\/U><\/B>$/;"	a
+Map_Twr_hold	impl1\step_tp_impl1_tw1.html	/^<A name="Map_Twr_hold"><\/A><B><U><big>Lattice TRACE Report - Hold, Version Diamond (64-bit) 3.10.3.144<\/big><\/U><\/B>$/;"	a
+Map_Twr_setup	impl1\step_tp_impl1_tw1.html	/^<A name="Map_Twr_setup"><\/A><B><U><big>Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.10.3.144<\/big><\/U><\/B>$/;"	a
+map_twr_pref_0_0	impl1\step_tp_impl1_tw1.html	/^<A name="map_twr_pref_0_0"><\/A>Preference: FREQUENCY NET "clk_in_c" 12.000000 MHz ;$/;"	a
+map_twr_pref_0_1	impl1\step_tp_impl1_tw1.html	/^<A name="map_twr_pref_0_1"><\/A>Preference: FREQUENCY NET "clk" 120.000000 MHz ;$/;"	a
+map_twr_pref_1_0	impl1\step_tp_impl1_tw1.html	/^<A name="map_twr_pref_1_0"><\/A>Preference: FREQUENCY NET "clk_in_c" 12.000000 MHz ;$/;"	a
+map_twr_pref_1_1	impl1\step_tp_impl1_tw1.html	/^<A name="map_twr_pref_1_1"><\/A>Preference: FREQUENCY NET "clk" 120.000000 MHz ;$/;"	a
+mtw1_hold_clkda	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_hold_clkda"><\/A><B><U><big>Clock Domains Analysis<\/big><\/U><\/B>$/;"	a
+mtw1_hold_ps	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_hold_ps"><\/A><B><U><big>Preference Summary<\/big><\/U><\/B>$/;"	a
+mtw1_hold_ri	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_hold_ri"><\/A><B><U><big>Report Information<\/big><\/U><\/B>$/;"	a
+mtw1_hold_rs	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_hold_rs"><\/A><B><U><big>Report Summary<\/big><\/U><\/B>$/;"	a
+mtw1_hold_ts	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_hold_ts"><\/A><B><U><big>Timing summary (Hold):<\/big><\/U><\/B>$/;"	a
+mtw1_set_clkda	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_set_clkda"><\/A><B><U><big>Clock Domains Analysis<\/big><\/U><\/B>$/;"	a
+mtw1_set_ps	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_set_ps"><\/A><B><U><big>Preference Summary<\/big><\/U><\/B>$/;"	a
+mtw1_set_ri	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_set_ri"><\/A><B><U><big>Report Information<\/big><\/U><\/B>$/;"	a
+mtw1_set_rs	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_set_rs"><\/A><B><U><big>Report Summary<\/big><\/U><\/B>$/;"	a
+mtw1_set_ts	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_set_ts"><\/A><B><U><big>Timing summary (Setup):<\/big><\/U><\/B>$/;"	a
+mtw1_ts	impl1\step_tp_impl1_tw1.html	/^<A name="mtw1_ts"><\/A><B><U><big>Timing summary (Setup and Hold):<\/big><\/U><\/B>$/;"	a
+Par_Twr	impl1\step_tp_impl1_twr.html	/^<PRE><A name="Par_Twr"><\/A><B><U><big>Place & Route TRACE Report<\/big><\/U><\/B>$/;"	a
+Par_Twr_hold	impl1\step_tp_impl1_twr.html	/^<A name="Par_Twr_hold"><\/A><B><U><big>Lattice TRACE Report - Hold, Version Diamond (64-bit) 3.10.3.144<\/big><\/U><\/B>$/;"	a
+Par_Twr_setup	impl1\step_tp_impl1_twr.html	/^<A name="Par_Twr_setup"><\/A><B><U><big>Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.10.3.144<\/big><\/U><\/B>$/;"	a
+par_twr_pref_0_0	impl1\step_tp_impl1_twr.html	/^<A name="par_twr_pref_0_0"><\/A>Preference: FREQUENCY NET "clk_in_c" 12.000000 MHz ;$/;"	a
+par_twr_pref_0_1	impl1\step_tp_impl1_twr.html	/^<A name="par_twr_pref_0_1"><\/A>Preference: FREQUENCY NET "clk" 120.000000 MHz ;$/;"	a
+par_twr_pref_1_0	impl1\step_tp_impl1_twr.html	/^<A name="par_twr_pref_1_0"><\/A>Preference: FREQUENCY NET "clk_in_c" 12.000000 MHz ;$/;"	a
+par_twr_pref_1_1	impl1\step_tp_impl1_twr.html	/^<A name="par_twr_pref_1_1"><\/A>Preference: FREQUENCY NET "clk" 120.000000 MHz ;$/;"	a
+ptwr_hold_clkda	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_hold_clkda"><\/A><B><U><big>Clock Domains Analysis<\/big><\/U><\/B>$/;"	a
+ptwr_hold_ps	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_hold_ps"><\/A><B><U><big>Preference Summary<\/big><\/U><\/B>$/;"	a
+ptwr_hold_ri	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_hold_ri"><\/A><B><U><big>Report Information<\/big><\/U><\/B>$/;"	a
+ptwr_hold_rs	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_hold_rs"><\/A><B><U><big>Report Summary<\/big><\/U><\/B>$/;"	a
+ptwr_hold_ts	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_hold_ts"><\/A><B><U><big>Timing summary (Hold):<\/big><\/U><\/B>$/;"	a
+ptwr_set_clkda	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_set_clkda"><\/A><B><U><big>Clock Domains Analysis<\/big><\/U><\/B>$/;"	a
+ptwr_set_ps	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_set_ps"><\/A><B><U><big>Preference Summary<\/big><\/U><\/B>$/;"	a
+ptwr_set_ri	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_set_ri"><\/A><B><U><big>Report Information<\/big><\/U><\/B>$/;"	a
+ptwr_set_rs	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_set_rs"><\/A><B><U><big>Report Summary<\/big><\/U><\/B>$/;"	a
+ptwr_set_ts	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_set_ts"><\/A><B><U><big>Timing summary (Setup):<\/big><\/U><\/B>$/;"	a
+ptwr_ts	impl1\step_tp_impl1_twr.html	/^<A name="ptwr_ts"><\/A><B><U><big>Timing summary (Setup and Hold):<\/big><\/U><\/B>$/;"	a
+Syn	impl1\synthesis_lse.html	/^<PRE><A name="Syn"><\/A><B><U><big>Synthesis and Ngdbuild  Report<\/big><\/U><\/B>$/;"	a
+lse_trs	impl1\synthesis_lse.html	/^<A name="lse_trs"><\/A><B><U><big>Timing Report Summary<\/big><\/U><\/B>$/;"	a
+pn200727165256	step_tp_tcl.html	/^<PRE><A name="pn200727165256"><\/A><B><U><big>pn200727165256<\/big><\/U><\/B>$/;"	a
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.8	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/

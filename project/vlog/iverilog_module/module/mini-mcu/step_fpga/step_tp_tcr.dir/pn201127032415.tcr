@@ -1,0 +1,107 @@
+#Start recording tcl command: 11/26/2020 03:26:12
+#Project Location: F:/home/mini-mcu/hardware/mcu/step_fpga; Project name: step_tp
+prj_project open "F:/home/mini-mcu/hardware/mcu/step_fpga/step_tp.ldf"
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -task IBIS
+prj_run Export -impl impl1 -task TimingSimFileVlg
+prj_run Export -impl impl1 -task TimingSimFileVHD
+prj_run Export -impl impl1 -task Bitgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1 -task Jedecgen
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Strategy1 bd_hardware_eval=Disable
+prj_strgy set_value -strategy Strategy1 map_timing_driven_node_replication=True map_timing_driven_pack=True
+prj_strgy set_value -strategy Strategy1 syn_vhdl2008=True
+launch_synplify_prj impl1
+prj_src remove "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_gen.ipx"
+prj_strgy set_value -strategy Strategy1 {maptrce_analysis_option=Hold Analysis}
+prj_strgy set_value -strategy Strategy1 {maptrce_analysis_option=Standard Setup Analysis}
+prj_strgy set_value -strategy Strategy1 syn_area=False
+prj_strgy set_value -strategy Strategy1 lse_ram_style=Registers lse_rom_style=Logic
+prj_strgy set_value -strategy Strategy1 lse_res_sharing=False lse_hardware_eval=Disable
+prj_strgy set_value -strategy Strategy1 syn_pipelining_retiming=None syn_res_sharing=False
+prj_strgy set_value -strategy Strategy1 {syn_pipelining_retiming=Pipelining Only} syn_res_sharing=True syn_vhdl2008=False syn_area=True
+prj_strgy set_value -strategy Strategy1 lse_ram_style=Auto lse_rom_style=Auto lse_res_sharing=True lse_hardware_eval=Enable
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Strategy1 syn_allow_dup_modules=True
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Strategy1 syn_resolved_mixed_drivers=True
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1 -task Lattice_Synthesis
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1 -task Lattice_Synthesis
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src add "F:/home/mini-mcu/hardware/mcu/step_fpga/seg_display.v"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Map -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_src add "F:/home/mini-mcu/hardware/mcu/step_fpga/head.v"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1 -task Lattice_Synthesis
+prj_run Map -impl impl1
+prj_run Map -impl impl1
+prj_run Map -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_strgy set_value -strategy Strategy1 syn_fsm_encoding=False
+prj_strgy set_value -strategy Strategy1 lse_fsm_encoding=Binary
+prj_strgy set_value -strategy Strategy1 syn_allow_dup_modules=False syn_fsm_encoding=True syn_resolved_mixed_drivers=False
+prj_strgy set_value -strategy Strategy1 lse_fsm_encoding=Auto
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+file copy -force -- "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_gen.ipx" "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_gen.lpc" "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_gen.v" "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_gen_tmpl.v" "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source"
+prj_src add "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_gen.ipx"
+prj_src remove "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_gen.ipx"
+file copy -force -- "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_cfg.v" "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source"
+prj_src add "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_cfg.v"
+prj_src remove "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_cfg.v"
+file copy -force -- "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_cfg.v" "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source"
+prj_src add "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_cfg.v"
+prj_src remove "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_cfg.v"
+file copy -force -- "F:/home/mini-mcu/hardware/mcu/step_fpga/clk_cfg.v" "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source"
+prj_src add "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_cfg.v"
+prj_run Export -impl impl1
+prj_src remove "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/source/clk_cfg.v"
+prj_run Export -impl impl1 -task IBIS
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src remove "F:/home/mini-mcu/hardware/mcu/step_fpga/divide.v"
+prj_run Export -impl impl1
+prj_run Map -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1 -task Lattice_Synthesis
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+#Stop recording: 11/27/2020 03:24:15

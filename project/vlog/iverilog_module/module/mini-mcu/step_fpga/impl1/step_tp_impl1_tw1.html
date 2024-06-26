@@ -1,0 +1,411 @@
+<HTML>
+<HEAD><TITLE>Lattice Map TRACE Report</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="Map_Twr"></A><B><U><big>Map TRACE Report</big></U></B>
+
+Loading design for application trce from file step_tp_impl1_map.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-4000HC
+Package:     CSBGA132
+Performance: 4
+Loading device for application trce from file 'xo2c4000.nph' in environment: D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga.
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+--------------------------------------------------------------------------------
+<A name="Map_Twr_setup"></A><B><U><big>Lattice TRACE Report - Setup, Version Diamond (64-bit) 3.10.3.144</big></U></B>
+Mon Nov 30 22:55:08 2020
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+
+<A name="mtw1_set_ri"></A><B><U><big>Report Information</big></U></B>
+------------------
+Command line:    trce -v 1 -gt -mapchkpnt 0 -o step_tp_impl1.tw1 -gui -msgset F:/home/mini-mcu/step_fpga/promote.xml step_tp_impl1_map.ncd step_tp_impl1.prf 
+Design file:     step_tp_impl1_map.ncd
+Preference file: step_tp_impl1.prf
+Device,speed:    LCMXO2-4000HC,4
+Report level:    verbose report, limited to 1 item per preference
+--------------------------------------------------------------------------------
+
+<A name="mtw1_set_ps"></A><B><U><big>Preference Summary</big></U></B>
+
+<FONT COLOR=red><LI><A href='#map_twr_pref_0_0' Target='right'><FONT COLOR=red>FREQUENCY NET "clk_in_c" 50.571000 MHz (4096 errors)</FONT></A></LI>
+</FONT>            4096 items scored, 4096 timing errors detected.
+Warning:   4.615MHz is the maximum frequency for this preference.
+
+<FONT COLOR=red><LI><A href='#map_twr_pref_0_1' Target='right'><FONT COLOR=red>FREQUENCY NET "in_port_7__N_37" 399.840000 MHz (32 errors)</FONT></A></LI>
+</FONT>            32 items scored, 32 timing errors detected.
+Warning:  71.958MHz is the maximum frequency for this preference.
+
+<FONT COLOR=red><LI><A href='#map_twr_pref_0_2' Target='right'><FONT COLOR=red>FREQUENCY NET "mcu/out_port_7__N_232" 73.443000 MHz (2378 errors)</FONT></A></LI>
+</FONT>            2378 items scored, 2378 timing errors detected.
+Warning:   6.657MHz is the maximum frequency for this preference.
+
+<FONT COLOR=red><LI><A href='#map_twr_pref_0_3' Target='right'><FONT COLOR=red>FREQUENCY NET "mcu/port_id_7__N_215" 71.271000 MHz (2453 errors)</FONT></A></LI>
+</FONT>            2453 items scored, 2453 timing errors detected.
+Warning:  10.182MHz is the maximum frequency for this preference.
+
+Report Type:     based on TRACE automatically generated preferences
+BLOCK ASYNCPATHS
+BLOCK RESETPATHS
+--------------------------------------------------------------------------------
+
+
+
+================================================================================
+<A name="map_twr_pref_0_0"></A>Preference: FREQUENCY NET "clk_in_c" 50.571000 MHz ;
+            4096 items scored, 4096 timing errors detected.
+--------------------------------------------------------------------------------
+
+
+Error: The following path exceeds requirements by 6.502ns (weighted slack = -196.892ns)
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              mcu/port_id_7__I_0_i3  (from mcu/port_id_7__N_215 +)
+   Destination:    FF         Data in        seg_data_1_i0_i1  (to clk_in_c +)
+                   FF                        seg_data_1_i0_i0
+
+   Delay:               6.873ns  (28.2% logic, 71.8% route), 4 logic levels.
+
+ Constraint Details:
+
+      6.873ns physical path delay mcu/SLICE_298 to SLICE_304 exceeds
+      (delay constraint based on source clock period of 14.031ns and destination clock period of 19.774ns)
+      0.653ns delay constraint less
+      0.282ns CE_SET requirement (totaling 0.371ns) by 6.502ns
+
+ Physical Path Details:
+
+      Data path mcu/SLICE_298 to SLICE_304:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.452 *SLICE_298.CLK to */SLICE_298.Q0 mcu/SLICE_298 (from mcu/port_id_7__N_215)
+ROUTE         2   e 1.234 */SLICE_298.Q0 to   SLICE_306.C1 port_id_2
+CTOF_DEL    ---     0.495   SLICE_306.C1 to   SLICE_306.F1 SLICE_306
+ROUTE         1   e 1.234   SLICE_306.F1 to   SLICE_722.B1 n16598
+CTOF_DEL    ---     0.495   SLICE_722.B1 to   SLICE_722.F1 SLICE_722
+ROUTE         3   e 1.234   SLICE_722.F1 to  SLICE_1026.A1 n7623
+CTOF_DEL    ---     0.495  SLICE_1026.A1 to  SLICE_1026.F1 SLICE_1026
+ROUTE         4   e 1.234  SLICE_1026.F1 to   SLICE_304.CE clk_in_c_enable_178 (to clk_in_c)
+                  --------
+                    6.873   (28.2% logic, 71.8% route), 4 logic levels.
+
+Warning:   4.615MHz is the maximum frequency for this preference.
+
+
+================================================================================
+<A name="map_twr_pref_0_1"></A>Preference: FREQUENCY NET "in_port_7__N_37" 399.840000 MHz ;
+            32 items scored, 32 timing errors detected.
+--------------------------------------------------------------------------------
+
+
+Error: The following path exceeds requirements by 4.443ns (weighted slack = -11.397ns)
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         FF         Q              mcu/port_id_7__I_0_i2  (from mcu/port_id_7__N_215 +)
+   Destination:    FF         Data in        in_port_7__I_0_i4  (to in_port_7__N_37 +)
+                   FF                        in_port_7__I_0_i3
+
+   Delay:               5.144ns  (28.0% logic, 72.0% route), 3 logic levels.
+
+ Constraint Details:
+
+      5.144ns physical path delay mcu/SLICE_297 to SLICE_103 exceeds
+      (delay constraint based on source clock period of 14.031ns and destination clock period of 2.501ns)
+      0.975ns delay constraint less
+      0.274ns LSR_SET requirement (totaling 0.701ns) by 4.443ns
+
+ Physical Path Details:
+
+      Data path mcu/SLICE_297 to SLICE_103:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+REG_DEL     ---     0.452 *SLICE_297.CLK to */SLICE_297.Q1 mcu/SLICE_297 (from mcu/port_id_7__N_215)
+ROUTE         4   e 1.234 */SLICE_297.Q1 to   SLICE_723.B0 port_id_1
+CTOF_DEL    ---     0.495   SLICE_723.B0 to   SLICE_723.F0 SLICE_723
+ROUTE         2   e 1.234   SLICE_723.F0 to   SLICE_724.B1 n14
+CTOF_DEL    ---     0.495   SLICE_724.B1 to   SLICE_724.F1 SLICE_724
+ROUTE         4   e 1.234   SLICE_724.F1 to  SLICE_103.LSR n22297 (to in_port_7__N_37)
+                  --------
+                    5.144   (28.0% logic, 72.0% route), 3 logic levels.
+
+Warning:  71.958MHz is the maximum frequency for this preference.
+
+
+================================================================================
+<A name="map_twr_pref_0_2"></A>Preference: FREQUENCY NET "mcu/out_port_7__N_232" 73.443000 MHz ;
+            2378 items scored, 2378 timing errors detected.
+--------------------------------------------------------------------------------
+
+
+Error: The following path exceeds requirements by 13.042ns (weighted slack = -136.600ns)
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         PDPW8KC    Port           rom/mux_133(ASIC)  (from clk_in_c +)
+   Destination:    FF         Data in        mcu/out_port_7__I_0_i1  (to mcu/out_port_7__N_232 +)
+
+   Delay:              14.068ns  (56.1% logic, 43.9% route), 6 logic levels.
+
+ Constraint Details:
+
+     14.068ns physical path delay rom/mux_133 to mcu/SLICE_292 exceeds
+      (delay constraint based on source clock period of 19.774ns and destination clock period of 13.616ns)
+      1.300ns delay constraint less
+      0.274ns LSR_SET requirement (totaling 1.026ns) by 13.042ns
+
+ Physical Path Details:
+
+      Data path rom/mux_133 to mcu/SLICE_292:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     5.224 */mux_133.CLKR to */mux_133.DO17 rom/mux_133 (from clk_in_c)
+ROUTE         1   e 1.234 */mux_133.DO17 to */SLICE_325.C1 rom/n814
+CTOOFX_DEL  ---     0.721 */SLICE_325.C1 to *LICE_325.OFX0 rom/i16691/SLICE_325
+ROUTE         1   e 0.001 *LICE_325.OFX0 to *SLICE_325.FXB rom/n19861
+FXTOOFX_DE  ---     0.241 *SLICE_325.FXB to *LICE_325.OFX1 rom/i16691/SLICE_325
+ROUTE       113   e 1.234 *LICE_325.OFX1 to */SLICE_578.A1 instruction_8
+CTOOFX_DEL  ---     0.721 */SLICE_578.A1 to *LICE_578.OFX0 mcu/i16629/SLICE_578
+ROUTE         5   e 1.234 *LICE_578.OFX0 to */SLICE_791.B1 mcu/n5_adj_737
+CTOF_DEL    ---     0.495 */SLICE_791.B1 to */SLICE_791.F1 mcu/SLICE_791
+ROUTE        16   e 1.234 */SLICE_791.F1 to */SLICE_926.B0 mcu/n14_adj_501
+CTOF_DEL    ---     0.495 */SLICE_926.B0 to */SLICE_926.F0 mcu/SLICE_926
+ROUTE         8   e 1.234 */SLICE_926.F0 to *SLICE_292.LSR mcu/out_port_7_N_217_0 (to mcu/out_port_7__N_232)
+                  --------
+                   14.068   (56.1% logic, 43.9% route), 6 logic levels.
+
+Warning:   6.657MHz is the maximum frequency for this preference.
+
+
+================================================================================
+<A name="map_twr_pref_0_3"></A>Preference: FREQUENCY NET "mcu/port_id_7__N_215" 71.271000 MHz ;
+            2453 items scored, 2453 timing errors detected.
+--------------------------------------------------------------------------------
+
+
+Error: The following path exceeds requirements by 11.351ns (weighted slack = -84.179ns)
+
+ Logical Details:  Cell type  Pin type       Cell/ASIC name  (clock net +/-)
+
+   Source:         PDPW8KC    Port           rom/mux_133(ASIC)  (from clk_in_c +)
+   Destination:    FF         Data in        mcu/port_id_7__I_0_i7  (to mcu/port_id_7__N_215 +)
+
+   Delay:              13.077ns  (62.2% logic, 37.8% route), 7 logic levels.
+
+ Constraint Details:
+
+     13.077ns physical path delay rom/mux_133 to mcu/SLICE_300 exceeds
+      (delay constraint based on source clock period of 19.774ns and destination clock period of 14.031ns)
+      1.892ns delay constraint less
+      0.166ns DIN_SET requirement (totaling 1.726ns) by 11.351ns
+
+ Physical Path Details:
+
+      Data path rom/mux_133 to mcu/SLICE_300:
+
+   Name    Fanout   Delay (ns)          Site               Resource
+C2Q_DEL     ---     5.224 */mux_133.CLKR to */mux_133.DO13 rom/mux_133 (from clk_in_c)
+ROUTE         1   e 1.234 */mux_133.DO13 to */SLICE_317.C1 rom/n818
+CTOOFX_DEL  ---     0.721 */SLICE_317.C1 to *LICE_317.OFX0 rom/i16663/SLICE_317
+ROUTE         1   e 0.001 *LICE_317.OFX0 to *SLICE_317.FXB rom/n19833
+FXTOOFX_DE  ---     0.241 *SLICE_317.FXB to *LICE_317.OFX1 rom/i16663/SLICE_317
+ROUTE        88   e 1.234 *LICE_317.OFX1 to */SLICE_572.A1 instruction_4
+CTOOFX_DEL  ---     0.721 */SLICE_572.A1 to *LICE_572.OFX0 mcu/i16611/SLICE_572
+ROUTE         1   e 0.001 *LICE_572.OFX0 to *SLICE_572.FXB mcu/n19781
+FXTOOFX_DE  ---     0.241 *SLICE_572.FXB to *LICE_572.OFX1 mcu/i16611/SLICE_572
+ROUTE         1   e 1.234 *LICE_572.OFX1 to *SLICE_1186.B1 mcu/n19783
+CTOF_DEL    ---     0.495 *SLICE_1186.B1 to *SLICE_1186.F1 mcu/SLICE_1186
+ROUTE        17   e 1.234 *SLICE_1186.F1 to */SLICE_300.A0 mcu/port_id_7_N_200_6
+CTOF_DEL    ---     0.495 */SLICE_300.A0 to */SLICE_300.F0 mcu/SLICE_300
+ROUTE         1   e 0.001 */SLICE_300.F0 to *SLICE_300.DI0 mcu/n23_adj_489 (to mcu/port_id_7__N_215)
+                  --------
+                   13.077   (62.2% logic, 37.8% route), 7 logic levels.
+
+Warning:  10.182MHz is the maximum frequency for this preference.
+
+<A name="mtw1_set_rs"></A><B><U><big>Report Summary</big></U></B>
+--------------
+----------------------------------------------------------------------------
+Preference                              |   Constraint|       Actual|Levels
+----------------------------------------------------------------------------
+                                        |             |             |
+FREQUENCY NET "clk_in_c" 50.571000 MHz  |             |             |
+;                                       |   50.571 MHz|    4.615 MHz|   4 *
+                                        |             |             |
+FREQUENCY NET "in_port_7__N_37"         |             |             |
+399.840000 MHz ;                        |  399.840 MHz|   71.958 MHz|   3 *
+                                        |             |             |
+FREQUENCY NET "mcu/out_port_7__N_232"   |             |             |
+73.443000 MHz ;                         |   73.443 MHz|    6.657 MHz|   6 *
+                                        |             |             |
+FREQUENCY NET "mcu/port_id_7__N_215"    |             |             |
+71.271000 MHz ;                         |   71.271 MHz|   10.182 MHz|   7 *
+                                        |             |             |
+----------------------------------------------------------------------------
+
+
+4 preferences(marked by "*" above) not met.
+
+----------------------------------------------------------------------------
+Critical Nets                           |   Loads|  Errors| % of total
+----------------------------------------------------------------------------
+instruction_8                           |     113|    2245|     25.06%
+                                        |        |        |
+n7646                                   |      17|    2232|     24.91%
+                                        |        |        |
+mcu/n16558                              |       1|    1880|     20.98%
+                                        |        |        |
+mcu/n16122                              |       4|    1792|     20.00%
+                                        |        |        |
+instruction_4                           |      88|    1423|     15.88%
+                                        |        |        |
+mcu/Z_N_377                             |       2|    1413|     15.77%
+                                        |        |        |
+mcu/Z_N_356                             |       1|    1413|     15.77%
+                                        |        |        |
+mcu/n14417                              |       1|    1221|     13.63%
+                                        |        |        |
+mcu/n83_adj_1491                        |       1|    1221|     13.63%
+                                        |        |        |
+mcu/n61                                 |       1|    1221|     13.63%
+                                        |        |        |
+mcu/n20080                              |       1|    1221|     13.63%
+                                        |        |        |
+address_9                               |      74|    1220|     13.62%
+                                        |        |        |
+rom/n19860                              |       1|    1093|     12.20%
+                                        |        |        |
+rom/n19861                              |       1|    1088|     12.14%
+                                        |        |        |
+instruction_5                           |      56|     943|     10.53%
+                                        |        |        |
+----------------------------------------------------------------------------
+
+
+<A name="mtw1_set_clkda"></A><B><U><big>Clock Domains Analysis</big></U></B>
+------------------------
+
+Found 6 clocks:
+
+Clock Domain: mcu/out_port_7__N_232   Source: mcu/SLICE_292.F0   Loads: 10
+   No transfer within this clock domain is found
+
+   Data transfers from:
+   Clock Domain: clk_in_c   Source: clk_in.PAD
+      Covered under: FREQUENCY NET "mcu/out_port_7__N_232" 73.443000 MHz ;   Transfers: 211
+
+Clock Domain: mcu/out_port_7__N_232   Source: mcu/SLICE_292.F0   Loads: 10
+   No transfer within this clock domain is found
+
+Clock Domain: mcu/port_id_7__N_215   Source: mcu/SLICE_1182.F1   Loads: 8
+   No transfer within this clock domain is found
+
+   Data transfers from:
+   Clock Domain: clk_in_c   Source: clk_in.PAD
+      Covered under: FREQUENCY NET "mcu/port_id_7__N_215" 71.271000 MHz ;   Transfers: 243
+
+Clock Domain: mcu/out_port_7__N_232   Source: mcu/SLICE_292.F0   Loads: 10
+   No transfer within this clock domain is found
+
+Clock Domain: in_port_7__N_37   Source: SLICE_723.F1   Loads: 4
+   No transfer within this clock domain is found
+
+   Data transfers from:
+   Clock Domain: mcu/port_id_7__N_215   Source: mcu/SLICE_1182.F1
+      Covered under: FREQUENCY NET "in_port_7__N_37" 399.840000 MHz ;   Transfers: 8
+
+Clock Domain: clk_in_c   Source: clk_in.PAD   Loads: 236
+   Covered under: FREQUENCY NET "clk_in_c" 50.571000 MHz ;
+
+   Data transfers from:
+   Clock Domain: mcu/port_id_7__N_215   Source: mcu/SLICE_1182.F1
+      Covered under: FREQUENCY NET "clk_in_c" 50.571000 MHz ;   Transfers: 5
+
+   Clock Domain: mcu/out_port_7__N_232   Source: mcu/SLICE_292.F0
+      Covered under: FREQUENCY NET "clk_in_c" 50.571000 MHz ;   Transfers: 2
+
+   Clock Domain: mcu/port_id_7__N_215   Source: mcu/SLICE_1182.F1
+      Covered under: FREQUENCY NET "clk_in_c" 50.571000 MHz ;   Transfers: 9
+
+   Clock Domain: in_port_7__N_37   Source: SLICE_723.F1
+      Covered under: FREQUENCY NET "clk_in_c" 50.571000 MHz ;   Transfers: 8
+
+
+<A name="mtw1_set_ts"></A><B><U><big>Timing summary (Setup):</big></U></B>
+---------------
+
+Timing errors: 8959  Score: 377696320
+Cumulative negative slack: 377696320
+
+Constraints cover 1502274 paths, 4 nets, and 9654 connections (98.05% coverage)
+
+--------------------------------------------------------------------------------
+
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>

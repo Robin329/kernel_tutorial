@@ -1,0 +1,15 @@
+#Start recording tcl command: 11/26/2020 02:43:22
+#Project Location: F:/home/mini-mcu/hardware/step_fpga; Project name: step_tp
+prj_project open "F:/home/mini-mcu/hardware/step_fpga/step_tp.ldf"
+prj_run Export -impl impl1
+file copy -force -- "F:/home/mini-mcu/hardware/step_fpga/divide.v" "F:/home/mini-mcu/hardware/step_fpga/mcu.v" "F:/home/mini-mcu/hardware/step_fpga/rom.v" "F:/home/mini-mcu/hardware/step_fpga/impl1/source"
+prj_src add "F:/home/mini-mcu/hardware/step_fpga/impl1/source/divide.v" "F:/home/mini-mcu/hardware/step_fpga/impl1/source/mcu.v" "F:/home/mini-mcu/hardware/step_fpga/impl1/source/rom.v"
+prj_src remove "F:/home/mini-mcu/hardware/step_fpga/impl1/source/divide.v" "F:/home/mini-mcu/hardware/step_fpga/impl1/source/mcu.v" "F:/home/mini-mcu/hardware/step_fpga/impl1/source/rom.v"
+prj_src add "F:/home/mini-mcu/hardware/step_fpga/divide.v"
+prj_src add "F:/home/mini-mcu/hardware/step_fpga/mcu.v"
+prj_src add "F:/home/mini-mcu/hardware/step_fpga/rom.v"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 11/26/2020 03:14:44

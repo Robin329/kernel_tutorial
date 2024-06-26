@@ -1,0 +1,32 @@
+#Start recording tcl command: 7/27/2020 17:00:56
+#Project Location: F:/home/step_tp; Project name: step_tp
+prj_project new -name "step_tp" -impl "impl1" -dev LCMXO2-4000HC-5MG132C -synthesis "lse"
+prj_project save
+file copy -force -- "F:/home/step_tp/LED_shining.v" "F:/home/step_tp/impl1/source"
+prj_src add "F:/home/step_tp/impl1/source/LED_shining.v"
+prj_run Synthesis -impl impl1
+prj_run Export -impl impl1
+prj_src add "F:/home/step_tp/clk_gen.ipx"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_dev set -part LCMXO2-4000HC-4MG132C
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_src add "F:/home/step_tp/top.v"
+prj_src remove "F:/home/step_tp/impl1/source/LED_shining.v"
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+prj_run Synthesis -impl impl1
+puts ----------------------------------------------------------------------
+prj_run Synthesis -impl impl1
+puts ----------------------------------------------------------------------
+prj_run Map -impl impl1
+puts ----------------------------------------------------------------------
+prj_run PAR -impl impl1
+puts ----------------------------------------------------------------------
+prj_run Export -impl impl1
+#Stop recording: 7/27/2020 20:21:12

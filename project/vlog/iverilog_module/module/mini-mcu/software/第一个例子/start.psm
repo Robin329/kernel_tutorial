@@ -1,0 +1,10 @@
+;系统时钟为1Hz
+constant led_port,01 ;定义led_port为常量01
+constant led_on,00000010'b ;
+constant led_off,00000001'b ;
+start:
+	load	sF,	led_on;
+	output	sF,led_port ;led亮
+	load	sF,	led_off;
+	output	sF,led_port ;led灭
+	jump	start ;跳转的开始

@@ -1,0 +1,293 @@
+<HTML>
+<HEAD><TITLE>Synthesis and Ngdbuild Report</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="Syn"></A><B><U><big>Synthesis and Ngdbuild  Report</big></U></B>
+synthesis:  version Diamond (64-bit) 3.10.3.144
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+Mon Nov 30 22:54:56 2020
+
+
+Command Line:  synthesis -f step_tp_impl1_lattice.synproj -gui -msgset F:/home/mini-mcu/step_fpga/promote.xml 
+
+Synthesis options:
+The -a option is MachXO2.
+The -s option is 4.
+The -t option is CSBGA132.
+The -d option is LCMXO2-4000HC.
+Using package CSBGA132.
+Using performance grade 4.
+                                                          
+
+##########################################################
+
+### Lattice Family : MachXO2
+
+### Device  : LCMXO2-4000HC
+
+### Package : CSBGA132
+
+### Speed   : 4
+
+##########################################################
+
+                                                          
+
+INFO - synthesis: User-Selected Strategy Settings
+Optimization goal = Balanced
+Top-level module name = top.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+force_gsr = auto
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-p F:/home/mini-mcu/step_fpga (searchpath added)
+-p D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/xo2c00/data (searchpath added)
+-p F:/home/mini-mcu/step_fpga/impl1 (searchpath added)
+-p F:/home/mini-mcu/step_fpga (searchpath added)
+Verilog design file = F:/home/mini-mcu/step_fpga/top.v
+Verilog design file = F:/home/mini-mcu/step_fpga/mcu.v
+Verilog design file = F:/home/mini-mcu/step_fpga/rom.v
+Verilog design file = F:/home/mini-mcu/step_fpga/seg_display.v
+Verilog design file = F:/home/mini-mcu/step_fpga/head.v
+Verilog design file = F:/home/mini-mcu/step_fpga/divide.v
+NGD file = step_tp_impl1.ngd
+-sdc option: SDC file input not used.
+-lpf option: Output file option is ON.
+Hardtimer checking is enabled (default). The -dt option is not used.
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Technology check ok...
+
+Analyzing Verilog file D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Compile design.
+Compile Design Begin
+Analyzing Verilog file f:/home/mini-mcu/step_fpga/top.v. VERI-1482
+Analyzing Verilog file f:/home/mini-mcu/step_fpga/mcu.v. VERI-1482
+INFO - synthesis: f:/home/mini-mcu/step_fpga/mcu.v(3): analyzing included file f:/home/mini-mcu/step_fpga/head.v. VERI-1328
+Analyzing Verilog file f:/home/mini-mcu/step_fpga/rom.v. VERI-1482
+Analyzing Verilog file f:/home/mini-mcu/step_fpga/seg_display.v. VERI-1482
+Analyzing Verilog file f:/home/mini-mcu/step_fpga/head.v. VERI-1482
+Analyzing Verilog file f:/home/mini-mcu/step_fpga/divide.v. VERI-1482
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/divide.v(23): assignment to input inVERI-1214
+Analyzing Verilog file D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/userware/NT/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Top module name (Verilog): top
+INFO - synthesis: f:/home/mini-mcu/step_fpga/top.v(7): compiling module top. VERI-1018
+INFO - synthesis: f:/home/mini-mcu/step_fpga/divide.v(13): compiling module divide(N=12000000). VERI-1018
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/divide.v(38): expression size 32 truncated to fit in target size 24. VERI-1209
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/divide.v(59): expression size 32 truncated to fit in target size 24. VERI-1209
+INFO - synthesis: f:/home/mini-mcu/step_fpga/mcu.v(7): compiling module mcu. VERI-1018
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/mcu.v(160): expression size 18 truncated to fit in target size 12. VERI-1209
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/mcu.v(203): expression size 18 truncated to fit in target size 12. VERI-1209
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/mcu.v(299): expression size 18 truncated to fit in target size 12. VERI-1209
+INFO - synthesis: f:/home/mini-mcu/step_fpga/rom.v(3): compiling module rom. VERI-1018
+INFO - synthesis: f:/home/mini-mcu/step_fpga/seg_display.v(5): compiling module seg_display. VERI-1018
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/seg_display.v(12): net seg does not have a driver. VDB-1002
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/or5g00/data/orc5glib.ngl'...
+Loading device for application map from file 'xo2c4000.nph' in environment: D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga.
+Package Status:                     Final          Version 1.44.
+Top-level module name = top.
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/seg_display.v(12): ram seg_original_ramnet has no write-port on it. VDB-1038
+WARNING - synthesis: net n724 does not have a driver. VDB-1002
+WARNING - synthesis: net n725 does not have a driver. VDB-1002
+WARNING - synthesis: net n726 does not have a driver. VDB-1002
+WARNING - synthesis: net n727 does not have a driver. VDB-1002
+WARNING - synthesis: net n728 does not have a driver. VDB-1002
+WARNING - synthesis: net n729 does not have a driver. VDB-1002
+WARNING - synthesis: net n730 does not have a driver. VDB-1002
+WARNING - synthesis: net n731 does not have a driver. VDB-1002
+WARNING - synthesis: net n732 does not have a driver. VDB-1002
+WARNING - synthesis: net n1039 does not have a driver. VDB-1002
+WARNING - synthesis: net n1045 does not have a driver. VDB-1002
+WARNING - synthesis: net n1051 does not have a driver. VDB-1002
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/mcu.v(103): net \i630/C_N_337[0] does not have a driver. VDB-1002
+######## Missing driver on net \mcu/\i630/C_N_337[0]. Patching with GND.
+WARNING - synthesis: f:/home/mini-mcu/step_fpga/mcu.v(398): Register \mcu/bram_enable_500 is stuck at One. VDB-5014
+
+
+
+######## Duplicated RTL RAM \mcu/stack_zc to \mcu/stack_zc_d0 to map to Lattice RAM.
+######## Found 2 RTL RAMs in the design.
+######## Mapping RTL RAM \mcu/stack to 1 EBR blocks in PSEUDO_DUAL_PORT Mode
+
+Unable to honor syn_srlstyle or syn_ramstyle attribute value of block_ram on net \mcu/creg
+
+######## Mapping RTL RAM \mcu/creg to 2 Distributed blocks in SINGLE_PORT Mode
+
+GSR will not be inferred because no asynchronous signal was found in the netlist.
+Applying 200.000000 MHz constraint to all clocks
+
+WARNING - synthesis: No user .sdc file.
+Results of NGD DRC are available in top_drc.log.
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/xo2c00a/data/xo2alib.ngl'...
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/xo2c00/data/xo2clib.ngl'...
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/mg5g00/data/mg5glib.ngl'...
+Loading NGL library 'D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga/or5g00/data/orc5glib.ngl'...
+All blocks are expanded and NGD expansion is successful.
+Writing NGD file step_tp_impl1.ngd.
+
+################### Begin Area Report (top)######################
+Number of register bits => 323 of 4635 (6 % )
+CCU2D => 84
+FD1P3AX => 188
+FD1P3IX => 17
+FD1P3JX => 3
+FD1S1I => 24
+FD1S3AX => 60
+FD1S3IX => 29
+FD1S3JX => 2
+GSR => 1
+IB => 9
+L6MUX21 => 82
+LUT4 => 2105
+OB => 29
+PDPW8KC => 9
+PFUMX => 396
+SPR16X4C => 2
+################### End Area Report ##################
+
+################### Begin BlackBox Report ######################
+TSALL => 1
+################### End BlackBox Report ##################
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 4
+  Net : clk_in_c, loads : 311
+  Net : mcu/out_port_7__N_232, loads : 10
+  Net : mcu/port_id_7__N_215, loads : 9
+  Net : in_port_7__N_37, loads : 8
+Clock Enable Nets
+Number of Clock Enables: 47
+Top 10 highest fanout Clock Enables:
+  Net : mcu/clk_in_c_enable_174, loads : 142
+  Net : mcu/clk_in_c_enable_109, loads : 33
+  Net : clk_in_c_enable_209, loads : 32
+  Net : mcu/clk_in_c_enable_175, loads : 13
+  Net : clk_in_c_enable_178, loads : 8
+  Net : clk_in_c_enable_176, loads : 8
+  Net : mcu/clk_in_c_enable_100, loads : 6
+  Net : mcu/clk_in_c_enable_58, loads : 6
+  Net : mcu/clk_in_c_enable_64, loads : 6
+  Net : mcu/clk_in_c_enable_16, loads : 6
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : mcu/n16312, loads : 266
+  Net : mcu/n7762, loads : 265
+  Net : mcu/n11714, loads : 259
+  Net : mcu/n7908, loads : 246
+  Net : mcu/clk_in_c_enable_174, loads : 142
+  Net : rom/instruction_8, loads : 112
+  Net : mcu/n16392, loads : 110
+  Net : mcu/n7876, loads : 106
+  Net : mcu/n7726, loads : 106
+  Net : mcu/n11778, loads : 100
+################### End Clock Report ##################
+
+<A name="lse_trs"></A><B><U><big>Timing Report Summary</big></U></B>
+--------------
+--------------------------------------------------------------------------------
+Constraint                              |   Constraint|       Actual|Levels
+--------------------------------------------------------------------------------
+                                        |             |             |
+create_clock -period 5.000000 -name     |             |             |
+clk0 [get_nets clk_in_c]                |  200.000 MHz|   39.338 MHz|    15 *
+                                        |             |             |
+--------------------------------------------------------------------------------
+
+
+1 constraints not met.
+
+
+Peak Memory Usage: 227.316  MB
+
+--------------------------------------------------------------
+Elapsed CPU time for LSE flow : 8.330  secs
+--------------------------------------------------------------
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>

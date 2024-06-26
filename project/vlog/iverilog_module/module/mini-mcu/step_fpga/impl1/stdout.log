@@ -1,0 +1,69 @@
+Running in Lattice mode
+
+Starting:    D:\yhpsoft\Diamond\diamond\3.10_x64\synpbase\bin64\mbin\synplify.exe
+Install:     D:\yhpsoft\Diamond\diamond\3.10_x64\synpbase
+Hostname:    FPGA-USE
+Date:        Thu Nov 26 04:58:56 2020
+Version:     M-2017.03L-SP1-1
+
+Arguments:   -product synplify_pro -tcl F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/launch_synplify.tcl
+ProductType: synplify_pro
+
+
+
+
+
+No project opened.
+TCL script complete: "F:/home/mini-mcu/hardware/mcu/step_fpga/impl1/launch_synplify.tcl"
+log file: "F:\home\mini-mcu\hardware\mcu\step_fpga\impl1\impl1.srr"
+Running: impl1 in foreground
+
+Running impl1_syn|impl1
+
+Running: compile (Compile) on impl1_syn|impl1
+# Thu Nov 26 04:59:03 2020
+
+Running: compile_flow (Compile Process) on impl1_syn|impl1
+# Thu Nov 26 04:59:03 2020
+
+Running: compiler (Compile Input) on impl1_syn|impl1
+# Thu Nov 26 04:59:03 2020
+compiler exited with errors
+Job failed on: impl1_syn|impl1
+
+Job: "compiler" terminated with error status: 2
+See log file: "F:\home\mini-mcu\hardware\mcu\step_fpga\impl1\synlog\impl1_compiler.srr"
+# Thu Nov 26 04:59:05 2020
+
+Return Code: 2
+Run Time:00h:00m:02s
+Complete: Compile Process on impl1_syn|impl1
+Complete: Compile on impl1_syn|impl1
+Complete: Logic Synthesis on impl1_syn|impl1
+2Copied F:\home\mini-mcu\hardware\mcu\step_fpga\impl1\impl1.srr to F:\home\mini-mcu\hardware\mcu\step_fpga\impl1\backup\impl1.srr
+log file: "F:\home\mini-mcu\hardware\mcu\step_fpga\impl1\impl1.srr"
+Running: impl1 in foreground
+
+Running impl1_syn|impl1
+
+Running: compile (Compile) on impl1_syn|impl1
+# Thu Nov 26 04:59:30 2020
+
+Running: compile_flow (Compile Process) on impl1_syn|impl1
+# Thu Nov 26 04:59:30 2020
+
+Running: compiler (Compile Input) on impl1_syn|impl1
+# Thu Nov 26 04:59:30 2020
+compiler exited with errors
+Job failed on: impl1_syn|impl1
+
+Job: "compiler" terminated with error status: 2
+See log file: "F:\home\mini-mcu\hardware\mcu\step_fpga\impl1\synlog\impl1_compiler.srr"
+# Thu Nov 26 04:59:30 2020
+
+Return Code: 2
+Run Time:00h:00m:00s
+Complete: Compile Process on impl1_syn|impl1
+Complete: Compile on impl1_syn|impl1
+Complete: Logic Synthesis on impl1_syn|impl1
+2exit status=2

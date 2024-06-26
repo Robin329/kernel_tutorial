@@ -1,0 +1,89 @@
+Loading design for application iotiming from file step_tp_impl1.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-4000HC
+Package:     CSBGA132
+Performance: 5
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+Loading design for application iotiming from file step_tp_impl1.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-4000HC
+Package:     CSBGA132
+Performance: 6
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+Loading design for application iotiming from file step_tp_impl1.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-4000HC
+Package:     CSBGA132
+Performance: M
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+// Design: top
+// Package: CSBGA132
+// ncd File: step_tp_impl1.ncd
+// Version: Diamond (64-bit) 3.10.3.144
+// Written on Mon Nov 30 22:56:27 2020
+// M: Minimum Performance Grade
+// iotiming step_tp_impl1.ncd step_tp_impl1.prf -gui -msgset F:/home/mini-mcu/step_fpga/promote.xml
+
+I/O Timing Report (All units are in ns)
+
+Worst Case Results across Performance Grades (M, 6, 5, 4):
+
+// Input Setup and Hold Times
+
+Port  Clock Edge  Setup Performance_Grade  Hold Performance_Grade
+----------------------------------------------------------------------
+(no input setup/hold data)
+
+
+// Clock to Output Delay
+
+Port         Clock  Edge  Max_Delay Performance_Grade  Min_Delay Performance_Grade
+------------------------------------------------------------------------
+led1         clk_in R    10.085         4        3.203          M
+led2         clk_in R    10.085         4        3.203          M
+led3         clk_in R    10.462         4        3.322          M
+led4         clk_in R    10.065         4        3.211          M
+led5         clk_in R     9.690         4        3.095          M
+led6         clk_in R     9.963         4        3.182          M
+led7         clk_in R     9.690         4        3.095          M
+led8         clk_in R     9.690         4        3.095          M
+rgb[0]       clk_in R    10.890         4        3.424          M
+rgb[1]       clk_in R    10.493         4        3.313          M
+rgb[2]       clk_in R    11.036         4        3.431          M
+seg_led_1[0] clk_in R    12.644         4        3.615          M
+seg_led_1[1] clk_in R    12.824         4        3.674          M
+seg_led_1[2] clk_in R    12.610         4        3.595          M
+seg_led_1[3] clk_in R    14.188         4        3.722          M
+seg_led_1[4] clk_in R    12.913         4        3.675          M
+seg_led_1[5] clk_in R    13.723         4        3.609          M
+seg_led_1[6] clk_in R    12.771         4        3.489          M
+seg_led_2[0] clk_in R    13.942         4        3.531          M
+seg_led_2[1] clk_in R    14.346         4        3.621          M
+seg_led_2[2] clk_in R    14.297         4        3.448          M
+seg_led_2[3] clk_in R    13.936         4        3.537          M
+seg_led_2[4] clk_in R    15.372         4        3.839          M
+seg_led_2[5] clk_in R    13.180         4        3.745          M
+seg_led_2[6] clk_in R    15.053         4        3.745          M
+
+
+// Internal_Clock to Input
+
+Port  Internal_Clock
+--------------------------------------------------------
+key[0 in_port_7__N_3
+key[1 in_port_7__N_3
+key[2 in_port_7__N_3
+key[3 in_port_7__N_3
+sw[0] in_port_7__N_3
+sw[1] in_port_7__N_3
+sw[2] in_port_7__N_3
+sw[3] in_port_7__N_3

@@ -1,0 +1,5 @@
+
+
+-g RamCfg:Reset
+
+-path "F:/home/mini-mcu/step_fpga"  

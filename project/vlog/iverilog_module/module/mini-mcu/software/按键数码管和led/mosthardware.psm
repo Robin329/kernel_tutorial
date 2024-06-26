@@ -1,0 +1,166 @@
+;系统时钟为12MHz
+;目标硬件为 小脚丫FPGA step-maxo2-c，这个型号是U盘模式，流文件会下载到mcu，每次上电由mcu配置FPGA
+
+;-----------------------------------------------------------------
+; 功能说明 : 在不操作的情况下，流水灯会一直跑，同时数码管每秒加1，
+; 满99后归零
+; 按下按键1 ： 数码管下一次将从 01 开始计数
+; 按下按键2 ： 数码管下一次将从 02 开始计数
+; 按下按键3 ： 数码管下一次将从 03 开始计数
+; 按下按键4 ： 数码管下一次将从 04 开始计数
+;-----------------------------------------------------------------
+constant sw_port,00 ;定义按键四段拨码开关  【按键 ： 开关 】
+
+;输出
+constant seg_port,00 ;定义数码管地址
+constant led_port,01 ;定义led_port为常量01
+constant rgb_port,02  ; rgb灯
+
+;定义以一些变量
+constant var_seg,00    ;数码管
+constant var_led,01    ; led
+
+start:
+	load sA,FE ;  led等控制
+    output sA,led_port
+    store sA,var_led
+    load sB,66 ; 初始化数码管显示 
+    store sB,var_seg
+    output sB,seg_port 
+    load sC,00000111'b  ; ' rgb 灭
+    output sC,rgb_port ;rgb不亮
+    input sD,sw_port ; 读一次io口
+    enable interrupt    ;使能中断
+    ;一下loop循环是扫描式按键检测的主循环
+loop:
+    input sD,sw_port
+    load sE,sD
+    and sE,10 ;  //准备判断key1的状态
+    compare sE,00
+    jump z,key1  ;按下了准备key1函数
+
+    load sE,sD
+    and sE,20 ;  //准备判断key2的状态
+    compare sE,00
+    jump z,key2  ;按下了准备key2函数
+
+    load sE,sD
+    and sE,40 ;  //准备判断key3的状态
+    compare sE,00
+    jump z,key3  ;按下了准备key3函数
+
+    load sE,sD
+    and sE,80 ;  //准备判断key4的状态
+    compare sE,00
+    jump z,key4  ;按下了准备key4函数
+    jump loop    ;回去继续扫描
+
+
+;--------------------------------------------
+;扫描式按键检测响应
+;-------------------------------------------- 
+key1:
+    call delay_10ms ;按键消抖，延时10ms
+    input sE,sw_port
+    and sE,10
+    compare sE,00
+    jump nz,loop
+    load sE,00
+    store sE,var_seg  ;按下了key1让数码管显示01
+    jump loop
+
+key2:
+    call delay_10ms
+    input sE,sw_port
+    and sE,20
+    compare sE,00
+    jump nz,loop
+    load sE,01
+    store sE,var_seg  ;按下了key2让数码管显示02 
+    jump loop  
+
+key3:
+    call delay_10ms
+    input sE,sw_port
+    and sE,40
+    compare sE,00
+    jump nz,loop
+    load sE,02
+    store sE,var_seg  ;按下了key3让数码管显示03 
+    jump loop
+
+key4:
+    call delay_10ms
+    input sE,sw_port
+    and sE,80
+    compare sE,00
+    jump nz,loop
+    load sE,03
+    store sE,var_seg  ;按下了key4让数码管显示04
+    jump loop
+
+;--------------------------------------------
+;12MHz的系统时钟下延时10ms
+;--------------------------------------------
+delay_10ms: LOAD s2, 00      ;   ==> 10000 *1.2
+             LOAD s1, 2e
+             LOAD s0, e0
+             jump software_delay
+;--------------------------------------------
+;12MHz的系统时钟下延时200ms
+;--------------------------------------------
+delay_200ms: LOAD s2, 03      ; 
+             LOAD s1, a9
+             LOAD s0, 80
+             jump software_delay	
+    
+
+software_delay: LOAD s0, s0             ;pad loop to make it 10 clock cycles (5 instructions), if clk 12MHz  --> 1/1.2 us
+                SUB s0, 01
+                SUBCY s1, 00
+                SUBCY s2, 00
+                JUMP NZ, software_delay
+                RETURN 
+;--------------------------------------------
+;数码管计数器 0--99 循环计数显示
+;该函数会在中断中被调用
+;--------------------------------------------
+seg_add:
+    fetch sC, var_seg 
+    add sC,01   ;数码管显示值加1
+    load sB,sC
+    and sB,0f ;
+    compare sB,0a  ;低四位是否等于10
+    jump nz,seg_add_return ;不等于10就准备返回显示，否则整体加6
+    add sC,06
+    load sB,sC
+    and sB,f0
+    compare sB,a0  ;高4位是否等于10
+    jump nz,seg_add_return ;不等于10就准备返回显示，否则整体归零，准备重新计数
+    load sC,00
+seg_add_return:
+    output sC,seg_port
+    store sC,var_seg
+    return 
+    
+;--------------------------------------------
+;led流水灯循环点亮
+;该函数会在中断中被调用
+;--------------------------------------------
+
+led_dis:
+    fetch sA,var_led
+    RR sA
+    output sA,led_port
+    store sA,var_led
+    return 
+
+
+;中断入口地址  -- 此处必须这样写，我写的脚本如果检测到你使能了中断会默认去这个地址找
+;找到后将地址动态连接到前面程序的地址后面
+ADDRESS 3FF    
+ISR:
+    disable interrupt  ;关闭中断响应，准备处理中断的事情
+    call led_dis   ; led 
+    call seg_add   ; seg display
+    returni enable 

@@ -1,0 +1,8 @@
+all messages logged in file hdlparser.log
+Analyzing Verilog file D:/yhpsoft/Diamond/diamond/3.10_x64/cae_library/synthesis/verilog/machxo2.v (VERI-1482)
+Analyzing Verilog file F:/home/mini-mcu/hardware/mcu/step_fpga/top.v (VERI-1482)
+Analyzing Verilog file F:/home/mini-mcu/hardware/mcu/step_fpga/mcu.v (VERI-1482)
+INFO: F:/home/mini-mcu/hardware/mcu/step_fpga/mcu.v(3): analyzing included file F:/home/mini-mcu/hardware/mcu/step_fpga/head.v (VERI-1328)
+Analyzing Verilog file F:/home/mini-mcu/hardware/mcu/step_fpga/rom.v (VERI-1482)
+Analyzing Verilog file F:/home/mini-mcu/hardware/mcu/step_fpga/seg_display.v (VERI-1482)
+Analyzing Verilog file F:/home/mini-mcu/hardware/mcu/step_fpga/head.v (VERI-1482)

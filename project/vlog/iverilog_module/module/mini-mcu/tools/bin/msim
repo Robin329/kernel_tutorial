@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#### verilohg仿真脚本
+if [ ! -d sim ] ;then
+    mkdir sim 
+fi
+
+rm sim/* -rf
+iverilog -o sim/wave $(ls *.v)
+cd sim
+echo "<<<<<<<<<< S I M  R E P O R T >>>>>>>>>>"
+vvp -n wave -lxt2  | cat #仿真
+echo "<<<<<<<<<<<<<<<<< E N D >>>>>>>>>>>>>>>>"
+
+if [ "$1" = "-r" ];then #刷新仿真数据
+    echo "info:刷新仿真数据，如若刷新成功请自行打开gtkwave查看波形或者刷新已经打开的本工程gtkwave！"
+    exit 0
+fi
+gtkwave wave.lxt2 &> /dev/null & #显示波形

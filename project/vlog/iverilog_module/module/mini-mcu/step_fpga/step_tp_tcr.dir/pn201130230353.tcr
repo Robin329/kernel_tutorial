@@ -1,0 +1,17 @@
+#Start recording tcl command: 11/30/2020 07:55:32
+#Project Location: F:/home/mini-mcu/step_fpga; Project name: step_tp
+prj_project open "F:/home/mini-mcu/step_fpga/step_tp.ldf"
+prj_src add "F:/home/mini-mcu/step_fpga/divide.v"
+prj_run Synthesis -impl impl1 -task Lattice_Synthesis
+prj_run Map -impl impl1
+prj_run Synthesis -impl impl1 -task Lattice_Synthesis
+prj_run Map -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run PAR -impl impl1
+prj_run PAR -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+prj_run Export -impl impl1
+#Stop recording: 11/30/2020 23:03:53

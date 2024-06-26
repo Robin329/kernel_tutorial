@@ -1,0 +1,22 @@
+;系统时钟为12MHz
+;目标硬件为 小脚丫FPGA step-maxo2-c，这个型号是U盘模式，流文件会下载到mcu，每次上电由mcu配置FPGA
+
+constant var_a,00   ;   定义变量a，存储地址为 00 
+
+start:
+    load s1,05
+    load s0,01
+    add s0,01
+    load s0,01
+    enable interrupt
+wait:
+    add s1,01
+    jump wait    ;循环等待
+
+;中断入口地址  -- 此处必须这样写，我写的脚本如果检测到你使能了中断会默认去这个地址找
+;找到后将地址动态连接到前面程序的地址后面
+ADDRESS 3FF    
+ISR:
+    disable interrupt  ;关闭中断响应，准备处理中断的事情
+    add s0,01          ;中断中让寄存器0数值加1
+    returni enable 

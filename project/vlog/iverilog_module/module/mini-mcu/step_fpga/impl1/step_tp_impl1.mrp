@@ -1,0 +1,534 @@
+
+             Lattice Mapping Report File for Design Module 'top'
+
+
+Design Information
+------------------
+
+Command line:   map -a MachXO2 -p LCMXO2-4000HC -t CSBGA132 -s 4 -oc Commercial
+     step_tp_impl1.ngd -o step_tp_impl1_map.ncd -pr step_tp_impl1.prf -mp
+     step_tp_impl1.mrp -lpf F:/home/mini-mcu/step_fpga/impl1/step_tp_impl1.lpf
+     -lpf F:/home/mini-mcu/step_fpga/step_tp.lpf -c 0 -split_node -td_pack -gui
+     -msgset F:/home/mini-mcu/step_fpga/promote.xml 
+Target Vendor:  LATTICE
+Target Device:  LCMXO2-4000HCCSBGA132
+Target Performance:   4
+Mapper:  xo2c00,  version:  Diamond (64-bit) 3.10.3.144
+Mapped on:  11/30/20  22:55:05
+
+Design Summary
+--------------
+
+   Number of registers:    323 out of  4635 (7%)
+      PFU registers:          323 out of  4320 (7%)
+      PIO registers:            0 out of   315 (0%)
+   Number of SLICEs:      1144 out of  2160 (53%)
+      SLICEs as Logic/ROM:   1138 out of  2160 (53%)
+      SLICEs as RAM:            6 out of  1620 (0%)
+      SLICEs as Carry:         84 out of  2160 (4%)
+   Number of LUT4s:        2281 out of  4320 (53%)
+      Number used as logic LUTs:        2101
+      Number used as distributed RAM:    12
+      Number used as ripple logic:      168
+      Number used as shift registers:     0
+   Number of PIO sites used: 38 + 4(JTAG) out of 105 (40%)
+   Number of block RAMs:  9 out of 10 (90%)
+   Number of GSRs:  0 out of 1 (0%)
+   EFB used :       No
+   JTAG used :      No
+   Readback used :  No
+   Oscillator used :  No
+   Startup used :   No
+   POR :            On
+   Bandgap :        On
+   Number of Power Controller:  0 out of 1 (0%)
+   Number of Dynamic Bank Controller (BCINRD):  0 out of 6 (0%)
+   Number of Dynamic Bank Controller (BCLVDSO):  0 out of 1 (0%)
+   Number of DCCA:  0 out of 8 (0%)
+   Number of DCMA:  0 out of 2 (0%)
+   Number of PLLs:  0 out of 2 (0%)
+   Number of DQSDLLs:  0 out of 2 (0%)
+   Number of CLKDIVC:  0 out of 4 (0%)
+   Number of ECLKSYNCA:  0 out of 4 (0%)
+   Number of ECLKBRIDGECS:  0 out of 2 (0%)
+   Notes:-
+      1. Total number of LUT4s = (Number of logic LUT4s) + 2*(Number of
+     distributed RAMs) + 2*(Number of ripple logic)
+      2. Number of logic LUT4s does not include count of distributed RAM and
+     ripple logic.
+   Number of clocks:  4
+     Net clk_in_c: 236 loads, 236 rising, 0 falling (Driver: PIO clk_in )
+     Net in_port_7__N_37: 4 loads, 4 rising, 0 falling (Driver:
+     port_id_7__I_0_i16_1_lut_4_lut )
+
+                                    Page 1
+
+
+
+
+Design:  top                                           Date:  11/30/20  22:55:05
+
+Design Summary (cont)
+---------------------
+     Net mcu/out_port_7__N_232: 5 loads, 5 rising, 0 falling (Driver:
+     mcu/i1_4_lut_adj_131 )
+     Net mcu/port_id_7__N_215: 4 loads, 4 rising, 0 falling (Driver:
+     mcu/i1_3_lut_adj_132 )
+   Number of Clock Enables:  47
+     Net clk_in_c_enable_176: 4 loads, 4 LSLICEs
+     Net clk_in_c_enable_154: 2 loads, 2 LSLICEs
+     Net clk_in_c_enable_178: 4 loads, 4 LSLICEs
+     Net cnt_31__N_88: 17 loads, 17 LSLICEs
+     Net mcu/clk_in_c_enable_131: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_130: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_132: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_133: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_129: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_16: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_22: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_28: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_34: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_40: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_46: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_52: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_58: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_64: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_70: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_76: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_82: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_88: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_94: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_100: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_106: 6 loads, 6 LSLICEs
+     Net mcu/clk_in_c_enable_109: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_135: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_115: 1 loads, 0 LSLICEs
+     Net mcu/clk_in_c_enable_113: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_136: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_137: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_138: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_139: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_140: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_141: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_142: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_143: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_144: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_145: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_146: 2 loads, 2 LSLICEs
+     Net mcu/clk_in_c_enable_147: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_148: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_149: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_159: 3 loads, 3 LSLICEs
+     Net mcu/clk_in_c_enable_175: 13 loads, 13 LSLICEs
+     Net mcu/clk_in_c_enable_173: 1 loads, 1 LSLICEs
+     Net mcu/clk_in_c_enable_174: 1 loads, 1 LSLICEs
+   Number of LSRs:  10
+     Net n857: 13 loads, 13 LSLICEs
+     Net n22297: 4 loads, 4 LSLICEs
+     Net cnt_31__N_88: 1 loads, 1 LSLICEs
+
+                                    Page 2
+
+
+
+
+Design:  top                                           Date:  11/30/20  22:55:05
+
+Design Summary (cont)
+---------------------
+     Net rst_n_in: 9 loads, 9 LSLICEs
+     Net mcu/out_port_7_N_217_0: 1 loads, 1 LSLICEs
+     Net mcu/out_port_7__N_232: 4 loads, 4 LSLICEs
+     Net mcu/port_id_7__N_215: 4 loads, 4 LSLICEs
+     Net mcu/n2730: 1 loads, 1 LSLICEs
+     Net mcu/n10021: 12 loads, 12 LSLICEs
+     Net mcu/n21516: 1 loads, 1 LSLICEs
+   Number of nets driven by tri-state buffers:  0
+   Top 10 highest fanout non-clock nets:
+     Net n16312: 267 loads
+     Net n7762: 266 loads
+     Net n11714: 260 loads
+     Net n7908: 247 loads
+     Net mcu/clk_in_c_enable_174: 142 loads
+     Net instruction_8: 113 loads
+     Net n16392: 111 loads
+     Net n7726: 107 loads
+     Net n7876: 107 loads
+     Net n11778: 101 loads
+
+
+
+
+   Number of warnings:  0
+   Number of errors:    0
+     
+
+Design Errors/Warnings
+----------------------
+
+   No errors or warnings present.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+------------+
+| IO Name             | Direction | Levelmode | IO         |
+|                     |           |  IO_TYPE  | Register   |
++---------------------+-----------+-----------+------------+
+| sw[3]               | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| clk_in              | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led8                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[7]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led7                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led6                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[8]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led5                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| key[0]              | INPUT     | LVCMOS33  |            |
+
+                                    Page 3
+
+
+
+
+Design:  top                                           Date:  11/30/20  22:55:05
+
+IO (PIO) Attributes (cont)
+--------------------------
++---------------------+-----------+-----------+------------+
+| key[1]              | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| key[2]              | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| key[3]              | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| sw[0]               | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| sw[1]               | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| sw[2]               | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led4                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led3                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led2                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| led1                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| rgb[0]              | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| rgb[1]              | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| rgb[2]              | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[0]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[1]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[2]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[3]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[4]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[5]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[6]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[7]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_2[8]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[0]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[1]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[2]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[3]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[4]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| seg_led_1[5]        | OUTPUT    | LVCMOS33  |            |
+
+                                    Page 4
+
+
+
+
+Design:  top                                           Date:  11/30/20  22:55:05
+
+IO (PIO) Attributes (cont)
+--------------------------
++---------------------+-----------+-----------+------------+
+| seg_led_1[6]        | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+
+Removed logic
+-------------
+
+Block GSR_INST undriven or does not drive anything - clipped.
+Signal mcu/n22228 was merged into signal mcu/out_port_7_N_217_0
+Signal mcu/n10010 was merged into signal mcu/port_id_7__N_215
+Signal mcu/n10012 was merged into signal mcu/out_port_7__N_232
+Signal n22301 was merged into signal rst_n_in
+Signal clk_in_c_enable_209 was merged into signal cnt_31__N_88
+Signal VCC_net undriven or does not drive anything - clipped.
+Signal mcu/add_412_9/CO undriven or does not drive anything - clipped.
+Signal mcu/sub_131_add_2_1/S0 undriven or does not drive anything - clipped.
+Signal mcu/sub_131_add_2_1/CI undriven or does not drive anything - clipped.
+Signal mcu/sub_131_add_2_9/S1 undriven or does not drive anything - clipped.
+Signal mcu/sub_131_add_2_9/CO undriven or does not drive anything - clipped.
+Signal mcu/add_21_13/CO undriven or does not drive anything - clipped.
+Signal mcu/add_632_9/CO undriven or does not drive anything - clipped.
+Signal mcu/add_21_1/S0 undriven or does not drive anything - clipped.
+Signal mcu/add_21_1/CI undriven or does not drive anything - clipped.
+Signal mcu/add_827_2/S0 undriven or does not drive anything - clipped.
+Signal mcu/add_827_2/CI undriven or does not drive anything - clipped.
+Signal mcu/add_412_1/S0 undriven or does not drive anything - clipped.
+Signal mcu/add_412_1/CI undriven or does not drive anything - clipped.
+Signal mcu/add_827_cout/S1 undriven or does not drive anything - clipped.
+Signal mcu/add_827_cout/CO undriven or does not drive anything - clipped.
+Signal mcu/add_632_1/S0 undriven or does not drive anything - clipped.
+Signal mcu/add_632_1/CI undriven or does not drive anything - clipped.
+Signal add_11182_4/S1 undriven or does not drive anything - clipped.
+Signal add_11182_4/S0 undriven or does not drive anything - clipped.
+Signal add_11182_6/S1 undriven or does not drive anything - clipped.
+Signal add_11182_6/S0 undriven or does not drive anything - clipped.
+Signal add_11182_8/S1 undriven or does not drive anything - clipped.
+Signal add_11182_8/S0 undriven or does not drive anything - clipped.
+Signal add_11182_10/S1 undriven or does not drive anything - clipped.
+Signal add_11182_10/S0 undriven or does not drive anything - clipped.
+Signal add_11182_12/S1 undriven or does not drive anything - clipped.
+Signal add_11182_12/S0 undriven or does not drive anything - clipped.
+Signal add_11182_14/S1 undriven or does not drive anything - clipped.
+Signal add_11182_14/S0 undriven or does not drive anything - clipped.
+Signal cnt_830_add_4_33/S1 undriven or does not drive anything - clipped.
+Signal cnt_830_add_4_33/CO undriven or does not drive anything - clipped.
+Signal add_11182_16/S1 undriven or does not drive anything - clipped.
+Signal add_11182_16/S0 undriven or does not drive anything - clipped.
+Signal add_11182_18/S1 undriven or does not drive anything - clipped.
+Signal add_11182_18/S0 undriven or does not drive anything - clipped.
+Signal add_11182_20/S1 undriven or does not drive anything - clipped.
+Signal add_11182_20/S0 undriven or does not drive anything - clipped.
+Signal add_11182_22/S1 undriven or does not drive anything - clipped.
+Signal add_11182_22/S0 undriven or does not drive anything - clipped.
+Signal add_11182_24/S1 undriven or does not drive anything - clipped.
+Signal add_11182_24/S0 undriven or does not drive anything - clipped.
+Signal add_11182_26/S1 undriven or does not drive anything - clipped.
+
+                                    Page 5
+
+
+
+
+Design:  top                                           Date:  11/30/20  22:55:05
+
+Removed logic (cont)
+--------------------
+Signal add_11182_26/S0 undriven or does not drive anything - clipped.
+Signal add_11182_28/S1 undriven or does not drive anything - clipped.
+Signal add_11182_28/S0 undriven or does not drive anything - clipped.
+Signal add_11182_30/S0 undriven or does not drive anything - clipped.
+Signal add_11182_30/CO undriven or does not drive anything - clipped.
+Signal add_11181_2/S1 undriven or does not drive anything - clipped.
+Signal add_11181_2/S0 undriven or does not drive anything - clipped.
+Signal add_11181_2/CI undriven or does not drive anything - clipped.
+Signal add_11181_4/S1 undriven or does not drive anything - clipped.
+Signal add_11181_4/S0 undriven or does not drive anything - clipped.
+Signal add_11181_6/S1 undriven or does not drive anything - clipped.
+Signal add_11181_6/S0 undriven or does not drive anything - clipped.
+Signal add_11181_8/S1 undriven or does not drive anything - clipped.
+Signal add_11181_8/S0 undriven or does not drive anything - clipped.
+Signal add_11181_10/S1 undriven or does not drive anything - clipped.
+Signal add_11181_10/S0 undriven or does not drive anything - clipped.
+Signal add_11181_12/S1 undriven or does not drive anything - clipped.
+Signal add_11181_12/S0 undriven or does not drive anything - clipped.
+Signal cnt_830_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal cnt_830_add_4_1/CI undriven or does not drive anything - clipped.
+Signal add_11181_14/S1 undriven or does not drive anything - clipped.
+Signal add_11181_14/S0 undriven or does not drive anything - clipped.
+Signal add_11181_16/S1 undriven or does not drive anything - clipped.
+Signal add_11181_16/S0 undriven or does not drive anything - clipped.
+Signal add_11181_18/S1 undriven or does not drive anything - clipped.
+Signal add_11181_18/S0 undriven or does not drive anything - clipped.
+Signal add_11181_20/S1 undriven or does not drive anything - clipped.
+Signal add_11181_20/S0 undriven or does not drive anything - clipped.
+Signal add_11181_22/S1 undriven or does not drive anything - clipped.
+Signal add_11181_22/S0 undriven or does not drive anything - clipped.
+Signal add_11181_24/S0 undriven or does not drive anything - clipped.
+Signal add_11181_24/CO undriven or does not drive anything - clipped.
+Signal add_11182_2/S1 undriven or does not drive anything - clipped.
+Signal add_11182_2/S0 undriven or does not drive anything - clipped.
+Signal add_11182_2/CI undriven or does not drive anything - clipped.
+Signal u1/cnt_p_831_add_4_1/S0 undriven or does not drive anything - clipped.
+Signal u1/cnt_p_831_add_4_1/CI undriven or does not drive anything - clipped.
+Signal u1/cnt_p_831_add_4_25/S1 undriven or does not drive anything - clipped.
+Signal u1/cnt_p_831_add_4_25/CO undriven or does not drive anything - clipped.
+Block mcu/i6951_1_lut_rep_661 was optimized away.
+Block mcu/i6952_1_lut was optimized away.
+Block mcu/i6954_1_lut was optimized away.
+Block mcu/rst_n_I_0_1_lut_rep_734 was optimized away.
+Block i6366_1_lut was optimized away.
+Block i2 was optimized away.
+
+Memory Usage
+------------
+
+/mcu:
+    EBRs: 1
+    RAM SLICEs: 0
+    Logic SLICEs: 718
+    PFU Registers: 237
+    -Contains EBR stack0:  TYPE= PDPW8KC,  Width= 12,  Depth_R= 32,  Depth_W=
+         32,  REGMODE= NOREG,  RESETMODE= SYNC,  ASYNC_RESET_RELEASE= SYNC,
+
+                                    Page 6
+
+
+
+
+Design:  top                                           Date:  11/30/20  22:55:05
+
+Memory Usage (cont)
+-------------------
+         GSR= DISABLED
+/mcu/creg0:
+    EBRs: 0
+    RAM SLICEs: 3
+    Logic SLICEs: 0
+    PFU Registers: 0
+/mcu/creg1:
+    EBRs: 0
+    RAM SLICEs: 3
+    Logic SLICEs: 0
+    PFU Registers: 0
+/rom:
+    EBRs: 8
+    RAM SLICEs: 0
+    Logic SLICEs: 14
+    PFU Registers: 0
+    -Contains EBR mux_133:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_130:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_127:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_132:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_121:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_129:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_126:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+    -Contains EBR mux_120:  TYPE= PDPW8KC,  Width= 18,  Depth_R= 512,  REGMODE=
+         NOREG,  RESETMODE= ASYNC,  ASYNC_RESET_RELEASE= SYNC,  GSR= DISABLED
+
+     
+
+ASIC Components
+---------------
+
+Instance Name: rom/mux_133
+         Type: PDPW8KC
+Instance Name: rom/mux_130
+         Type: PDPW8KC
+Instance Name: rom/mux_127
+         Type: PDPW8KC
+Instance Name: rom/mux_132
+         Type: PDPW8KC
+Instance Name: rom/mux_121
+         Type: PDPW8KC
+Instance Name: rom/mux_129
+         Type: PDPW8KC
+Instance Name: rom/mux_126
+         Type: PDPW8KC
+Instance Name: rom/mux_120
+         Type: PDPW8KC
+Instance Name: mcu/stack0
+         Type: PDPW8KC
+
+                                    Page 7
+
+
+
+
+Design:  top                                           Date:  11/30/20  22:55:05
+
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 1 secs  
+   Total REAL Time: 2 secs  
+   Peak Memory Usage: 70 MB
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 8
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+     Copyright (c) 1995 AT&T Corp.   All rights reserved.
+     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+     Copyright (c) 2001 Agere Systems   All rights reserved.
+     Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights
+     reserved.

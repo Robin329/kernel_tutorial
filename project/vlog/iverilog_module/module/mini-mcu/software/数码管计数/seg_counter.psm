@@ -1,0 +1,58 @@
+;系统时钟为12MHz
+;目标硬件为 小脚丫FPGA step-maxo2-c，这个型号是U盘模式，流文件会下载到mcu，每次上电由mcu配置FPGA
+;输入
+constant sw_port,00 ;定义按键四段拨码开关  【按键 ： 开关 】
+
+;输出
+constant seg_port,00 ;定义数码管地址
+constant led_port,01 ;定义led_port为常量01
+constant rgb_port,02  ; rgb灯
+
+start:
+	load sA,FF ;  led等控制
+    output sA,led_port
+    load sB,00 ; 初始化数码管显示 
+    load sC,00000111'b  ; ' rgb 灭
+    output sC,rgb_port ;rgb不亮
+    input sD,sw_port ; 读一次io口
+loop:
+    output sB, seg_port 
+    ADD sB,01
+    load sE,sB ;
+    SL0 sE 
+    SL0 sE 
+    SL0 sE 
+    SL0 sE 
+    COMPARE sE,A0 
+    CALL Z,carry ;越界进位
+    LOAD sE,sB
+    SR0 sE 
+    SR0 sE 
+    SR0 sE 
+    SR0 sE 
+    COMPARE sE,0A
+    CALL Z,clear ;满了清零  
+    call delay_500ms 
+	jump	loop ;循环
+
+
+carry:  ;bcd码表示的低四位已经满了，整体加6
+    ADD sB,06
+    RETURN 
+
+clear:  ;到了99后，下一步归零
+    LOAD sB,00
+    RETURN 
+
+
+delay_500ms: 	LOAD s2, 09      ;  500000us / (1/1.2us)  --> 计数次数
+                LOAD s1, 27
+                LOAD s0, c0
+                jump software_delay	
+
+software_delay: LOAD s0, s0             ;pad loop to make it 10 clock cycles (5 instructions), if clk 12MHz  --> 1/1.2 us
+                SUB s0, 01
+                SUBCY s1, 00
+                SUBCY s2, 00
+                JUMP NZ, software_delay
+                RETURN 

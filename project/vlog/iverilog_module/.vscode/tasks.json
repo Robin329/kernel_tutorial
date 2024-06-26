@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Verilog",
+            "type": "shell",
+            "command": "iverilog",
+            "args": [
+                "-o",
+                "${file}.out", // 输出文件名
+                "${file}" // 当前打开的文件
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Compile SystemVerilog file using Icarus Verilog"
+        },
+        {
+            "label": "Run Verilog",
+            "type": "shell",
+            "command": "vvp",
+            "args": [
+                "${file}.out" // 之前编译生成的输出文件
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Run the compiled Verilog output"
+        }
+    ]
+}

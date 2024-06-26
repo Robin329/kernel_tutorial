@@ -1,0 +1,22 @@
+`define ISR_ADDR 12'd84
+`define _LOAD_REG2REG_
+`define _LOAD_DAT2REG_
+`define _AND_KK_
+`define _INPUT_PP_
+`define _FETCH_SS_
+`define _TEST_KK_
+`define _ADD_KK_
+`define _SHIFT_
+`define _SUB_KK_
+`define _SUB_CY_KK_
+`define _COMPARE_KK_
+`define _CALL_
+`define _JUMP_AAA_
+`define _RETURN_
+`define _EN_INTR_
+`define _RETURNI_
+`define _OUTPUT_PP_
+`define _STORE_SS_
+`define _JUMP_NZ_
+`define _JUMP_C_
+`define _JUMP_NC_

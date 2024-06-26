@@ -1,0 +1,2 @@
+@E: CS153 :"F:\home\mini-mcu\hardware\mcu\step_fpga\mcu.v":91:15:91:15|Can't mix blocking and non-blocking assignments to a variable
+

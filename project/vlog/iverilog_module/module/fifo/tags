@@ -1,0 +1,33 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+DEPTH	fifo_sync.v	/^	parameter DEPTH = 16 ,  \/\/FIFO深度$/;"	c
+NCLK	tb.v	/^parameter NCLK = 4;$/;"	c
+WIDTH	tb.v	/^parameter WIDTH = 8;$/;"	c
+clk	fifo_sync.v	/^	input clk, $/;"	p
+clk	tb.v	/^reg clk,rst;$/;"	r
+cnt	fifo_sync.v	/^reg [clog2(DEPTH) - 1 : 0 ] cnt;$/;"	r
+data	tb.v	/^reg [WIDTH - 1 : 0 ] data;$/;"	r
+fifo_empty	tb.v	/^wire fifo_empty, fifo_full;$/;"	n
+fifo_full	fifo_sync.v	/^	output fifo_full,$/;"	p
+fifo_full	tb.v	/^wire fifo_empty, fifo_full;$/;"	n
+fifo_mem	fifo_sync.v	/^reg [WIDTH -1 : 0] fifo_mem [0:DEPTH - 1] ; \/\/数据缓存器$/;"	r
+fifo_sync	fifo_sync.v	/^module fifo_sync #($/;"	m
+fifo_wr_data	fifo_sync.v	/^	input [WIDTH - 1 : 0 ]fifo_wr_data,$/;"	p
+fifo_wr_en	fifo_sync.v	/^	input fifo_wr_en,$/;"	p
+input	fifo_sync.v	/^	input fifo_rd_en,$/;"	p
+input	fifo_sync.v	/^	input rst_n,$/;"	p
+integer	fifo_sync.v	/^function integer clog2(input integer in);$/;"	f
+output	fifo_sync.v	/^	output fifo_empty$/;"	p
+output	fifo_sync.v	/^	output reg [WIDTH - 1 :0 ]fifo_rd_data,$/;"	p
+parameter	fifo_sync.v	/^	parameter WIDTH = 8   \/\/FIFO数据位宽$/;"	c
+rd	fifo_sync.v	/^reg [clog2(DEPTH) - 1 :0 ] wr,rd; \/\/读写数据指针$/;"	r
+rd	tb.v	/^reg wr,rd;$/;"	r
+rst	tb.v	/^reg clk,rst;$/;"	r
+tb	tb.v	/^module tb ;$/;"	m
+times	tb.v	/^reg [31:0] times;$/;"	r
+wr	fifo_sync.v	/^reg [clog2(DEPTH) - 1 :0 ] wr,rd; \/\/读写数据指针$/;"	r
+wr	tb.v	/^reg wr,rd;$/;"	r

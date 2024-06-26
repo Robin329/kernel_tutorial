@@ -1,0 +1,7 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N:: Running Verilog Compiler in System Verilog mode
+@N:: Running Verilog Compiler in Multiple File Compilation Unit mode
+@N: CG364 :"F:\home\mini-mcu\hardware\mcu\step_fpga\divide.v":13:7:13:12|Synthesizing module divide in library work.
+@N: CG364 :"F:\home\mini-mcu\hardware\mcu\step_fpga\mcu.v":3:7:3:9|Synthesizing module mcu in library work.
+

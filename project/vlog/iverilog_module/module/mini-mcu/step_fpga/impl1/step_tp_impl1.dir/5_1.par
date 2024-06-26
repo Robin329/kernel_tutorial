@@ -1,0 +1,266 @@
+
+Lattice Place and Route Report for Design "step_tp_impl1_map.ncd"
+Mon Nov 30 22:55:16 2020
+
+PAR: Place And Route Diamond (64-bit) 3.10.3.144.
+Command Line: par -w -l 5 -i 6 -t 1 -c 0 -e 0 -gui -msgset F:/home/mini-mcu/step_fpga/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=OFF step_tp_impl1_map.ncd step_tp_impl1.dir/5_1.ncd step_tp_impl1.prf
+Preference file: step_tp_impl1.prf.
+Placement level-cost: 5-1.
+Routing Iterations: 6
+
+Loading design for application par from file step_tp_impl1_map.ncd.
+Design name: top
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-4000HC
+Package:     CSBGA132
+Performance: 4
+Loading device for application par from file 'xo2c4000.nph' in environment: D:/yhpsoft/Diamond/diamond/3.10_x64/ispfpga.
+Package Status:                     Final          Version 1.44.
+Performance Hardware Data Status:   Final          Version 34.4.
+License checked out.
+
+
+Ignore Preference Error(s):  True
+Device utilization summary:
+
+   PIO (prelim)   38+4(JTAG)/280     15% used
+                  38+4(JTAG)/105     40% bonded
+
+   SLICE           1144/2160         52% used
+
+   EBR                9/10           90% used
+
+
+INFO: Design contains EBR with ASYNC Reset Mode that has a limitation: The use of the EBR block asynchronous reset requires that certain timing be met between the clock and the reset within the memory block. See the device specific data sheet for additional details.
+INFO: Design contains pre-loadable EBR during configuration that has a requirement: Since the GSR is disabled for the EBR, make sure write enable and chip enable are inactive during wake-up, so that the pre-loaded initialization values will not be corrupted during wake-up state.
+Number of Signals: 2479
+Number of Connections: 9846
+WARNING - par: Placement timing preferences are hard to meet. However, placement will continue. Use static timing analysis to identify errors.
+
+Pin Constraint Summary:
+   38 out of 38 pins locked (100% locked).
+
+The following 1 signal is selected to use the primary clock routing resources:
+    clk_in_c (driver: clk_in, clk load #: 236)
+
+WARNING - par: Signal "clk_in_c" is selected to use Primary clock resources. However, its driver comp "clk_in" is located at "C1", which is not a dedicated pin for connecting to Primary clock resources. General routing has to be used to route this signal, and it might suffer from excessive delay or skew.
+
+The following 6 signals are selected to use the secondary clock routing resources:
+    cnt_31__N_88 (driver: SLICE_15, clk load #: 0, sr load #: 1, ce load #: 17)
+    mcu/out_port_7__N_232 (driver: mcu/SLICE_292, clk load #: 5, sr load #: 4, ce load #: 0)
+    n857 (driver: SLICE_719, clk load #: 0, sr load #: 13, ce load #: 0)
+    mcu/clk_in_c_enable_175 (driver: mcu/SLICE_844, clk load #: 0, sr load #: 0, ce load #: 13)
+    mcu/port_id_7__N_215 (driver: mcu/SLICE_1182, clk load #: 4, sr load #: 4, ce load #: 0)
+    mcu/n10021 (driver: mcu/SLICE_1158, clk load #: 0, sr load #: 12, ce load #: 0)
+
+No signal is selected as Global Set/Reset.
+Starting Placer Phase 0.
+............
+Finished Placer Phase 0.  REAL time: 5 secs 
+
+Starting Placer Phase 1.
+....................
+Placer score = 214228860.
+Finished Placer Phase 1.  REAL time: 13 secs 
+
+Starting Placer Phase 2.
+.
+Placer score =  212779971
+Finished Placer Phase 2.  REAL time: 14 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clock Resources:
+  CLK_PIN    : 0 out of 8 (0%)
+  General PIO: 1 out of 280 (0%)
+  PLL        : 0 out of 2 (0%)
+  DCM        : 0 out of 2 (0%)
+  DCC        : 0 out of 8 (0%)
+
+Quadrants All (TL, TR, BL, BR) - Global Clocks:
+  PRIMARY "clk_in_c" from comp "clk_in" on PIO site "C1 (PL4A)", clk load = 236
+  SECONDARY "cnt_31__N_88" from F1 on comp "SLICE_15" on site "R9C31D", clk load = 0, ce load = 17, sr load = 1
+  SECONDARY "mcu/out_port_7__N_232" from F0 on comp "mcu/SLICE_292" on site "R14C13D", clk load = 5, ce load = 0, sr load = 4
+  SECONDARY "n857" from F1 on comp "SLICE_719" on site "R12C17A", clk load = 0, ce load = 0, sr load = 13
+  SECONDARY "mcu/clk_in_c_enable_175" from F0 on comp "mcu/SLICE_844" on site "R20C15D", clk load = 0, ce load = 13, sr load = 0
+  SECONDARY "mcu/port_id_7__N_215" from F1 on comp "mcu/SLICE_1182" on site "R14C13A", clk load = 4, ce load = 0, sr load = 4
+  SECONDARY "mcu/n10021" from F1 on comp "mcu/SLICE_1158" on site "R14C2C", clk load = 0, ce load = 0, sr load = 12
+
+  PRIMARY  : 1 out of 8 (12%)
+  SECONDARY: 6 out of 8 (75%)
+
+Edge Clocks:
+  No edge clock selected.
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   38 + 4(JTAG) out of 280 (15.0%) PIO sites used.
+   38 + 4(JTAG) out of 105 (40.0%) bonded PIO sites used.
+   Number of PIO comps: 38; differential: 0.
+   Number of Vref pins used: 0.
+
+I/O Bank Usage Summary:
++----------+----------------+------------+-----------+
+| I/O Bank | Usage          | Bank Vccio | Bank Vref |
++----------+----------------+------------+-----------+
+| 0        | 9 / 26 ( 34%)  | 3.3V       | -         |
+| 1        | 7 / 26 ( 26%)  | 3.3V       | -         |
+| 2        | 12 / 28 ( 42%) | 3.3V       | -         |
+| 3        | 2 / 7 ( 28%)   | 3.3V       | -         |
+| 4        | 4 / 8 ( 50%)   | 3.3V       | -         |
+| 5        | 4 / 10 ( 40%)  | 3.3V       | -         |
++----------+----------------+------------+-----------+
+
+Total placer CPU time: 14 secs 
+
+Dumping design to file step_tp_impl1.dir/5_1.ncd.
+
+0 connections routed; 9846 unrouted.
+Starting router resource preassignment
+
+WARNING - par: The following clock signals will be routed by using generic routing resource and may suffer from excessive delay and/or skew.
+   Signal=in_port_7__N_37 loads=4 clock_loads=4
+
+Completed router resource preassignment. Real time: 18 secs 
+
+Start NBR router at 22:55:35 11/30/20
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in TRCE report. You should always run TRCE to verify  
+      your design.                                               
+*****************************************************************
+
+Start NBR special constraint process at 22:55:35 11/30/20
+
+Start NBR section for initial routing at 22:55:37 11/30/20
+Level 1, iteration 1
+9(0.00%) conflicts; 8856(89.95%) untouched conns; 299817553 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -800.579ns/-299817.554ns; real time: 22 secs 
+Level 2, iteration 1
+2(0.00%) conflicts; 8856(89.95%) untouched conns; 300651167 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -805.829ns/-300651.168ns; real time: 23 secs 
+Level 3, iteration 1
+2(0.00%) conflicts; 8855(89.93%) untouched conns; 300602105 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -805.829ns/-300602.106ns; real time: 23 secs 
+Level 4, iteration 1
+493(0.21%) conflicts; 0(0.00%) untouched conn; 331502143 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -795.989ns/-331502.143ns; real time: 26 secs 
+
+Info: Initial congestion level at 75% usage is 12
+Info: Initial congestion area  at 75% usage is 108 (17.42%)
+
+Start NBR section for normal routing at 22:55:42 11/30/20
+Level 4, iteration 1
+135(0.06%) conflicts; 0(0.00%) untouched conn; 338622283 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -790.928ns/-338622.284ns; real time: 34 secs 
+Level 4, iteration 2
+53(0.02%) conflicts; 0(0.00%) untouched conn; 340921615 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.669ns/-340921.616ns; real time: 37 secs 
+Level 4, iteration 3
+26(0.01%) conflicts; 0(0.00%) untouched conn; 346893427 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-346893.428ns; real time: 39 secs 
+Level 4, iteration 4
+13(0.01%) conflicts; 0(0.00%) untouched conn; 346893427 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-346893.428ns; real time: 40 secs 
+Level 4, iteration 5
+11(0.00%) conflicts; 0(0.00%) untouched conn; 351439767 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-351439.768ns; real time: 41 secs 
+Level 4, iteration 6
+5(0.00%) conflicts; 0(0.00%) untouched conn; 351439767 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-351439.768ns; real time: 41 secs 
+Level 4, iteration 7
+3(0.00%) conflicts; 0(0.00%) untouched conn; 353766667 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-353766.668ns; real time: 42 secs 
+Level 4, iteration 8
+2(0.00%) conflicts; 0(0.00%) untouched conn; 353766667 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-353766.668ns; real time: 43 secs 
+Level 4, iteration 9
+2(0.00%) conflicts; 0(0.00%) untouched conn; 353555084 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-353555.085ns; real time: 44 secs 
+Level 4, iteration 10
+0(0.00%) conflict; 0(0.00%) untouched conn; 353555084 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -794.701ns/-353555.085ns; real time: 44 secs 
+
+Start NBR section for performance tuning (iteration 1) at 22:56:00 11/30/20
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 353541713 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -790.834ns/-353541.714ns; real time: 45 secs 
+
+Start NBR section for performance tuning (iteration 2) at 22:56:01 11/30/20
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 353525913 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -790.582ns/-353525.914ns; real time: 45 secs 
+
+Start NBR section for performance tuning (iteration 3) at 22:56:01 11/30/20
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 353525913 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -790.582ns/-353525.914ns; real time: 45 secs 
+
+Start NBR section for re-routing at 22:56:01 11/30/20
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 343454522 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -790.582ns/-343454.523ns; real time: 59 secs 
+
+Start NBR section for post-routing at 22:56:15 11/30/20
+
+End NBR router with 0 unrouted connection
+
+NBR Summary
+-----------
+  Number of unrouted connections : 0 (0.00%)
+  Number of connections with timing violations : 7649 (77.69%)
+  Estimated worst slack<setup> : -790.582ns
+  Timing score<setup> : 389850297
+-----------
+Notes: The timing info is calculated for SETUP only and all PAR_ADJs are ignored.
+
+
+
+WARNING - par: The following clock signals will be routed by using generic routing resource and may suffer from excessive delay and/or skew.
+   Signal=in_port_7__N_37 loads=4 clock_loads=4
+
+Total CPU time 1 mins 4 secs 
+Total REAL time: 1 mins 5 secs 
+Completely routed.
+End of route.  9846 routed (100.00%); 0 unrouted.
+
+Hold time timing score: 10581, hold timing errors: 4776
+
+Timing score: 389850297 
+
+Dumping design to file step_tp_impl1.dir/5_1.ncd.
+
+
+All signals are completely routed.
+
+
+PAR_SUMMARY::Run status = Success
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Worst  slack<setup/<ns>> = -790.583
+PAR_SUMMARY::Timing score<setup/<ns>> = 389850.297
+PAR_SUMMARY::Worst  slack<hold /<ns>> = -4.644
+PAR_SUMMARY::Timing score<hold /<ns>> = 10581.343
+PAR_SUMMARY::Number of errors = 0
+
+Total CPU  time to completion: 1 mins 5 secs 
+Total REAL time to completion: 1 mins 5 secs 
+
+par done!
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.

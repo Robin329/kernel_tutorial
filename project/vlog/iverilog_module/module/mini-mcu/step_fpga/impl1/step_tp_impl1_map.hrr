@@ -1,0 +1,53 @@
+---------------------------------------------------
+Report for cell top
+   Instance path: top
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	    1144.00        100.0
+                                  LUT4	    2101.00        100.0
+                               DISTRAM	       6.00        100.0
+                                 IOBUF	         38        100.0
+                                PFUREG	        323        100.0
+                                RIPPLE	         84        100.0
+                                   EBR	          9        100.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                                   rom	          1         5.9
+                           seg_display	          1         0.5
+                                   mcu	          1        87.0
+                    divide(N=12000000)	          1         1.7
+---------------------------------------------------
+Report for cell divide(N=12000000)
+   Instance path: top/u1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      19.75         1.7
+                                  LUT4	      14.00         0.7
+                                PFUREG	         25         7.7
+                                RIPPLE	         13        15.5
+---------------------------------------------------
+Report for cell rom
+   Instance path: top/rom
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      67.75         5.9
+                                  LUT4	     140.00         6.7
+                                   EBR	          8        88.9
+---------------------------------------------------
+Report for cell seg_display
+   Instance path: top/seg_display
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       5.50         0.5
+                                  LUT4	      14.00         0.7
+---------------------------------------------------
+Report for cell mcu
+   Instance path: top/mcu
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     994.83        87.0
+                                  LUT4	    1922.00        91.5
+                               DISTRAM	       6.00        100.0
+                                PFUREG	        238        73.7
+                                RIPPLE	         27        32.1
+                                   EBR	          1        11.1

@@ -12,3 +12,10 @@ $  sudo apt-get install gtkwave iverilog -y
   - Verilog Format
   - Verilog_Testbench
   - verilog-formater
+
+#### 2. Run
+```bash
+$ iverilog -g2012 -y ./ testbench.sv
+# OR include header file path
+$ iverilog -g2012 -I ./ testbench.sv
+```

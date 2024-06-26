@@ -1,0 +1,73 @@
+----------------------------------------------------------------------
+Report for cell top.TECH
+Register bits:  323 of 4635 (6.969%)
+I/O cells:      38
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D        84          100.0
+                            FD1P3AX       188          100.0
+                            FD1P3IX        17          100.0
+                            FD1P3JX         3          100.0
+                             FD1S1I        24          100.0
+                            FD1S3AX        60          100.0
+                            FD1S3IX        29          100.0
+                            FD1S3JX         2          100.0
+                                GSR         1          100.0
+                                 IB         9          100.0
+                            L6MUX21        82          100.0
+                               LUT4      2105          100.0
+                                 OB        29          100.0
+                            PDPW8KC         9          100.0
+                              PFUMX       396          100.0
+                           SPR16X4C         2          100.0
+SUB MODULES
+                 divide(N=12000000)         1
+                                mcu         1
+                                rom         1
+                        seg_display         1
+                              TOTAL      3044
+----------------------------------------------------------------------
+Report for cell divide(N=12000000).v1
+Instance Path : u1
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D        13           15.5
+                            FD1S3IX        25           86.2
+                               LUT4        14            0.7
+                              TOTAL        52
+----------------------------------------------------------------------
+Report for cell rom.v1
+Instance Path : rom
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            L6MUX21        18           22.0
+                               LUT4       140            6.7
+                            PDPW8KC         8           88.9
+                              PFUMX        36            9.1
+                              TOTAL       202
+----------------------------------------------------------------------
+Report for cell seg_display.v1
+Instance Path : seg_display
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        14            0.7
+                              TOTAL        14
+----------------------------------------------------------------------
+Report for cell mcu.v1
+Instance Path : mcu
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              CCU2D        27           32.1
+                            FD1P3AX       137           72.9
+                            FD1P3IX        17          100.0
+                            FD1P3JX         3          100.0
+                             FD1S1I        16           66.7
+                            FD1S3AX        60          100.0
+                            FD1S3IX         4           13.8
+                            FD1S3JX         1           50.0
+                            L6MUX21        64           78.0
+                               LUT4      1926           91.5
+                            PDPW8KC         1           11.1
+                              PFUMX       360           90.9
+                           SPR16X4C         2          100.0
+                              TOTAL      2618

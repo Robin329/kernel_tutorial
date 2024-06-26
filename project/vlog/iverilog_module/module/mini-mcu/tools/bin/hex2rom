@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+## 将汇编生成的hex文件写入到ROM文件中去
+
+export PATH=$PATH:./tools/bin/   #个人脚本路径添加到临时环境变量
+export PATH=$PATH:./tools/kcpsm/ #kcpsm工具路径添加到临时环境变量
+
+hexfile="$1"
+if [ ! -f  $hexfile ] ;then
+    echo "不存在hex文件:$hexfile"
+    exit 1
+fi 
+
+echo "\`timescale 1ns / 1ps" 
+echo ""
+echo "module rom("
+echo "    input          clk," 
+echo "    input [11:0]address,       //程序取址地址" 
+echo "    output[17:0]instruction,   //指令输入" 
+echo "    input       enable   //程序rom使能 1-->使能"  
+echo ");" 
+echo "(* ram_style=\"distributed\" *)reg [17:0] y/* synthesis syn_ramstyle = \"block_ram\" */;" 
+echo "assign instruction = y;" 
+echo "always@(posedge clk) begin" 
+echo "    if(enable)begin" 
+echo "      case(address)" 
+
+i=0 
+cnt=0
+intr_flag=0
+while read line
+do
+    line=$(echo ${line:0:5})
+    if [[ $line == "00000" ]] ;then
+        if [ $cnt -lt 2 ] ;then
+            cnt=$[cnt+1]
+        else
+            break
+        fi 
+    else
+        if [ $cnt -gt 0 ] ;then
+            cnt=0
+        fi
+    fi
+    echo  "            12'd$i : y <= 18'h$line ;"  
+    if [[ ${line:0:2} == "28" ]] ;then
+        intr_flag=1    #检测到代码中有使用中断函数
+    fi
+    i=$[i+1]
+done < $hexfile
+
+
+
+#检测是否开启中断
+if [ $intr_flag -eq 1 ] ;then 
+    intr_addr=$i   #动态设置硬件中的实际中断入口地址
+    echo "\`define ISR_ADDR 12'd$intr_addr" > tmp/isr.txt   #将入口地址a保存到 "isr.txt"文件
+    fileT="/tmp/$(date +%Y%m%d%H%M%S).txt"
+    cat $hexfile | tail -n +1024 > $fileT 
+    while read line
+    do
+        line=$(echo ${line:0:5})
+        if [[ $line == "00000" ]] ;then
+            if [ $cnt -lt 2 ] ;then
+                cnt=$[cnt+1]
+            else
+                break
+            fi 
+        else
+            if [ $cnt -gt 0 ] ;then
+                cnt=0
+            fi
+        fi
+        
+        echo  "            12'd$i : y <= 18'h$line ;"  
+        i=$[i+1]
+    done < $fileT
+    rm $fileT
+fi 
+
+
+echo  "            default : y <= 18'd0 ;" 
+
+echo "       endcase" 
+echo "    end" 
+echo "end" 
+
+
+echo "endmodule " 

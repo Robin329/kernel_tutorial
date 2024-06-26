@@ -1,0 +1,9 @@
+Selecting top level module LED_shining
+@N: CG364 :"F:\home\mini-mcu\hardware\mcu\step_fpga\divide.v":13:7:13:12|Synthesizing module divide in library work.
+
+	N=32'b00000000000011110100001001000000
+   Generated name = divide_1000000s
+@W: CL169 :"F:\home\mini-mcu\hardware\mcu\step_fpga\divide.v":63:1:63:6|Pruning unused register clk_n. Make sure that there are no unused intermediate registers.
+@W: CL169 :"F:\home\mini-mcu\hardware\mcu\step_fpga\divide.v":53:1:53:6|Pruning unused register cnt_n[19:0]. Make sure that there are no unused intermediate registers.
+@N: CG364 :"F:\home\mini-mcu\hardware\mcu\step_fpga\mcu.v":3:7:3:9|Synthesizing module mcu in library work.
+@E: CS153 :"F:\home\mini-mcu\hardware\mcu\step_fpga\mcu.v":91:15:91:15|Can't mix blocking and non-blocking assignments to a variable
