@@ -17,6 +17,7 @@ void i2c_write_bytes(int fd, unsigned char address, unsigned char *data,
 		     unsigned short len)
 {
 	struct i2c_rdwr_ioctl_data e2prom_write_data;
+	int ret;
 
 	e2prom_write_data.nmsgs = 1;
 	e2prom_write_data.msgs =
@@ -31,10 +32,12 @@ void i2c_write_bytes(int fd, unsigned char address, unsigned char *data,
 
 	memcpy(&(e2prom_write_data.msgs[0].buf[1]), data, (size_t)len);
 
+again:
 	// Using ioctl to write data
-	ioctl(fd, I2C_RDWR, (unsigned long)&e2prom_write_data);
-
-	printf("Write data success\n");
+	ret = ioctl(fd, I2C_RDWR, (unsigned long)&e2prom_write_data);
+	if (ret < 0)
+			goto again;
+	printf("Write data success, ret:%d\n", ret);
 
 	if (e2prom_write_data.msgs != NULL) {
 		free(e2prom_write_data.msgs);
@@ -46,6 +49,7 @@ void i2c_read_bytes(int fd, unsigned char address, unsigned char *buf,
 		    unsigned short len)
 {
 	struct i2c_rdwr_ioctl_data e2prom_read_data;
+	int ret;
 
 	e2prom_read_data.nmsgs = 2; //Need writing address first, then reading
 	e2prom_read_data.msgs =
@@ -63,12 +67,14 @@ void i2c_read_bytes(int fd, unsigned char address, unsigned char *buf,
 	e2prom_read_data.msgs[1].len = len;
 	e2prom_read_data.msgs[1].buf = malloc(e2prom_read_data.msgs[0].len);
 	e2prom_read_data.msgs[1].buf[0] = 0x00;
-
+again:
 	// Using ioctl to read data
-	ioctl(fd, I2C_RDWR, (unsigned long)&e2prom_read_data);
+	ret = ioctl(fd, I2C_RDWR, (unsigned long)&e2prom_read_data);
+	if (ret < 0)
+		goto again;
 
-	printf("e2prom_read_data.msgs[1].buf[0] = 0x%x\n",
-	       e2prom_read_data.msgs[1].buf[0]);
+	printf("e2prom_read_data.msgs[1].buf[0] = 0x%x, ret:%d\n",
+	       e2prom_read_data.msgs[1].buf[0], ret);
 
 	memcpy((void *)buf, (void *)(e2prom_read_data.msgs[1].buf),
 	       (unsigned int)len);
@@ -89,7 +95,7 @@ int main(int argc, char *argv[])
 	unsigned char buf[256] = { 0 };
 
 	// Open device file
-	fd = open("/dev/i2c-1", O_RDWR);
+	fd = open("/dev/i2c-6", O_RDWR);
 	if (fd < 0) {
 		printf("Open file error\n");
 		goto Exit;
@@ -131,10 +137,11 @@ int main(int argc, char *argv[])
 			i2c_read_bytes(fd, address, buf, len);
 
 			printf("Read content:\n");
+			printf("------------------\n");
 			for (i = 0; i < len; i++) {
 				printf("0x%x ", buf[i]);
 			}
-			printf("\n");
+			printf("\n------------------\n");
 			break;
 
 		default:
