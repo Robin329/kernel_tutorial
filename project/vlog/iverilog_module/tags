@@ -7,16 +7,46 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	//
-CLK	module/breath_led/tb.v	/^reg RST,CLK;$/;"	r	module:tb
-CNT_NUM	module/breath_led/breath_led.v	/^	parameter   CNT_NUM = 30;	\/\/计数器的最大值 $/;"	c	module:breath_led
-ClockPeriod	module/breath_led/tb.v	/^parameter ClockPeriod=4;$/;"	c	module:tb
-RST	module/breath_led/tb.v	/^reg RST,CLK;$/;"	r	module:tb
-breath_led	module/breath_led/breath_led.v	/^module breath_led(clk,rst,led);$/;"	m
-clk	module/breath_led/breath_led.v	/^	input clk;             \/\/系统时钟输入$/;"	p	module:breath_led
-cnt1	module/breath_led/breath_led.v	/^	reg [24:0] cnt1;       \/\/计数器1$/;"	r	module:breath_led
-cnt2	module/breath_led/breath_led.v	/^	reg [24:0] cnt2;       \/\/计数器2$/;"	r	module:breath_led
-flag	module/breath_led/breath_led.v	/^	reg flag;              \/\/呼吸灯变亮和变暗的标志位$/;"	r	module:breath_led
-led	module/breath_led/breath_led.v	/^	output led;            \/\/led输出$/;"	p	module:breath_led
-rst	module/breath_led/breath_led.v	/^	input rst;             \/\/复位输出$/;"	p	module:breath_led
-tb	module/breath_led/tb.v	/^module tb;$/;"	m
-功能说明	module/breath_led/readme.md	/^## 功能说明$/;"	s
+ce	./module/8b10b/decoder.v	/^    reg ce;$/;"	r	module:decoder_8b10b
+clk	./module/8b10b/decoder.v	/^module decoder_8b10b (input wire clk,$/;"	p	module:decoder_8b10b
+clk	./module/8b10b/encoder.v	/^module encoder_8b10 (input wire clk,$/;"	p	module:encoder_8b10
+clk	./module/8b10b/encoder_tb.sv	/^    reg clk;$/;"	r	module:encoder_tb
+clk_period	./module/8b10b/encoder_tb.sv	/^    parameter clk_period = 2;$/;"	c	module:encoder_tb
+code_err	./module/8b10b/decoder.v	/^                      output wire code_err,$/;"	p	module:decoder_8b10b
+d	./module/8b10b/decoder.v	/^    wire [9:0]d;$/;"	n	module:decoder_8b10b
+d	./module/8b10b/encoder.v	/^    wire [7:0]d;$/;"	n	module:encoder_8b10
+d_out	./module/8b10b/decoder.v	/^    reg [7:0]d_out;$/;"	r	module:decoder_8b10b
+d_out	./module/8b10b/encoder.v	/^    reg [9:0]d_out;$/;"	r	module:encoder_8b10
+decoder_8b10b	./module/8b10b/decoder.v	/^module decoder_8b10b (input wire clk,$/;"	m
+din	./module/8b10b/decoder.v	/^                      input wire [9:0]din,$/;"	p	module:decoder_8b10b
+din	./module/8b10b/encoder.v	/^                     input wire [7:0]din,$/;"	p	module:encoder_8b10
+din	./module/8b10b/encoder_tb.sv	/^        reg [7:0] din;$/;"	r	module:encoder_tb
+disp	./module/8b10b/decoder.v	/^                      output wire disp,$/;"	p	module:decoder_8b10b
+disp	./module/8b10b/encoder.v	/^                     output wire disp,$/;"	p	module:encoder_8b10
+disp	./module/8b10b/encoder_tb.sv	/^        wire disp;$/;"	n	module:encoder_tb
+disp_err	./module/8b10b/decoder.v	/^                      output wire disp_err);$/;"	p	module:decoder_8b10b
+dout	./module/8b10b/decoder.v	/^                      output wire [7:0]dout,$/;"	p	module:decoder_8b10b
+dout	./module/8b10b/encoder.v	/^                     output wire [9:0]dout,$/;"	p	module:encoder_8b10
+dout	./module/8b10b/encoder_tb.sv	/^        wire [9:0] dout;$/;"	n	module:encoder_tb
+e	./module/8b10b/decoder.v	/^    reg [2:0]e;$/;"	r	module:decoder_8b10b
+en	./module/8b10b/decoder.v	/^                      input wire en,$/;"	p	module:decoder_8b10b
+en	./module/8b10b/encoder.v	/^                     input wire en,$/;"	p	module:encoder_8b10
+en	./module/8b10b/encoder_tb.sv	/^        reg en;$/;"	r	module:encoder_tb
+encoder_8b10	./module/8b10b/encoder.v	/^module encoder_8b10 (input wire clk,$/;"	m
+encoder_tb	./module/8b10b/encoder_tb.sv	/^module encoder_tb;$/;"	m
+k	./module/8b10b/decoder.v	/^    reg k;$/;"	r	module:decoder_8b10b
+k	./module/8b10b/encoder.v	/^    wire k;$/;"	n	module:encoder_8b10
+ke	./module/8b10b/encoder.v	/^    reg ke;$/;"	r	module:encoder_8b10
+kin	./module/8b10b/encoder.v	/^                     input wire kin,$/;"	p	module:encoder_8b10
+kin	./module/8b10b/encoder_tb.sv	/^        reg kin;$/;"	r	module:encoder_tb
+kin_err	./module/8b10b/encoder.v	/^                     output wire kin_err);$/;"	p	module:encoder_8b10
+kin_err	./module/8b10b/encoder_tb.sv	/^        wire kin_err;$/;"	n	module:encoder_tb
+kout	./module/8b10b/decoder.v	/^                      output wire kout,$/;"	p	module:decoder_8b10b
+p	./module/8b10b/decoder.v	/^    reg p;$/;"	r	module:decoder_8b10b
+p	./module/8b10b/encoder.v	/^    reg p;$/;"	r	module:encoder_8b10
+pe	./module/8b10b/decoder.v	/^    reg [3:0]pe;$/;"	r	module:decoder_8b10b
+rst	./module/8b10b/decoder.v	/^                      input wire rst,$/;"	p	module:decoder_8b10b
+rst	./module/8b10b/encoder.v	/^                     input wire rst,$/;"	p	module:encoder_8b10
+rst	./module/8b10b/encoder_tb.sv	/^        reg rst;$/;"	r	module:encoder_tb
+t	./module/8b10b/encoder.v	/^    reg [18:0]t;$/;"	r	module:encoder_8b10
+功能说明	./module/8b10b/readme.md	/^## 功能说明$/;"	s

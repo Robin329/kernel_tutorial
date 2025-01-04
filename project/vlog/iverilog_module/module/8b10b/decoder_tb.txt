@@ -1,0 +1,110 @@
+module decoder_tb;
+    
+    parameter clk_period = 2;
+    reg clk;
+    initial
+        clk = 0;
+        always #(clk_period / 2) clk = ~clk;
+        reg rst;
+        reg enc_en;
+        reg dec_rst;
+        reg en;
+        reg kin;
+        reg [7:0] dec_out;
+        wire [9:0] dout;
+        reg [9:0] dec_in = dout;
+        reg kout;
+        reg [7:0] din;
+        wire disp_err;
+        wire code_err;
+        wire disp;
+        wire kin_err;
+        
+    initial begin
+        $display("============= decoder 8b10b tb =============");
+        din = 8'h00;
+        dec_in = 10'b0;
+        en = 0;
+        enc_en = 0;
+        kin = 0;
+        rst = 1;
+        dec_rst = 1;
+        #1
+        rst = 1;
+        #1
+        rst = 0;
+        enc_en = 1;
+        $monitor("ein = %h eout = %h", din, dout);
+        kin = 1;
+        din = 8'h5c;
+        #1
+        din = 8'h5c;
+        #1
+        din = 8'h5c;
+        #1
+        din = 8'h5f;
+        #1
+        din = 8'h5f;
+        #1
+        din = 8'h5d;
+        #1
+        din = 8'h5e;
+        #1
+        din = 8'h5d;
+        #1
+        din = 8'h5e;
+        #1
+        din = 8'h5d;
+        #1
+        din = 8'h5e;
+        #1
+        din = 8'h5d;
+        #1
+        din = 8'h5e;
+        #1
+        din = 8'h5d;
+        #1
+        din = 8'h5e;
+        #1
+        enc_en = 0;
+        kin = 0;
+        dec_rst = 0;
+        $monitor("din = %h dout = %h", dec_in, dec_out);
+        #1
+        dec_rst = 1;
+        #1
+        dec_rst = 0;
+        en = 1;
+        dec_in = 10'h274;
+        #1
+        dec_in = 10'h30a;
+        #1
+        dec_in = 10'h0f5;
+        #1
+        en = 0;
+        $display("All tests PASS!");
+        
+        $finish;
+    end
+    encoder_8b10 enc8b10b(
+        .clk(clk),
+        .rst(rst),
+        .en(enc_en),
+        .kin(kin),
+        .din(din),
+        .dout(dout),
+        .disp(disp),
+        .kin_err(kin_err)
+    );
+decoder_8b10b dec8b10b(
+    .clk(clk),
+    .rst(dec_rst),
+    .en(en),
+    .din(dec_in),
+    .dout(dec_out),
+    .kout(kout),
+    .code_err(code_err),
+    .disp(disp),
+    .disp_err(disp_err)
+);
+endmodule

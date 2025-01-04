@@ -1,0 +1,62 @@
+[
+  {
+    "arguments": [
+      "/usr/local/bin/gcc",
+      "-c",
+      "-Wall",
+      "-g",
+      "-pthread",
+      "memory_barrier.c",
+      "-o",
+      "memory_barrier"
+    ],
+    "directory": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache",
+    "file": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier.c",
+    "output": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/bin/gcc",
+      "-c",
+      "-Wall",
+      "-g",
+      "-pthread",
+      "memory_barrier_1.c",
+      "-o",
+      "memory_barrier_1"
+    ],
+    "directory": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache",
+    "file": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier_1.c",
+    "output": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier_1.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/bin/gcc",
+      "-c",
+      "-Wall",
+      "-g",
+      "-pthread",
+      "memory_barrier_2.c",
+      "-o",
+      "memory_barrier_2"
+    ],
+    "directory": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache",
+    "file": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier_2.c",
+    "output": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier_2.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/bin/gcc",
+      "-c",
+      "-Wall",
+      "-g",
+      "-pthread",
+      "memory_barrier_3.c",
+      "-o",
+      "memory_barrier_3"
+    ],
+    "directory": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache",
+    "file": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier_3.c",
+    "output": "/data/workspace/kernel_tutorial/robin_lab/lab42_cache/memory_barrier_3.o"
+  }
+]

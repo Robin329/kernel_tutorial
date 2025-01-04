@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 # Running 9p Function
 #
