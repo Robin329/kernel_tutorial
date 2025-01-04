@@ -1,0 +1,48 @@
+From 2ef686600b0cf1a779f391b5b9f1cb94f8c5e404 Mon Sep 17 00:00:00 2001
+From: robin <jiangrenbin329@gmail.com>
+Date: Fri, 14 Jun 2024 07:03:01 +0000
+Subject: [PATCH] add tcl scripts
+
+Signed-off-by: robin <jiangrenbin329@gmail.com>
+---
+ project/tcl/1_hello.tcl           | 0
+ project/tcl/2_tcl_special_var.tcl | 0
+ project/tcl/3_expr.tcl            | 6 +++++-
+ project/tcl/4_file_handle.tcl     | 0
+ 4 files changed, 5 insertions(+), 1 deletion(-)
+ mode change 100644 => 100755 project/tcl/1_hello.tcl
+ mode change 100644 => 100755 project/tcl/2_tcl_special_var.tcl
+ mode change 100644 => 100755 project/tcl/3_expr.tcl
+ mode change 100644 => 100755 project/tcl/4_file_handle.tcl
+
+diff --git a/project/tcl/1_hello.tcl b/project/tcl/1_hello.tcl
+old mode 100644
+new mode 100755
+diff --git a/project/tcl/2_tcl_special_var.tcl b/project/tcl/2_tcl_special_var.tcl
+old mode 100644
+new mode 100755
+diff --git a/project/tcl/3_expr.tcl b/project/tcl/3_expr.tcl
+old mode 100644
+new mode 100755
+index e83ce34..0e364c3
+--- a/project/tcl/3_expr.tcl
++++ b/project/tcl/3_expr.tcl
+@@ -21,7 +21,11 @@ puts $result
+ set variableA "10.0"
+ set result [expr $variableA / 9];
+ puts $result
+-
++set variableA 25175
++set b 1
++set result [expr $variableA * 1000 / $b];
++puts  $result
++puts ------------------
+ set variableA "10"
+ set tcl_precision 5
+ set result [expr $variableA / 9.0];
+diff --git a/project/tcl/4_file_handle.tcl b/project/tcl/4_file_handle.tcl
+old mode 100644
+new mode 100755
+-- 
+2.30.2
+
